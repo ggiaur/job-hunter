@@ -2,8 +2,8 @@
 schema_version: 1
 channel: product_supervisor
 
-directive_id: JH-SUP-0006
-issued_at: "2026-09-02T23:51:00+02:00"
+directive_id: JH-SUP-0007
+issued_at: "2026-09-03T00:14:00+02:00"
 issued_by: chatgpt_product_architect
 authority: PRODUCT_ARCHITECT_ORCHESTRATION_SUPERVISOR
 priority: P0
@@ -11,13 +11,12 @@ status: ACTIVE
 requires_ack: true
 execute_immediately: true
 interrupt_current_work: true
-instruction_file: docs/agent-directives/JH-SUP-0006-FOUR-AI-GOOGLE-BROWSER-DESIGN.md
+instruction_file: docs/agent-directives/JH-SUP-0007-CLAUDE-GOOGLE-BROWSER-POC.md
 ack_file: docs/agent-runtime/product-supervisor-ack.yaml
 continuity_policy: docs/EXECUTION_CONTINUITY_POLICY.md
 orchestrator_runtime: docs/agent-runtime/orchestrator.yaml
 project_claude_contract: CLAUDE.md
 watcher_enforcement: scripts/watch_product_supervisor_directive.sh
-supersedes: JH-SUP-0005
-redelivery_seq: 1
+supersedes: JH-SUP-0006
 
-summary: "DESIGN-COMPLIANCE REDELIVERY: JH-SUP-0006 is active but has not yet been ACKed; ACK remains JH-SUP-0005/FROZEN_BY_PRODUCT_OWNER and Claude/Codex proposal files are absent. Resume DESIGN ONLY: produce Claude's independent proposal, dispatch the same isolated problem statement separately to Codex and Gemini without cross-contamination, preserve the implementation freeze, and do not create FOUR_AI_GOOGLE_BROWSER_SEARCH_DECISION.md until all four independent proposals exist. If Gemini is quota-blocked, record the blocker and leave completion pending. No application code, migration, E2E, Firecrawl, deployment or autonomous Google PoC is authorized."
+summary: "PRODUCT OWNER DECISION: accept Claude's Google-browser architecture conditionally on real useful evidence. Do not wait for Gemini. General development freeze remains; only one bounded isolated Playwright/Chromium PoC is authorized. Test Claude's direct google.com/search?q= approach with max 3 human-like queries, first-page organic results, bounded destination opens, zero Firecrawl/search-API calls and no anti-bot circumvention. PASS only if at least 3 distinct current plausibly relevant jobs are actually reached and exact titles/companies/URLs are recorded in GOOGLE_BROWSER_POC_RESULTS.md. After evidence, stop for Product Owner review; no production integration is authorized."
