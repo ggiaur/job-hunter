@@ -2,8 +2,8 @@
 schema_version: 1
 channel: product_supervisor
 
-directive_id: JH-SUP-0005
-issued_at: "2026-09-02T23:36:00+02:00"
+directive_id: JH-SUP-0006
+issued_at: "2026-09-02T23:40:00+02:00"
 issued_by: chatgpt_product_architect
 authority: PRODUCT_ARCHITECT_ORCHESTRATION_SUPERVISOR
 priority: P0
@@ -11,13 +11,12 @@ status: ACTIVE
 requires_ack: true
 execute_immediately: true
 interrupt_current_work: true
-instruction_file: docs/agent-directives/JH-SUP-0005-TOTAL-DEVELOPMENT-FREEZE-AND-PRESERVE.md
+instruction_file: docs/agent-directives/JH-SUP-0006-FOUR-AI-GOOGLE-BROWSER-DESIGN.md
 ack_file: docs/agent-runtime/product-supervisor-ack.yaml
 continuity_policy: docs/EXECUTION_CONTINUITY_POLICY.md
 orchestrator_runtime: docs/agent-runtime/orchestrator.yaml
 project_claude_contract: CLAUDE.md
 watcher_enforcement: scripts/watch_product_supervisor_directive.sh
-supersedes: JH-SUP-0004
-redelivery_seq: 2
+supersedes: JH-SUP-0005
 
-summary: "EMERGENCY REDELIVERY OF PRODUCT OWNER STOP. The previous JH-SUP-0005 freeze has NOT been ACKed: ACK is still JH-SUP-0003 and FROZEN_STATE.md is absent. Immediately stop all Job Hunter development/agents, preserve and push all current durable/local work without loss, create docs/agent-runtime/FROZEN_STATE.md, ACK JH-SUP-0005 with status FROZEN_BY_PRODUCT_OWNER and exact SHAs, then remain idle. No development, search, review, migration, E2E, deployment, Firecrawl or Gemini work is authorized."
+summary: "PRODUCT OWNER AUTHORIZES DESIGN ONLY: ChatGPT, Cloud Claude, Codex and Gemini must independently work out and then synthesize one buildable architecture for using normal Google Search through a browser the way the Product Owner does manually. Implementation remains frozen. No Firecrawl, product code, migration, deployment or live autonomous Google PoC is authorized. Four independent proposals are mandatory before synthesis; if Gemini is quota-blocked, completion must remain pending unless the Product Owner waives it."
