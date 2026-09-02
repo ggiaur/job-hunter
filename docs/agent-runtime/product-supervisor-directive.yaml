@@ -2,8 +2,8 @@
 schema_version: 1
 channel: product_supervisor
 
-directive_id: JH-SUP-0002
-issued_at: "2026-09-02T15:12:00+02:00"
+directive_id: JH-SUP-0003
+issued_at: "2026-09-02T15:24:00+02:00"
 issued_by: chatgpt_product_architect
 authority: PRODUCT_ARCHITECT_ORCHESTRATION_SUPERVISOR
 priority: P0
@@ -11,12 +11,12 @@ status: ACTIVE
 requires_ack: true
 execute_immediately: true
 interrupt_current_work: true
-instruction_file: docs/agent-directives/JH-SUP-0002-REPO-IDENTITY-AND-EXECUTION-START.md
+instruction_file: docs/agent-directives/JH-SUP-0003-ACTUAL-MIGRATION-AND-SEARCH-REPAIR.md
 ack_file: docs/agent-runtime/product-supervisor-ack.yaml
 continuity_policy: docs/EXECUTION_CONTINUITY_POLICY.md
 orchestrator_runtime: docs/agent-runtime/orchestrator.yaml
 project_claude_contract: CLAUDE.md
 watcher_enforcement: scripts/watch_product_supervisor_directive.sh
-supersedes: JH-SUP-0001
+supersedes: JH-SUP-0002
 
-summary: "P0 correction: distinguish job-searcher as legacy/broken source from job-hunter as canonical target, ACK the channel first, then execute a fixed sequence: runtime inventory -> legacy code-path audit -> bounded live failure reproduction -> independent Codex/Gemini assessments -> one Claude migration decision -> one next implementation slice. All new durable project work goes to job-hunter unless explicitly authorized otherwise."
+summary: "P0 objective correction: job-searcher is the existing source application and job-hunter must become its working maintained replacement. Preserve/migrate working components, replace the broken Firecrawl-heavy search path, obtain independent Claude/Codex/Gemini search-architecture proposals first, select one engineering design, then implement and prove a real live low-cost relevant-job outcome in job-hunter. Do not end with reports only."
