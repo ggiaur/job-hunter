@@ -1,0 +1,25 @@
+{
+  "startedAt": "2026-09-02T22:23:00.036Z",
+  "node": "v24.19.0",
+  "playwrightPackageVersion": "1.62.1",
+  "profileDir": "/srv/projects/job-hunter/.runtime/google-browser-profile",
+  "launchMode": "headless (Playwright-managed Chromium, new headless mode)",
+  "firecrawlCalls": 0,
+  "searchApiCalls": 0,
+  "queries": [
+    {
+      "query": "IT vezető Budapest állás",
+      "method": "direct_url",
+      "googleUrl": "https://www.google.com/search?q=IT%20vezet%C5%91%20Budapest%20%C3%A1ll%C3%A1s&hl=hu&gl=hu",
+      "challenge": true,
+      "consentHandled": true,
+      "organicResults": [],
+      "destinationsOpened": []
+    }
+  ],
+  "blocked": {
+    "query": "IT vezető Budapest állás",
+    "reason": "CHALLENGE_DETECTED"
+  },
+  "finishedAt": "2026-09-02T22:23:02.829Z"
+}
