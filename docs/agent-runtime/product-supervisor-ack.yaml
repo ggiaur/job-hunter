@@ -2,52 +2,32 @@
 schema_version: 1
 channel: product_supervisor_ack
 project: job-hunter
-last_seen_directive_id: JH-SUP-0003
-last_accepted_directive_id: JH-SUP-0003
-last_applied_directive_id: JH-SUP-0003
-status: APPLIED
+last_seen_directive_id: JH-SUP-0005
+last_accepted_directive_id: JH-SUP-0005
+last_applied_directive_id: JH-SUP-0005
+status: FROZEN_BY_PRODUCT_OWNER
 blocker_class: null
-updated_at: "2026-09-02T13:19:42Z"
+updated_at: "2026-09-02T21:41:02Z"
 updated_by: claude_active_orchestrator
-head_sha: ba27505
+head_sha: 37ee1cc
 evidence:
-  - docs/baseline/CLOUD_RUNTIME_INVENTORY.md
-  - docs/baseline/LEGACY_SEARCH_PATH_AUDIT.md
-  - docs/baseline/LIVE_FAILURE_REPRODUCTION.md
-  - docs/reviews/CODEX_BASELINE_ASSESSMENT.md
-  - docs/architecture/CLAUDE_SEARCH_PROPOSAL.md
-  - docs/architecture/CODEX_SEARCH_PROPOSAL.md
-  - docs/architecture/SEARCH_ARCHITECTURE_DECISION.md
-  - docs/evidence/BUILD_SLICE_1_SUMMARY.md
-  - docs/evidence/LIVE_JOB_SEARCH_ACCEPTANCE.md
+  - docs/agent-runtime/FROZEN_STATE.md
 notes: >
-  JH-SUP-0003 all sections done. Sections 1-3: repo truth, component
-  classification, three-proposal search architecture decision (Claude+Codex
-  independent, Gemini PARKED -- quota-blocked throughout, checked twice).
-  Section 4: migration + acquisition rewrite built by Codex (Builder role),
-  independently reviewed by me, two real defects found and fixed before
-  commit (dead preferred-company scoring bonus; mock_mode hardcoded True
-  with no real client wiring).
+  JH-SUP-0005 total development freeze APPLIED. Missed JH-SUP-0004 and the
+  first JH-SUP-0005 delivery -- caught only on the force-redelivery, real
+  user flagged this directly. No development work occurred between
+  JH-SUP-0004's arrival and this freeze being applied; the only commits in
+  that window were this session's own JH-SUP-0003 completion work, already
+  pushed before JH-SUP-0004/0005 were seen.
 
-  Section 5: bounded live E2E acceptance per the decision doc's own
-  falsification design, executed against the real internet, zero
-  Firecrawl/Gemini/Telegram spend. Found and fixed three real defects live,
-  each one an actual falsification of the previous attempt, not a guess
-  left unverified: (1) ProfessionAdapter's card-CSS-class regex matched
-  garbage, fixed to match real detail-page anchors; (2) title/URL
-  mismatch from a wrong nearby-tag heuristic, fixed by matching the whole
-  anchor tag; (3) the assumed ?keyword= parameter does not filter results
-  at all -- found the real search mechanism live (inspected the actual
-  form, POST to adv_pattern with CSRF token, which redirects to a GET-able
-  /allasok/1,0,0,{query}@1@1 path -- same shape job-searcher's legacy
-  TARGET_URLS already used) and wired that in instead.
+  All durable work was already committed and pushed to job-hunter's main
+  (HEAD 37ee1cc after pulling the freeze commits themselves) before this
+  ACK. No uncommitted/unpushed work existed on the cloud host at freeze
+  time -- verified via git status on both job-hunter and job-searcher
+  (both clean) and via inspecting the codex tmux session (idle, no
+  in-flight command). No safety branches were needed. Full detail in
+  docs/agent-runtime/FROZEN_STATE.md.
 
-  Final result: ACCEPTED against the falsification criterion (>=3
-  materially relevant candidates) -- 27 cheap-filter survivors, 15+
-  materially on-target IT-leadership titles, zero paid API calls spent to
-  get there. Regression tests added for both live-found extraction bugs.
-  Known unresolved gap, explicitly documented not hidden: CVOnlineAdapter
-  still returns 0 (real cvonline.hu search entrypoint not identified this
-  round), and this was a metadata-only experiment (no LLM ranking/full
-  pipeline run yet) -- both named as the next slice's starting point in
-  docs/evidence/LIVE_JOB_SEARCH_ACCEPTANCE.md.
+  Idle from here. Not resuming development, not starting JH-SUP-0004,
+  not dispatching to Codex/Gemini, until a new Product Owner-authorized
+  directive defines Sprint 1.
