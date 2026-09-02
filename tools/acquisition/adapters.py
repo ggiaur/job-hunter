@@ -19,22 +19,52 @@ class PortalAdapter:
         except Exception:
             self.failures += 1; return []
 
+PROFESSION_JOB_ANCHOR = re.compile(
+    r'<a\s[^>]*?href=["\'](https?://(?:www\.)?profession\.hu/allas/[a-zA-Z0-9_-]+)["\'][^>]*>',
+    re.I,
+)
+
 class ProfessionAdapter(PortalAdapter):
+    """URL-anchored extraction, not a guessed card-wrapper CSS class.
+
+    Verified live (2026-09-02) against a real fetch of the search results
+    page: the page IS server-rendered and contains real
+    profession.hu/allas/<slug>-<id> detail links (20 on one page), but a
+    speculative `job-card`/`job-item` wrapper regex matched nothing real and
+    fell through to unrelated icon/nav/social links instead.
+
+    Each real job URL appears TWICE in the raw HTML: once as a `data-link`
+    attribute on an enclosing `<li>` wrapper (no title info), and again
+    inside the actual `<a href=...>` anchor that carries `data-item-name`
+    (clean title) and `data-item-id` (numeric posting id). An earlier
+    version of this adapter matched the bare URL anywhere and used
+    `rfind`/`find` to locate a "nearby" `<a>` tag -- that grabbed the
+    wrong (adjacent, previous-job's) anchor and produced title/URL
+    mismatches, confirmed live. Matching the whole `<a href=...>` tag in
+    one regex avoids the ambiguity entirely.
+    """
     source, search_url = "profession.hu", "https://www.profession.hu/allasok?keyword={query}"
     def extract(self, html: str) -> list[dict]:
-        # tolerant card extraction for server rendered markup/data attributes
-        jobs=[]
-        for card in re.findall(r'<(?:article|div)[^>]*(?:job-card|job-item)[^>]*>(.*?)</(?:article|div)>', html, re.S|re.I):
-            link=re.search(r'href=["\']([^"\']+)', card); title=re.search(r'(?:job-title|title)[^>]*>(.*?)</', card, re.S|re.I)
-            if link and title:
-                company = re.search(r'(?:company|employer)[^>]*>(.*?)</', card, re.S|re.I)
-                jobs.append({"source":self.source,"source_job_id":re.sub(r'\D','',link.group(1)) or link.group(1),"url":urljoin("https://www.profession.hu",link.group(1)),"title":_text(title.group(1)),"company":_text(company.group(1)) if company else "","location":"","description":_text(card)[:700]})
+        jobs=[]; seen=set()
+        for m in PROFESSION_JOB_ANCHOR.finditer(html):
+            url, tag = m.group(1), m.group(0)
+            if url in seen: continue
+            seen.add(url)
+            item_id = re.search(r'data-item-id=["\'](\d+)', tag)
+            item_name = re.search(r'data-item-name=["\']([^"\']+)', tag)
+            title_attr = re.search(r'\btitle=["\']([^"\']+)', tag)
+            title = _text(item_name.group(1)) if item_name else (_text(title_attr.group(1)) if title_attr else "")
+            if not title: continue
+            jobs.append({"source":self.source,"source_job_id":item_id.group(1) if item_id else url,"url":url,"title":title,"company":"","location":"","description":_text(title_attr.group(1)) if title_attr else title})
         return jobs
 
 class CVOnlineAdapter(PortalAdapter):
+    """Known gap (2026-09-02): the assumed `/hu/allasok?search=` URL 404s;
+    the real search entrypoint on cvonline.hu was not identified within this
+    slice's live-verification budget. Left returning no matches (fails
+    open/empty, not on garbage) rather than guessing another wrong pattern.
+    Next slice: identify cvonline.hu's real search URL/markup live before
+    re-enabling this adapter's contribution."""
     source, search_url = "cvonline.hu", "https://www.cvonline.hu/hu/allasok?search={query}"
     def extract(self, html: str) -> list[dict]:
-        jobs=[]
-        for href,title in re.findall(r'<a[^>]+href=["\']([^"\']*(?:allas|job)[^"\']*)["\'][^>]*>(.*?)</a>',html,re.S|re.I):
-            jobs.append({"source":self.source,"source_job_id":re.sub(r'\D','',href) or href,"url":urljoin("https://www.cvonline.hu",href),"title":_text(title),"company":"","location":"","description":""})
-        return jobs
+        return []
