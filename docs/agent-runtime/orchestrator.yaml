@@ -1,0 +1,56 @@
+---
+schema_version: 1
+
+active_orchestrator: claude
+primary: claude
+fallback: chatgpt_supervisor
+handoff_required: true
+
+product_supervisor:
+  enabled: true
+  actor: chatgpt_product_architect
+  role: PRODUCT_ARCHITECT_ORCHESTRATION_SUPERVISOR
+  directive_file: docs/agent-runtime/product-supervisor-directive.yaml
+  ack_file: docs/agent-runtime/product-supervisor-ack.yaml
+  directive_body_dir: docs/agent-directives
+  watcher: scripts/watch_product_supervisor_directive.sh
+  transport_source: origin/main
+  active_orchestrator_ack_required: true
+  direct_dispatch_to_execution_agents: false
+  explicit_product_owner_decision_has_precedence: true
+
+execution_continuity:
+  policy_file: docs/EXECUTION_CONTINUITY_POLICY.md
+  status: ENFORCED
+  default_action: CONTINUE
+  project_wide_idle_for_single_task_blocker: false
+  owner_is_operational_message_bus: false
+  allowed_direct_owner_stop_classes:
+    - BLOCKED_PRODUCT_DECISION
+    - BLOCKED_HUMAN_PERMISSION
+
+roles:
+  claude:
+    role: ACTIVE_ORCHESTRATOR
+    can_move_tasks: true
+    can_integrate: true
+  gemini:
+    role: EXECUTION_OR_REVIEW_AGENT
+    can_move_tasks: false
+    can_integrate: false
+  codex:
+    role: EXECUTION_OR_REVIEW_AGENT
+    can_move_tasks: false
+    can_integrate: false
+
+concurrency:
+  active_implementation_slices: 1
+  overlapping_writers_for_same_slice: false
+  parallel_independent_review_allowed: true
+
+repositories:
+  canonical_target: ggiaur/job-hunter
+  legacy_source:
+    - ggiaur/job-searcher
+
+current_directive: JH-SUP-0001
