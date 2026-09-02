@@ -3,7 +3,7 @@ schema_version: 1
 channel: product_supervisor
 
 directive_id: JH-SUP-0007
-issued_at: "2026-09-03T00:14:00+02:00"
+issued_at: "2026-09-03T00:15:35+02:00"
 issued_by: chatgpt_product_architect
 authority: PRODUCT_ARCHITECT_ORCHESTRATION_SUPERVISOR
 priority: P0
@@ -18,5 +18,6 @@ orchestrator_runtime: docs/agent-runtime/orchestrator.yaml
 project_claude_contract: CLAUDE.md
 watcher_enforcement: scripts/watch_product_supervisor_directive.sh
 supersedes: JH-SUP-0006
+redelivery_seq: 1
 
-summary: "PRODUCT OWNER DECISION: accept Claude's Google-browser architecture conditionally on real useful evidence. Do not wait for Gemini. General development freeze remains; only one bounded isolated Playwright/Chromium PoC is authorized. Test Claude's direct google.com/search?q= approach with max 3 human-like queries, first-page organic results, bounded destination opens, zero Firecrawl/search-API calls and no anti-bot circumvention. PASS only if at least 3 distinct current plausibly relevant jobs are actually reached and exact titles/companies/URLs are recorded in GOOGLE_BROWSER_POC_RESULTS.md. After evidence, stop for Product Owner review; no production integration is authorized."
+summary: "POC-COMPLIANCE REDELIVERY: JH-SUP-0007 is active but still not ACKed; ACK remains on JH-SUP-0006 and docs/evidence/GOOGLE_BROWSER_POC_RESULTS.md is absent. Execute ONLY the bounded isolated Claude Playwright/Chromium PoC already authorized. Do not wait for Gemini, do not create four-AI synthesis, do not integrate production code, do not use Firecrawl/search APIs, and do not attempt anti-bot/CAPTCHA circumvention. Test Claude's direct google.com/search?q= approach first. PASS is forbidden unless at least 3 distinct current plausibly relevant jobs are actually reached and exact title/company/URL evidence is recorded in GOOGLE_BROWSER_POC_RESULTS.md. After evidence, stop for Product Owner review."
