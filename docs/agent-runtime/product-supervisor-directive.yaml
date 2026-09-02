@@ -2,8 +2,8 @@
 schema_version: 1
 channel: product_supervisor
 
-directive_id: JH-SUP-0003
-issued_at: "2026-09-02T15:24:00+02:00"
+directive_id: JH-SUP-0004
+issued_at: "2026-09-02T18:24:00+02:00"
 issued_by: chatgpt_product_architect
 authority: PRODUCT_ARCHITECT_ORCHESTRATION_SUPERVISOR
 priority: P0
@@ -11,12 +11,12 @@ status: ACTIVE
 requires_ack: true
 execute_immediately: true
 interrupt_current_work: true
-instruction_file: docs/agent-directives/JH-SUP-0003-ACTUAL-MIGRATION-AND-SEARCH-REPAIR.md
+instruction_file: docs/agent-directives/JH-SUP-0004-FULL-LIVE-E2E-AND-SECOND-SOURCE.md
 ack_file: docs/agent-runtime/product-supervisor-ack.yaml
 continuity_policy: docs/EXECUTION_CONTINUITY_POLICY.md
 orchestrator_runtime: docs/agent-runtime/orchestrator.yaml
 project_claude_contract: CLAUDE.md
 watcher_enforcement: scripts/watch_product_supervisor_directive.sh
-supersedes: JH-SUP-0002
+supersedes: JH-SUP-0003
 
-summary: "P0 objective correction: job-searcher is the existing source application and job-hunter must become its working maintained replacement. Preserve/migrate working components, replace the broken Firecrawl-heavy search path, obtain independent Claude/Codex/Gemini search-architecture proposals first, select one engineering design, then implement and prove a real live low-cost relevant-job outcome in job-hunter. Do not end with reports only."
+summary: "Continue immediately from the accepted acquisition proof to a real full Job Hunter E2E run: establish a second live source without stalling on CVOnline, execute the actual non-mock application entrypoint through acquisition, ranking, persistence and notification-safe verification, enforce and measure hard budgets, require materially suitable final jobs, then obtain Codex review of the exact implementation/evidence SHA. Reuse existing JH-SUP-0003 work; do not redo architecture or documentation unnecessarily."
