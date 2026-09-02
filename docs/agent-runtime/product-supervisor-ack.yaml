@@ -2,12 +2,18 @@
 schema_version: 1
 channel: product_supervisor_ack
 project: job-hunter
-last_seen_directive_id: null
+last_seen_directive_id: JH-SUP-0002
+last_accepted_directive_id: JH-SUP-0002
 last_applied_directive_id: null
-status: WAITING_FOR_ACTIVE_ORCHESTRATOR
+status: IN_PROGRESS
 blocker_class: null
-updated_at: null
-updated_by: null
-head_sha: null
+updated_at: "2026-09-02T13:19:42Z"
+updated_by: claude_active_orchestrator
+head_sha: a0aeae2
 evidence: []
-notes: "Cloud Claude must update this file after receiving and reconciling the active supervisor directive."
+notes: >
+  JH-SUP-0002 SEEN/ACCEPTED. Repo truth confirmed: job-hunter cloned fresh
+  (git@github.com:ggiaur/job-hunter.git, main, HEAD a0aeae2, clean, no local
+  history prior to this session). job-searcher present locally
+  (/srv/projects/job-searcher, main, HEAD 03b269e, clean working tree).
+  Proceeding through STEP C-G in order.
