@@ -2,59 +2,54 @@
 schema_version: 1
 channel: product_supervisor_ack
 project: job-hunter
-last_seen_directive_id: JH-SUP-0006
-last_accepted_directive_id: JH-SUP-0006
-last_applied_directive_id: null
-status: IN_PROGRESS
-blocker_class: null
-updated_at: "2026-09-02T22:15:00Z"
+last_seen_directive_id: JH-SUP-0008
+last_accepted_directive_id: JH-SUP-0008
+last_applied_directive_id: JH-SUP-0008
+status: BLOCKED_HUMAN_PERMISSION
+blocker_class: BLOCKED_HUMAN_PERMISSION
+updated_at: "2026-09-03T00:35:00Z"
 updated_by: claude_active_orchestrator
-head_sha: b30d278
+head_sha: TBD
 evidence:
-  - docs/design/CHATGPT_GOOGLE_BROWSER_SEARCH_PROPOSAL.md
-  - docs/design/CLAUDE_GOOGLE_BROWSER_SEARCH_PROPOSAL.md
-  - docs/design/CODEX_GOOGLE_BROWSER_SEARCH_PROPOSAL.md
+  - docs/evidence/GOOGLE_BROWSER_POC_RESULTS.md
+  - docs/evidence/GOOGLE_BROWSER_APP_RESULTS.md
+  - docs/reviews/CODEX_GOOGLE_BROWSER_APP_REVIEW.md
 notes: >
-  JH-SUP-0006 SEEN/ACCEPTED (design-only task; JH-SUP-0005 implementation
-  freeze remains in force for everything else). Claude proposal written
-  independently (read ChatGPT's first, permitted as integration owner, but
-  reached independent conclusions incl. one flagged disagreement on Google
-  query submission method) and grounded in verified host facts (Chromium
-  already cached via Playwright, no confirmed display server). Codex
-  proposal obtained from the bare problem statement only, no prior
-  proposals shown to it.
+  JH-SUP-0007 (PoC) and JH-SUP-0008 (working application) both executed
+  and pushed. JH-SUP-0006's Gemini-blocker note (last ack) is superseded:
+  JH-SUP-0007 explicitly waived the 4-AI requirement and JH-SUP-0006's
+  synthesis doc was never produced -- not resumed, per JH-SUP-0007's own
+  "do not wait for Gemini" instruction.
 
-  Gemini proposal NOT YET obtained -- three real attempts, all recorded
-  honestly, none faked:
-  1. The long-running gemini-freshcheck tmux session was found mid-task on
-     unrelated stale it-lens-audit-system context, not a clean channel for
-     an independent problem statement.
-  2. A fresh isolated `npx @google/gemini-cli -p` invocation had no
-     configured auth (GEMINI_API_KEY/GOOGLE_GENAI_USE_VERTEXAI/
-     GOOGLE_GENAI_USE_GCA all unset for that invocation).
-  3. Identified the actually-authenticated tool behind gemini-freshcheck
-     as `agy` (Antigravity CLI, PID-verified). Its headless `--print` mode
-     requires either --dangerously-skip-permissions or a settings.json
-     permissions.allow entry to write a file; --dangerously-skip-permissions
-     was blocked twice by this session's own tool-use safety classifier
-     (auto-approve-all-tools is flagged as risky for a powerful agentic
-     CLI) even scoped to a single output file via a settings.json edit.
-     Per this session's standing discipline (do not repeatedly route
-     around a safety block), stopped after the second block rather than
-     trying a third angle, and reverted the settings.json edit back to its
-     original content (it had no effect anyway).
+  JH-SUP-0007 PoC (poc/google-browser/): first query hit a real Google
+  "unusual traffic"/CAPTCHA challenge on the very first request. Verified
+  manually (re-fetched the same URL, read raw challenge text) before
+  reporting -- not a false positive from the automated detector. Stopped
+  immediately per the hard rule, no bypass attempted. Result:
+  BLOCKED_HUMAN_PERMISSION.
 
-  Per JH-SUP-0006's own explicit rule ("do not substitute another model
-  and do not claim four-AI completion... keep the task incomplete until
-  Gemini can actually contribute, unless the Product Owner explicitly
-  waives the fourth opinion"): the four-way synthesis
-  (FOUR_AI_GOOGLE_BROWSER_SEARCH_DECISION.md) has deliberately NOT been
-  written. This directive is genuinely incomplete, not silently
-  downgraded to three-AI.
+  JH-SUP-0008 application (apps/google-browser-search/, runnable via
+  npm install && npm start, UI + /health + /api/search): ran all 3
+  required queries through the app's own endpoint (not a side script) on
+  a completely independent fresh profile. All 3 hit the same Google
+  challenge on the first request -- second, independent confirmation of
+  the same block, not a retry of the first. 0 organic results, 0 verified
+  jobs, 0 Firecrawl/search-API calls, no evasion attempted.
 
-  Next unblock options, for the Product Owner to choose from: (a) wait for
-  the gemini-freshcheck session's current unrelated work to finish, then
-  send the JH-SUP-0006 problem statement there once idle; (b) explicitly
-  authorize --dangerously-skip-permissions for one bounded, single-file
-  agy invocation; (c) waive the fourth opinion and authorize three-AI
-  synthesis.
+  Independent Codex review of the app (docs/reviews/CODEX_GOOGLE_BROWSER
+  _APP_REVIEW.md) confirmed: no hidden Firecrawl/search-API path, hard
+  budgets enforced in code, no evasion, no production-code integration.
+  Flagged and I fixed: evidence file's SHA placeholder (now exact),
+  missing query-length guard on POST /api/search (200-char cap added).
+  One review claim (npm test = 1/1) did not reproduce when I re-ran it
+  independently twice outside Codex's sandbox (consistently 7/7) --
+  recorded as a likely sandbox glob-expansion difference in the evidence
+  addendum, not silently accepted or dismissed either way.
+
+  Both directives' completion conditions are met (evidence pushed, Codex
+  review done for JH-SUP-0008). Per both directives: after evidence and
+  review are pushed, stop and wait for Product Owner review. Not
+  attempting a third live Google request without new authorization --
+  two independent implementations, two fresh profiles, both blocked on
+  the first request each, is sufficient repeated confirmation that this
+  is a host/IP-level block, not a code defect worth re-testing blindly.
