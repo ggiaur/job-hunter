@@ -1,0 +1,21 @@
+---
+schema_version: 1
+channel: product_supervisor
+
+directive_id: JH-SUP-0001
+issued_at: "2026-09-02T14:37:00+02:00"
+issued_by: chatgpt_product_architect
+authority: PRODUCT_ARCHITECT_ORCHESTRATION_SUPERVISOR
+priority: P0
+status: ACTIVE
+requires_ack: true
+execute_immediately: true
+interrupt_current_work: true
+instruction_file: docs/agent-directives/JH-SUP-0001-BASELINE-AND-COLLAB-BOOTSTRAP.md
+ack_file: docs/agent-runtime/product-supervisor-ack.yaml
+continuity_policy: docs/EXECUTION_CONTINUITY_POLICY.md
+orchestrator_runtime: docs/agent-runtime/orchestrator.yaml
+project_claude_contract: CLAUDE.md
+watcher_enforcement: scripts/watch_product_supervisor_directive.sh
+
+summary: "Bootstrap the Job Hunter ChatGPT->cloud Claude collaboration channel, inventory real runtime state, audit legacy job-searcher search/cost behavior, reproduce the poor-result/Firecrawl-cost failure with bounded live evidence, obtain independent Codex and Gemini assessments, and produce one migration decision before feature implementation."
