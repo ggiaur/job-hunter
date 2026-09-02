@@ -1,0 +1,13 @@
+---
+schema_version: 1
+channel: product_supervisor_ack
+project: job-hunter
+last_seen_directive_id: null
+last_applied_directive_id: null
+status: WAITING_FOR_ACTIVE_ORCHESTRATOR
+blocker_class: null
+updated_at: null
+updated_by: null
+head_sha: null
+evidence: []
+notes: "Cloud Claude must update this file after receiving and reconciling the active supervisor directive."
