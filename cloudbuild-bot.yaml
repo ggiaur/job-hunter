@@ -1,0 +1,5 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-f', 'Dockerfile.bot', '-t', 'europe-west1-docker.pkg.dev/job-hunter-503608/job-hunter/job-hunter-bot', '.']
+images:
+  - 'europe-west1-docker.pkg.dev/job-hunter-503608/job-hunter/job-hunter-bot'

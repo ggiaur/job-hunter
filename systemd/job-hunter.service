@@ -1,0 +1,14 @@
+[Unit]
+Description=Job Hunter AI Scheduled Search Pipeline
+After=network.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/srv/projects/job-hunter
+ExecStart=/srv/projects/job-hunter/.venv/bin/python3 /srv/projects/job-hunter/main.py
+User=bj
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
