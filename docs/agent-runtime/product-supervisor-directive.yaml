@@ -3,7 +3,7 @@ schema_version: 1
 channel: product_supervisor
 
 directive_id: JH-SUP-0005
-issued_at: "2026-09-02T18:25:00+02:00"
+issued_at: "2026-09-02T23:36:00+02:00"
 issued_by: chatgpt_product_architect
 authority: PRODUCT_ARCHITECT_ORCHESTRATION_SUPERVISOR
 priority: P0
@@ -18,5 +18,6 @@ orchestrator_runtime: docs/agent-runtime/orchestrator.yaml
 project_claude_contract: CLAUDE.md
 watcher_enforcement: scripts/watch_product_supervisor_directive.sh
 supersedes: JH-SUP-0004
+redelivery_seq: 2
 
-summary: "PRODUCT OWNER STOP: immediately halt all Job Hunter development and agent execution. Preserve every current local/worktree/branch change non-destructively, commit/push all durable work or safety branches, record exact frozen state and SHAs, ACK FROZEN_BY_PRODUCT_OWNER, then remain idle. Current work is explicitly NOT Sprint 1; Sprint 1 must be redefined before any development resumes."
+summary: "EMERGENCY REDELIVERY OF PRODUCT OWNER STOP. The previous JH-SUP-0005 freeze has NOT been ACKed: ACK is still JH-SUP-0003 and FROZEN_STATE.md is absent. Immediately stop all Job Hunter development/agents, preserve and push all current durable/local work without loss, create docs/agent-runtime/FROZEN_STATE.md, ACK JH-SUP-0005 with status FROZEN_BY_PRODUCT_OWNER and exact SHAs, then remain idle. No development, search, review, migration, E2E, deployment, Firecrawl or Gemini work is authorized."
