@@ -2,8 +2,8 @@
 schema_version: 1
 channel: product_supervisor
 
-directive_id: JH-SUP-0007
-issued_at: "2026-09-03T00:18:00+02:00"
+directive_id: JH-SUP-0008
+issued_at: "2026-09-03T00:24:00+02:00"
 issued_by: chatgpt_product_architect
 authority: PRODUCT_ARCHITECT_ORCHESTRATION_SUPERVISOR
 priority: P0
@@ -11,13 +11,12 @@ status: ACTIVE
 requires_ack: true
 execute_immediately: true
 interrupt_current_work: true
-instruction_file: docs/agent-directives/JH-SUP-0007-CLAUDE-GOOGLE-BROWSER-POC.md
+instruction_file: docs/agent-directives/JH-SUP-0008-WORKING-GOOGLE-BROWSER-APPLICATION.md
 ack_file: docs/agent-runtime/product-supervisor-ack.yaml
 continuity_policy: docs/EXECUTION_CONTINUITY_POLICY.md
 orchestrator_runtime: docs/agent-runtime/orchestrator.yaml
 project_claude_contract: CLAUDE.md
 watcher_enforcement: scripts/watch_product_supervisor_directive.sh
-supersedes: JH-SUP-0006
-redelivery_seq: 2
+supersedes: JH-SUP-0007
 
-summary: "EXECUTE THE WORKED-OUT POC, not more governance. Product Owner accepted Claude's Google-browser design if it produces real jobs. Use docs/design/GOOGLE_BROWSER_POC_EXECUTION_SPEC.md as the mandatory execution contract. Exact first-run queries: 'IT vezető Budapest állás', 'IT manager Budapest állás', 'IT projektmenedzser Budapest hibrid állás'. Claude owns the isolated Playwright/Chromium PoC; direct google.com/search?q= is primary, normal Google search-box UI is one bounded fallback only if primary fails without challenge. Capture real first-page organic results, open bounded promising destinations, verify current concrete jobs and persona exclusions. Codex independently reviews the exact implementation/evidence SHA. PASS requires >=3 distinct current plausibly relevant jobs with exact title/company/URL, zero Firecrawl and zero search API. No Gemini wait, no four-AI synthesis, no production integration, no anti-bot/CAPTCHA bypass. Push GOOGLE_BROWSER_POC_RESULTS.md and ACK, then stop for Product Owner review."
+summary: "PRODUCT OWNER WANTS THE WORKING APPLICATION, not another design-only PoC. Build and run a minimal visible web application under apps/google-browser-search using the accepted Claude Playwright/Chromium Google-browser design. UI must accept free-text Google queries and visibly show real organic results plus a Verified jobs section with exact title/company/URL. Use the application itself for the three fixed acceptance queries. PASS requires >=3 distinct current plausibly relevant jobs under canonical profile/persona.md, with exact title/company/URL evidence, 0 Firecrawl, 0 search API, no anti-bot bypass, and independent Codex review of the exact SHA. Do not wait for Gemini. Broad unrelated Job Hunter development remains frozen. WRITE AND RUN THE APPLICATION; do not spend the slice producing another architecture document."
