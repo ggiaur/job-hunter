@@ -3,6 +3,7 @@ import types
 from tools.acquisition.budget import RunBudget
 from tools.acquisition.planner import QueryPlanner
 from tools.acquisition.orchestrator import JobSearchAgent
+from tools.acquisition.adapters import ProfessionAdapter
 from tools.analyzer import GeminiQuotaExceededError
 
 class Response:
@@ -99,3 +100,31 @@ def test_preferred_company_bonus_crosses_relevance_threshold_without_affecting_o
     assert result["relevant"] == result["sent"] == 1
     assert notifier.sent == ["https://x/preferred"]
     assert [item["score"] for item in analyzer.results] == [65, 55]
+
+def test_profession_adapter_uses_the_real_search_url_pattern():
+    """?keyword= does not filter results at all (verified live, 2026-09-02);
+    the working pattern is /allasok/1,0,0,{query}@1@1, the same shape
+    job-searcher's legacy TARGET_URLS already hardcoded."""
+    adapter = ProfessionAdapter(http_get=None, budget=RunBudget())
+    assert adapter._url_for("it vezető") == "https://www.profession.hu/allasok/1,0,0,it%20vezet%C5%91@1@1"
+
+def test_profession_adapter_extracts_real_anchor_and_ignores_trailing_query_string():
+    """Two live-verified defects in one fixture: (1) a bare-URL match
+    without requiring the enclosing <a> tag grabbed an unrelated anchor's
+    title via a nearby-tag heuristic -- fixed by matching the whole <a
+    href=...> tag; (2) some result pages append a `?keyword=...&hash=...`
+    tracking query string to the href, which an earlier pattern (requiring
+    the closing quote immediately after the slug) silently matched zero
+    times against."""
+    html = (
+        '<li data-link="https://www.profession.hu/allas/wrong-match-111">'
+        '<a href="https://www.profession.hu/allas/real-title-222?keyword=x&amp;hash=y" '
+        'data-item-id="222" data-item-name="Real Title">Real Title</a></li>'
+    )
+    jobs = ProfessionAdapter(http_get=None, budget=RunBudget()).extract(html)
+    assert jobs == [{
+        "source": "profession.hu", "source_job_id": "222",
+        "url": "https://www.profession.hu/allas/real-title-222",
+        "title": "Real Title", "company": "", "location": "",
+        "description": "Real Title",
+    }]

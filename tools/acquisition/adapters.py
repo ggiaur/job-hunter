@@ -1,7 +1,7 @@
 """Portal-native metadata adapters; HTTP is injected so tests never make network calls."""
 import re
 from html import unescape
-from urllib.parse import urljoin
+from urllib.parse import quote, urljoin
 from .budget import RunBudget
 
 def _text(value: str) -> str: return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", unescape(value))).strip()
@@ -20,7 +20,12 @@ class PortalAdapter:
             self.failures += 1; return []
 
 PROFESSION_JOB_ANCHOR = re.compile(
-    r'<a\s[^>]*?href=["\'](https?://(?:www\.)?profession\.hu/allas/[a-zA-Z0-9_-]+)["\'][^>]*>',
+    # The detail URL is sometimes followed by a `?keyword=...&hash=...`
+    # tracking query string (verified live, 2026-09-02, on the real
+    # /allasok/1,0,0,{query}@1@1 search-results path) -- an earlier version
+    # of this pattern required the closing quote immediately after the
+    # slug, so it silently matched zero anchors on that page shape.
+    r'<a\s[^>]*?href=["\'](https?://(?:www\.)?profession\.hu/allas/[a-zA-Z0-9_-]+)(?:\?[^"\']*)?["\'][^>]*>',
     re.I,
 )
 
@@ -43,7 +48,28 @@ class ProfessionAdapter(PortalAdapter):
     mismatches, confirmed live. Matching the whole `<a href=...>` tag in
     one regex avoids the ambiguity entirely.
     """
-    source, search_url = "profession.hu", "https://www.profession.hu/allasok?keyword={query}"
+    source = "profession.hu"
+
+    def _url_for(self, query: str) -> str:
+        # `?keyword=` does not filter results at all (verified live,
+        # 2026-09-02) -- the actual search form POSTs `adv_pattern` with a
+        # CSRF token to /allasok, which redirects to this GET-able path
+        # pattern (same shape job-searcher's legacy TARGET_URLS already
+        # hardcoded, e.g. "/allasok/1,0,0,informatikai%20vezet%C5%91").
+        # Confirmed live: this path alone, no session/token needed, returns
+        # materially IT-relevant titles ("Head of IT", "IT Csoportvezető",
+        # "IT biztonsági Osztályvezető").
+        return f"https://www.profession.hu/allasok/1,0,0,{quote(query)}@1@1"
+
+    def discover(self, query: str) -> list[dict]:
+        if self.failures >= 2 or not self.budget.reserve("portal"): return []
+        try:
+            response = self.http_get(self._url_for(query), timeout=10)
+            html = response.text if hasattr(response, "text") else str(response); self.failures = 0
+            return self.extract(html)
+        except Exception:
+            self.failures += 1; return []
+
     def extract(self, html: str) -> list[dict]:
         jobs=[]; seen=set()
         for m in PROFESSION_JOB_ANCHOR.finditer(html):

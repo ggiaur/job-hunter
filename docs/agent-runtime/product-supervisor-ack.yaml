@@ -4,12 +4,12 @@ channel: product_supervisor_ack
 project: job-hunter
 last_seen_directive_id: JH-SUP-0003
 last_accepted_directive_id: JH-SUP-0003
-last_applied_directive_id: null
-status: IN_PROGRESS
+last_applied_directive_id: JH-SUP-0003
+status: APPLIED
 blocker_class: null
 updated_at: "2026-09-02T13:19:42Z"
 updated_by: claude_active_orchestrator
-head_sha: a0aeae2
+head_sha: TBD
 evidence:
   - docs/baseline/CLOUD_RUNTIME_INVENTORY.md
   - docs/baseline/LEGACY_SEARCH_PATH_AUDIT.md
@@ -18,20 +18,36 @@ evidence:
   - docs/architecture/CLAUDE_SEARCH_PROPOSAL.md
   - docs/architecture/CODEX_SEARCH_PROPOSAL.md
   - docs/architecture/SEARCH_ARCHITECTURE_DECISION.md
+  - docs/evidence/BUILD_SLICE_1_SUMMARY.md
+  - docs/evidence/LIVE_JOB_SEARCH_ACCEPTANCE.md
 notes: >
-  JH-SUP-0002 SEEN/ACCEPTED then superseded by JH-SUP-0003 (detected via
-  push rejection, fetched, reconciled -- JH-SUP-0002 baseline evidence
-  reused per JH-SUP-0003's own instruction, not repeated).
-  JH-SUP-0003 SEEN/ACCEPTED. Sections 1-3 done: repo truth (from
-  JH-SUP-0002), component MIGRATE/KEEP-WITH-FIXES/REWRITE classification
-  (in SEARCH_ARCHITECTURE_DECISION.md "Next implementation slice"), three
-  search-architecture proposals obtained (Claude + Codex independently;
-  Gemini PARKED -- gemini-freshcheck tmux session quota-blocked, ~10h
-  reset, checked twice, not a stop condition per
-  EXECUTION_CONTINUITY_POLICY.md), synthesized decision committed.
-  Section 4 (build) dispatched to Codex as bounded Builder task
-  (migrate + keep-with-fixes + new tools/acquisition/ package + tests,
-  MOCK_MODE only, no real API spend, no push) -- running now.
-  Section 5 (live E2E acceptance) not yet started; will run the smallest
-  falsification experiment from SEARCH_ARCHITECTURE_DECISION.md myself
-  once Codex's build is reviewed.
+  JH-SUP-0003 all sections done. Sections 1-3: repo truth, component
+  classification, three-proposal search architecture decision (Claude+Codex
+  independent, Gemini PARKED -- quota-blocked throughout, checked twice).
+  Section 4: migration + acquisition rewrite built by Codex (Builder role),
+  independently reviewed by me, two real defects found and fixed before
+  commit (dead preferred-company scoring bonus; mock_mode hardcoded True
+  with no real client wiring).
+
+  Section 5: bounded live E2E acceptance per the decision doc's own
+  falsification design, executed against the real internet, zero
+  Firecrawl/Gemini/Telegram spend. Found and fixed three real defects live,
+  each one an actual falsification of the previous attempt, not a guess
+  left unverified: (1) ProfessionAdapter's card-CSS-class regex matched
+  garbage, fixed to match real detail-page anchors; (2) title/URL
+  mismatch from a wrong nearby-tag heuristic, fixed by matching the whole
+  anchor tag; (3) the assumed ?keyword= parameter does not filter results
+  at all -- found the real search mechanism live (inspected the actual
+  form, POST to adv_pattern with CSRF token, which redirects to a GET-able
+  /allasok/1,0,0,{query}@1@1 path -- same shape job-searcher's legacy
+  TARGET_URLS already used) and wired that in instead.
+
+  Final result: ACCEPTED against the falsification criterion (>=3
+  materially relevant candidates) -- 27 cheap-filter survivors, 15+
+  materially on-target IT-leadership titles, zero paid API calls spent to
+  get there. Regression tests added for both live-found extraction bugs.
+  Known unresolved gap, explicitly documented not hidden: CVOnlineAdapter
+  still returns 0 (real cvonline.hu search entrypoint not identified this
+  round), and this was a metadata-only experiment (no LLM ranking/full
+  pipeline run yet) -- both named as the next slice's starting point in
+  docs/evidence/LIVE_JOB_SEARCH_ACCEPTANCE.md.
