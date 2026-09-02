@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<title>Google Browser Search PoC — Job Hunter</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 900px; margin: 2rem auto; padding: 0 1rem; color: #222; }
+  h1 { font-size: 1.3rem; }
+  .row { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+  input[type=text] { flex: 1; padding: 0.5rem; font-size: 1rem; }
+  button { padding: 0.5rem 1rem; font-size: 1rem; cursor: pointer; }
+  #status { margin: 0.5rem 0; font-weight: bold; }
+  .blocked { color: #b00020; }
+  .ok { color: #0a7a0a; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; }
+  th, td { text-align: left; padding: 0.35rem 0.5rem; border-bottom: 1px solid #ddd; font-size: 0.9rem; }
+  section { margin-top: 1.5rem; }
+  .job-card { border: 1px solid #ccc; border-radius: 6px; padding: 0.75rem; margin-bottom: 0.5rem; }
+  .job-card h3 { margin: 0 0 0.25rem 0; font-size: 1rem; }
+  .meta { color: #555; font-size: 0.85rem; }
+</style>
+</head>
+<body>
+<h1>Google Browser Search — Job Hunter PoC (JH-SUP-0008)</h1>
+<div class="row">
+  <input type="text" id="query" placeholder="pl. IT vezető Budapest állás" value="IT vezető Budapest állás">
+  <button id="searchBtn">Search</button>
+</div>
+<div id="status"></div>
+
+<section>
+  <h2>Google organic results</h2>
+  <table id="resultsTable"><thead><tr><th>#</th><th>Title</th><th>Domain</th><th>Snippet</th><th>URL</th></tr></thead><tbody></tbody></table>
+</section>
+
+<section>
+  <h2>Verified jobs</h2>
+  <div id="jobs"></div>
+</section>
+
+<script>
+const statusEl = document.getElementById('status');
+const btn = document.getElementById('searchBtn');
+const tbody = document.querySelector('#resultsTable tbody');
+const jobsEl = document.getElementById('jobs');
+
+function esc(s) { return (s || '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+btn.addEventListener('click', async () => {
+  const query = document.getElementById('query').value.trim();
+  if (!query) return;
+  tbody.innerHTML = '';
+  jobsEl.innerHTML = '';
+  statusEl.textContent = 'Searching…';
+  statusEl.className = '';
+  btn.disabled = true;
+  try {
+    const resp = await fetch('/api/search', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query }),
+    });
+    const data = await resp.json();
+    if (data.challenge) {
+      statusEl.textContent = 'BLOCKED_HUMAN_PERMISSION — Google presented a CAPTCHA/unusual-traffic challenge. Stopped, no bypass attempted.';
+      statusEl.className = 'blocked';
+      return;
+    }
+    statusEl.textContent = `Done. Method: ${data.method}. Organic results: ${data.organicResults.length}. Destinations opened: ${data.destinationsOpened.length}.`;
+    statusEl.className = 'ok';
+    for (const r of data.organicResults) {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td>${r.rank}</td><td>${esc(r.title)}</td><td>${esc(r.domain)}</td><td>${esc(r.snippet)}</td><td><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.url)}</a></td>`;
+      tbody.appendChild(tr);
+    }
+    const verified = data.destinationsOpened.filter((d) => d.verified);
+    if (verified.length === 0) {
+      jobsEl.textContent = 'No verified job postings among opened destinations.';
+    }
+    for (const j of verified) {
+      const div = document.createElement('div');
+      div.className = 'job-card';
+      div.innerHTML = `<h3>${esc(j.title)}</h3>
+        <div class="meta">Company: ${esc(j.company) || '(not extracted)'} | Location: ${esc(j.location) || '(not extracted)'}</div>
+        <div class="meta">Verification: ${esc(j.reason)} | Relevant: ${j.relevant ? 'yes' : 'no'} — ${esc(j.relevanceReason || '')}</div>
+        <div><a href="${esc(j.url)}" target="_blank" rel="noopener">${esc(j.url)}</a></div>`;
+      jobsEl.appendChild(div);
+    }
+  } catch (e) {
+    statusEl.textContent = 'Error: ' + e.message;
+    statusEl.className = 'blocked';
+  } finally {
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
