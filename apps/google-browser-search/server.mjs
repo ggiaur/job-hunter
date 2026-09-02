@@ -23,6 +23,10 @@ app.post('/api/search', async (req, res) => {
     res.status(400).json({ error: 'query is required' });
     return;
   }
+  if (query.length > 200) {
+    res.status(400).json({ error: 'query too long (max 200 chars) -- this app runs one short human-readable query, not a Boolean expression' });
+    return;
+  }
   try {
     const result = await performSearch(query);
     res.json(result);

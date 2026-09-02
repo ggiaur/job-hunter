@@ -4,7 +4,7 @@
 
 ## 1. Application
 
-- Commit SHA: this commit (`apps/google-browser-search/`)
+- Commit SHA: `51b376a01b26b7de3d5bd1ccfcb1270e8cfbd4a4` (`apps/google-browser-search/`)
 - Node: v24.19.0
 - Playwright package: 1.62.1 (npm), bundled Chromium
 - Launch mode: headless, Playwright-managed Chromium (persistent context)
@@ -56,6 +56,10 @@ Per the directive: no retry, no stealth/proxy/fingerprint-spoofing/CAPTCHA-solvi
 
 Even though PASS was not reached, the application is real and functional against non-challenged pages: `GET /health` correctly reports browser readiness, the UI correctly renders a challenge/blocked state distinctly from a normal empty-result state, and the deterministic extraction/filtering/relevance-reasoning logic (`lib/extract.mjs`) is unit-tested and passing (7/7, `npm test`) independent of the live Google blocker. The failure is specifically and only in reaching Google's search results page from this host, not in the application's ability to parse/verify/render results once obtained.
 
-## 6. Status
+## 6. Independent review addendum
+
+Codex independently reviewed this exact SHA (`docs/reviews/CODEX_GOOGLE_BROWSER_APP_REVIEW.md`): confirmed no hidden HTTP/Firecrawl/search-API path, hard budgets enforced in code, no evasion technique present, no production code touched, and the challenge-branch behavior is code-consistent with the reported evidence. Codex also flagged: (a) this file's original SHA placeholder ("this commit") -- now corrected above to the exact SHA; (b) a missing max-length guard on `POST /api/search` -- fixed in a follow-up commit (`server.mjs`, 200-char cap); (c) that its own sandbox's `npm test` run reported 1 passing top-level test-file result rather than 7 individual passes. I re-ran `npm test` independently, twice, outside Codex's sandbox, both times getting the same 7/7 pass output shown in section 5 -- this is very likely an environment/shell-globbing difference in Codex's sandbox (`tests/*.test.mjs` not expanding the same way), not a real defect in this repo's test command; noted here rather than silently dropped either way.
+
+## 7. Status
 
 `BLOCKED_HUMAN_PERMISSION` — not FAIL, per the directive's own classification (a real anti-automation challenge is a permission blocker, not a design failure). Two independent implementations (JH-SUP-0007's isolated PoC script and JH-SUP-0008's server-based application, different profiles, different code paths through the same underlying mechanism) both hit this same wall on the very first live request in each case.
