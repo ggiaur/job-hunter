@@ -10,7 +10,7 @@ SPRINT_1_STATUS: NOT_DONE
 blocker_class: null
 updated_at: "2026-09-03T20:30:00Z"
 updated_by: claude_active_orchestrator
-head_sha: d3c9985
+head_sha: 287a902
 evidence:
   - docs/evidence/SPRINT1_ONPREM_DOCKER_GATE0.md
   - apps/google-browser-search/evidence/gate0-2026-09-03T20-23-27-974Z.json
