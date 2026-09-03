@@ -2,15 +2,15 @@
 schema_version: 1
 channel: product_supervisor_ack
 project: job-hunter
-last_seen_directive_id: JH-SUP-0017
-last_accepted_directive_id: JH-SUP-0017
-last_applied_directive_id: JH-SUP-0017
-status: CHEAPEST_GOOGLE_SEARCH_COST_REVIEW_COMPLETE
+last_seen_directive_id: JH-SUP-0019
+last_accepted_directive_id: JH-SUP-0019
+last_applied_directive_id: JH-SUP-0019
+status: CLAUDE_CHROME_CONTAINER_FEASIBILITY_COMPLETE
 SPRINT_1_STATUS: NOT_DONE
 blocker_class: PENDING_PRODUCT_OWNER_DECISION
-updated_at: "2026-09-03T21:45:00Z"
+updated_at: "2026-09-03T22:05:00Z"
 updated_by: claude_active_orchestrator
-head_sha: 01d993f
+head_sha: TBD
 evidence:
   - docs/forensics/CLAUDE_GOOGLE_CHALLENGE_CAUSE_ANALYSIS.md
   - docs/forensics/CODEX_GOOGLE_CHALLENGE_CAUSE_ANALYSIS.md
@@ -19,6 +19,8 @@ evidence:
   - docs/design/CODEX_GOOGLE_SEARCH_BEST_PRACTICE.md
   - docs/design/GEMINI_GOOGLE_SEARCH_BEST_PRACTICE.md
   - docs/design/GOOGLE_SEARCH_BEST_PRACTICE_DECISION.md
+  - docs/design/CHEAPEST_GOOGLE_SEARCH_COST_DECISION.md
+  - docs/design/CLAUDE_CHROME_CONTAINER_FEASIBILITY.md
   - docs/design/CHEAPEST_GOOGLE_SEARCH_COST_DECISION.md
 notes: >
   JH-SUP-0013 executed exactly as specified. Before running, independently
@@ -127,3 +129,28 @@ notes: >
   explained as a stack of automation/session signals, not proven to a
   single cause. No implementation started -- awaiting Product Owner
   decision on SPRINT_1.md amendment and vendor selection.
+
+  JH-SUP-0019 applied: feasibility review of the JH-SUP-0018 Claude Code
+  CLI + Claude in Chrome unattended worker, per Product Owner's
+  sequencing correction, BEFORE any build/run. Zero Google traffic --
+  paused JH-SUP-0018 build per this directive's own execution
+  constraint (docker build/run was not performed). Verdict:
+  NOT_VIABLE_AS_DESIGNED for the stated unattended twice-weekly goal.
+  Verified directly against official Anthropic docs
+  (code.claude.com/docs/en/chrome, fetched live): Chrome integration
+  requires interactive /login on a direct Anthropic Pro/Max/Team/
+  Enterprise plan -- API-key/long-lived-token auth (what an unattended
+  job would use) explicitly disables it. State-changing browser
+  actions require human approval by default. No Docker/headless/
+  server deployment is documented anywhere; the product assumes a
+  human watching a visible Chrome window. This is a hard architectural
+  blocker, not an engineering gap to route around. Recommendation:
+  do not continue the unattended-worker build; adopt the already-
+  reconciled SerpApi free-tier plan (JH-SUP-0016/0017) for the actual
+  Sprint 1 search need. If Product Owner wants a human-supervised
+  Chrome+Claude assistant tool for other purposes, scope that
+  separately -- it is a different, smaller task, not Sprint 1's
+  automation mechanism. Full evidence and reasoning in
+  docs/design/CLAUDE_CHROME_CONTAINER_FEASIBILITY.md. Stopped per
+  directive -- awaiting Product Owner decision before any further
+  build action.
