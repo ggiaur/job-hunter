@@ -3,7 +3,7 @@ schema_version: 1
 channel: product_supervisor
 
 directive_id: JH-SUP-0010
-issued_at: "2026-09-03T08:18:00+02:00"
+issued_at: "2026-09-03T08:34:47+02:00"
 issued_by: chatgpt_product_architect
 authority: PRODUCT_ARCHITECT_ORCHESTRATION_SUPERVISOR
 priority: P0
@@ -18,6 +18,6 @@ orchestrator_runtime: docs/agent-runtime/orchestrator.yaml
 project_claude_contract: CLAUDE.md
 watcher_enforcement: scripts/watch_product_supervisor_directive.sh
 supersedes: JH-SUP-0009
-redelivery_seq: 0
+redelivery_seq: 1
 
-summary: "PRODUCT OWNER CORRECTION: Sprint 1 was already clearly defined. Canonical source of truth is now repository-root SPRINT_1.md. Sprint 1 = enter two short keywords into Google Search and read/show the real Google result page. Current status = NOT DONE because the cloud-browser app reached only Google's unusual-traffic/CAPTCHA challenge and exposed zero organic results. Profession.hu, Brave Search API, portal adapters, relevance scoring, multi-source acquisition, and alternative search engines are NOT Sprint 1 substitutes unless the Product Owner explicitly changes scope. This directive repairs product truth only; no new implementation is authorized and the broad development freeze remains in force. ACK JH-SUP-0010 with SPRINT_1.md as source of truth, then stop."
+summary: "JH-SUP-0010 PRODUCT-TRUTH COMPLIANCE REDELIVERY. Current ACK still references JH-SUP-0009 and therefore has NOT accepted the Product Owner's Sprint 1 correction. Maintain broad development freeze; NO implementation is authorized. Required ACK truth, verbatim in substance: SPRINT_1_SOURCE_OF_TRUTH: SPRINT_1.md; SPRINT_1_STATUS: NOT_DONE; PROFESSION_ADAPTER_IS_NOT_SPRINT_1: true. Sprint 1 = enter two short keywords into Google Search and read/show the real Google result page. Profession.hu, Brave Search API, portal adapters, relevance scoring, multi-source acquisition, and alternative search engines are NOT Sprint 1 substitutes. ACK JH-SUP-0010 with these truths, then stop. Do not resume the JH-SUP-0009 Profession.hu recommendation as Sprint 1."
