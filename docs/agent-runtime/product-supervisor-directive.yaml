@@ -2,8 +2,8 @@
 schema_version: 1
 channel: product_supervisor
 
-directive_id: JH-SUP-0017
-issued_at: "2026-09-03T23:26:00+02:00"
+directive_id: JH-SUP-0018
+issued_at: "2026-09-03T23:31:00+02:00"
 issued_by: chatgpt_product_architect
 authority: PRODUCT_ARCHITECT_ORCHESTRATION_SUPERVISOR
 priority: P0
@@ -11,13 +11,13 @@ status: ACTIVE
 requires_ack: true
 execute_immediately: true
 interrupt_current_work: true
-instruction_file: docs/agent-directives/JH-SUP-0017-CHEAPEST-GOOGLE-SEARCH-COST-REVIEW.md
+instruction_file: docs/agent-directives/JH-SUP-0018-CLAUDE-CHROME-WORKER-CONTAINER.md
 ack_file: docs/agent-runtime/product-supervisor-ack.yaml
 continuity_policy: docs/EXECUTION_CONTINUITY_POLICY.md
 orchestrator_runtime: docs/agent-runtime/orchestrator.yaml
 project_claude_contract: CLAUDE.md
 watcher_enforcement: scripts/watch_product_supervisor_directive.sh
-supersedes: JH-SUP-0016
+supersedes: JH-SUP-0017
 redelivery_seq: 0
 
-summary: "P0 targeted cost review. Claude MUST explicitly ask Gemini what is the cheapest good solution for ~8-10 automated Google-derived searches/month with title+URL, no corporate-IP risk and no anti-bot bypass. Compare Gemini API Google Search grounding, SerpApi, Zenserp, Serper, SearchAPI.io and Google WSS; distinguish raw SERP semantics from grounding citations; resolve exact free/minimum costs; answer Google-account/login and Incognito-vs-Playwright questions. ZERO new automated google.com/search traffic. Produce cheapest-first decision and ACK only after Claude + Gemini answers."
+summary: "P0 IMPLEMENTATION: build and locally validate on the actual on-prem Ubuntu server the committed apps/claude-chrome-worker container: Claude Code CLI + official google-chrome-stable + official Anthropic Claude in Chrome extension + persistent profile + GUI/noVNC. This intentionally replaces Playwright-managed Chromium with the same normal-Chrome control model already observed working on a user workstation. Validate only against the container-local test page and preserve evidence. HARD SAFETY: ZERO automated google.com/search requests under this directive; JH-SUP-0014 corporate-IP hard stop remains binding. If the sole remaining step is unavoidable one-time Anthropic interactive sign-in/permission, report BLOCKED_HUMAN_PERMISSION after completing all other build validation."
