@@ -2,10 +2,10 @@
 schema_version: 1
 channel: product_supervisor_ack
 project: job-hunter
-last_seen_directive_id: JH-SUP-0013
-last_accepted_directive_id: JH-SUP-0013
-last_applied_directive_id: JH-SUP-0013
-status: SPRINT1_ONPREM_DOCKER_GATE0_FAIL
+last_seen_directive_id: JH-SUP-0014
+last_accepted_directive_id: JH-SUP-0014
+last_applied_directive_id: JH-SUP-0014
+status: ONPREM_GOOGLE_TRAFFIC_HARD_STOP_APPLIED
 SPRINT_1_STATUS: NOT_DONE
 blocker_class: null
 updated_at: "2026-09-03T20:30:00Z"
@@ -54,3 +54,12 @@ notes: >
   user separately raised the same corporate-network-reputation concern
   directly in chat; confirmed to them no further automated Google
   request will run without explicit new authorization.
+
+  JH-SUP-0014 applied: hard stop on all further automated Google traffic
+  from 78.131.58.101 (secure.vmk.hu / AS20845 DIGI) until explicit new
+  Product Owner authorization. No scheduled/cron/systemd Job Hunter
+  Google test existed to disable (checked: crontab -l and systemctl
+  list-timers, none found referencing gate0). run-gate0-onprem.sh has
+  not been and will not be run again absent new authorization.
+  JH-SUP-0013 evidence preserved unchanged. Broad development freeze
+  remains in force.
