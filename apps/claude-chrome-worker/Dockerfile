@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 \
     procps \
     tini \
+    x11-utils \
     x11vnc \
     xvfb \
     novnc \
