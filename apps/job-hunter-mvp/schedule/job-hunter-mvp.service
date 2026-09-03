@@ -1,0 +1,12 @@
+[Unit]
+Description=Job Hunter MVP - run the tested SerpApi search+extract+score pipeline
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=dockeruser
+WorkingDirectory=/srv/projects/job-hunter/apps/job-hunter-mvp
+ExecStart=/usr/bin/node /srv/projects/job-hunter/apps/job-hunter-mvp/run.mjs
+# Reads /home/dockeruser/.job-hunter-secrets/serpapi.env directly; no secret is
+# passed on the command line or logged by systemd.

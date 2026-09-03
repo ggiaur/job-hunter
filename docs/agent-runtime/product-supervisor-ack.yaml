@@ -2,15 +2,15 @@
 schema_version: 1
 channel: product_supervisor_ack
 project: job-hunter
-last_seen_directive_id: JH-SUP-0021
-last_accepted_directive_id: JH-SUP-0021
-last_applied_directive_id: JH-SUP-0021
-status: SERPAPI_LIVE_PROOF_PASS
+last_seen_directive_id: JH-SUP-0022
+last_accepted_directive_id: JH-SUP-0022
+last_applied_directive_id: JH-SUP-0022
+status: REAL_JOB_HUNTER_MVP_PASS
 SPRINT_1_STATUS: NOT_DONE
 blocker_class: null
-updated_at: "2026-09-03T22:42:00Z"
+updated_at: "2026-09-04T01:20:00Z"
 updated_by: claude_active_orchestrator
-head_sha: 44440f4
+head_sha: TBD
 evidence:
   - docs/forensics/CLAUDE_GOOGLE_CHALLENGE_CAUSE_ANALYSIS.md
   - docs/forensics/CODEX_GOOGLE_CHALLENGE_CAUSE_ANALYSIS.md
@@ -23,6 +23,8 @@ evidence:
   - docs/design/CLAUDE_CHROME_CONTAINER_FEASIBILITY.md
   - docs/evidence/SERPAPI_LIVE_PROOF_CEGINFO_VMK.md
   - docs/evidence/SERPAPI_CEGINFO_VMK_LIVE_PROOF.md
+  - docs/evidence/REAL_JOB_HUNTER_MVP_LIVE_RUN.md
+  - docs/evidence/real-job-hunter-mvp-live-run.json
   - docs/evidence/serpapi-ceginfo-vmk-live-proof.json
   - docs/design/CHEAPEST_GOOGLE_SEARCH_COST_DECISION.md
 notes: >
@@ -214,3 +216,34 @@ notes: >
   Plan tier (Free vs paid) not independently confirmed -- would
   require SerpApi dashboard access this session doesn't have. User
   has stated intent to rotate this key after testing.
+
+  JH-SUP-0022 PASS: built and ran the real Job Hunter MVP end-to-end
+  (apps/job-hunter-mvp/). 7 persona-derived queries via SerpApi, 52
+  unique candidate URLs, verified individual job ads via schema.org/
+  JobPosting structured data (not text heuristics -- an earlier
+  heuristic version misclassified job-board listing/category pages
+  as individual ads, caught and fixed before reporting results).
+  Fixed two real bugs found during this run: (1) HTML entities
+  double-encoded by LinkedIn's JSON-LD were being re-created as raw
+  tags/text by stripHtml's original decode order, fixed by decoding
+  before tag-stripping; (2) added a hard position-relevance gate
+  after the first pass accepted irrelevant roles (HR/recruiting,
+  marketing, senior IC) that only appeared because they shared a
+  career-page listing with a real IT-leadership match. Final result:
+  10 accepted real job ads (>= 3 required), each with verified title/
+  company/location/URL/description-derived fit rationale, ranked
+  best-first; English hard-exclusion demonstrated firing correctly
+  on one advanced-English listing; PM titles without management
+  scope demoted per Product Owner's learned_preferences.md
+  refinement. Zero google.com/search traffic -- SerpApi only. Zero
+  invented facts -- unknown fields marked as such. SerpApi key
+  remains outside git (/home/dockeruser/.job-hunter-secrets/
+  serpapi.env), confirmed absent from all evidence and app code.
+  Twice-weekly systemd timer definition added at apps/job-hunter-mvp/
+  schedule/ but deliberately NOT installed/enabled -- activating
+  recurring unattended API usage is a Product Owner decision, not a
+  silent side effect of this MVP run. SPRINT_1.md formal status
+  explicitly left unchanged per this directive's own instruction --
+  that remains a separate, still-open Product Owner decision.
+  Evidence: docs/evidence/REAL_JOB_HUNTER_MVP_LIVE_RUN.md and
+  docs/evidence/real-job-hunter-mvp-live-run.json.

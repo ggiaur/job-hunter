@@ -1,0 +1,1145 @@
+{
+  "generatedAt": "2026-09-03T23:11:23.681Z",
+  "queries": [
+    "IT vezető állás Budapest",
+    "informatikai vezető állás Budapest",
+    "IT osztályvezető állás Budapest",
+    "infrastruktúra vezető állás Budapest",
+    "IT projektmenedzser állás Budapest",
+    "digitalizációs vezető állás Budapest",
+    "AI transzformációs vezető állás Budapest"
+  ],
+  "totalSerpResults": 67,
+  "uniqueCandidateUrls": 52,
+  "confirmedJobAdPages": 50,
+  "unreachableCount": 80,
+  "accepted": [
+    {
+      "title": "IT biztonsági Osztályvezető",
+      "company": "GRÁNIT Bank Nyrt.",
+      "url": "https://www.profession.hu/allas/it-biztonsagi-osztalyvezeto-granit-bank-nyrt-budapest-2989264?keyword=it%2Boszt%25C3%25A1lyvezet%25C5%2591&hash=712020771380dc167c2205e9025c0b8d",
+      "source": "www.profession.hu",
+      "matchedQuery": "IT osztályvezető állás Budapest",
+      "locationText": "remote/telecommute",
+      "remoteOrHybrid": true,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "Milyen feladatok várnak Rád?\nAz informatikai biztonsági terület irányítása, a beosztottak koordinálása,Az ISO szerepkör betöltése,Informatikai biztonsági szabályozási rendszer fejlesztése valamint karbantartása,Az informatikai kockázatkezelési folyamatok fenntartásaKockázatok felmérése, értékelése és kezelése,Fejlesztések, projektek IT biztonsági szempontú véleményezése,Fejlesztésekkel szemben támasztott IT Biztonsági követelmények meghatározása és ellenőrzése,IT Biztonsági incidensek kezelésébe",
+      "employmentType": "Alkalmazotti jogviszony",
+      "datePosted": "2026-09-01",
+      "validThrough": "2026-10-02T01:07:21",
+      "score": 80
+    },
+    {
+      "title": "IT Manager (m/f/d) | CAIP Hungary",
+      "company": "WAY Group",
+      "url": "https://hu.linkedin.com/jobs/view/it-manager-m-f-d-caip-hungary-at-way-group-4462161743?position=1&pageNum=0&refId=eSEr66t4Lgb28LbGf1xXhQ%3D%3D&trackingId=jBGMXiV%2FXMNXolrCTy%2B3iw%3D%3D",
+      "source": "hu.linkedin.com",
+      "matchedQuery": "IT vezető állás Budapest",
+      "locationText": "Nyíregyháza, HU",
+      "remoteOrHybrid": false,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "IT Manager (m/f/d) | CAIP Hungary \n \n CAIP Group is a global Tier 1 automotive supplier for premium interior components — instrument panels, door panels, and decorative trims — for leading European OEMs. As part of our European expansion we are building a new manufacturing facility in Nyíregyháza.\n There is no IT landscape here yet. You will build it: infrastructure, core systems, security architecture, and the local IT organization. What you decide in the first year will run the plant for the n",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-09-02T10:44:05.000Z",
+      "validThrough": "2026-10-02T10:44:05.000Z",
+      "score": 75
+    },
+    {
+      "title": "Cloud Operations Manager",
+      "company": "ProcessHunt Kft.",
+      "url": "https://hu.linkedin.com/jobs/view/cloud-operations-manager-at-processhunt-kft-4444017162?position=1&pageNum=0&refId=b5yGP14mxPy2B%2F0EN8SRmw%3D%3D&trackingId=adXum2TnZlB7jdoHseQiag%3D%3D",
+      "source": "hu.linkedin.com",
+      "matchedQuery": "infrastruktúra vezető állás Budapest",
+      "locationText": "Budapest, HU",
+      "remoteOrHybrid": true,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "Nemzetközi technológiai környezetbe keresünk Cloud Operations Manager szakembert, aki vezető szerepet vállal a vállalat multi-cloud (AWS / Azure és egyéb enterprise felhő) környezeteinek üzemeltetésében, automatizálásában és költségoptimalizálásában. A pozíció technikai vezetői szerepkör, amelyben a felhős infrastruktúra stabilitása, biztonsága, skálázhatósága és költséghatékonysága egyaránt kiemelt fókusz.\n Főbb feladatok\n Multi-cloud infrastruktúrák üzemeltetése és stratégiai fejlesztése\n Infr",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-07-23T19:21:59.000Z",
+      "validThrough": "2026-09-18T19:23:20.000Z",
+      "score": 65
+    },
+    {
+      "title": "application middleware platform infrastructure lead",
+      "company": "K&H Csoport",
+      "url": "https://hu.linkedin.com/jobs/view/application-middleware-platform-infrastructure-lead-at-k-h-csoport-4459695877?position=3&pageNum=0&refId=b5yGP14mxPy2B%2F0EN8SRmw%3D%3D&trackingId=lHeCcuMxTH2gIb0zYu0ePw%3D%3D",
+      "source": "hu.linkedin.com",
+      "matchedQuery": "infrastruktúra vezető állás Budapest",
+      "locationText": "Budapest, HU",
+      "remoteOrHybrid": true,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "feladatok, amik rád várnak:\nAz Application Middleware Platform Infrastructure csapat élére olyan, nagyvállalati környezetben tapasztalatot szerzett csoportvezetőt keresünk, aki szakmailag és vezetőként is képes támogatni a middleware infrastruktúra stabil, biztonságos és hatékony üzemeltetését.\nFőbb feladatok:\n Az Application Middleware Platform Infrastructure (AS_INFRA) üzemeltetési csoport szakmai és operatív irányítása\n A munkatársak feladatainak tervezése, priorizálása és koordinálása\n Middl",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-08-27T12:39:21.000Z",
+      "validThrough": "2026-09-26T12:39:21.000Z",
+      "score": 65
+    },
+    {
+      "title": "Engineering Manager - Infrastructure",
+      "company": "Camunda",
+      "url": "https://hu.linkedin.com/jobs/view/engineering-manager-infrastructure-at-camunda-4431968290?position=5&pageNum=0&refId=b5yGP14mxPy2B%2F0EN8SRmw%3D%3D&trackingId=OH4vmcf%2BZV3PmUYRP3xu4g%3D%3D",
+      "source": "hu.linkedin.com",
+      "matchedQuery": "infrastruktúra vezető állás Budapest",
+      "locationText": "Budapest Metropolitan Area, HU",
+      "remoteOrHybrid": true,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "Camunda is the enterprise platform for agentic orchestration , enabling organizations to coordinate AI agents, people, and systems across complex, end-to-end business processes. With built-in governance, auditability, and human oversight, Camunda gives enterprises the control they need to move AI from pilots to production — safely and at scale. Trusted by over 700 organizations worldwide , including 9 of top 10 US banks, Camunda helps enterprises boost operational efficiency, accelerate time-to-",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-09-02T13:02:08.000Z",
+      "validThrough": "2026-10-28T16:50:45.000Z",
+      "score": 65
+    },
+    {
+      "title": "IT Manager",
+      "company": "Howmet Aerospace",
+      "url": "https://hu.linkedin.com/jobs/view/it-manager-at-howmet-aerospace-4437680644?position=2&pageNum=0&refId=eSEr66t4Lgb28LbGf1xXhQ%3D%3D&trackingId=sNESVRY0s5jr%2FkvoU90ATw%3D%3D",
+      "source": "hu.linkedin.com",
+      "matchedQuery": "IT vezető állás Budapest",
+      "locationText": "Székesfehérvár, HU",
+      "remoteOrHybrid": false,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "Responsibilities\n Ebben a pozícióban három kulcsfontosságú területet fogsz összehangolni.\n Információbiztonság:\n A szervezeti szintű információbiztonsági szabályzat (EIR) bevezetése, koordinálása és fejlesztése. \n Kockázatmenedzsment keretrendszer működtetése és kiberbiztonsági incidensek kezelése. \n Kapcsolattartás a kiberbiztonsági incidenskezelő központtal és döntéselőkészítés a védelmi rendszerek kapcsán. \n ISO27001 és TISAX megfelelés folyamatos biztosítása. \n Regionális Service Delivery Ma",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-08-27T14:44:01.000Z",
+      "validThrough": "2026-10-12T13:44:24.000Z",
+      "score": 60
+    },
+    {
+      "title": "Rendszermérnök Csoportvezető",
+      "company": "WHC Ltd",
+      "url": "https://hu.linkedin.com/jobs/view/rendszerm%C3%A9rn%C3%B6k-csoportvezet%C5%91-at-whc-ltd-4453597605?position=2&pageNum=0&refId=b5yGP14mxPy2B%2F0EN8SRmw%3D%3D&trackingId=oYbuAmVOFg%2FIKGc6QKv3VA%3D%3D",
+      "source": "hu.linkedin.com",
+      "matchedQuery": "infrastruktúra vezető állás Budapest",
+      "locationText": "Budapest, HU",
+      "remoteOrHybrid": false,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "Feladatok\n Rendszermérnökök és rendszerintegrációs szakemberek csapatának hatékony, átlátható működtetése\n Éves célok kidolgozása, jóváhagyatása és teljesülésük biztosítása\n Együttműködés belső egységekkel és külső partnerekkel, koordináció ellátása\n Részvétel vállalati és IT-projektekben\n Csapattagok motiválása, fejlesztése teljesítményalapú jutalmazás támogatása\n Szabályzatok és jogszabályok betartása és betartatása\n Központi IT infrastruktúra üzemeltetésének, karbantartásának és fejlesztéséne",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-08-14T16:53:08.000Z",
+      "validThrough": "2026-09-13T16:53:08.000Z",
+      "score": 60
+    },
+    {
+      "title": "Machine Learning Engineering Manager",
+      "company": "Signifyd",
+      "url": "https://hu.linkedin.com/jobs/view/machine-learning-engineering-manager-at-signifyd-4455924919?position=3&pageNum=0&refId=WwBtJmYWp2P7gUnSWd6HMQ%3D%3D&trackingId=FpQ%2FpSbPSrppHomiT3byUw%3D%3D",
+      "source": "hu.linkedin.com",
+      "matchedQuery": "AI transzformációs vezető állás Budapest",
+      "locationText": "Budapest, HU",
+      "remoteOrHybrid": false,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "At Signifyd, we help merchants confidently grow their businesses by building trusted relationships with their customers. Our advanced technology, combined with a team genuinely invested in our clients’ success, creates frictionless shopping experiences, approving more good orders, protecting revenue, and keeping customers happy.\nTrusted by thousands of leading merchants across more than 100 countries, we securely process billions of transactions each year. Our people are the heart of everything ",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-08-18T19:31:35.000Z",
+      "validThrough": "2026-09-17T19:31:35.000Z",
+      "score": 45
+    },
+    {
+      "title": "Projektmenedzser (PMO)",
+      "company": "Indotek Group",
+      "url": "https://www.profession.hu/allas/projektmenedzser-pmo-indotek-group-2971959?keyword=projektmenedzser&hash=01eb7e23930475f689c7fc28c7497f36",
+      "source": "www.profession.hu",
+      "matchedQuery": "IT projektmenedzser állás Budapest",
+      "locationText": "Budapest, Budapest, HU",
+      "remoteOrHybrid": false,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "AMIT MI VÁRUNK TŐLED\nKomplex beruházási és fejlesztési projektek teljes körű menedzselése az előkészítéstől a lezárásigProject-keretek tervezése, felhasználásának követése és előrejelzéseKockázatok azonosítása, kezelése és eszkalációjaStakeholderek – tulajdonosi kör, szakmai vezetők, külső partnerek – összehangolásaRendszeres vezetői riportok és dashboardok készítése, adatszolgáltatás a portfólió-felülvizsgálatokhozAktív hozzájárulás az újonnan létrehozott PMO módszertanának és eszközeinek kiala",
+      "employmentType": "Alkalmazotti jogviszony",
+      "datePosted": "2026-09-04",
+      "validThrough": "2026-09-11T01:11:15",
+      "scoringNote": "Projektmenedzseri cím vezetői felelősség jele nélkül — vezetői találatok mögé sorolva.",
+      "score": 35
+    },
+    {
+      "title": "Senior IT projektmenedzser",
+      "company": "EN-CO Software Zrt.",
+      "url": "https://www.profession.hu/allas/senior-it-projektmenedzser-en-co-software-zrt-budapest-2974271?keyword=it%2Bprojektmenedzser&hash=b861e9fe8a97753c26467bd126a7c5da",
+      "source": "www.profession.hu",
+      "matchedQuery": "IT projektmenedzser állás Budapest",
+      "locationText": "remote/telecommute",
+      "remoteOrHybrid": true,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "Főbb feladatok, munkák:\nSzoftverfejlesztési projektek teljes életciklusának vezetése az indítástól a lezárásigProjekttervek, ütemezések, mérföldkövek és teljesítési feltételek kialakítása és karbantartásaA projekt scope-, határidő-, költség- és erőforráskereteinek kezelése és nyomon követéseKockázatok, problémák és függőségek azonosítása, kezelése és eszkalációjaChange Requestek és projektváltozások hatásvizsgálatának, döntési folyamatának koordinálásaKapcsolattartás az ügyféllel és az érintette",
+      "employmentType": "Alkalmazotti jogviszony",
+      "datePosted": "2026-08-31",
+      "validThrough": "2026-09-13T01:11:17",
+      "scoringNote": "Projektmenedzseri cím vezetői felelősség jele nélkül — vezetői találatok mögé sorolva.",
+      "score": 30
+    }
+  ],
+  "rejected": [
+    {
+      "title": "IT Rendszerszervező (ügyfélkiszolgáló rendszerek)",
+      "company": "Alfa Vienna Insurance Group Zrt.",
+      "url": "https://www.profession.hu/allas/it-rendszerszervezo-ugyfelkiszolgalo-rendszerek-alfa-vienna-insurance-group-biztosito-zrt-budapest-2976785?keyword=it%2Bvezet%25C5%2591&hash=1ded5f1f13c1d1785e23309c5641c138",
+      "source": "www.profession.hu",
+      "matchedQuery": "IT vezető állás Budapest",
+      "locationText": "remote/telecommute",
+      "remoteOrHybrid": true,
+      "englishRequirement": "basic/intermediate (not disqualifying)",
+      "keyDuties": "Amiben SZÁMÍTUNK RÁD\na Biztosító ügyfélkiszolgáló alkalmazásaival kapcsolatos üzleti igények részletes megismerése és feldolgozása\negyüttműködés, kapcsolattartás és szinkronizáció az üzleti területekkel, üzleti igényelemzőkkel\negyszerűbb, vagy összetetteb integrált alkalmazások E2E fejlesztésének előkészítése, tervezése, szükséges erőforrások becslése\nüzleti igényekhez kapcsolódó IT specifikációk elkészítése\nBacklog kezelése, Epic-ek, User story-k, tervezési, fejlesztési, dokumentációs és hibaka",
+      "employmentType": "unknown",
+      "datePosted": "2026-09-04",
+      "validThrough": "2026-09-17T01:11:10",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "IT Rendszerszervező (ügyfélkiszolgáló rendszerek)",
+      "company": "Alfa Vienna Insurance Group Zrt.",
+      "url": "https://www.profession.hu/allas/it-rendszerszervezo-ugyfelkiszolgalo-rendszerek-alfa-vienna-insurance-group-biztosito-zrt-budapest-2976785?keyword=informatikai%2Bvezet%25C5%2591&hash=1d56230546cf0470e9eb81da45a2b225",
+      "source": "www.profession.hu",
+      "matchedQuery": "IT vezető állás Budapest",
+      "locationText": "remote/telecommute",
+      "remoteOrHybrid": true,
+      "englishRequirement": "basic/intermediate (not disqualifying)",
+      "keyDuties": "Amiben SZÁMÍTUNK RÁD\na Biztosító ügyfélkiszolgáló alkalmazásaival kapcsolatos üzleti igények részletes megismerése és feldolgozása\negyüttműködés, kapcsolattartás és szinkronizáció az üzleti területekkel, üzleti igényelemzőkkel\negyszerűbb, vagy összetetteb integrált alkalmazások E2E fejlesztésének előkészítése, tervezése, szükséges erőforrások becslése\nüzleti igényekhez kapcsolódó IT specifikációk elkészítése\nBacklog kezelése, Epic-ek, User story-k, tervezési, fejlesztési, dokumentációs és hibaka",
+      "employmentType": "unknown",
+      "datePosted": "2026-09-04",
+      "validThrough": "2026-09-17T01:07:19",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "IT Manager (Production Environment)",
+      "company": "🔹Future Talents Consulting Kft.🔹",
+      "url": "https://hu.linkedin.com/jobs/view/it-manager-production-environment-at-%F0%9F%94%B9future-talents-consulting-kft-%F0%9F%94%B9-4452427324?position=3&pageNum=0&refId=eSEr66t4Lgb28LbGf1xXhQ%3D%3D&trackingId=7W9qyCROY7aqr3U89c36wQ%3D%3D",
+      "source": "hu.linkedin.com",
+      "matchedQuery": "IT vezető állás Budapest",
+      "locationText": "Veszprém, HU",
+      "remoteOrHybrid": false,
+      "englishRequirement": "advanced/fluent/native (EXCLUDING)",
+      "keyDuties": "Our partner is a stable, internationally operating manufacturing company where IT plays a strategic role in supporting business operations and driving continuous digital transformation.\n \n We are currently looking for an IT Manager who is not only comfortable leading an IT function but is also motivated to actively shape and improve the way the organization operates. We are looking for a hands-on professional who can inspire, develop and lead a small team of experienced IT specialists while rema",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-08-11T09:39:59.000Z",
+      "validThrough": "2026-09-10T09:39:59.000Z",
+      "reason": "Kizárva: felsőfokú/tárgyalásképes/anyanyelvi szintű angol nyelvtudás kötelező"
+    },
+    {
+      "title": "IT-igazgató",
+      "company": "wherewework Jobs",
+      "url": "https://hu.linkedin.com/jobs/view/it-igazgat%C3%B3-at-wherewework-jobs-4460272644?position=4&pageNum=0&refId=eSEr66t4Lgb28LbGf1xXhQ%3D%3D&trackingId=FrJrh2Rr9K27BNi0DuB7TA%3D%3D",
+      "source": "hu.linkedin.com",
+      "matchedQuery": "IT vezető állás Budapest",
+      "locationText": "Debrecen, HU",
+      "remoteOrHybrid": false,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "wherewework.hu a\n Technology &amp; Software Employers in Hungary\n nevében\nÉrdeklik a(z) IT-igazgató állások Magyarország területén? Jó helyen jár.\nA részlegvezetői és igazgatói szerepek a Magyarország technológiai piac csúcsán állnak, jelentős funkciókat irányítva multinacionális cégeknél és növekvő magyar vállalatoknál. Debrecen egy növekvő regionális technológiai központ, ahol egyre több munkalehetőség érhető el. A javadalmazás tükrözi a hatókört és a bizonyított vezetők ritkaságát.\nA továbblé",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-09-01T11:24:44.000Z",
+      "validThrough": "2026-09-30T23:25:03.000Z",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "Employer Brand Manager",
+      "company": "NIX",
+      "url": "https://nixstech.com/hu/career/employer-brand-manager/",
+      "source": "nixstech.com",
+      "matchedQuery": "IT osztályvezető állás Budapest",
+      "locationText": "Budapest, Hungary",
+      "remoteOrHybrid": false,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "A NIX Employer Brand Manager munkakört keres Budapesten. Jelentkezzen nyílt állásra egy nemzetközi informatikai cégnél!",
+      "employmentType": "unknown",
+      "datePosted": "2026-05-13",
+      "validThrough": "unknown",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "Junior IT Toborzó",
+      "company": "NIX",
+      "url": "https://nixstech.com/hu/career/junior-it-toborzo/",
+      "source": "nixstech.com",
+      "matchedQuery": "IT osztályvezető állás Budapest",
+      "locationText": "Budapest, Hungary",
+      "remoteOrHybrid": false,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "A NIX Junior IT Toborzó munkakört keres Budapesten. Jelentkezzen nyílt állásra egy nemzetközi informatikai cégnél!",
+      "employmentType": "unknown",
+      "datePosted": "2025-07-04",
+      "validThrough": "unknown",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "Senior Data Engineer",
+      "company": "NIX",
+      "url": "https://nixstech.com/hu/career/senior-data-engineer/",
+      "source": "nixstech.com",
+      "matchedQuery": "IT osztályvezető állás Budapest",
+      "locationText": "Budapest, Hungary",
+      "remoteOrHybrid": false,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "A NIX Senior Data Engineer munkakört keres Budapesten. Jelentkezzen nyílt állásra egy nemzetközi informatikai cégnél!",
+      "employmentType": "unknown",
+      "datePosted": "2025-06-27",
+      "validThrough": "unknown",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "Medior Data Engineer",
+      "company": "NIX",
+      "url": "https://nixstech.com/hu/career/medior-data-engineer/",
+      "source": "nixstech.com",
+      "matchedQuery": "IT osztályvezető állás Budapest",
+      "locationText": "Budapest, Hungary",
+      "remoteOrHybrid": false,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "A NIX Medior Data Engineer munkakört keres Budapesten. Jelentkezzen nyílt állásra egy nemzetközi informatikai cégnél!",
+      "employmentType": "unknown",
+      "datePosted": "2025-06-26",
+      "validThrough": "unknown",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "Osztályvezető (vevőszolgálat) - Soroksári út",
+      "company": "OBI Hungary Retail Kft.",
+      "url": "https://www.profession.hu/allas/osztalyvezeto-vevoszolgalat-soroksari-ut-obi-hungary-retail-kft-budapest-2990371?keyword=oszt%25C3%25A1lyvezet%25C5%2591&hash=b2f5258ab40ecc9af03cf2bbd485022a",
+      "source": "www.profession.hu",
+      "matchedQuery": "IT osztályvezető állás Budapest",
+      "locationText": "Budapest, Budapest, HU",
+      "remoteOrHybrid": false,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "Főbb feladatok, munkák:\nBiztosítod a zavartalan kereskedelmi folyamatokat az áruház teljes területére vonatkozóanIrányítod, koordinálod és ellenőrzöd az áruházi kollégák eladótéri munkáját és vevőorientációjátA lehető legnagyobb forgalmat éred el az értékesítés fejlesztésévelFolyamatosan ellenőrzöd a vevőkiszolgálás minőségétBiztosítod a készletgazdálkodás, árufeltöltés gördülékenységétBiztosítod a kihelyezési sztenderdek megvalósításátHatékonyan megszervezed a munkaidő-beosztást a hatályos munk",
+      "employmentType": "Alkalmazotti jogviszony",
+      "datePosted": "2026-09-02",
+      "validThrough": "2026-10-03T01:11:13",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "IT Infrastruktúra Üzemeltető",
+      "company": "Magyar Vagon Business Solutions Kft.",
+      "url": "https://www.profession.hu/allas/it-infrastruktura-uzemelteto-magyar-vagon-business-solutions-kft-budapest-2990038?keyword=infrastrukt%25C3%25BAra%2Bvezet%25C5%2591&hash=134090b0bc20e86e2ceebc4f1c00e8d2",
+      "source": "www.profession.hu",
+      "matchedQuery": "infrastruktúra vezető állás Budapest",
+      "locationText": "Budapest, Budapest, HU",
+      "remoteOrHybrid": false,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "Feladatok:\nWindows és Linux szerverek üzemeltetése; AD, DNS, DHCP, GPO kezelés,Virtualizációs platformok működtetése (VMware / Hyper-V / Proxmox),Szerverhardverek, tárolók, backup rendszerek és monitoring felügyelete,Alap hálózati üzemeltetés: switch/router/WiFi, VPN adminisztráció, tűzfalszabályok módosítása,L2 desktop támogatás: munkaállomások, szoftverek, O365 (Outlook, Teams, OneDrive),Incidenskezelés és szolgáltatáskérések kezelése Jira-ban, SLA-k betartása,Üzemeltetési dokumentációk, SOP-k",
+      "employmentType": "Alkalmazotti jogviszony",
+      "datePosted": "2026-09-02",
+      "validThrough": "2026-10-03T01:11:13",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "IT Infrastruktúra Üzemeltető",
+      "company": "Magyar Vagon Business Solutions Kft.",
+      "url": "https://www.profession.hu/allas/it-infrastruktura-uzemelteto-magyar-vagon-business-solutions-kft-budapest-2990038?keyword=infrastrukt%25C3%25BAra%2B%25C3%25BCzemeltet%25C3%25A9si%2Bvezet%25C5%2591&hash=aeaddb69e707415231bd19b2ba34ac0c",
+      "source": "www.profession.hu",
+      "matchedQuery": "infrastruktúra vezető állás Budapest",
+      "locationText": "Budapest, Budapest, HU",
+      "remoteOrHybrid": false,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "Feladatok:\nWindows és Linux szerverek üzemeltetése; AD, DNS, DHCP, GPO kezelés,Virtualizációs platformok működtetése (VMware / Hyper-V / Proxmox),Szerverhardverek, tárolók, backup rendszerek és monitoring felügyelete,Alap hálózati üzemeltetés: switch/router/WiFi, VPN adminisztráció, tűzfalszabályok módosítása,L2 desktop támogatás: munkaállomások, szoftverek, O365 (Outlook, Teams, OneDrive),Incidenskezelés és szolgáltatáskérések kezelése Jira-ban, SLA-k betartása,Üzemeltetési dokumentációk, SOP-k",
+      "employmentType": "Alkalmazotti jogviszony",
+      "datePosted": "2026-09-02",
+      "validThrough": "2026-10-03T01:11:13",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "Information Technology Operations Team Lead",
+      "company": "Capsys Financial Technologies Ltd.",
+      "url": "https://hu.linkedin.com/jobs/view/information-technology-operations-team-lead-at-capsys-financial-technologies-ltd-4452479024?position=4&pageNum=0&refId=b5yGP14mxPy2B%2F0EN8SRmw%3D%3D&trackingId=we1qdrBrnuBstaToGHU%2FOw%3D%3D",
+      "source": "hu.linkedin.com",
+      "matchedQuery": "infrastruktúra vezető állás Budapest",
+      "locationText": "13th district of Budapest, HU",
+      "remoteOrHybrid": true,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "Rólunk \n \n Az 1998-ban alapított Capsys Informatikai Kft. magyar tulajdonban lévő független szoftverfejlesztő és szolgáltató cégként kínál szakértői tanácsadást és informatikai megoldásokat bankok és tőkepiaci társaságok számára. A Capsys tulajdonosai és alapítói maguk is pénzügyi szolgáltató társaságok korábbi vezetői. Ez a tény meghatározta a Capsys üzleti filozófiáját, és egyedülálló helyzetbe hozott bennünket az IT iparban: erős üzleti fókusz és széleskörű szakértelem jellemez bennünket, ame",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-08-11T14:31:17.000Z",
+      "validThrough": "2026-09-10T14:31:17.000Z",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "Technical Project Manager - Databricks",
+      "company": "Hiflylabs",
+      "url": "https://hu.linkedin.com/jobs/view/technical-project-manager-databricks-at-hiflylabs-4460379111?position=1&pageNum=0&refId=acdXIYQWT5p5DIf8S64GTg%3D%3D&trackingId=isYcBy%2FxK%2FHwy5nP21daQw%3D%3D",
+      "source": "hu.linkedin.com",
+      "matchedQuery": "IT projektmenedzser állás Budapest",
+      "locationText": "Budapest, HU",
+      "remoteOrHybrid": true,
+      "englishRequirement": "advanced/fluent/native (EXCLUDING)",
+      "keyDuties": "Company Description\n Hiflylabs is a dynamic team of 250+ data and tech professionals based in Budapest, delivering cutting-edge solutions in data engineering, data science, artificial intelligence, and application development. With over a decade of expertise, we empower businesses worldwide with tailored, hands-on strategies for Data Warehousing, Business Intelligence, and Data Analytics.\nOur strength lives in our people. Through our mentoring system, we cultivate professional growth and innovat",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-08-28T16:30:09.000Z",
+      "validThrough": "2026-09-27T16:30:08.000Z",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "Senior IT Project Manager - EWM in Pharma",
+      "company": "Fusion Consulting",
+      "url": "https://hu.linkedin.com/jobs/view/senior-it-project-manager-ewm-in-pharma-at-fusion-consulting-4424763736?position=2&pageNum=0&refId=acdXIYQWT5p5DIf8S64GTg%3D%3D&trackingId=bBEoBf%2B%2F6f2UmUFQQQrn6g%3D%3D",
+      "source": "hu.linkedin.com",
+      "matchedQuery": "IT projektmenedzser állás Budapest",
+      "locationText": "Budapest, HU",
+      "remoteOrHybrid": false,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "Company Description\n Swiss Delivery Excellence: Transforming Life Science Consulting Worldwide.\n Fusion Consulting is a globally leading Business and IT boutique consultancy specialized in the Life Sciences industry, partnering with leading companies in pharma, healthcare, and animal health.\nWith over 450 employees and 25 offices worldwide, our mission is to revolutionize our clients' business transformation challenges and set new industry standards through innovative solutions.\nFocused on S4HAN",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-08-31T14:51:07.000Z",
+      "validThrough": "2026-11-02T18:44:14.000Z",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "Technical Project Manager",
+      "company": "MP Solutions Ltd.",
+      "url": "https://hu.linkedin.com/jobs/view/technical-project-manager-at-mp-solutions-ltd-4461753285?position=3&pageNum=0&refId=acdXIYQWT5p5DIf8S64GTg%3D%3D&trackingId=Rc%2FcErYXqSWZDaF6wxGDfQ%3D%3D",
+      "source": "hu.linkedin.com",
+      "matchedQuery": "IT projektmenedzser állás Budapest",
+      "locationText": "Budapest, HU",
+      "remoteOrHybrid": true,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "Partnerünk nagyvállalati környezetben működő szervezetéhez keresünk tapasztalt Technical Project Managert , aki komplex, technológiai fókuszú projekteket vezet end-to-end.\n A pozíció elsősorban klasszikus, waterfall alapú projektmenedzsmentre épül. Olyan szakembert keresünk, aki magabiztosan kezeli a projekttervezést, ütemezést, költségvetést, kockázatokat és függőségeket, miközben hatékonyan koordinálja a technikai csapatokat, stakeholdereket és külső beszállítókat.\n Requirements\n Feladatok\n Te",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-09-01T13:38:10.000Z",
+      "validThrough": "2026-10-01T13:37:28.000Z",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "SAP Project Manager | Budapest based",
+      "company": "Deloitte",
+      "url": "https://hu.linkedin.com/jobs/view/sap-project-manager-budapest-based-at-deloitte-4460411259?position=4&pageNum=0&refId=acdXIYQWT5p5DIf8S64GTg%3D%3D&trackingId=OityAsBFf1VD%2FcIlOY%2Bvuw%3D%3D",
+      "source": "hu.linkedin.com",
+      "matchedQuery": "IT projektmenedzser állás Budapest",
+      "locationText": "Budapest, HU",
+      "remoteOrHybrid": false,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "Description &amp; Requirements\n Who we are looking for\n Shape the Future of SAP Transformation 🎯\n 🟢Join Deloitte and play a leading role in delivering a large-scale global SAP S/4HANA Public Cloud implementation . This is a unique opportunity to lead complex international projects , collaborate with senior stakeholders across multiple countries , and help organizations transform their business through next-generation SAP solutions.\n🔎 We are looking for an experienced SAP Project Manager based",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-09-02T23:06:47.000Z",
+      "validThrough": "2026-10-02T23:06:47.000Z",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "IT Project Manager",
+      "company": "Celanese",
+      "url": "https://hu.linkedin.com/jobs/view/it-project-manager-at-celanese-4440013643?position=5&pageNum=0&refId=acdXIYQWT5p5DIf8S64GTg%3D%3D&trackingId=i4ZvjtX3%2Fc2b%2F4YXrXvw%2BQ%3D%3D",
+      "source": "hu.linkedin.com",
+      "matchedQuery": "IT projektmenedzser állás Budapest",
+      "locationText": "Budapest, HU",
+      "remoteOrHybrid": false,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "Overview: \n Project Manager| Celanese Business Solutions | Budapest\n About Celanese\n Celanese is a global chemical and specialty materials company that engineers and manufactures products essential to everyday living. Our Budapest Business Solutions center is more than a shared service operation—we're strategic partners driving innovation across a Fortune 500 organization with operations in 30+ countries.\n The Opportunity\n We are looking for an experienced IT Project Manager to lead high-impact,",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-08-26T11:29:20.000Z",
+      "validThrough": "2026-10-11T11:21:09.000Z",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "Senior Technical Cloud Training Expert – T Cloud Public",
+      "company": "Deutsche Telekom IT Solutions Hungary",
+      "url": "https://nofluffjobs.com/hu/job/senior-technical-cloud-training-expert-t-cloud-public-deutsche-telekom-it-solutions-hungary-budapest",
+      "source": "nofluffjobs.com",
+      "matchedQuery": "IT projektmenedzser állás Budapest",
+      "locationText": "Budapest, HUN",
+      "remoteOrHybrid": true,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "Company Description \n As Hungary’s most attractive employer in 2025 (according to Randstad’s representative survey), Deutsche Telekom IT Solutions is a subsidiary of the Deutsche Telekom Group. The company provides a wide portfolio of IT and telecommunications services with more than 5300 employees. We have hundreds of large customers, corporations in Germany and in other European countries. \nDT-ITS recieved the Best in Educational Cooperation award from HIPA in 2019, acknowledged as the the Mos",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-08-08",
+      "validThrough": "2026-09-08",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "Project Coordinator (German AND / Italian OR French)",
+      "company": "Martin Engineering Hungary Kft.",
+      "url": "https://nofluffjobs.com/hu/job/project-coordinator-german-and-italian-or-french-martin-engineering-hungary-kft--remote",
+      "source": "nofluffjobs.com",
+      "matchedQuery": "IT projektmenedzser állás Budapest",
+      "locationText": "remote/telecommute",
+      "remoteOrHybrid": true,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "We are seeking a highly organized and dynamic Project Coordinator to join our team. You will be responsible for the efficient scheduling and coordination of our support technicians, working closely with our customers, local electricians, and specialists from X-ray and intraoral scanner suppliers. This position offers the flexibility to work full remotely. \n Why ZaWin? \n At ZaWin, we're not just a company; we're innovators shaping the future of dentistry. For over 40 years, we've been the Swiss m",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-08-07",
+      "validThrough": "2026-09-06",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "Product Growth Manager",
+      "company": "BLUEBINARY",
+      "url": "https://nofluffjobs.com/hu/job/product-growth-manager-bluebinary-remote-1",
+      "source": "nofluffjobs.com",
+      "matchedQuery": "IT projektmenedzser állás Budapest",
+      "locationText": "remote/telecommute",
+      "remoteOrHybrid": true,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "O roli \n Dołączysz do zespołu Bluebinary, który rozwija nowoczesne platformy i produkty online o globalnym zasięgu. Nasze serwisy obsługują miliony użytkowników miesięcznie. Twoim zadaniem będzie analizowanie danych i zachowań użytkowników, proponowanie na tej podstawie zmian w produktach oraz testowanie ich wpływu na konwersję, retencję i monetyzację. Będziesz współpracować z Product Ownerem, developerami i marketingiem, aby skutecznie wdrażać i komunikować te zmiany użytkownikom.\n Szukamy osob",
+      "employmentType": "CONTRACTOR",
+      "datePosted": "2026-08-29",
+      "validThrough": "unknown",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "Product Owner / Business Analyst - Murex",
+      "company": "Vistulo (for a major N. American bank)",
+      "url": "https://nofluffjobs.com/hu/job/product-owner-business-analyst-murex-vistulo-for-a-major-n-american-bank-remote",
+      "source": "nofluffjobs.com",
+      "matchedQuery": "IT projektmenedzser állás Budapest",
+      "locationText": "remote/telecommute",
+      "remoteOrHybrid": true,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "We're hiring Product Owner / Business Analyst who bring deep, hands-on Murex expertise in one of three areas - testing, integration, or technical configuration. You’ll draft requirements, work with the business to shape them, and collaborate with the engineering team to get the software built. You are responsible for end-to-end product delivery. This is a BA role where your effectiveness comes from genuinely understanding Murex, and the domain around it.\n The Role at a Glance \n Murex Business An",
+      "employmentType": "CONTRACTOR",
+      "datePosted": "2026-08-30",
+      "validThrough": "unknown",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "ServiceNow Architect / Technical Product Owner",
+      "company": "Square One Resources",
+      "url": "https://nofluffjobs.com/hu/job/servicenow-architect-technical-product-owner-square-one-resources-remote-1",
+      "source": "nofluffjobs.com",
+      "matchedQuery": "IT projektmenedzser állás Budapest",
+      "locationText": "remote/telecommute",
+      "remoteOrHybrid": true,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "We are looking for an experienced ServiceNow professional to join an international organization and take a key role at the intersection of ServiceNow architecture, technical product ownership and platform development.\n The role combines technical architecture with strong business-facing responsibilities. You will work closely with Product Owners and business stakeholders to translate business needs into functional and technical requirements, define solution approaches and contribute to the roadm",
+      "employmentType": "CONTRACTOR",
+      "datePosted": "2026-08-26",
+      "validThrough": "unknown",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "Cybersecurity Project Manager",
+      "company": "apreel Sp. z o.o.",
+      "url": "https://nofluffjobs.com/hu/job/cybersecurity-project-manager-apreel-remote",
+      "source": "nofluffjobs.com",
+      "matchedQuery": "IT projektmenedzser állás Budapest",
+      "locationText": "remote/telecommute",
+      "remoteOrHybrid": true,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "The Opportunity \n As a Project Manager within Cybersecurity Practice , you will lead complex client engagements while playing a key role in coordination and successful delivery of Cybersecurity initiatives. \n You will work with organizations across industries and geographies to deliver and implement cybersecurity projects, initiatives and technology solutions. At the same time, you will contribute to building a high-performing and cross-domain cybersecurity practice through capability developmen",
+      "employmentType": "CONTRACTOR",
+      "datePosted": "2026-08-24",
+      "validThrough": "unknown",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "Project Manager",
+      "company": "Manpower Hungary",
+      "url": "https://hu.linkedin.com/jobs/view/project-manager-at-manpower-hungary-4442845167?position=1&pageNum=0&refId=kydjPPPaVxAzvHSyaHHkwQ%3D%3D&trackingId=nGBLI0V7QCdi0Pg11%2FWNqw%3D%3D",
+      "source": "hu.linkedin.com",
+      "matchedQuery": "IT projektmenedzser állás Budapest",
+      "locationText": "Budapest, HU",
+      "remoteOrHybrid": true,
+      "englishRequirement": "basic/intermediate (not disqualifying)",
+      "keyDuties": "Partnerünk egy nemzetközi hátterű, stabil vállalat, amely szakmai kiadványokkal, digitális megoldásokkal és innovatív oktatási tartalmakkal támogatja partnereit. Csapatukba keresünk Tankönyvi Projektmenedzser kollégát, aki kiadványkoordinátorként felel a határidők, feladatok és projektdokumentációk nyomon követéséért, valamint az előállítási folyamatok gördülékeny és szervezett működéséért.\n \n Feladatok: \n Tankönyvi, segédkönyvi és digitális kiadványprojektek teljes körű koordinálása.\n Projektüt",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-08-24T08:00:57.000Z",
+      "validThrough": "2026-09-25T10:49:33.000Z",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "Technical Project Manager",
+      "company": "MP Solutions Ltd.",
+      "url": "https://hu.linkedin.com/jobs/view/technical-project-manager-at-mp-solutions-ltd-4461753285?position=2&pageNum=0&refId=kydjPPPaVxAzvHSyaHHkwQ%3D%3D&trackingId=NhVOHP6x2UcD8Tv5YzJ7Rg%3D%3D",
+      "source": "hu.linkedin.com",
+      "matchedQuery": "IT projektmenedzser állás Budapest",
+      "locationText": "Budapest, HU",
+      "remoteOrHybrid": true,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "Partnerünk nagyvállalati környezetben működő szervezetéhez keresünk tapasztalt Technical Project Managert , aki komplex, technológiai fókuszú projekteket vezet end-to-end.\n A pozíció elsősorban klasszikus, waterfall alapú projektmenedzsmentre épül. Olyan szakembert keresünk, aki magabiztosan kezeli a projekttervezést, ütemezést, költségvetést, kockázatokat és függőségeket, miközben hatékonyan koordinálja a technikai csapatokat, stakeholdereket és külső beszállítókat.\n Requirements\n Feladatok\n Te",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-09-01T13:38:10.000Z",
+      "validThrough": "2026-10-01T13:37:28.000Z",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "Projekt Manager - Marketing/Ker.",
+      "company": "UNIX Autó",
+      "url": "https://hu.linkedin.com/jobs/view/projekt-manager-marketing-ker-at-unix-aut%C3%B3-4452705100?position=3&pageNum=0&refId=kydjPPPaVxAzvHSyaHHkwQ%3D%3D&trackingId=jEVqX18xDq2VzbdUi7UVBA%3D%3D",
+      "source": "hu.linkedin.com",
+      "matchedQuery": "IT projektmenedzser állás Budapest",
+      "locationText": "Budapest, HU",
+      "remoteOrHybrid": false,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "A 35 éves Unix Autó Magyarország piacvezető, és Közép-Európa egyik meghatározó autóalkatrész- kereskedelmi vállalata. 3 országban közel 3000 munkatárssal, mintegy 180 áruházban szolgáljuk ki partnereinket és vásárlóinkat. Büszkék vagyunk rá, hogy eredményes működésünk elismeréseként 2016-ban megkaptuk az „Év Magyar Vállalata” címet, sokszoros Magyar-és Superbrands díjas vállalat vagyunk. Felelős munkaadóként anyagi biztonságot és stabil munkahelyet nyújtunk munkavállalóinknak.\n Csatlakozz Hozzán",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-08-12T13:04:19.000Z",
+      "validThrough": "2026-09-11T13:04:18.000Z",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "Project Manager",
+      "company": "Cushman & Wakefield",
+      "url": "https://hu.linkedin.com/jobs/view/project-manager-at-cushman-wakefield-4459337842?position=4&pageNum=0&refId=kydjPPPaVxAzvHSyaHHkwQ%3D%3D&trackingId=6bbaDE79FncGrli44YlOZg%3D%3D",
+      "source": "hu.linkedin.com",
+      "matchedQuery": "IT projektmenedzser állás Budapest",
+      "locationText": "Budapest, HU",
+      "remoteOrHybrid": true,
+      "englishRequirement": "advanced/fluent/native (EXCLUDING)",
+      "keyDuties": "Job Title\n Project Manager\n Job Description Summary\n Responsible for the coordination of projects, including small tenant improvements, assignments, capital improvements and building or site repairs for properties; may provide project management support to Project Managers or Directors for designated projects.\n Responsibilities\n Job Description\n Review requisitions, change orders, payment applications and other invoices associated with the project\n Support staff responsible for specific sites to",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-08-26T18:39:08.000Z",
+      "validThrough": "2026-09-25T18:39:08.000Z",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "Software Project Manager",
+      "company": "Mediso Medical Imaging Systems",
+      "url": "https://hu.linkedin.com/jobs/view/software-project-manager-at-mediso-medical-imaging-systems-4461210302?position=5&pageNum=0&refId=kydjPPPaVxAzvHSyaHHkwQ%3D%3D&trackingId=I25gMLZWrzKfdBdhNQE59g%3D%3D",
+      "source": "hu.linkedin.com",
+      "matchedQuery": "IT projektmenedzser állás Budapest",
+      "locationText": "Budapest, HU",
+      "remoteOrHybrid": true,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "A Mediso Medical Imaging Systems Kft. 1990-ben alapított, magyar tulajdonú vállalat,amely humán diagnosztikai és pre-klinikai kutatásokhoz kapcsolódó képalkotó rendszerek fejlesztésével és gyártásával foglalkozik Berendezéseink világszerte támogatják az orvosi diagnosztikát és a kutatás-fejlesztési tevékenységeket. Budapesti telephelyünkön mérnökök, fejlesztők, fizikusok és gyártási szakemberek dolgoznak együtt annak érdekében, hogy innovatív és magas minőségű megoldások szülessenek.\n \n Feladato",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-08-31T15:06:19.000Z",
+      "validThrough": "2026-09-30T15:06:19.000Z",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "Digitalizációs munkatárs",
+      "company": "MOL Mo Társasági Szolg. Kft.",
+      "url": "https://www.profession.hu/allas/digitalizacios-munkatars-mol-mo-tarsasagi-szolg-kft-tiszaujvaros-2972870?keyword=digitaliz%25C3%25A1ci%25C3%25B3s%2Bmunkat%25C3%25A1rs&hash=da3e245d6ad6a2ae8f0b4de0611753f4",
+      "source": "www.profession.hu",
+      "matchedQuery": "digitalizációs vezető állás Budapest",
+      "locationText": "Tiszaújváros, Borsod-Abaúj-Zemplén megye, HU",
+      "remoteOrHybrid": false,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "Főbb feladatok, munkák:\nPapíralapú műszaki tervkötetek és dokumentumok előkészítése feldolgozásra. Dokumentumok tartalmi bontása, tagolása és rendszerezése üzleti igényeknek megfelelően. Szkennelési feladatok elvégzése, a dokumentumok minőségéhez igazodó beállítások alkalmazásával. Digitalizált állományok minőségének ellenőrzése. Mappastruktúrák kialakítása a dokumentumkezelési elvárások szerint. DMS bizonylatok SAP rendszerben történő létrehozása, valamint a kapcsolódó adatrögzítési feladatok e",
+      "employmentType": "Alkalmazotti jogviszony",
+      "datePosted": "2026-08-30",
+      "validThrough": "2026-09-12T01:11:18",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "Értékesítési tanácsadó (B2B)",
+      "company": "Konica Minolta Magyarország Kft.",
+      "url": "https://www.profession.hu/allas/ertekesitesi-tanacsado-b-b-konica-minolta-magyarorszag-kft-2986237?keyword=digitaliz%25C3%25A1ci%25C3%25B3s%2Bprojektmenedzser&hash=23f63d7d8d107556733b02ff67a6919f",
+      "source": "www.profession.hu",
+      "matchedQuery": "digitalizációs vezető állás Budapest",
+      "locationText": "Budapest, Heves, Nógrád, Budapest, Heves megye, Jász-Nagykun-Szolnok megye, Nógrád megye, Pest megye, HU",
+      "remoteOrHybrid": true,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "Munkakörhöz tartozó feladatok:\núj B2B ügyfelek felkutatása, megszólítása és hosszú távú üzleti kapcsolatok építése;komplex irodatechnikai, digitalizációs, szoftveres és IoT-alapú megoldások értékesítése konzultatív szemlélettel;ügyféligények mély megértése, üzleti problémák azonosítása és személyre szabott megoldási javaslatok kidolgozása;professzionális tárgyalások előkészítése és lebonyolítása online, de leginkább személyesen;meglévő ügyfelekkel való folyamatos kapcsolattartás, üzleti lehetősé",
+      "employmentType": "Alkalmazotti jogviszony",
+      "datePosted": "2026-09-03",
+      "validThrough": "2026-09-28T01:10:22",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "Digital Project Manager",
+      "company": "DEPT®",
+      "url": "https://hu.linkedin.com/jobs/view/digital-project-manager-at-dept%C2%AE-4442528812?position=1&pageNum=0&refId=F04xeksTwaENcKpLp6vHBg%3D%3D&trackingId=FBNTPHYpum4h4eVFkWy1DQ%3D%3D",
+      "source": "hu.linkedin.com",
+      "matchedQuery": "digitalizációs vezető állás Budapest",
+      "locationText": "Budapest, HU",
+      "remoteOrHybrid": false,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "Budapest, hybrid\n DEPT® is a Growth Invention company built to help the world’s most ambitious brands grow faster. Operating at the intersection of technology and marketing, our 4,000+ specialists deliver growth invention services across Brand &amp; Media, Experience, Commerce, CRM, and Technology &amp; Data. We’re 50|50 tech and marketing, partner-led, and first to move. Clients include Google, Lufthansa, Meta, eBay, and OpenAI. We have been certified B Corp and Climate Neutral since 2021.\n Job",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-08-30T18:15:36.000Z",
+      "validThrough": "2026-10-17T16:44:21.000Z",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "IT Project Manager",
+      "company": "Supercharge",
+      "url": "https://hu.linkedin.com/jobs/view/it-project-manager-at-supercharge-4459651067?position=2&pageNum=0&refId=F04xeksTwaENcKpLp6vHBg%3D%3D&trackingId=JM2w%2FcL2vcAUrD5rpB8JZQ%3D%3D",
+      "source": "hu.linkedin.com",
+      "matchedQuery": "digitalizációs vezető állás Budapest",
+      "locationText": "Budapest, HU",
+      "remoteOrHybrid": true,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "As project managers, we&apos;re at the forefront of delivering cutting-edge products to our clients. We are like conductors of a digital symphony, leading the creation of innovative products from ideation to go-live. We take complete ownership of stakeholder management, concept creation &amp; design, and day-to-day development while keeping budget, timeline, and quality on track.\nWe&apos;re not afraid to step outside the boundaries of the classic project manager role, and we often wear different",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-08-27T01:31:51.000Z",
+      "validThrough": "2026-09-26T01:31:51.000Z",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "Technical Project Manager",
+      "company": "Dakai Group",
+      "url": "https://hu.linkedin.com/jobs/view/technical-project-manager-at-dakai-group-4462184458?position=3&pageNum=0&refId=F04xeksTwaENcKpLp6vHBg%3D%3D&trackingId=EpueB0VFFmW7MArsykW08g%3D%3D",
+      "source": "hu.linkedin.com",
+      "matchedQuery": "digitalizációs vezető állás Budapest",
+      "locationText": "Budapest, HU",
+      "remoteOrHybrid": true,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "Job Description\n About Dakai Group\nDakai Group is a Budapest-based software consultancy that partners with clients to discover real problems, design AI-enabled solutions, and ship software that creates measurable business value. We operate as a team of forward-deployed engineers and consultants; we don't wait for perfect specs; we work in ambiguity, move fast, and continuously improve. Our team uses AI tools daily, not as a trend, but as a fundamental shift in how great software gets built.\nThe ",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-09-02T12:38:57.000Z",
+      "validThrough": "2026-10-02T12:38:56.000Z",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "Digital Project Manager  (f/m/div)",
+      "company": "Infineon Technologies",
+      "url": "https://hu.linkedin.com/jobs/view/digital-project-manager-f-m-div-at-infineon-technologies-4437785845?position=4&pageNum=0&refId=F04xeksTwaENcKpLp6vHBg%3D%3D&trackingId=iNJ0xzaiLnwyK8C%2FThOQtw%3D%3D",
+      "source": "hu.linkedin.com",
+      "matchedQuery": "digitalizációs vezető állás Budapest",
+      "locationText": "Cegléd, HU",
+      "remoteOrHybrid": false,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "#WeAreIn for jobs that impact everyone's life. Where every deadline is a promise and every delivery a success. Are you in?\n Job Description\n As a Digital Project Manager, you will play a crucial role in driving digital transformation and IT projects to deliver significant value to our manufacturing operations. You will be responsible for leading end-to-end project delivery, managing cross-functional teams, and ensuring the successful adoption of new digital tools and processes. Moreover, you wil",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-08-18T14:01:56.000Z",
+      "validThrough": "2026-10-05T13:09:49.000Z",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "OKR Roll-Out Manager (f/m/d)",
+      "company": "Siemens Energy",
+      "url": "https://hu.linkedin.com/jobs/view/okr-roll-out-manager-f-m-d-at-siemens-energy-4405010597?position=1&pageNum=0&refId=AGcyDfpEzxZGiKlp38bEjg%3D%3D&trackingId=9BSNsAWv1CXpFvFbE7ybbQ%3D%3D",
+      "source": "hu.linkedin.com",
+      "matchedQuery": "AI transzformációs vezető állás Budapest",
+      "locationText": "Budapest, HU",
+      "remoteOrHybrid": false,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "A Snapshot of Your Day \n As OKR Rollout Manager, you are the central driving force behind the continuous development, scaling and anchoring of the OKR framework within Grid Technologies.\nYou work at the intersection of strategy, execution and change management. In close collaboration with GT management, team leaders, OKR Champions, OKR Coaches, Digital Core and our OKR tool partner Workpath, you ensure that OKRs are not just defined – but effectively lived and used to steer outcomes.\nYour role c",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-09-01T12:09:06.000Z",
+      "validThrough": "2026-11-19T17:11:41.000Z",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "Finance Transformation Manager | Hungary",
+      "company": "Deloitte",
+      "url": "https://hu.linkedin.com/jobs/view/finance-transformation-manager-hungary-at-deloitte-4385767564?position=2&pageNum=0&refId=AGcyDfpEzxZGiKlp38bEjg%3D%3D&trackingId=lOwM2oDs5QCaSuI4aODVlA%3D%3D",
+      "source": "hu.linkedin.com",
+      "matchedQuery": "AI transzformációs vezető állás Budapest",
+      "locationText": "Budapest, HU",
+      "remoteOrHybrid": false,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "Description &amp; Requirements\n Who we are looking for\n 5–8+ years of experience in consulting, finance transformation, or related roles \n Strong understanding of end-to-end finance processes and/or enterprise performance management \n Proven experience in finance technology, automation, or digital finance transformation initiatives \n Experience working with senior stakeholders and delivering complex transformation projects \n Background in shared services or GBS environments is an advantage \n Abi",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-08-19T09:35:34.000Z",
+      "validThrough": "2026-11-15T22:10:52.000Z",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "Manager, Finance Transformation – EMEA COE",
+      "company": "Cushman & Wakefield",
+      "url": "https://hu.linkedin.com/jobs/view/manager-finance-transformation-%E2%80%93-emea-coe-at-cushman-wakefield-4460391689?position=4&pageNum=0&refId=AGcyDfpEzxZGiKlp38bEjg%3D%3D&trackingId=1UrdFEq2oUe7insoveVdRw%3D%3D",
+      "source": "hu.linkedin.com",
+      "matchedQuery": "AI transzformációs vezető állás Budapest",
+      "locationText": "Budapest, HU",
+      "remoteOrHybrid": false,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "Job Title\n Manager, Finance Transformation – EMEA COE\n Job Description Summary\n The Manager, Finance Transformation – EMEA COE is responsible for supporting execution of global Finance Transformation initiatives, with a primary focus on global process optimization for R2R, P2P and O2C Finance processes in EMEA region and program delivery related to e-invoicing compliance across EMEA.\nThis role partners closely with regional Finance teams, Controllership, and Technology, as well as U.S.-based Fin",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-08-28T18:39:46.000Z",
+      "validThrough": "2026-09-27T18:39:46.000Z",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "IT Implementation Project Manager, Operations Digitalization",
+      "company": "HARMAN International",
+      "url": "https://hu.linkedin.com/jobs/view/it-implementation-project-manager-operations-digitalization-at-harman-international-4459231135?position=5&pageNum=0&refId=AGcyDfpEzxZGiKlp38bEjg%3D%3D&trackingId=xyi8I9GdEhDutdeMlFgZgw%3D%3D",
+      "source": "hu.linkedin.com",
+      "matchedQuery": "AI transzformációs vezető állás Budapest",
+      "locationText": "Budapest, HU",
+      "remoteOrHybrid": false,
+      "englishRequirement": "not specified in extracted text",
+      "keyDuties": "Introduction: A Career at HARMAN Automotive\n We’re a global, multi-disciplinary team that’s putting the innovative power of technology to work and transforming tomorrow. At HARMAN Automotive, we give you the keys to fast-track your career.\n Engineer audio systems and integrated technology platforms that augment the driving experience\n Combine ingenuity, in-depth research, and a spirit of collaboration with design and engineering excellence\n Advance in-vehicle infotainment, safety, efficiency, an",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-08-31T16:52:20.000Z",
+      "validThrough": "2026-09-30T16:52:20.000Z",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "IT Solution Consultant",
+      "company": "KPMG Tanácsadó Kft.",
+      "url": "https://www.profession.hu/allas/it-solution-consultant-kpmg-tanacsado-kft-2991023?keyword=digital%2Btransformation%2Bconsultant&hash=ed689fb0cd300d760e685adc2723c93b",
+      "source": "www.profession.hu",
+      "matchedQuery": "AI transzformációs vezető állás Budapest",
+      "locationText": "remote/telecommute",
+      "remoteOrHybrid": true,
+      "englishRequirement": "advanced/fluent/native (EXCLUDING)",
+      "keyDuties": "What You would do at KPMG:\ntaking part in large IT projects as a subject matter expert, depending on your previous experience (e.g. architecture design, IT system and IT landscape reviews, vendor selection, quality assurance)\nanalyzing clients’ IT environments, applications, and architecture landscapes\nsupporting IT due diligence, transformation, and optimization projects\nanalyzing the effectiveness of IT processes and IT systems\ntranslating business requirements into IT and solution concepts\npa",
+      "employmentType": "Alkalmazotti jogviszony",
+      "datePosted": "2026-09-03",
+      "validThrough": "2026-10-04T01:07:32",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    },
+    {
+      "title": "AI ENGINEERING LEAD",
+      "company": "Raiffeisen Bank Hungary",
+      "url": "https://hu.linkedin.com/jobs/view/ai-engineering-lead-at-raiffeisen-bank-hungary-4443256620?position=2&pageNum=0&refId=WwBtJmYWp2P7gUnSWd6HMQ%3D%3D&trackingId=SSGdNfWCFTWj%2F%2BqZjYNoSA%3D%3D",
+      "source": "hu.linkedin.com",
+      "matchedQuery": "AI transzformációs vezető állás Budapest",
+      "locationText": "Budapest, HU",
+      "remoteOrHybrid": true,
+      "englishRequirement": "advanced/fluent/native (EXCLUDING)",
+      "keyDuties": "Csapatunk feladata a Bank mesterséges intelligencia (AI) alapú megoldásainak tervezése, fejlesztése, implementációja és üzemeltetése - különös tekintettel a generatív AI (LLM) alapú rendszerekre, valamint az automatizált IT és üzleti folyamatokra . AI Engineering Leadként hatással lehetsz arra, hogyan használja a Raiffeisen Bank a generatív és agentic AI technológiákat - a fejlesztési sztenderdek és platformok kialakításától az üzleti értéket teremtő megoldások leszállításáig -, és egy skálázhat",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-08-19T12:57:55.000Z",
+      "validThrough": "2026-09-26T09:55:56.000Z",
+      "reason": "Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)"
+    }
+  ],
+  "unreachable": [
+    {
+      "url": "https://hu.jooble.org/%C3%A1ll%C3%A1s-IT-vezet%C5%91/Budapest",
+      "reason": "HTTP 403"
+    },
+    {
+      "url": "https://hu.indeed.com/q-it-vezet%C5%91-l-budapest-%C3%A1ll%C3%A1sok.html",
+      "reason": "HTTP 403"
+    },
+    {
+      "url": "https://www.careerjet.hu/it-vezeto-allasok",
+      "reason": "no schema.org JobPosting data and too few job-like links to classify as a listing"
+    },
+    {
+      "url": "https://hu.indeed.com/q-it-vezet%C5%91-%C3%A1ll%C3%A1sok.html",
+      "reason": "HTTP 403"
+    },
+    {
+      "url": "https://hu.jobsora.com/%C3%A1ll%C3%A1sok-informatikai-vezet%C5%91-budapest",
+      "reason": "no schema.org JobPosting data and too few job-like links to classify as a listing"
+    },
+    {
+      "url": "https://hu.indeed.com/q-it-manager-l-budapest-%C3%A1ll%C3%A1sok.html",
+      "reason": "HTTP 403"
+    },
+    {
+      "url": "https://hu.indeed.com/q-informatikai-vezet%C5%91-l-budapest-%C3%A1ll%C3%A1sok.html",
+      "reason": "HTTP 403"
+    },
+    {
+      "url": "https://hu.jobsora.com/%C3%A1ll%C3%A1sok-informatikai-vezet%C5%91",
+      "reason": "no schema.org JobPosting data and too few job-like links to classify as a listing"
+    },
+    {
+      "url": "https://hu.jooble.org/%C3%A1ll%C3%A1s-vezet%C5%91/Budapest",
+      "reason": "HTTP 403"
+    },
+    {
+      "url": "https://www.hwsw.hu/karrier",
+      "reason": "no schema.org JobPosting data and too few job-like links to classify as a listing"
+    },
+    {
+      "url": "https://hu.indeed.com/q-kritikus-infrastrukt%C3%BAra-vezet%C5%91-%C3%A1ll%C3%A1sok.html",
+      "reason": "HTTP 403"
+    },
+    {
+      "url": "https://hu.jooble.org/%C3%A1ll%C3%A1s-it-infrastructure-manager/Budapest",
+      "reason": "HTTP 403"
+    },
+    {
+      "url": "https://hu.jobsora.com/%C3%A1ll%C3%A1sok-szakmai-vezet%C5%91-budapest",
+      "reason": "no schema.org JobPosting data and too few job-like links to classify as a listing"
+    },
+    {
+      "url": "https://www.careerjet.hu/infrastructure-manager-allasok",
+      "reason": "no schema.org JobPosting data and too few job-like links to classify as a listing"
+    },
+    {
+      "url": "https://hu.indeed.com/q-kritikus-infrastrukt%C3%BAra-vezet%C5%91-l-budapest-%C3%A1ll%C3%A1sok.html",
+      "reason": "HTTP 403"
+    },
+    {
+      "url": "https://hu.jooble.org/%C3%A1ll%C3%A1s-IT-project-manager/Budapest",
+      "reason": "HTTP 403"
+    },
+    {
+      "url": "https://hu.indeed.com/q-it-projektmenedzser-l-budapest-%C3%A1ll%C3%A1sok.html",
+      "reason": "HTTP 403"
+    },
+    {
+      "url": "https://hu.indeed.com/q-it-project-manager-l-budapest-%C3%A1ll%C3%A1sok.html",
+      "reason": "HTTP 403"
+    },
+    {
+      "url": "https://hu.jooble.org/%C3%A1ll%C3%A1s-IT-project-manager",
+      "reason": "HTTP 403"
+    },
+    {
+      "url": "https://hu.indeed.com/q-digitaliz%C3%A1ci%C3%B3s-vezet%C5%91-%C3%A1ll%C3%A1sok.html",
+      "reason": "HTTP 403"
+    },
+    {
+      "url": "https://hu.jooble.org/%C3%A1ll%C3%A1s-m%C3%A9dia-vezet%C5%91/Budapest",
+      "reason": "HTTP 403"
+    },
+    {
+      "url": "https://www.careerjet.hu/it-vezeto-allasok/Budapest-V.-ker",
+      "reason": "no schema.org JobPosting data and too few job-like links to classify as a listing"
+    },
+    {
+      "url": "https://hu.jooble.org/%C3%A1ll%C3%A1s-fejleszt%C3%A9si-vezet%C5%91/Budapest",
+      "reason": "HTTP 403"
+    },
+    {
+      "url": "https://hu.indeed.com/q-ai-transformation-l-budapest-%C3%A1ll%C3%A1sok.html",
+      "reason": "HTTP 403"
+    },
+    {
+      "url": "https://hu.jooble.org/%C3%A1ll%C3%A1s-digital-transformation-manager/Budapest",
+      "reason": "HTTP 403"
+    },
+    {
+      "url": "https://hu.jobsora.com/%C3%A1ll%C3%A1sok-technol%C3%B3giai-vezet%C5%91-budapest",
+      "reason": "no schema.org JobPosting data and too few job-like links to classify as a listing"
+    },
+    {
+      "url": "https://hu.indeed.com/q-it-fejleszt%C3%A9si-vezet%C5%91-l-budapest-%C3%A1ll%C3%A1sok.html",
+      "reason": "HTTP 403"
+    },
+    {
+      "url": "https://www.careerjet.hu/ai-project-manager-allasok",
+      "reason": "no schema.org JobPosting data and too few job-like links to classify as a listing"
+    },
+    {
+      "url": "https://tuxedo.hu/allas/budapest_ai-transzformacios-menedzser-szenior-expert_1289",
+      "reason": "no schema.org JobPosting data and too few job-like links to classify as a listing"
+    },
+    {
+      "url": "https://www.profession.hu/allasok/1,0,0,it%20vezet%c5%91",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://www.profession.hu/allasok/1,0,0,it%20vezet%C5%91"
+    },
+    {
+      "url": "https://www.profession.hu/allasok?rss",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://www.profession.hu/allasok/1,0,0,it%20vezet%C5%91"
+    },
+    {
+      "url": "https://www.profession.hu/allasok/2,0,0,it%20vezet%c5%91",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://www.profession.hu/allasok/1,0,0,it%20vezet%C5%91"
+    },
+    {
+      "url": "https://www.profession.hu/allasertesito/regisztracio",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://www.profession.hu/allasok/1,0,0,it%20vezet%C5%91"
+    },
+    {
+      "url": "https://www.profession.hu/allaskeresesi-tanacsok",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://www.profession.hu/allasok/1,0,0,it%20vezet%C5%91"
+    },
+    {
+      "url": "https://www.profession.hu/allasok/budapest/1,0,23,informatikai%20vezet%c5%91",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://www.profession.hu/allasok/budapest/1,0,23,informatikai%20vezet%C5%91"
+    },
+    {
+      "url": "https://www.profession.hu/allasok/budapest/2,0,23,informatikai%20vezet%c5%91",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://www.profession.hu/allasok/budapest/1,0,23,informatikai%20vezet%C5%91"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/it-manager-jobs",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://hu.linkedin.com/jobs/it-manager-jobs"
+    },
+    {
+      "url": "https://hu.linkedin.com/company/career-coaching-by-kriszti?trk=public_jobs_jserp-result_job-search-card-subtitle",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://hu.linkedin.com/jobs/it-manager-jobs"
+    },
+    {
+      "url": "https://www.profession.hu/allasok/1,0,0,it%20oszt%c3%a1lyvezet%c5%91",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://www.profession.hu/allasok/1,0,0,it%20oszt%C3%A1lyvezet%C5%91"
+    },
+    {
+      "url": "https://www.profession.hu/allasok/2,0,0,it%20oszt%c3%a1lyvezet%c5%91",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://www.profession.hu/allasok/1,0,0,it%20oszt%C3%A1lyvezet%C5%91"
+    },
+    {
+      "url": "https://nixstech.com/hu/allasok/",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://nixstech.com/hu/allasok/"
+    },
+    {
+      "url": "https://nixstech.com/hu/allasok/page/2/",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://nixstech.com/hu/allasok/"
+    },
+    {
+      "url": "https://www.profession.hu/allasok/budapest/1,0,23,oszt%c3%a1lyvezet%c5%91",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://www.profession.hu/allasok/budapest/1,0,23,oszt%C3%A1lyvezet%C5%91"
+    },
+    {
+      "url": "https://www.profession.hu/allasok/budapest/2,0,23,oszt%c3%a1lyvezet%c5%91",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://www.profession.hu/allasok/budapest/1,0,23,oszt%C3%A1lyvezet%C5%91"
+    },
+    {
+      "url": "https://www.profession.hu/allasok/1,0,0,infrastrukt%c3%bara%20vezet%c5%91",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://www.profession.hu/allasok/1,0,0,infrastrukt%C3%BAra%20vezet%C5%91"
+    },
+    {
+      "url": "https://www.profession.hu/allasok/magyar-vagon-business-solutions-kft/1,0,0,0,0,0,0,0,0,0,120253",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://www.profession.hu/allasok/1,0,0,infrastrukt%C3%BAra%20vezet%C5%91"
+    },
+    {
+      "url": "https://www.profession.hu/allasok/budapest/1,0,23,infrastrukt%c3%bara%20%c3%bczemeltet%c3%a9si%20vezet%c5%91",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://www.profession.hu/allasok/budapest/1,0,23,infrastrukt%C3%BAra%20%C3%BCzemeltet%C3%A9si%20vezet%C5%91"
+    },
+    {
+      "url": "https://www.profession.hu/allasok/budapest/1,0,23,infrastrukt%c3%bara%20vezet%c5%91",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://www.profession.hu/allasok/budapest/1,0,23,infrastrukt%C3%BAra%20vezet%C5%91"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/infrastructure-manager-jobs",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://hu.linkedin.com/jobs/infrastructure-manager-jobs"
+    },
+    {
+      "url": "https://www.profession.hu/allasok/budapest/1,0,23,projektmenedzser",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://www.profession.hu/allasok/budapest/1,0,23,projektmenedzser"
+    },
+    {
+      "url": "https://www.profession.hu/allasok/budapest/2,0,23,projektmenedzser",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://www.profession.hu/allasok/budapest/1,0,23,projektmenedzser"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/it-project-manager-jobs-budapest",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://hu.linkedin.com/jobs/it-project-manager-jobs-budapest"
+    },
+    {
+      "url": "https://www.profession.hu/allasok/1,0,0,it%20projektmenedzser",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://www.profession.hu/allasok/1,0,0,it%20projektmenedzser"
+    },
+    {
+      "url": "https://www.profession.hu/allasok/en-co-software-zrt/1,0,0,0,0,0,0,0,0,0,90197",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://www.profession.hu/allasok/1,0,0,it%20projektmenedzser"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/projektmenedzser-jobs-budapest",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://hu.linkedin.com/jobs/projektmenedzser-jobs-budapest"
+    },
+    {
+      "url": "https://www.randstad.hu/allasok/q-project-manager/",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://www.randstad.hu/allasok/q-project-manager/"
+    },
+    {
+      "url": "https://www.randstad.hu/en/jobs/",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://www.randstad.hu/allasok/q-project-manager/"
+    },
+    {
+      "url": "https://www.randstad.hu/allasok/",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://www.randstad.hu/allasok/q-project-manager/"
+    },
+    {
+      "url": "https://www.randstad.hu/allaskeresoknek/kiemelt-ugyfeleink/",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://www.randstad.hu/allasok/q-project-manager/"
+    },
+    {
+      "url": "https://www.randstad.hu/allasok/s-fizikai-munka/",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://www.randstad.hu/allasok/q-project-manager/"
+    },
+    {
+      "url": "https://www.randstad.hu/allasok/s-szakmunkas/",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://www.randstad.hu/allasok/q-project-manager/"
+    },
+    {
+      "url": "https://www.profession.hu/allasok/1,0,0,digitaliz%c3%a1ci%c3%b3s%20munkat%c3%a1rs",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://www.profession.hu/allasok/1,0,0,digitaliz%C3%A1ci%C3%B3s%20munkat%C3%A1rs"
+    },
+    {
+      "url": "https://www.profession.hu/allasok/mol-mo-tarsasagi-szolg-kft/1,0,0,0,0,0,0,0,0,0,34391",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://www.profession.hu/allasok/1,0,0,digitaliz%C3%A1ci%C3%B3s%20munkat%C3%A1rs"
+    },
+    {
+      "url": "https://www.profession.hu/allasok/budapest/1,0,23,digitaliz%c3%a1ci%c3%b3s%20projektmenedzser",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://www.profession.hu/allasok/budapest/1,0,23,digitaliz%C3%A1ci%C3%B3s%20projektmenedzser"
+    },
+    {
+      "url": "https://www.profession.hu/allasok/konica-minolta-magyarorszag-kft/1,0,0,0,0,0,0,0,0,0,5763",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://www.profession.hu/allasok/budapest/1,0,23,digitaliz%C3%A1ci%C3%B3s%20projektmenedzser"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/digital-project-manager-jobs-budapest",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://hu.linkedin.com/jobs/digital-project-manager-jobs-budapest"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/technical-project-manager-databricks-at-hiflylabs-4460379111?position=5&pageNum=0&refId=F04xeksTwaENcKpLp6vHBg%3D%3D&trackingId=xW%2BFHAjm3adGovLfmu6MdA%3D%3D",
+      "reason": "HTTP 429",
+      "fromListing": "https://hu.linkedin.com/jobs/digital-project-manager-jobs-budapest"
+    },
+    {
+      "url": "https://kreajob.hu/allasok/",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://kreajob.hu/allasok/"
+    },
+    {
+      "url": "https://kreajob.hu/exclusive-allasok/",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://kreajob.hu/allasok/"
+    },
+    {
+      "url": "https://kreajob.hu/allasok",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://kreajob.hu/allasok/"
+    },
+    {
+      "url": "https://kreajob.hu/exclusive-allasok",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://kreajob.hu/allasok/"
+    },
+    {
+      "url": "https://kreajob.hu/allasertesito/",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://kreajob.hu/allasok/"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/transformation-manager-jobs",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://hu.linkedin.com/jobs/transformation-manager-jobs"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/dx-operations-manager-change-management-ai-governance-at-sony-europe-4448883255?position=3&pageNum=0&refId=AGcyDfpEzxZGiKlp38bEjg%3D%3D&trackingId=nk63SYMWDMH%2FuOwaBsNwcg%3D%3D",
+      "reason": "HTTP 429",
+      "fromListing": "https://hu.linkedin.com/jobs/transformation-manager-jobs"
+    },
+    {
+      "url": "https://www.profession.hu/allasok/budapest/1,0,23,digital%20transformation%20consultant",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://www.profession.hu/allasok/budapest/1,0,23,digital%20transformation%20consultant"
+    },
+    {
+      "url": "https://www.profession.hu/allasok/budapest/2,0,23,digital%20transformation%20consultant",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://www.profession.hu/allasok/budapest/1,0,23,digital%20transformation%20consultant"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/manager-of-artificial-intelligence-jobs",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://hu.linkedin.com/jobs/manager-of-artificial-intelligence-jobs"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/lead-data-scientist-at-sony-europe-4448895033?position=1&pageNum=0&refId=WwBtJmYWp2P7gUnSWd6HMQ%3D%3D&trackingId=T%2F7VZLU%2BXqy3VN73HBj7Ag%3D%3D",
+      "reason": "HTTP 429",
+      "fromListing": "https://hu.linkedin.com/jobs/manager-of-artificial-intelligence-jobs"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/manager-ai-consulting-at-epam-systems-4461901780?position=4&pageNum=0&refId=WwBtJmYWp2P7gUnSWd6HMQ%3D%3D&trackingId=u5c%2FWaN91NEREuShIA33nQ%3D%3D",
+      "reason": "second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad",
+      "fromListing": "https://hu.linkedin.com/jobs/manager-of-artificial-intelligence-jobs"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/ai-ml-solutions-architect-at-snapsoft-4457697494?position=5&pageNum=0&refId=WwBtJmYWp2P7gUnSWd6HMQ%3D%3D&trackingId=%2BuizXZCMkKdVrv6oMCxYSQ%3D%3D",
+      "reason": "HTTP 429",
+      "fromListing": "https://hu.linkedin.com/jobs/manager-of-artificial-intelligence-jobs"
+    }
+  ]
+}
