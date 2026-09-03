@@ -18,6 +18,6 @@ orchestrator_runtime: docs/agent-runtime/orchestrator.yaml
 project_claude_contract: CLAUDE.md
 watcher_enforcement: scripts/watch_product_supervisor_directive.sh
 supersedes: JH-SUP-0015
-redelivery_seq: 0
+redelivery_seq: 1
 
-summary: "P0 three-way best-practice research. Claude and Codex must independently research the safest legitimate production solution for approximately twice-weekly genuine Google web-search title+URL retrieval, with special priority on Google's newly documented 2026-09-03 Web Search Service API and its partner/client_id prerequisites. Reconcile business requirement versus current literal browser-SERP Sprint 1 wording. HARD SAFETY: zero new automated google.com/search requests, no retry/proxy/stealth/CAPTCHA bypass. Produce Claude, Codex and team decision documents and ACK when complete."
+summary: "P0 REQUIRED THREE-AGENT best-practice research: Claude, Codex AND Gemini must independently research the safest legitimate production solution for approximately twice-weekly genuine Google web-search title+URL retrieval. Special priority: Google's newly documented 2026-09-03 Web Search Service API, partner/client_id eligibility and commercial prerequisites. Gemini is mandatory for this directive, not optional/non-blocking. Reconcile business need versus current literal browser-SERP Sprint 1 wording. HARD SAFETY: zero new automated google.com/search requests, no retry/proxy/stealth/CAPTCHA bypass. Produce all three reports plus team decision; ACK complete only when all three exist."
