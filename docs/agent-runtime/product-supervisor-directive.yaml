@@ -2,8 +2,8 @@
 schema_version: 1
 channel: product_supervisor
 
-directive_id: JH-SUP-0021
-issued_at: "2026-09-04T00:28:00+02:00"
+directive_id: JH-SUP-0022
+issued_at: "2026-09-04T00:40:00+02:00"
 issued_by: chatgpt_product_architect
 authority: PRODUCT_ARCHITECT_ORCHESTRATION_SUPERVISOR
 priority: P0
@@ -11,13 +11,13 @@ status: ACTIVE
 requires_ack: true
 execute_immediately: true
 interrupt_current_work: true
-instruction_file: docs/agent-directives/JH-SUP-0021-SERPAPI-ACCOUNT-AND-LIVE-PROOF.md
+instruction_file: docs/agent-directives/JH-SUP-0022-REAL-JOB-HUNTER-MVP.md
 ack_file: docs/agent-runtime/product-supervisor-ack.yaml
 continuity_policy: docs/EXECUTION_CONTINUITY_POLICY.md
 orchestrator_runtime: docs/agent-runtime/orchestrator.yaml
 project_claude_contract: CLAUDE.md
 watcher_enforcement: scripts/watch_product_supervisor_directive.sh
-supersedes: JH-SUP-0020
+supersedes: JH-SUP-0021
 redelivery_seq: 0
 
-summary: "P0 EXECUTE NOW: Product Owner explicitly orders creation of the SerpApi Free account and immediate live proof. Local Claude must use the official SerpApi signup flow, prefer an already-authorized GitHub OAuth identity (otherwise authorized Google OAuth), securely store the API key locally without committing it, and execute exact query `CÉGINFO WWW.VMK.HU` via SerpApi Google engine. Commit redacted raw JSON and title+URL evidence. Stop only if a real human OAuth/2FA/CAPTCHA identity step is unavoidable. Zero direct automated google.com/search traffic from corporate egress."
+summary: "P0 BUILD NOW: stop search-mechanism research and build the actual Job Hunter MVP using the already-proven SerpApi acquisition path and committed profile. Search live Hungarian/Budapest/hybrid/remote roles, inspect real job-detail pages, reject advanced-English-required and other persona exclusions, rank remaining jobs transparently, and produce direct application URLs. Live acceptance must return at least 3 suitable concrete currently reachable job ads if available, plus rejection evidence. Then define the same pipeline for approximately twice-weekly unattended execution. Implement + run + evidence; do not stop at design."
