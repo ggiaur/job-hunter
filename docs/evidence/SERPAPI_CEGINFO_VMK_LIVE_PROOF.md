@@ -1,67 +1,78 @@
-# SerpApi Account Creation + Live Proof — CÉGINFO WWW.VMK.HU (JH-SUP-0021)
+# SerpApi Live Proof — CÉGINFO WWW.VMK.HU (JH-SUP-0020/0021)
 
-**Result: BLOCKED_HUMAN_OAUTH**
+**Result: PASS**
 
-## Attempted
+## Registration path
 
-Timestamp: 2026-09-03T22:31:08Z
-Target: `https://serpapi.com/users/sign_up`, GitHub OAuth signup path per directive.
+**Product Owner-supplied.** JH-SUP-0021's OAuth signup path
+(`serpapi.com/users/sign_up`, GitHub/Google OAuth) was blocked in this
+session per `SERPAPI_CEGINFO_VMK_LIVE_PROOF.md` (this session has no
+interactive browser-automation tool — see JH-SUP-0019/0021 evidence).
+The Product Owner completed account creation directly and supplied a
+working SerpApi API key in chat. Plan tier (Free vs paid) was not
+independently confirmed by this session — the key works and returned a
+successful live result; plan-tier confirmation would require checking the
+SerpApi account dashboard, which this session cannot access interactively.
 
-## Exact blocker
+## API key handling
 
-This session has no interactive browser-automation capability of any kind.
-The only web-facing tools available are `WebFetch` (fetches a URL, converts
-HTML to markdown, and summarizes it with a small model — read-only, cannot
-submit forms, click buttons, hold cookies/session state, or follow an OAuth
-authorization-code redirect flow) and `WebSearch` (search-only). Neither tool
-can perform "Sign up with GitHub" — that flow requires visiting the signup
-page, clicking the GitHub OAuth button, being redirected to GitHub's
-authorization consent screen, and clicking "Authorize" while carrying session
-cookies across the redirect. This is not achievable with a page-fetch-and-
-summarize tool.
+- Stored at `/home/dockeruser/.job-hunter-secrets/serpapi.env` on the
+  on-prem host, outside any git working tree, directory `chmod 700`, file
+  `chmod 600` (owner-only).
+- **Not** committed to the repository, **not** printed in full in any log
+  or evidence file.
+- Redacted fingerprint: `de67...97f5` (first 4 + last 4 characters only).
+- The user has stated intent to rotate this key after testing.
 
-This is the same capability gap already established and documented in
-`docs/design/CLAUDE_CHROME_CONTAINER_FEASIBILITY.md` (JH-SUP-0019): this
-session has no Chrome/Playwright/computer-use browser control tool, and the
-official Anthropic Claude-in-Chrome integration (the only real browser-control
-path available to Claude at all) was independently found to require an
-interactive human-authenticated session on a direct Anthropic plan — not
-something a fully autonomous agent session can invoke on its own.
+## Execution
 
-Per the directive's own stop condition ("no authorized signed-in identity
-exists" / effectively no way to reach the OAuth identity selector at all):
-**stopping here with BLOCKED_HUMAN_OAUTH**, exactly as specified, rather than
-attempting a workaround such as inventing an email/password (explicitly
-forbidden by this directive) or fabricating a plausible-looking but fake
-result.
+Timestamp (SerpApi `created_at`): 2026-09-03 22:40:39 UTC
+Query (exact, per directive): `CÉGINFO WWW.VMK.HU`
+Engine: `google`
+Parameters: `hl=hu`, `gl=hu`
+Method: `GET https://serpapi.com/search` (note: the API requires GET with
+query-string parameters; an initial attempt using `curl --data-urlencode`
+without `-G` sent a POST and returned an empty `404` — corrected by adding
+`-G` to force GET semantics, documented here for future reference)
+Google URL SerpApi resolved internally (visible in response metadata, for
+transparency): `https://www.google.com/search?q=C%C3%89GINFO+WWW.VMK.HU&oq=...&hl=hu&gl=hu`
+— this request was made by SerpApi's own infrastructure, not by any Job
+Hunter browser/IP. **Total direct automated `google.com/search` requests
+from Job Hunter corporate egress under this directive: 0.**
 
-## What was NOT done, by design
+`search_metadata.status`: `Success`
 
-- No email/password account was invented or created.
-- No new mailbox was created.
-- No automated `google.com/search` request was sent — **total: 0**.
-- No SerpApi API key exists yet as a result of this attempt.
+## Organic results (all 9 returned, exact order)
 
-## What would unblock this
+| # | Title | URL |
+|---|---|---|
+| 1 | Keresztury Dezső Városi Művelődési Központ | https://www.ceginformacio.hu/cr9310238195 |
+| 2 | Cégszolgálat Ingyenes Céginformáció | https://www.e-cegjegyzek.hu/?cegkereses/18-10-100701 |
+| 3 | VMK Kft. f. a | https://www.ceginformacio.hu/cr9310099885 |
+| 4 | **Közérdekű adatok** | **https://www.vmk.hu/kozerdeku-adatok** |
+| 5 | VMK BAU PLUSZ Kft.2017 | https://ceginfo.hu/ceg-adatlap/vmk-bau-plusz-kft-0109302514.html |
+| 6 | **Vörösmarty Mihály Könyvtár** | **https://www.vmk.hu/** |
+| 7 | VMK rövid céginformáció, cégkivonat, cégmásolat letöltése | https://www.ceginformacio.hu/cr9310268627 |
+| 8 | **Adó 1%** | **https://www.vmk.hu/ado-1** |
+| 9 | Beaufort VMK Kft "kt. a."2010 | https://ceginfo.hu/ceg-adatlap/beaufort-vmk-kft-kt-a-0109936206.html |
 
-A human with:
-- either an active, already-authenticated browser session logged into the
-  GitHub identity that owns/operates `ggiaur/job-hunter` (or an authorized
-  Google identity), and
-- the ability to click through SerpApi's OAuth signup consent screen,
+## VMK-related result confirmation
 
-completes `https://serpapi.com/users/sign_up` → "Sign up with GitHub" (or
-Google) once, retrieves the resulting API key from the SerpApi dashboard, and
-supplies it to this environment via an approved secret-storage mechanism
-(non-versioned local secret file with restrictive permissions, or an
-equivalent secret store) — not pasted into chat, not committed to the repo.
+**Yes** — 3 of 9 organic results are genuine `vmk.hu` pages (positions 4, 6,
+8), directly belonging to Vörösmarty Mihály Könyvtár (the library that is
+this project's real-world subject/Product Owner organization). This is a
+successful, genuine, non-fabricated live Google-derived result set returned
+via SerpApi with zero direct Google traffic from Job Hunter's own
+infrastructure.
 
-Once a real key exists, the exact live-proof query (`CÉGINFO WWW.VMK.HU`,
-`engine=google`, `hl=hu`, `gl=hu`) can be executed in a single follow-up
-request; the evidence format and redaction approach are already specified in
-this directive and ready to use immediately.
+## Raw evidence
+
+Full raw JSON response (API key not present in the response body; no
+redaction was needed beyond confirming its absence):
+`docs/evidence/serpapi-ceginfo-vmk-live-proof.json`
 
 ## Compliance
 
-Zero Google Search traffic. Zero invented credentials. Zero secrets printed
-or committed. Zero fabricated results.
+Zero direct automated `google.com/search` requests from Job Hunter/corporate
+egress. Zero API key committed or printed in full. Zero fabricated results —
+this is a genuine live API response.

@@ -1,0 +1,486 @@
+{
+  "search_metadata": {
+    "id": "6a99f767bca7e511750e2503",
+    "status": "Success",
+    "json_endpoint": "https://serpapi.com/searches/dcofOICq531amRWukESdvXi9ccRCk4uQG2yYZBqH2WI/6a99f767bca7e511750e2503.json",
+    "markdown_endpoint": "https://serpapi.com/searches/dcofOICq531amRWukESdvXi9ccRCk4uQG2yYZBqH2WI/6a99f767bca7e511750e2503.md",
+    "pixel_position_endpoint": "https://serpapi.com/searches/dcofOICq531amRWukESdvXi9ccRCk4uQG2yYZBqH2WI/6a99f767bca7e511750e2503.json_with_pixel_position",
+    "created_at": "2026-09-03 22:40:39 UTC",
+    "processed_at": "2026-09-03 22:40:39 UTC",
+    "google_url": "https://www.google.com/search?q=C%C3%89GINFO+WWW.VMK.HU&oq=C%C3%89GINFO+WWW.VMK.HU&hl=hu&gl=hu&sourceid=chrome&ie=UTF-8",
+    "raw_html_file": "https://serpapi.com/searches/dcofOICq531amRWukESdvXi9ccRCk4uQG2yYZBqH2WI/6a99f767bca7e511750e2503.html",
+    "total_time_taken": 12.7
+  },
+  "search_parameters": {
+    "engine": "google",
+    "q": "CÉGINFO WWW.VMK.HU",
+    "google_domain": "google.com",
+    "hl": "hu",
+    "gl": "hu",
+    "device": "desktop"
+  },
+  "search_information": {
+    "query_displayed": "CÉGINFO WWW.VMK.HU",
+    "total_results": 396,
+    "time_taken_displayed": 0.25,
+    "organic_results_state": "Results for exact spelling"
+  },
+  "ai_overview": {
+    "page_token": "FH6rQ3iczVXbkqo4FP2A-Y7mZfoAKt66ijqVACq2F-KlbfuFwoABFWmNSttv51_mq-ZrJoAoOurpcx6mZldBEthZ2dnZK-vHXwtvOf_7j6272bzTJ0EIw5AnQUAWDo8DX7DofomFabCga-x-p8F2jR3PlrG7DnyHIwvZ3XJu_N7v5AKHqSxyjidj03mzaLnYqe4aoqEZHn6deAhzMZxsTizqzNhqHzMqmAJ7zR8KKhvwlHe3fGug5heVilgsjfm8mKvyXcHymQP470x3gRK1zaQB2lUnANAXsBCKQDRy-gJTPP2IDAnrQeacuA1vgUFAlCRAlCxuqEbRpYBEWAnk7TzByGecDkgMAEEIovgYMEgxfm7MMQkUHVNzNUX3f8U7UTKJaX9hUhTvucFGKQoIppFlrHk6oGgxcpis6mAKJQCkXu121NEOA6L6CILeHa8YG-mzsJaus0YsdiTYhNWsKEzWrMkJHnZx3FnTqJSVQVUMGq1dqWVM97lVV63SQTkX7gtF0P4sVdxQwBPmtwgs27FN1xS_x-NcPlcUq4Vy5THmEKZHEtEsiaxKIQCbybyzmfMtHuZSBinH_MCLDbAxvJpx9-AKr_zzT1_R4TRZjx3o8Ui142xFQcBjtalk5gfV6K2fUBqUHa-SjUNPk3qDQfEapxKEx3qCtez8zFQXsDhOUR-NXCOzlsGITYUAJQwi9UMkxwCzq0SfdNgH4CxFmfh1HXhRiJAxSN8qeoIRXpS9lplx2I_G7giYgiruGbiWZZBHAGSQBGpzNuqzCwNo0VV0OJ7MKZEz0ujXrgG2IFFCdLHFr9o9lh2NpFS5qPwsY-orm7zmO8u-kR9rg9ewNtM7i824iQuN8DpDAn_yCzqD_1ccSlRIO6gQBPUbHEJf4BBCyl0VivupCvUTt5fbHCIxh_6tQuMU8qRClxyCrQyHYhWCN1XolzlUv80h7R6HolvjGofmtzgUJik5cah5rkJZDh1U6MSh31Gh2m-qUEwpJ2nOJWk7Izelqb4al1dv492ot1h6Ug-Xt0Xwbvu2IWHyU2ma-psn37IXj6ZnP8F8c7O3H032IXhybG4lKw9K4aFSreudWvfP0WjEv7Sf-caQ8xfrQBatYmO6CnPtpm4oAzTXRH3dmzvSvvEiLefDkke6L990vxCq5Zpb6VPqDsdbqZ171jufYGB960nlsK6UpabS_Gzv3-gnaTcn_RHaD9Xe82fX6Nd3-0Z5s6lPqOWuTOOjMnxTe2qrZDphy-4ty8abM5uFpkjieKhs6St15dGXDwdw_hrLrBwkAjoIjAjAQBnHZEVKwJ6QPSWANMhRbJkO3cnYEovTacnJV6dSflqZcD7Z7N9lSeLoci3n_gEfxT2n",
+    "serpapi_link": "https://serpapi.com/search.json?engine=google_ai_overview&page_token=FH6rQ3iczVXbkqo4FP2A-Y7mZfoAKt66ijqVACq2F-KlbfuFwoABFWmNSttv51_mq-ZrJoAoOurpcx6mZldBEthZ2dnZK-vHXwtvOf_7j6272bzTJ0EIw5AnQUAWDo8DX7DofomFabCga-x-p8F2jR3PlrG7DnyHIwvZ3XJu_N7v5AKHqSxyjidj03mzaLnYqe4aoqEZHn6deAhzMZxsTizqzNhqHzMqmAJ7zR8KKhvwlHe3fGug5heVilgsjfm8mKvyXcHymQP470x3gRK1zaQB2lUnANAXsBCKQDRy-gJTPP2IDAnrQeacuA1vgUFAlCRAlCxuqEbRpYBEWAnk7TzByGecDkgMAEEIovgYMEgxfm7MMQkUHVNzNUX3f8U7UTKJaX9hUhTvucFGKQoIppFlrHk6oGgxcpis6mAKJQCkXu121NEOA6L6CILeHa8YG-mzsJaus0YsdiTYhNWsKEzWrMkJHnZx3FnTqJSVQVUMGq1dqWVM97lVV63SQTkX7gtF0P4sVdxQwBPmtwgs27FN1xS_x-NcPlcUq4Vy5THmEKZHEtEsiaxKIQCbybyzmfMtHuZSBinH_MCLDbAxvJpx9-AKr_zzT1_R4TRZjx3o8Ui142xFQcBjtalk5gfV6K2fUBqUHa-SjUNPk3qDQfEapxKEx3qCtez8zFQXsDhOUR-NXCOzlsGITYUAJQwi9UMkxwCzq0SfdNgH4CxFmfh1HXhRiJAxSN8qeoIRXpS9lplx2I_G7giYgiruGbiWZZBHAGSQBGpzNuqzCwNo0VV0OJ7MKZEz0ujXrgG2IFFCdLHFr9o9lh2NpFS5qPwsY-orm7zmO8u-kR9rg9ewNtM7i824iQuN8DpDAn_yCzqD_1ccSlRIO6gQBPUbHEJf4BBCyl0VivupCvUTt5fbHCIxh_6tQuMU8qRClxyCrQyHYhWCN1XolzlUv80h7R6HolvjGofmtzgUJik5cah5rkJZDh1U6MSh31Gh2m-qUEwpJ2nOJWk7Izelqb4al1dv492ot1h6Ug-Xt0Xwbvu2IWHyU2ma-psn37IXj6ZnP8F8c7O3H032IXhybG4lKw9K4aFSreudWvfP0WjEv7Sf-caQ8xfrQBatYmO6CnPtpm4oAzTXRH3dmzvSvvEiLefDkke6L990vxCq5Zpb6VPqDsdbqZ171jufYGB960nlsK6UpabS_Gzv3-gnaTcn_RHaD9Xe82fX6Nd3-0Z5s6lPqOWuTOOjMnxTe2qrZDphy-4ty8abM5uFpkjieKhs6St15dGXDwdw_hrLrBwkAjoIjAjAQBnHZEVKwJ6QPSWANMhRbJkO3cnYEovTacnJV6dSflqZcD7Z7N9lSeLoci3n_gEfxT2n"
+  },
+  "organic_results": [
+    {
+      "position": 1,
+      "title": "Keresztury Dezső Városi Művelődési Központ",
+      "link": "https://www.ceginformacio.hu/cr9310238195",
+      "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESYQHrOzAVqu6tudw8sCWcyGwkAYIO-JdsTe9E_K9duEY-W-AXP2yRnqv1oQQtzQ6iiXz0TZGWcpd-cCAcftKrD08Sujjiw--Ja2A7qhd2S7PxefbyY-vxmIWWIcclcEIPYBk&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQFnoECB4QAQ&uoh=1",
+      "displayed_link": "https://www.ceginformacio.hu › ...",
+      "snippet": "Keresztury Dezső Városi Művelődési Központ. A Céginformáció.hu adatbázisa szerint a(z) Keresztury Dezső Városi Művelődési Központ Magyarországon bejegyzett ...",
+      "snippet_highlighted_words": [
+        "Keresztury Dezső Városi Művelődési Központ"
+      ],
+      "about_this_result": {
+        "source": {
+          "description": "Keresztury Dezső Városi Művelődési Központ. A Céginformáció.hu adatbázisa szerint a(z) Keresztury Dezső Városi Művelődési Központ Magyarországon bejegyzett ...",
+          "source_info_link": "https://www.ceginformacio.hu/cr9310238195"
+        },
+        "languages": [
+          "hu"
+        ],
+        "regions": [
+          "HU"
+        ]
+      },
+      "about_page_link": "https://www.google.com/search?q=About+https://www.ceginformacio.hu/cr9310238195&tbm=ilp",
+      "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&q=About+https%3A%2F%2Fwww.ceginformacio.hu%2Fcr9310238195",
+      "source": "Céginformáció - Cégkereső, hiteles cégkivonat letöltése"
+    },
+    {
+      "position": 2,
+      "title": "Cégszolgálat Ingyenes Céginformáció",
+      "link": "https://www.e-cegjegyzek.hu/?cegkereses/18-10-100701",
+      "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESbAHrOzAVQK9r3LTGzNCMTKjh9hnGVJi8eC0p9O6h9I42q1fqV1ZUNNLFAUon9ihAICnRuc_huuJW5TtGLKi2yG4X3cMKIaNrmiy0qUc4H5JhyHXSGjPLP-pUV9Lc2AB1CJmUXKQJfQBw5q8jNg&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQFnoECCUQAQ&uoh=1",
+      "displayed_link": "https://www.e-cegjegyzek.hu › cegkereses",
+      "favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAUVBMVEVHcEwQEhgSExgSExgUFRgUFBgUFRgUFRgTFBgKDRgPERj_3AAAARn_5gD_4AAUFBidjRA3MhcLDRjLtQuEdxPz1wPawglpXRW0pA5PRhbmzgbOy0FuAAAAC3RSTlMA1a_AUHYRMJX04BGcFdoAAAEwSURBVCiRpZLJcoNADETNZgbQ7Pv8_4dGEkOMXb6k0lVweWjpFo_H__Vcxn3b9nH-ggQA2FotwLZ8sHmD6qNEtWJhX9-Yc0Wqg6WkAX2jq9OtI5JMoJ-_cIM7Q-phuNgCRVI_pY4YFQk7X0u7ysywnK05B3OVzlC4aeKaAA5Nge47CWg8KfE4XPXU6XbSp4VQEk60BLFYjwwHK5lGb3IFVymqHPTU4eUjRnlgSB6fw51w1LFnExLFpDwtAKLbTB16mz1u7DHC0o2uEHhozJbGmZhwur0CHICH-kImHTj6xo3XTSBTaTO4CzpBG8G-7jJxuCrTPgGyxyTE62Y7GKQy0ztJ7D7df5IBapN4jKBiS_aNccCQi2-hGgtOPD60jnQNXHYTz09GvedFiGX9Qv6uH0ZJGLybMdgbAAAAAElFTkSuQmCC.png",
+      "about_this_result": {
+        "source": {
+          "source_info_link": "https://www.e-cegjegyzek.hu/?cegkereses/18-10-100701",
+          "icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAUVBMVEVHcEwQEhgSExgSExgUFRgUFBgUFRgUFRgTFBgKDRgPERj_3AAAARn_5gD_4AAUFBidjRA3MhcLDRjLtQuEdxPz1wPawglpXRW0pA5PRhbmzgbOy0FuAAAAC3RSTlMA1a_AUHYRMJX04BGcFdoAAAEwSURBVCiRpZLJcoNADETNZgbQ7Pv8_4dGEkOMXb6k0lVweWjpFo_H__Vcxn3b9nH-ggQA2FotwLZ8sHmD6qNEtWJhX9-Yc0Wqg6WkAX2jq9OtI5JMoJ-_cIM7Q-phuNgCRVI_pY4YFQk7X0u7ysywnK05B3OVzlC4aeKaAA5Nge47CWg8KfE4XPXU6XbSp4VQEk60BLFYjwwHK5lGb3IFVymqHPTU4eUjRnlgSB6fw51w1LFnExLFpDwtAKLbTB16mz1u7DHC0o2uEHhozJbGmZhwur0CHICH-kImHTj6xo3XTSBTaTO4CzpBG8G-7jJxuCrTPgGyxyTE62Y7GKQy0ztJ7D7df5IBapN4jKBiS_aNccCQi2-hGgtOPD60jnQNXHYTz09GvedFiGX9Qv6uH0ZJGLybMdgbAAAAAElFTkSuQmCC.png"
+        },
+        "languages": [
+          "hu"
+        ],
+        "regions": [
+          "HU"
+        ]
+      },
+      "about_page_link": "https://www.google.com/search?q=About+https://www.google.com/goto?url=CAESbAHrOzAVQK9r3LTGzNCMTKjh9hnGVJi8eC0p9O6h9I42q1fqV1ZUNNLFAUon9ihAICnRuc_huuJW5TtGLKi2yG4X3cMKIaNrmiy0qUc4H5JhyHXSGjPLP-pUV9Lc2AB1CJmUXKQJfQBw5q8jNg&tbm=ilp",
+      "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&q=About+https%3A%2F%2Fwww.google.com%2Fgoto%3Furl%3DCAESbAHrOzAVQK9r3LTGzNCMTKjh9hnGVJi8eC0p9O6h9I42q1fqV1ZUNNLFAUon9ihAICnRuc_huuJW5TtGLKi2yG4X3cMKIaNrmiy0qUc4H5JhyHXSGjPLP-pUV9Lc2AB1CJmUXKQJfQBw5q8jNg",
+      "source": "E-cégjegyzék"
+    },
+    {
+      "position": 3,
+      "title": "VMK Kft. f. a",
+      "link": "https://www.ceginformacio.hu/cr9310099885",
+      "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESYQHrOzAVy2kguATTGetRhWfGsx1qeEBC0_RTstXu0dnWtyXJTST6ay11WKuCClDmS4gUkWPuV2JUl9Dto3FAFO_5OtOcSoW5upMXSgDEZ115StYxVALtUq7srUQ_smsBchw&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQFnoECCYQAQ&uoh=1",
+      "displayed_link": "https://www.ceginformacio.hu › ...",
+      "snippet": "VMK Budapest Ipari és Kereskedelmi Korlátolt Felelősségű Társaság felszámolás alatt. A Céginformáció.hu adatbázisa szerint a(z) VMK Budapest Ipari és ...",
+      "snippet_highlighted_words": [
+        "VMK Budapest Ipari és Kereskedelmi Korlátolt Felelősségű Társaság felszámolás alatt"
+      ],
+      "about_this_result": {
+        "source": {
+          "description": "VMK Budapest Ipari és Kereskedelmi Korlátolt Felelősségű Társaság felszámolás alatt. A Céginformáció.hu adatbázisa szerint a(z) VMK Budapest Ipari és ...",
+          "source_info_link": "https://www.ceginformacio.hu/cr9310099885"
+        },
+        "languages": [
+          "hu"
+        ],
+        "regions": [
+          "HU"
+        ]
+      },
+      "about_page_link": "https://www.google.com/search?q=About+https://www.ceginformacio.hu/cr9310099885&tbm=ilp",
+      "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&q=About+https%3A%2F%2Fwww.ceginformacio.hu%2Fcr9310099885",
+      "source": "ceginformacio.hu"
+    },
+    {
+      "position": 4,
+      "title": "Közérdekű adatok",
+      "link": "https://www.vmk.hu/kozerdeku-adatok",
+      "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESWwHrOzAVLBiKGDlvWYS2TybhW44cZ9phZ8Jb5-UoNBwjpDl3LLcFraoDNh4ei7VWkfXnmqZFhK1Djq0j3Qs0WWTHJ43wIV1umK_8RHIUxXilfNCcJh6UKD3c9XA&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQFnoECCkQAQ&uoh=1",
+      "displayed_link": "https://www.vmk.hu › kozerdeku-adatok",
+      "favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAkFBMVEVHcEwAcLwAcb0Acbz-_v4Acr0Acr0Acrz_______9ZlMsAb7wAcb3_______-dw-IAaroAcr2myuXtHyPtGBzuHyTtAw793Nz70tPuICQ1h8Z1q9dcnM9JkcsdfsKQvN7A2u3e7feBs9r5_f7uFhz1jI_-7O3uJCn0hIfuHSLuICT3pabuICXwP0PuICXuICSWTU0lAAAAMHRSTlMAXMzSLP_FG9q0i___w____5X_kyT_____8____________________89R_6f_oYAYi6zAAAABRklEQVR4AV3PBWIDIRAFUDbtxIYQ1h2L-_1v12Gpkb_KPJT5JLOERUk-fgqfLAGYL_5oMQNIqOyzXK2RA__p67sCrjfLgGIrgZIGS4EiM7Gh_7wIGDRYwCJnZVV7DBosYFOVEUKSgA8P2MZI5ZAY48SIEgEQgdND_zzCLusR-wFx7FBtxxilNhKzAWXWSz1ijKis6rYGOrt1o-QxgjSu78zgnDGDBIgRR6tlb6hDZ0f5hhztQHN3NP1ohzcE7KhDh9CP2A0qRlJOGg4a7dZ0ksqEEIKyM78odsQkATnRTgTcH46C2En8GaaJxPGwJyyr08QGkHsD4-lcVmXL2pK49GwVkinraV9R-cLY9eL5dJt0sttpoivzKe6eH42wCFY0D0_Pgv3m1Zb76iyyTJyrfdm-WBSanQbXNQ0L872leF2q6vL6N98XOFYtzsSFgUsAAAAASUVORK5CYII.png",
+      "snippet": "Közérdekű adatok. A Könyvtár az alábbi elérhetőségeken fogadja a szervezeti integritást sértő – és korrupciós kockázatokra vonatkozó bejelentéseket:",
+      "about_this_result": {
+        "source": {
+          "description": "Közérdekű adatok. A Könyvtár az alábbi elérhetőségeken fogadja a szervezeti integritást sértő – és korrupciós kockázatokra vonatkozó bejelentéseket:",
+          "source_info_link": "https://www.vmk.hu/kozerdeku-adatok",
+          "icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAkFBMVEVHcEwAcLwAcb0Acbz-_v4Acr0Acr0Acrz_______9ZlMsAb7wAcb3_______-dw-IAaroAcr2myuXtHyPtGBzuHyTtAw793Nz70tPuICQ1h8Z1q9dcnM9JkcsdfsKQvN7A2u3e7feBs9r5_f7uFhz1jI_-7O3uJCn0hIfuHSLuICT3pabuICXwP0PuICXuICSWTU0lAAAAMHRSTlMAXMzSLP_FG9q0i___w____5X_kyT_____8____________________89R_6f_oYAYi6zAAAABRklEQVR4AV3PBWIDIRAFUDbtxIYQ1h2L-_1v12Gpkb_KPJT5JLOERUk-fgqfLAGYL_5oMQNIqOyzXK2RA__p67sCrjfLgGIrgZIGS4EiM7Gh_7wIGDRYwCJnZVV7DBosYFOVEUKSgA8P2MZI5ZAY48SIEgEQgdND_zzCLusR-wFx7FBtxxilNhKzAWXWSz1ijKis6rYGOrt1o-QxgjSu78zgnDGDBIgRR6tlb6hDZ0f5hhztQHN3NP1ohzcE7KhDh9CP2A0qRlJOGg4a7dZ0ksqEEIKyM78odsQkATnRTgTcH46C2En8GaaJxPGwJyyr08QGkHsD4-lcVmXL2pK49GwVkinraV9R-cLY9eL5dJt0sttpoivzKe6eH42wCFY0D0_Pgv3m1Zb76iyyTJyrfdm-WBSanQbXNQ0L872leF2q6vL6N98XOFYtzsSFgUsAAAAASUVORK5CYII.png"
+        },
+        "languages": [
+          "hu"
+        ],
+        "regions": [
+          "HU"
+        ]
+      },
+      "about_page_link": "https://www.google.com/search?q=About+https://www.vmk.hu/kozerdeku-adatok&tbm=ilp",
+      "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&q=About+https%3A%2F%2Fwww.vmk.hu%2Fkozerdeku-adatok",
+      "missing": [
+        "CÉGINFO"
+      ],
+      "must_include": {
+        "word": "CÉGINFO",
+        "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=%22C%C3%89GINFO%22+WWW.VMK.HU&sa=X&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQ5t4CegQIOBAB"
+      },
+      "source": "Vörösmarty Mihály Könyvtár"
+    },
+    {
+      "position": 5,
+      "title": "VMK BAU PLUSZ Kft.2017",
+      "link": "https://ceginfo.hu/ceg-adatlap/vmk-bau-plusz-kft-0109302514.html",
+      "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESeAHrOzAVC-HucfxNkEmaafxBI2RBs4qucurqsAeJ3dXwb3jPzUGXy8tMi4sxZc2fRF5ZnacDMmDF1sVoMflqNgXpwxTMnHhYmkhbACkhO6eVHbkgXaaSAWRfktUsS8OJWYHRLMRH75c4t1XBbfqSz9EIjE4j3B7Dkw&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQFnoECCgQAQ&uoh=1",
+      "displayed_link": "https://ceginfo.hu › vmk-bau-plusz-kft-0109302514",
+      "favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAWlBMVEVan9xYntxPmtpIl9lopt9dod2-1_D0-Pz____Q4vR7sOKnyevU5PXE2vHq8vri7fhKmNpDldmCtOOfxOlTnNt2reH3-v2yz-2pyuuJuOW10e53ruGUvuff6_dR6fqAAAAA90lEQVR4AbWSBZaEMBAFW5DCbVzuf02SrI4-2y2c_6obksjfoPoqMLdM3J7llhclgar2h9gbvmjvZe-I9Ekub1tb9IbaR8-LeOe_Ms2BbtJ4O87AsvklFjBM4eqjpirlL9VLqFU2Ff1WZdpBuHyxAVysImBi3e-6mkE_ihOZ1fZwsO9QUpdxIJBrNJtvMzmZ6hZoTKzpg_8dxm7dKGp1HrLZPZMftAaOY5oVO7Hcju5YAQe3wBk4ufzGegLVqdv7Jd7cuLq5kih9PADD5ib1S5LZqhfATm76bjy7NEutIlOsUpncoJtNqqZWAi7P0U1FYfJmscn_sQJ7mgsoubD86wAAAABJRU5ErkJggg.png",
+      "snippet": "VMK BAU PLUSZ Kft.2017. 1172 Budapest, Jászkisér utca 36. Adószám: 26111667-2-42 Cégjegyzékszám: 01 09 302514. Nyomtatás Figyelés. A cég működik. Cégadatlap ...",
+      "snippet_highlighted_words": [
+        "VMK BAU PLUSZ Kft.2017"
+      ],
+      "about_this_result": {
+        "source": {
+          "description": "VMK BAU PLUSZ Kft.2017. 1172 Budapest, Jászkisér utca 36. Adószám: 26111667-2-42 Cégjegyzékszám: 01 09 302514. Nyomtatás Figyelés. A cég működik. Cégadatlap ...",
+          "source_info_link": "https://ceginfo.hu/ceg-adatlap/vmk-bau-plusz-kft-0109302514.html",
+          "icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAWlBMVEVan9xYntxPmtpIl9lopt9dod2-1_D0-Pz____Q4vR7sOKnyevU5PXE2vHq8vri7fhKmNpDldmCtOOfxOlTnNt2reH3-v2yz-2pyuuJuOW10e53ruGUvuff6_dR6fqAAAAA90lEQVR4AbWSBZaEMBAFW5DCbVzuf02SrI4-2y2c_6obksjfoPoqMLdM3J7llhclgar2h9gbvmjvZe-I9Ekub1tb9IbaR8-LeOe_Ms2BbtJ4O87AsvklFjBM4eqjpirlL9VLqFU2Ff1WZdpBuHyxAVysImBi3e-6mkE_ihOZ1fZwsO9QUpdxIJBrNJtvMzmZ6hZoTKzpg_8dxm7dKGp1HrLZPZMftAaOY5oVO7Hcju5YAQe3wBk4ufzGegLVqdv7Jd7cuLq5kih9PADD5ib1S5LZqhfATm76bjy7NEutIlOsUpncoJtNqqZWAi7P0U1FYfJmscn_sQJ7mgsoubD86wAAAABJRU5ErkJggg.png"
+        },
+        "languages": [
+          "hu"
+        ],
+        "regions": [
+          "HU"
+        ]
+      },
+      "about_page_link": "https://www.google.com/search?q=About+https://ceginfo.hu/ceg-adatlap/vmk-bau-plusz-kft-0109302514.html&tbm=ilp",
+      "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&q=About+https%3A%2F%2Fceginfo.hu%2Fceg-adatlap%2Fvmk-bau-plusz-kft-0109302514.html",
+      "source": "Céginfo.hu"
+    },
+    {
+      "position": 6,
+      "title": "Vörösmarty Mihály Könyvtár",
+      "link": "https://www.vmk.hu/",
+      "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESSwHrOzAVHMDmyhULNFRRqLODelLnZuMITsyaFiSQaAZSQztaTccwd1q4sy1FcWTvFQvyI1ITaXsLdV33l2ZlZbrpza6YmAeAvLkWVQ&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQFnoECCsQAQ&uoh=1",
+      "displayed_link": "https://www.vmk.hu",
+      "favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAkFBMVEVHcEwAcLwAcb0Acbz-_v4Acr0Acr0Acrz_______9ZlMsAb7wAcb3_______-dw-IAaroAcr2myuXtHyPtGBzuHyTtAw793Nz70tPuICQ1h8Z1q9dcnM9JkcsdfsKQvN7A2u3e7feBs9r5_f7uFhz1jI_-7O3uJCn0hIfuHSLuICT3pabuICXwP0PuICXuICSWTU0lAAAAMHRSTlMAXMzSLP_FG9q0i___w____5X_kyT_____8____________________89R_6f_oYAYi6zAAAABRklEQVR4AV3PBWIDIRAFUDbtxIYQ1h2L-_1v12Gpkb_KPJT5JLOERUk-fgqfLAGYL_5oMQNIqOyzXK2RA__p67sCrjfLgGIrgZIGS4EiM7Gh_7wIGDRYwCJnZVV7DBosYFOVEUKSgA8P2MZI5ZAY48SIEgEQgdND_zzCLusR-wFx7FBtxxilNhKzAWXWSz1ijKis6rYGOrt1o-QxgjSu78zgnDGDBIgRR6tlb6hDZ0f5hhztQHN3NP1ohzcE7KhDh9CP2A0qRlJOGg4a7dZ0ksqEEIKyM78odsQkATnRTgTcH46C2En8GaaJxPGwJyyr08QGkHsD4-lcVmXL2pK49GwVkinraV9R-cLY9eL5dJt0sttpoivzKe6eH42wCFY0D0_Pgv3m1Zb76iyyTJyrfdm-WBSanQbXNQ0L872leF2q6vL6N98XOFYtzsSFgUsAAAAASUVORK5CYII.png",
+      "snippet": "Székesfehérvár és Fejér megye legnagyobb könyvtára. Központi könytárunkban található felnőtt kölcsönző részleg, helyismereti csoport, gyermekrészleg, ...",
+      "about_this_result": {
+        "source": {
+          "description": "Székesfehérvár és Fejér megye legnagyobb könyvtára. Központi könytárunkban található felnőtt kölcsönző részleg, helyismereti csoport, gyermekrészleg, ...",
+          "source_info_link": "https://www.vmk.hu/",
+          "icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAkFBMVEVHcEwAcLwAcb0Acbz-_v4Acr0Acr0Acrz_______9ZlMsAb7wAcb3_______-dw-IAaroAcr2myuXtHyPtGBzuHyTtAw793Nz70tPuICQ1h8Z1q9dcnM9JkcsdfsKQvN7A2u3e7feBs9r5_f7uFhz1jI_-7O3uJCn0hIfuHSLuICT3pabuICXwP0PuICXuICSWTU0lAAAAMHRSTlMAXMzSLP_FG9q0i___w____5X_kyT_____8____________________89R_6f_oYAYi6zAAAABRklEQVR4AV3PBWIDIRAFUDbtxIYQ1h2L-_1v12Gpkb_KPJT5JLOERUk-fgqfLAGYL_5oMQNIqOyzXK2RA__p67sCrjfLgGIrgZIGS4EiM7Gh_7wIGDRYwCJnZVV7DBosYFOVEUKSgA8P2MZI5ZAY48SIEgEQgdND_zzCLusR-wFx7FBtxxilNhKzAWXWSz1ijKis6rYGOrt1o-QxgjSu78zgnDGDBIgRR6tlb6hDZ0f5hhztQHN3NP1ohzcE7KhDh9CP2A0qRlJOGg4a7dZ0ksqEEIKyM78odsQkATnRTgTcH46C2En8GaaJxPGwJyyr08QGkHsD4-lcVmXL2pK49GwVkinraV9R-cLY9eL5dJt0sttpoivzKe6eH42wCFY0D0_Pgv3m1Zb76iyyTJyrfdm-WBSanQbXNQ0L872leF2q6vL6N98XOFYtzsSFgUsAAAAASUVORK5CYII.png"
+        },
+        "languages": [
+          "hu"
+        ],
+        "regions": [
+          "HU"
+        ]
+      },
+      "about_page_link": "https://www.google.com/search?q=About+https://www.vmk.hu/&tbm=ilp",
+      "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&q=About+https%3A%2F%2Fwww.vmk.hu%2F",
+      "missing": [
+        "CÉGINFO"
+      ],
+      "must_include": {
+        "word": "CÉGINFO",
+        "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=%22C%C3%89GINFO%22+WWW.VMK.HU&sa=X&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQ5t4CegQIPRAB"
+      },
+      "source": "Vörösmarty Mihály Könyvtár"
+    },
+    {
+      "position": 7,
+      "title": "VMK rövid céginformáció, cégkivonat, cégmásolat letöltése",
+      "link": "https://www.ceginformacio.hu/cr9310268627",
+      "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESYQHrOzAVfizlDlw5wxEKIUKT3dFu9cqhXHiqWFuSwSZv7NuCC6NnFKErq_LfIwp5sgdLxQiBF3_mFWwVAJA_lB4l2O18UxxOTiUnbhN8QiMmgimS33h-ohoR9ZkNU7wdW0M&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQFnoECCcQAQ&uoh=1",
+      "displayed_link": "https://www.ceginformacio.hu › ...",
+      "snippet": "VMK. Hirdetés. Vállalkozás neve. AGÓRA VESZPRÉM KULTURÁLIS KÖZPONT. A Céginformáció.hu ... Céginformációk. Csoportos adószám vagy Adószám, 15426046219.",
+      "snippet_highlighted_words": [
+        "VMK",
+        "Céginformáció",
+        "hu"
+      ],
+      "about_this_result": {
+        "source": {
+          "description": "VMK. Hirdetés. Vállalkozás neve. AGÓRA VESZPRÉM KULTURÁLIS KÖZPONT. A Céginformáció.hu ... Céginformációk. Csoportos adószám vagy Adószám, 15426046219.",
+          "source_info_link": "https://www.ceginformacio.hu/cr9310268627"
+        },
+        "languages": [
+          "hu"
+        ],
+        "regions": [
+          "HU"
+        ]
+      },
+      "about_page_link": "https://www.google.com/search?q=About+https://www.ceginformacio.hu/cr9310268627&tbm=ilp",
+      "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&q=About+https%3A%2F%2Fwww.ceginformacio.hu%2Fcr9310268627",
+      "source": "Céginformáció - Cégkereső, hiteles cégkivonat letöltése"
+    },
+    {
+      "position": 8,
+      "title": "Adó 1%",
+      "link": "https://www.vmk.hu/ado-1",
+      "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESUAHrOzAVSrQRYBg807vBgbW1tK4SM63EonA0joceLvKSWsrwtL5yQPNluHhXFQXU50MV7MKIQDHK6-V9xQln18X0uYP3ViIdNKDH8cfuHDD1&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQFnoECCoQAQ&uoh=1",
+      "displayed_link": "https://www.vmk.hu › ado-1",
+      "favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAkFBMVEVHcEwAcLwAcb0Acbz-_v4Acr0Acr0Acrz_______9ZlMsAb7wAcb3_______-dw-IAaroAcr2myuXtHyPtGBzuHyTtAw793Nz70tPuICQ1h8Z1q9dcnM9JkcsdfsKQvN7A2u3e7feBs9r5_f7uFhz1jI_-7O3uJCn0hIfuHSLuICT3pabuICXwP0PuICXuICSWTU0lAAAAMHRSTlMAXMzSLP_FG9q0i___w____5X_kyT_____8____________________89R_6f_oYAYi6zAAAABRklEQVR4AV3PBWIDIRAFUDbtxIYQ1h2L-_1v12Gpkb_KPJT5JLOERUk-fgqfLAGYL_5oMQNIqOyzXK2RA__p67sCrjfLgGIrgZIGS4EiM7Gh_7wIGDRYwCJnZVV7DBosYFOVEUKSgA8P2MZI5ZAY48SIEgEQgdND_zzCLusR-wFx7FBtxxilNhKzAWXWSz1ijKis6rYGOrt1o-QxgjSu78zgnDGDBIgRR6tlb6hDZ0f5hhztQHN3NP1ohzcE7KhDh9CP2A0qRlJOGg4a7dZ0ksqEEIKyM78odsQkATnRTgTcH46C2En8GaaJxPGwJyyr08QGkHsD4-lcVmXL2pK49GwVkinraV9R-cLY9eL5dJt0sttpoivzKe6eH42wCFY0D0_Pgv3m1Zb76iyyTJyrfdm-WBSanQbXNQ0L872leF2q6vL6N98XOFYtzsSFgUsAAAAASUVORK5CYII.png",
+      "snippet": "Székesfehérvár és Fejér megye legnagyobb könyvtára. Központi könytárunkban található felnőtt kölcsönző részleg, helyismereti csoport, gyermekrészleg, ...",
+      "about_this_result": {
+        "source": {
+          "description": "Székesfehérvár és Fejér megye legnagyobb könyvtára. Központi könytárunkban található felnőtt kölcsönző részleg, helyismereti csoport, gyermekrészleg, ...",
+          "source_info_link": "https://www.vmk.hu/ado-1",
+          "icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAkFBMVEVHcEwAcLwAcb0Acbz-_v4Acr0Acr0Acrz_______9ZlMsAb7wAcb3_______-dw-IAaroAcr2myuXtHyPtGBzuHyTtAw793Nz70tPuICQ1h8Z1q9dcnM9JkcsdfsKQvN7A2u3e7feBs9r5_f7uFhz1jI_-7O3uJCn0hIfuHSLuICT3pabuICXwP0PuICXuICSWTU0lAAAAMHRSTlMAXMzSLP_FG9q0i___w____5X_kyT_____8____________________89R_6f_oYAYi6zAAAABRklEQVR4AV3PBWIDIRAFUDbtxIYQ1h2L-_1v12Gpkb_KPJT5JLOERUk-fgqfLAGYL_5oMQNIqOyzXK2RA__p67sCrjfLgGIrgZIGS4EiM7Gh_7wIGDRYwCJnZVV7DBosYFOVEUKSgA8P2MZI5ZAY48SIEgEQgdND_zzCLusR-wFx7FBtxxilNhKzAWXWSz1ijKis6rYGOrt1o-QxgjSu78zgnDGDBIgRR6tlb6hDZ0f5hhztQHN3NP1ohzcE7KhDh9CP2A0qRlJOGg4a7dZ0ksqEEIKyM78odsQkATnRTgTcH46C2En8GaaJxPGwJyyr08QGkHsD4-lcVmXL2pK49GwVkinraV9R-cLY9eL5dJt0sttpoivzKe6eH42wCFY0D0_Pgv3m1Zb76iyyTJyrfdm-WBSanQbXNQ0L872leF2q6vL6N98XOFYtzsSFgUsAAAAASUVORK5CYII.png"
+        },
+        "languages": [
+          "hu"
+        ],
+        "regions": [
+          "HU"
+        ]
+      },
+      "about_page_link": "https://www.google.com/search?q=About+https://www.vmk.hu/ado-1&tbm=ilp",
+      "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&q=About+https%3A%2F%2Fwww.vmk.hu%2Fado-1",
+      "missing": [
+        "CÉGINFO"
+      ],
+      "must_include": {
+        "word": "CÉGINFO",
+        "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=%22C%C3%89GINFO%22+WWW.VMK.HU&sa=X&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQ5t4CegQIPhAB"
+      },
+      "source": "Vörösmarty Mihály Könyvtár"
+    },
+    {
+      "position": 9,
+      "title": "Beaufort VMK Kft \"kt. a.\"2010",
+      "link": "https://ceginfo.hu/ceg-adatlap/beaufort-vmk-kft-kt-a-0109936206.html",
+      "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESfAHrOzAVSNFU2V8rju2_UovvpedsOGVskWJyqaIlEeilUeLjnaVE7-j1vSCPraZNIB010TmNyVxI1ej7Ztlyz5y8MdTmO9ZKzZmYbkUysA0ZYgL6OogXC_ijPeAvj8242AAm2nuM_xkCISq9c3YvU-as7c2YPAtLvojVmE0&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQFnoECC0QAQ&uoh=1",
+      "displayed_link": "https://ceginfo.hu › beaufort-vmk-kft-kt-a-0109936206",
+      "favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAWlBMVEVan9xYntxPmtpIl9lopt9dod2-1_D0-Pz____Q4vR7sOKnyevU5PXE2vHq8vri7fhKmNpDldmCtOOfxOlTnNt2reH3-v2yz-2pyuuJuOW10e53ruGUvuff6_dR6fqAAAAA90lEQVR4AbWSBZaEMBAFW5DCbVzuf02SrI4-2y2c_6obksjfoPoqMLdM3J7llhclgar2h9gbvmjvZe-I9Ekub1tb9IbaR8-LeOe_Ms2BbtJ4O87AsvklFjBM4eqjpirlL9VLqFU2Ff1WZdpBuHyxAVysImBi3e-6mkE_ihOZ1fZwsO9QUpdxIJBrNJtvMzmZ6hZoTKzpg_8dxm7dKGp1HrLZPZMftAaOY5oVO7Hcju5YAQe3wBk4ufzGegLVqdv7Jd7cuLq5kih9PADD5ib1S5LZqhfATm76bjy7NEutIlOsUpncoJtNqqZWAi7P0U1FYfJmscn_sQJ7mgsoubD86wAAAABJRU5ErkJggg.png",
+      "snippet": "Beaufort VMK Kft \"kt. a.\"2010. 1083 Budapest, Práter utca 59. Adószám: 22622055-2-42 Cégjegyzékszám: 01 09 936206. Nyomtatás Figyelés. A cég megszűnt.",
+      "snippet_highlighted_words": [
+        "VMK"
+      ],
+      "about_this_result": {
+        "source": {
+          "description": "Beaufort VMK Kft \"kt. a.\"2010. 1083 Budapest, Práter utca 59. Adószám: 22622055-2-42 Cégjegyzékszám: 01 09 936206. Nyomtatás Figyelés. A cég megszűnt.",
+          "source_info_link": "https://ceginfo.hu/ceg-adatlap/beaufort-vmk-kft-kt-a-0109936206.html",
+          "icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAWlBMVEVan9xYntxPmtpIl9lopt9dod2-1_D0-Pz____Q4vR7sOKnyevU5PXE2vHq8vri7fhKmNpDldmCtOOfxOlTnNt2reH3-v2yz-2pyuuJuOW10e53ruGUvuff6_dR6fqAAAAA90lEQVR4AbWSBZaEMBAFW5DCbVzuf02SrI4-2y2c_6obksjfoPoqMLdM3J7llhclgar2h9gbvmjvZe-I9Ekub1tb9IbaR8-LeOe_Ms2BbtJ4O87AsvklFjBM4eqjpirlL9VLqFU2Ff1WZdpBuHyxAVysImBi3e-6mkE_ihOZ1fZwsO9QUpdxIJBrNJtvMzmZ6hZoTKzpg_8dxm7dKGp1HrLZPZMftAaOY5oVO7Hcju5YAQe3wBk4ufzGegLVqdv7Jd7cuLq5kih9PADD5ib1S5LZqhfATm76bjy7NEutIlOsUpncoJtNqqZWAi7P0U1FYfJmscn_sQJ7mgsoubD86wAAAABJRU5ErkJggg.png"
+        },
+        "languages": [
+          "hu"
+        ],
+        "regions": [
+          "HU"
+        ]
+      },
+      "about_page_link": "https://www.google.com/search?q=About+https://ceginfo.hu/ceg-adatlap/beaufort-vmk-kft-kt-a-0109936206.html&tbm=ilp",
+      "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&q=About+https%3A%2F%2Fceginfo.hu%2Fceg-adatlap%2Fbeaufort-vmk-kft-kt-a-0109936206.html",
+      "source": "Céginfo.hu"
+    }
+  ],
+  "filters": [
+    {
+      "name": "Közzététel dátuma",
+      "options": [
+        {
+          "name": "Tegnap",
+          "parameters": {
+            "uds": "AJ5uw1_a2D0D09lxm8gpKKOTUn4rr2yHl0u02JBTAgbs2PDDwqQyFYgN_VkHCgE5dNyxQH5aKcsDOCrZceL4EA8NV8OuyojjTQizSbEpC61m8CeggOX6MBJhE9qX1OYAh_6si3ftK6d7Y6c6rV4Bx0DVkm8Bk98rkFO17Ju4ryV80z1CZkNrSE9ZXiBR9jTRC-e8AC9Cj1ZvTu4IpmRBnPLtwfLzTdQu6Fjg1jZUvsmhnVYh8p-jToSTZyCBP8X-pWpsAd14FwlPI6Yeh9DTuR_xr42KbeJ9h5Nh12nSZbb8-QhJWfhEu7hzUC2kN2-Lvh6Plh7DJGY5n8RKpNJDkkAYsdWoGnrOG6lysYjEmz1uNgSiFwiBn87_ft_sQ1VP7vD3mMLKnWeb",
+            "q": "CÉGINFO WWW.VMK.HU tegnap óta"
+          },
+          "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU+tegnap+%C3%B3ta&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4rr2yHl0u02JBTAgbs2PDDwqQyFYgN_VkHCgE5dNyxQH5aKcsDOCrZceL4EA8NV8OuyojjTQizSbEpC61m8CeggOX6MBJhE9qX1OYAh_6si3ftK6d7Y6c6rV4Bx0DVkm8Bk98rkFO17Ju4ryV80z1CZkNrSE9ZXiBR9jTRC-e8AC9Cj1ZvTu4IpmRBnPLtwfLzTdQu6Fjg1jZUvsmhnVYh8p-jToSTZyCBP8X-pWpsAd14FwlPI6Yeh9DTuR_xr42KbeJ9h5Nh12nSZbb8-QhJWfhEu7hzUC2kN2-Lvh6Plh7DJGY5n8RKpNJDkkAYsdWoGnrOG6lysYjEmz1uNgSiFwiBn87_ft_sQ1VP7vD3mMLKnWeb&sa=X&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQkbEKegQIIRAC",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU+tegnap+%C3%B3ta&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4rr2yHl0u02JBTAgbs2PDDwqQyFYgN_VkHCgE5dNyxQH5aKcsDOCrZceL4EA8NV8OuyojjTQizSbEpC61m8CeggOX6MBJhE9qX1OYAh_6si3ftK6d7Y6c6rV4Bx0DVkm8Bk98rkFO17Ju4ryV80z1CZkNrSE9ZXiBR9jTRC-e8AC9Cj1ZvTu4IpmRBnPLtwfLzTdQu6Fjg1jZUvsmhnVYh8p-jToSTZyCBP8X-pWpsAd14FwlPI6Yeh9DTuR_xr42KbeJ9h5Nh12nSZbb8-QhJWfhEu7hzUC2kN2-Lvh6Plh7DJGY5n8RKpNJDkkAYsdWoGnrOG6lysYjEmz1uNgSiFwiBn87_ft_sQ1VP7vD3mMLKnWeb"
+        },
+        {
+          "name": "Az elmúlt 3 nap",
+          "parameters": {
+            "uds": "AJ5uw1_a2D0D09lxm8gpKKOTUn4r66Z2UA7Hq2NwS3KxKgSpIjjyfGD3bfUHhfTAzVZURAhgyYD0OMd3cVFka3H0b7x9Yecntif2JElo9H5oW6kXczKctK95rDXE3IrnGqMerw8H1CItQxh12Dga1TJMsdwYLKXyZoRrPp062Uvp4dBQ8y1rjG05Q6piWm2K6t42QRTmZNHJvlnxuVtZ3n2bvW73b83d4CK4bdAzxNlleURL-tywCkucmlcvGI594-aA_pJ5665oUObui0DahIQVVq_5ig4_AJ5yiLzTBc06qV5o4Re6GlXWm-e5-CMX6n69sK5-n7AYjcjUJdew7Wij2iCATpNI2X1GLWoEKEUr4RmKF2KRzzybjt838HkRJjUeVS-71Oli",
+            "q": "CÉGINFO WWW.VMK.HU az elmúlt 3 napban"
+          },
+          "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU+az+elm%C3%BAlt+3+napban&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r66Z2UA7Hq2NwS3KxKgSpIjjyfGD3bfUHhfTAzVZURAhgyYD0OMd3cVFka3H0b7x9Yecntif2JElo9H5oW6kXczKctK95rDXE3IrnGqMerw8H1CItQxh12Dga1TJMsdwYLKXyZoRrPp062Uvp4dBQ8y1rjG05Q6piWm2K6t42QRTmZNHJvlnxuVtZ3n2bvW73b83d4CK4bdAzxNlleURL-tywCkucmlcvGI594-aA_pJ5665oUObui0DahIQVVq_5ig4_AJ5yiLzTBc06qV5o4Re6GlXWm-e5-CMX6n69sK5-n7AYjcjUJdew7Wij2iCATpNI2X1GLWoEKEUr4RmKF2KRzzybjt838HkRJjUeVS-71Oli&sa=X&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQkbEKegQIIRAD",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU+az+elm%C3%BAlt+3+napban&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r66Z2UA7Hq2NwS3KxKgSpIjjyfGD3bfUHhfTAzVZURAhgyYD0OMd3cVFka3H0b7x9Yecntif2JElo9H5oW6kXczKctK95rDXE3IrnGqMerw8H1CItQxh12Dga1TJMsdwYLKXyZoRrPp062Uvp4dBQ8y1rjG05Q6piWm2K6t42QRTmZNHJvlnxuVtZ3n2bvW73b83d4CK4bdAzxNlleURL-tywCkucmlcvGI594-aA_pJ5665oUObui0DahIQVVq_5ig4_AJ5yiLzTBc06qV5o4Re6GlXWm-e5-CMX6n69sK5-n7AYjcjUJdew7Wij2iCATpNI2X1GLWoEKEUr4RmKF2KRzzybjt838HkRJjUeVS-71Oli"
+        },
+        {
+          "name": "Az elmúlt hét",
+          "parameters": {
+            "uds": "AJ5uw1_a2D0D09lxm8gpKKOTUn4rLPr_CyaVwKw3_4B_ixiPUB5QeRBKS5hGNg0fNpkvfXM0VXJG5-Tj283KWLh8Vaq22fhiLRxpTL5nm2VqC-VIOYAMqniq7ir9IxT-Ly0erUycOO7rgWH58k2JCl0w3397wKjLaZRvdPnid4xiUqikUXrNV5ba87Mwguclg12BS1pP5etGxeZUu_r0hVIbnsDtleTujWPl-0FJQSSYDoCZHNopJZlX-5TGh6LwTfsDpLyoCJwOk_dV3M3ydG3JPGWpycYhUPH--Pn64JKIFjzYvF_vP095PNkaKjSBh4UoJrFxeE38VzcHnAyfsjL-2dzp-InDw0kGneL49mvTR6q2Nj8xQZHhwXaIDaKt5R_fB5p85BqT",
+            "q": "CÉGINFO WWW.VMK.HU az elmúlt héten"
+          },
+          "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU+az+elm%C3%BAlt+h%C3%A9ten&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4rLPr_CyaVwKw3_4B_ixiPUB5QeRBKS5hGNg0fNpkvfXM0VXJG5-Tj283KWLh8Vaq22fhiLRxpTL5nm2VqC-VIOYAMqniq7ir9IxT-Ly0erUycOO7rgWH58k2JCl0w3397wKjLaZRvdPnid4xiUqikUXrNV5ba87Mwguclg12BS1pP5etGxeZUu_r0hVIbnsDtleTujWPl-0FJQSSYDoCZHNopJZlX-5TGh6LwTfsDpLyoCJwOk_dV3M3ydG3JPGWpycYhUPH--Pn64JKIFjzYvF_vP095PNkaKjSBh4UoJrFxeE38VzcHnAyfsjL-2dzp-InDw0kGneL49mvTR6q2Nj8xQZHhwXaIDaKt5R_fB5p85BqT&sa=X&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQkbEKegQIIRAE",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU+az+elm%C3%BAlt+h%C3%A9ten&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4rLPr_CyaVwKw3_4B_ixiPUB5QeRBKS5hGNg0fNpkvfXM0VXJG5-Tj283KWLh8Vaq22fhiLRxpTL5nm2VqC-VIOYAMqniq7ir9IxT-Ly0erUycOO7rgWH58k2JCl0w3397wKjLaZRvdPnid4xiUqikUXrNV5ba87Mwguclg12BS1pP5etGxeZUu_r0hVIbnsDtleTujWPl-0FJQSSYDoCZHNopJZlX-5TGh6LwTfsDpLyoCJwOk_dV3M3ydG3JPGWpycYhUPH--Pn64JKIFjzYvF_vP095PNkaKjSBh4UoJrFxeE38VzcHnAyfsjL-2dzp-InDw0kGneL49mvTR6q2Nj8xQZHhwXaIDaKt5R_fB5p85BqT"
+        },
+        {
+          "name": "Az elmúlt hónap",
+          "parameters": {
+            "uds": "AJ5uw1_a2D0D09lxm8gpKKOTUn4r1VLTtVT8hdzdcbWyNQNseuaFTlelLww0oC-77LNIpBdcPPTJLxBw3dUkbJVnkv61Sl2WH20X3ApNAOthf4_YCgE9rsmvlf4w6qqGYrIAtMogW_a03gy01cTkRMsr-kOxJ-C-1NoqpjpmBgUsmKtvgSviN27gp5WWvyDS19RDRPPD6yUz8Y0sDI7WS4cPvG2f_lY_VdYwE9y8zx93Kz4PGrqx7mM3_gac2lY824Sx1d6C3k_NcM6IhpAeK15T7-QVao4U-NlyRkRttYBeEjg3v4HntFLcl2mJ7NRzuC2egC_aJz7dAZkM10hpuAEogtzlisCkl53FVk01H7N5c-2-2mukj8enk12IHkWqFgBD7P5XiSrs",
+            "q": "CÉGINFO WWW.VMK.HU az elmúlt hónapban"
+          },
+          "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU+az+elm%C3%BAlt+h%C3%B3napban&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r1VLTtVT8hdzdcbWyNQNseuaFTlelLww0oC-77LNIpBdcPPTJLxBw3dUkbJVnkv61Sl2WH20X3ApNAOthf4_YCgE9rsmvlf4w6qqGYrIAtMogW_a03gy01cTkRMsr-kOxJ-C-1NoqpjpmBgUsmKtvgSviN27gp5WWvyDS19RDRPPD6yUz8Y0sDI7WS4cPvG2f_lY_VdYwE9y8zx93Kz4PGrqx7mM3_gac2lY824Sx1d6C3k_NcM6IhpAeK15T7-QVao4U-NlyRkRttYBeEjg3v4HntFLcl2mJ7NRzuC2egC_aJz7dAZkM10hpuAEogtzlisCkl53FVk01H7N5c-2-2mukj8enk12IHkWqFgBD7P5XiSrs&sa=X&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQkbEKegQIIRAF",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU+az+elm%C3%BAlt+h%C3%B3napban&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r1VLTtVT8hdzdcbWyNQNseuaFTlelLww0oC-77LNIpBdcPPTJLxBw3dUkbJVnkv61Sl2WH20X3ApNAOthf4_YCgE9rsmvlf4w6qqGYrIAtMogW_a03gy01cTkRMsr-kOxJ-C-1NoqpjpmBgUsmKtvgSviN27gp5WWvyDS19RDRPPD6yUz8Y0sDI7WS4cPvG2f_lY_VdYwE9y8zx93Kz4PGrqx7mM3_gac2lY824Sx1d6C3k_NcM6IhpAeK15T7-QVao4U-NlyRkRttYBeEjg3v4HntFLcl2mJ7NRzuC2egC_aJz7dAZkM10hpuAEogtzlisCkl53FVk01H7N5c-2-2mukj8enk12IHkWqFgBD7P5XiSrs"
+        }
+      ]
+    },
+    {
+      "name": "Közzététel dátuma",
+      "options": [
+        {
+          "name": "Tegnap",
+          "parameters": {
+            "uds": "AJ5uw1_a2D0D09lxm8gpKKOTUn4rr2yHl0u02JBTAgbs2PDDwqQyFYgN_VkHCgE5dNyxQH5aKcsDOCrZceL4EA8NV8OuyojjTQizSbEpC61m8CeggOX6MBJhE9qX1OYAh_6si3ftK6d7Y6c6rV4Bx0DVkm8Bk98rkFO17Ju4ryV80z1CZkNrSE9ZXiBR9jTRC-e8AC9Cj1ZvTu4IpmRBnPLtwfLzTdQu6Fjg1jZUvsmhnVYh8p-jToSTZyCBP8X-pWpsAd14FwlPI6Yeh9DTuR_xr42KbeJ9h5Nh12nSZbb8-QhJWfhEu7hzUC2kN2-Lvh6Plh7DJGY5n8RKpNJDkkAYsdWoGnrOG6lysYjEmz1uNgSiFwiBn87_ft_sQ1VP7vD3mMLKnWeb",
+            "q": "CÉGINFO WWW.VMK.HU tegnap óta"
+          },
+          "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU+tegnap+%C3%B3ta&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4rr2yHl0u02JBTAgbs2PDDwqQyFYgN_VkHCgE5dNyxQH5aKcsDOCrZceL4EA8NV8OuyojjTQizSbEpC61m8CeggOX6MBJhE9qX1OYAh_6si3ftK6d7Y6c6rV4Bx0DVkm8Bk98rkFO17Ju4ryV80z1CZkNrSE9ZXiBR9jTRC-e8AC9Cj1ZvTu4IpmRBnPLtwfLzTdQu6Fjg1jZUvsmhnVYh8p-jToSTZyCBP8X-pWpsAd14FwlPI6Yeh9DTuR_xr42KbeJ9h5Nh12nSZbb8-QhJWfhEu7hzUC2kN2-Lvh6Plh7DJGY5n8RKpNJDkkAYsdWoGnrOG6lysYjEmz1uNgSiFwiBn87_ft_sQ1VP7vD3mMLKnWeb&sa=X&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQkbEKegQIIRAC",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU+tegnap+%C3%B3ta&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4rr2yHl0u02JBTAgbs2PDDwqQyFYgN_VkHCgE5dNyxQH5aKcsDOCrZceL4EA8NV8OuyojjTQizSbEpC61m8CeggOX6MBJhE9qX1OYAh_6si3ftK6d7Y6c6rV4Bx0DVkm8Bk98rkFO17Ju4ryV80z1CZkNrSE9ZXiBR9jTRC-e8AC9Cj1ZvTu4IpmRBnPLtwfLzTdQu6Fjg1jZUvsmhnVYh8p-jToSTZyCBP8X-pWpsAd14FwlPI6Yeh9DTuR_xr42KbeJ9h5Nh12nSZbb8-QhJWfhEu7hzUC2kN2-Lvh6Plh7DJGY5n8RKpNJDkkAYsdWoGnrOG6lysYjEmz1uNgSiFwiBn87_ft_sQ1VP7vD3mMLKnWeb"
+        },
+        {
+          "name": "Az elmúlt 3 nap",
+          "parameters": {
+            "uds": "AJ5uw1_a2D0D09lxm8gpKKOTUn4r66Z2UA7Hq2NwS3KxKgSpIjjyfGD3bfUHhfTAzVZURAhgyYD0OMd3cVFka3H0b7x9Yecntif2JElo9H5oW6kXczKctK95rDXE3IrnGqMerw8H1CItQxh12Dga1TJMsdwYLKXyZoRrPp062Uvp4dBQ8y1rjG05Q6piWm2K6t42QRTmZNHJvlnxuVtZ3n2bvW73b83d4CK4bdAzxNlleURL-tywCkucmlcvGI594-aA_pJ5665oUObui0DahIQVVq_5ig4_AJ5yiLzTBc06qV5o4Re6GlXWm-e5-CMX6n69sK5-n7AYjcjUJdew7Wij2iCATpNI2X1GLWoEKEUr4RmKF2KRzzybjt838HkRJjUeVS-71Oli",
+            "q": "CÉGINFO WWW.VMK.HU az elmúlt 3 napban"
+          },
+          "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU+az+elm%C3%BAlt+3+napban&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r66Z2UA7Hq2NwS3KxKgSpIjjyfGD3bfUHhfTAzVZURAhgyYD0OMd3cVFka3H0b7x9Yecntif2JElo9H5oW6kXczKctK95rDXE3IrnGqMerw8H1CItQxh12Dga1TJMsdwYLKXyZoRrPp062Uvp4dBQ8y1rjG05Q6piWm2K6t42QRTmZNHJvlnxuVtZ3n2bvW73b83d4CK4bdAzxNlleURL-tywCkucmlcvGI594-aA_pJ5665oUObui0DahIQVVq_5ig4_AJ5yiLzTBc06qV5o4Re6GlXWm-e5-CMX6n69sK5-n7AYjcjUJdew7Wij2iCATpNI2X1GLWoEKEUr4RmKF2KRzzybjt838HkRJjUeVS-71Oli&sa=X&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQkbEKegQIIRAD",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU+az+elm%C3%BAlt+3+napban&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r66Z2UA7Hq2NwS3KxKgSpIjjyfGD3bfUHhfTAzVZURAhgyYD0OMd3cVFka3H0b7x9Yecntif2JElo9H5oW6kXczKctK95rDXE3IrnGqMerw8H1CItQxh12Dga1TJMsdwYLKXyZoRrPp062Uvp4dBQ8y1rjG05Q6piWm2K6t42QRTmZNHJvlnxuVtZ3n2bvW73b83d4CK4bdAzxNlleURL-tywCkucmlcvGI594-aA_pJ5665oUObui0DahIQVVq_5ig4_AJ5yiLzTBc06qV5o4Re6GlXWm-e5-CMX6n69sK5-n7AYjcjUJdew7Wij2iCATpNI2X1GLWoEKEUr4RmKF2KRzzybjt838HkRJjUeVS-71Oli"
+        },
+        {
+          "name": "Az elmúlt hét",
+          "parameters": {
+            "uds": "AJ5uw1_a2D0D09lxm8gpKKOTUn4rLPr_CyaVwKw3_4B_ixiPUB5QeRBKS5hGNg0fNpkvfXM0VXJG5-Tj283KWLh8Vaq22fhiLRxpTL5nm2VqC-VIOYAMqniq7ir9IxT-Ly0erUycOO7rgWH58k2JCl0w3397wKjLaZRvdPnid4xiUqikUXrNV5ba87Mwguclg12BS1pP5etGxeZUu_r0hVIbnsDtleTujWPl-0FJQSSYDoCZHNopJZlX-5TGh6LwTfsDpLyoCJwOk_dV3M3ydG3JPGWpycYhUPH--Pn64JKIFjzYvF_vP095PNkaKjSBh4UoJrFxeE38VzcHnAyfsjL-2dzp-InDw0kGneL49mvTR6q2Nj8xQZHhwXaIDaKt5R_fB5p85BqT",
+            "q": "CÉGINFO WWW.VMK.HU az elmúlt héten"
+          },
+          "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU+az+elm%C3%BAlt+h%C3%A9ten&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4rLPr_CyaVwKw3_4B_ixiPUB5QeRBKS5hGNg0fNpkvfXM0VXJG5-Tj283KWLh8Vaq22fhiLRxpTL5nm2VqC-VIOYAMqniq7ir9IxT-Ly0erUycOO7rgWH58k2JCl0w3397wKjLaZRvdPnid4xiUqikUXrNV5ba87Mwguclg12BS1pP5etGxeZUu_r0hVIbnsDtleTujWPl-0FJQSSYDoCZHNopJZlX-5TGh6LwTfsDpLyoCJwOk_dV3M3ydG3JPGWpycYhUPH--Pn64JKIFjzYvF_vP095PNkaKjSBh4UoJrFxeE38VzcHnAyfsjL-2dzp-InDw0kGneL49mvTR6q2Nj8xQZHhwXaIDaKt5R_fB5p85BqT&sa=X&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQkbEKegQIIRAE",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU+az+elm%C3%BAlt+h%C3%A9ten&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4rLPr_CyaVwKw3_4B_ixiPUB5QeRBKS5hGNg0fNpkvfXM0VXJG5-Tj283KWLh8Vaq22fhiLRxpTL5nm2VqC-VIOYAMqniq7ir9IxT-Ly0erUycOO7rgWH58k2JCl0w3397wKjLaZRvdPnid4xiUqikUXrNV5ba87Mwguclg12BS1pP5etGxeZUu_r0hVIbnsDtleTujWPl-0FJQSSYDoCZHNopJZlX-5TGh6LwTfsDpLyoCJwOk_dV3M3ydG3JPGWpycYhUPH--Pn64JKIFjzYvF_vP095PNkaKjSBh4UoJrFxeE38VzcHnAyfsjL-2dzp-InDw0kGneL49mvTR6q2Nj8xQZHhwXaIDaKt5R_fB5p85BqT"
+        },
+        {
+          "name": "Az elmúlt hónap",
+          "parameters": {
+            "uds": "AJ5uw1_a2D0D09lxm8gpKKOTUn4r1VLTtVT8hdzdcbWyNQNseuaFTlelLww0oC-77LNIpBdcPPTJLxBw3dUkbJVnkv61Sl2WH20X3ApNAOthf4_YCgE9rsmvlf4w6qqGYrIAtMogW_a03gy01cTkRMsr-kOxJ-C-1NoqpjpmBgUsmKtvgSviN27gp5WWvyDS19RDRPPD6yUz8Y0sDI7WS4cPvG2f_lY_VdYwE9y8zx93Kz4PGrqx7mM3_gac2lY824Sx1d6C3k_NcM6IhpAeK15T7-QVao4U-NlyRkRttYBeEjg3v4HntFLcl2mJ7NRzuC2egC_aJz7dAZkM10hpuAEogtzlisCkl53FVk01H7N5c-2-2mukj8enk12IHkWqFgBD7P5XiSrs",
+            "q": "CÉGINFO WWW.VMK.HU az elmúlt hónapban"
+          },
+          "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU+az+elm%C3%BAlt+h%C3%B3napban&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r1VLTtVT8hdzdcbWyNQNseuaFTlelLww0oC-77LNIpBdcPPTJLxBw3dUkbJVnkv61Sl2WH20X3ApNAOthf4_YCgE9rsmvlf4w6qqGYrIAtMogW_a03gy01cTkRMsr-kOxJ-C-1NoqpjpmBgUsmKtvgSviN27gp5WWvyDS19RDRPPD6yUz8Y0sDI7WS4cPvG2f_lY_VdYwE9y8zx93Kz4PGrqx7mM3_gac2lY824Sx1d6C3k_NcM6IhpAeK15T7-QVao4U-NlyRkRttYBeEjg3v4HntFLcl2mJ7NRzuC2egC_aJz7dAZkM10hpuAEogtzlisCkl53FVk01H7N5c-2-2mukj8enk12IHkWqFgBD7P5XiSrs&sa=X&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQkbEKegQIIRAF",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU+az+elm%C3%BAlt+h%C3%B3napban&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r1VLTtVT8hdzdcbWyNQNseuaFTlelLww0oC-77LNIpBdcPPTJLxBw3dUkbJVnkv61Sl2WH20X3ApNAOthf4_YCgE9rsmvlf4w6qqGYrIAtMogW_a03gy01cTkRMsr-kOxJ-C-1NoqpjpmBgUsmKtvgSviN27gp5WWvyDS19RDRPPD6yUz8Y0sDI7WS4cPvG2f_lY_VdYwE9y8zx93Kz4PGrqx7mM3_gac2lY824Sx1d6C3k_NcM6IhpAeK15T7-QVao4U-NlyRkRttYBeEjg3v4HntFLcl2mJ7NRzuC2egC_aJz7dAZkM10hpuAEogtzlisCkl53FVk01H7N5c-2-2mukj8enk12IHkWqFgBD7P5XiSrs"
+        }
+      ]
+    },
+    {
+      "name": "Állás típusa",
+      "options": [
+        {
+          "name": "Teljes munkaidő",
+          "parameters": {
+            "uds": "AJ5uw1_a2D0D09lxm8gpKKOTUn4rrhpR-ApKtd3VSSz-fAhE3RM-6_THyOWDr0vWMhs700nGQPH5N9NpJy192RTCN-bI9l56-7snhXVc9OQD2fpb73eXUGBB2dJOt1lraomd0YVCDOpblTbRIqBLVmaYfnWOJ9IZFSUgwD_C9PyktPLuTgalciQ1q2a6CRYEgfBwicT3kCcfrB_dBcnilq7e7Uc-mqUwtSH-p7v1CzF9uynjPnsvviH0cJkHXFIMWe3RLod9LlIpPfxHMmSk1jyLozyg2AhF3UuGdNdpGU3HzBrW4Y49YZFhZfVd750ENNEXRFwYJ2KMqqLE7gEizokolOChH7TrMkCH-T6ftSw992hFLRPaPrAUhIV0OwssmRUYS--EznD4",
+            "q": "CÉGINFO WWW.VMK.HU teljes munkaidő"
+          },
+          "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU+teljes+munkaid%C5%91&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4rrhpR-ApKtd3VSSz-fAhE3RM-6_THyOWDr0vWMhs700nGQPH5N9NpJy192RTCN-bI9l56-7snhXVc9OQD2fpb73eXUGBB2dJOt1lraomd0YVCDOpblTbRIqBLVmaYfnWOJ9IZFSUgwD_C9PyktPLuTgalciQ1q2a6CRYEgfBwicT3kCcfrB_dBcnilq7e7Uc-mqUwtSH-p7v1CzF9uynjPnsvviH0cJkHXFIMWe3RLod9LlIpPfxHMmSk1jyLozyg2AhF3UuGdNdpGU3HzBrW4Y49YZFhZfVd750ENNEXRFwYJ2KMqqLE7gEizokolOChH7TrMkCH-T6ftSw992hFLRPaPrAUhIV0OwssmRUYS--EznD4&sa=X&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQkbEKegQIIhAC",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU+teljes+munkaid%C5%91&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4rrhpR-ApKtd3VSSz-fAhE3RM-6_THyOWDr0vWMhs700nGQPH5N9NpJy192RTCN-bI9l56-7snhXVc9OQD2fpb73eXUGBB2dJOt1lraomd0YVCDOpblTbRIqBLVmaYfnWOJ9IZFSUgwD_C9PyktPLuTgalciQ1q2a6CRYEgfBwicT3kCcfrB_dBcnilq7e7Uc-mqUwtSH-p7v1CzF9uynjPnsvviH0cJkHXFIMWe3RLod9LlIpPfxHMmSk1jyLozyg2AhF3UuGdNdpGU3HzBrW4Y49YZFhZfVd750ENNEXRFwYJ2KMqqLE7gEizokolOChH7TrMkCH-T6ftSw992hFLRPaPrAUhIV0OwssmRUYS--EznD4"
+        },
+        {
+          "name": "Részmunkaidő",
+          "parameters": {
+            "uds": "AJ5uw1_a2D0D09lxm8gpKKOTUn4rWZU_l-CLLb_qXjPXe_Ia6Sw0wJtoF3O4JC64j797Av1yf1B5Y_g3CoTticc5qJ2yd8_jpBgMUDqFWy-KDJflsu1bH-w6VVslpIj2eL7MQJ5ZQL27b8JW37zM7yjsKRUfh98m_gZ9G0ziICs3s61GZGv_Hu3jXZe5G6jrothRCWe3flTJF6WCFDBpAxlNeU0BScYE5gBHgiQpgj3Kkp0A2LhRCX_2yVn8dslGwV1cHdyK-W9oaMRu7dx-EDEX4AQ4_EAHMNUZ1XX8KYF_7Nl41NksF-0Hy1CrnIbWMTv30NoD4eAl0No6zXgXI73OuIgUKNU0jsomXHqCBhtvtMSwol-vBlqvp_5pAOkNpgDz0VL2Yrtq",
+            "q": "CÉGINFO WWW.VMK.HU részmunkaidő"
+          },
+          "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU+r%C3%A9szmunkaid%C5%91&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4rWZU_l-CLLb_qXjPXe_Ia6Sw0wJtoF3O4JC64j797Av1yf1B5Y_g3CoTticc5qJ2yd8_jpBgMUDqFWy-KDJflsu1bH-w6VVslpIj2eL7MQJ5ZQL27b8JW37zM7yjsKRUfh98m_gZ9G0ziICs3s61GZGv_Hu3jXZe5G6jrothRCWe3flTJF6WCFDBpAxlNeU0BScYE5gBHgiQpgj3Kkp0A2LhRCX_2yVn8dslGwV1cHdyK-W9oaMRu7dx-EDEX4AQ4_EAHMNUZ1XX8KYF_7Nl41NksF-0Hy1CrnIbWMTv30NoD4eAl0No6zXgXI73OuIgUKNU0jsomXHqCBhtvtMSwol-vBlqvp_5pAOkNpgDz0VL2Yrtq&sa=X&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQkbEKegQIIhAD",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU+r%C3%A9szmunkaid%C5%91&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4rWZU_l-CLLb_qXjPXe_Ia6Sw0wJtoF3O4JC64j797Av1yf1B5Y_g3CoTticc5qJ2yd8_jpBgMUDqFWy-KDJflsu1bH-w6VVslpIj2eL7MQJ5ZQL27b8JW37zM7yjsKRUfh98m_gZ9G0ziICs3s61GZGv_Hu3jXZe5G6jrothRCWe3flTJF6WCFDBpAxlNeU0BScYE5gBHgiQpgj3Kkp0A2LhRCX_2yVn8dslGwV1cHdyK-W9oaMRu7dx-EDEX4AQ4_EAHMNUZ1XX8KYF_7Nl41NksF-0Hy1CrnIbWMTv30NoD4eAl0No6zXgXI73OuIgUKNU0jsomXHqCBhtvtMSwol-vBlqvp_5pAOkNpgDz0VL2Yrtq"
+        },
+        {
+          "name": "Szerződés",
+          "parameters": {
+            "uds": "AJ5uw1_a2D0D09lxm8gpKKOTUn4rprWL6OpWZoNRzUmdBA3qDxW3IRcpvECr4hj5NYmI6vHakwSgO6eaiOhki1xDlTo2Cble276R_KPpvul78bjvxNdOX4It4JKxzjV3s37kv0gqrl0YO3KYY-shkQlUG9BHxeo-Nah6Ca0cHNnC4imksJDD-mJ-YhHYCr5-qq58-BgToM1KE0U67XQ0F1kGr-vXUoTogxGAqP4xPAxEHmN-xCr53wqRBv8ZvYMUMbLu84FJ712SVxkIJI0Mdq0gAPZm0yws27Kzn-VYJ58hIcV4GyX-fZS3FoK09yCWntexnQnsRcJmtl4IAhxhoiLZPelFcnQpo6wEOMX2LBV-ayQ6Zwr-KYgmXfP-TvMyFWGF19Tpmn1h",
+            "q": "CÉGINFO WWW.VMK.HU szerződés"
+          },
+          "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU+szerz%C5%91d%C3%A9s&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4rprWL6OpWZoNRzUmdBA3qDxW3IRcpvECr4hj5NYmI6vHakwSgO6eaiOhki1xDlTo2Cble276R_KPpvul78bjvxNdOX4It4JKxzjV3s37kv0gqrl0YO3KYY-shkQlUG9BHxeo-Nah6Ca0cHNnC4imksJDD-mJ-YhHYCr5-qq58-BgToM1KE0U67XQ0F1kGr-vXUoTogxGAqP4xPAxEHmN-xCr53wqRBv8ZvYMUMbLu84FJ712SVxkIJI0Mdq0gAPZm0yws27Kzn-VYJ58hIcV4GyX-fZS3FoK09yCWntexnQnsRcJmtl4IAhxhoiLZPelFcnQpo6wEOMX2LBV-ayQ6Zwr-KYgmXfP-TvMyFWGF19Tpmn1h&sa=X&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQkbEKegQIIhAE",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU+szerz%C5%91d%C3%A9s&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4rprWL6OpWZoNRzUmdBA3qDxW3IRcpvECr4hj5NYmI6vHakwSgO6eaiOhki1xDlTo2Cble276R_KPpvul78bjvxNdOX4It4JKxzjV3s37kv0gqrl0YO3KYY-shkQlUG9BHxeo-Nah6Ca0cHNnC4imksJDD-mJ-YhHYCr5-qq58-BgToM1KE0U67XQ0F1kGr-vXUoTogxGAqP4xPAxEHmN-xCr53wqRBv8ZvYMUMbLu84FJ712SVxkIJI0Mdq0gAPZm0yws27Kzn-VYJ58hIcV4GyX-fZS3FoK09yCWntexnQnsRcJmtl4IAhxhoiLZPelFcnQpo6wEOMX2LBV-ayQ6Zwr-KYgmXfP-TvMyFWGF19Tpmn1h"
+        },
+        {
+          "name": "Szakmai gyakorlat",
+          "parameters": {
+            "uds": "AJ5uw1_a2D0D09lxm8gpKKOTUn4r3dv6TGVRfd6DXtZirxI0o-noqEMu92lAG-6yzHiPnUOKCOuaHjtfR-Jc_8qczwhgUL_pDP9XrzJz9kmfAbN-SKkVg-8K8-YN_B4Hefxef0VTD7JnESrmvMX6cqi-n4QZhsLYTLodmQxAGq0-VHOsgLbzDbSE76F3GWCj5RIWcoLCt3dMLIBOGO2yuotjtE9GNQpL9DbZJKwd5erbUwcfbmKGxqy30f3WAs7J6tDXr1VZiZHSrG19s8fvLrVsdmm6va7FO7ZtxJN86CqdNmgTHIPWDYdLbapUw9Lwj954SwgSbwi6NsWjk-VeJkXrXcgnagg3zTumKEnUpwvEwJwe3f8_w9vCz97WXjVuU6F0BoDMI3zK",
+            "q": "CÉGINFO WWW.VMK.HU szakmai gyakorlat"
+          },
+          "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU+szakmai+gyakorlat&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r3dv6TGVRfd6DXtZirxI0o-noqEMu92lAG-6yzHiPnUOKCOuaHjtfR-Jc_8qczwhgUL_pDP9XrzJz9kmfAbN-SKkVg-8K8-YN_B4Hefxef0VTD7JnESrmvMX6cqi-n4QZhsLYTLodmQxAGq0-VHOsgLbzDbSE76F3GWCj5RIWcoLCt3dMLIBOGO2yuotjtE9GNQpL9DbZJKwd5erbUwcfbmKGxqy30f3WAs7J6tDXr1VZiZHSrG19s8fvLrVsdmm6va7FO7ZtxJN86CqdNmgTHIPWDYdLbapUw9Lwj954SwgSbwi6NsWjk-VeJkXrXcgnagg3zTumKEnUpwvEwJwe3f8_w9vCz97WXjVuU6F0BoDMI3zK&sa=X&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQkbEKegQIIhAF",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU+szakmai+gyakorlat&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r3dv6TGVRfd6DXtZirxI0o-noqEMu92lAG-6yzHiPnUOKCOuaHjtfR-Jc_8qczwhgUL_pDP9XrzJz9kmfAbN-SKkVg-8K8-YN_B4Hefxef0VTD7JnESrmvMX6cqi-n4QZhsLYTLodmQxAGq0-VHOsgLbzDbSE76F3GWCj5RIWcoLCt3dMLIBOGO2yuotjtE9GNQpL9DbZJKwd5erbUwcfbmKGxqy30f3WAs7J6tDXr1VZiZHSrG19s8fvLrVsdmm6va7FO7ZtxJN86CqdNmgTHIPWDYdLbapUw9Lwj954SwgSbwi6NsWjk-VeJkXrXcgnagg3zTumKEnUpwvEwJwe3f8_w9vCz97WXjVuU6F0BoDMI3zK"
+        }
+      ]
+    },
+    {
+      "name": "Állás típusa",
+      "options": [
+        {
+          "name": "Teljes munkaidő",
+          "parameters": {
+            "uds": "AJ5uw1_a2D0D09lxm8gpKKOTUn4rrhpR-ApKtd3VSSz-fAhE3RM-6_THyOWDr0vWMhs700nGQPH5N9NpJy192RTCN-bI9l56-7snhXVc9OQD2fpb73eXUGBB2dJOt1lraomd0YVCDOpblTbRIqBLVmaYfnWOJ9IZFSUgwD_C9PyktPLuTgalciQ1q2a6CRYEgfBwicT3kCcfrB_dBcnilq7e7Uc-mqUwtSH-p7v1CzF9uynjPnsvviH0cJkHXFIMWe3RLod9LlIpPfxHMmSk1jyLozyg2AhF3UuGdNdpGU3HzBrW4Y49YZFhZfVd750ENNEXRFwYJ2KMqqLE7gEizokolOChH7TrMkCH-T6ftSw992hFLRPaPrAUhIV0OwssmRUYS--EznD4",
+            "q": "CÉGINFO WWW.VMK.HU teljes munkaidő"
+          },
+          "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU+teljes+munkaid%C5%91&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4rrhpR-ApKtd3VSSz-fAhE3RM-6_THyOWDr0vWMhs700nGQPH5N9NpJy192RTCN-bI9l56-7snhXVc9OQD2fpb73eXUGBB2dJOt1lraomd0YVCDOpblTbRIqBLVmaYfnWOJ9IZFSUgwD_C9PyktPLuTgalciQ1q2a6CRYEgfBwicT3kCcfrB_dBcnilq7e7Uc-mqUwtSH-p7v1CzF9uynjPnsvviH0cJkHXFIMWe3RLod9LlIpPfxHMmSk1jyLozyg2AhF3UuGdNdpGU3HzBrW4Y49YZFhZfVd750ENNEXRFwYJ2KMqqLE7gEizokolOChH7TrMkCH-T6ftSw992hFLRPaPrAUhIV0OwssmRUYS--EznD4&sa=X&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQkbEKegQIIhAC",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU+teljes+munkaid%C5%91&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4rrhpR-ApKtd3VSSz-fAhE3RM-6_THyOWDr0vWMhs700nGQPH5N9NpJy192RTCN-bI9l56-7snhXVc9OQD2fpb73eXUGBB2dJOt1lraomd0YVCDOpblTbRIqBLVmaYfnWOJ9IZFSUgwD_C9PyktPLuTgalciQ1q2a6CRYEgfBwicT3kCcfrB_dBcnilq7e7Uc-mqUwtSH-p7v1CzF9uynjPnsvviH0cJkHXFIMWe3RLod9LlIpPfxHMmSk1jyLozyg2AhF3UuGdNdpGU3HzBrW4Y49YZFhZfVd750ENNEXRFwYJ2KMqqLE7gEizokolOChH7TrMkCH-T6ftSw992hFLRPaPrAUhIV0OwssmRUYS--EznD4"
+        },
+        {
+          "name": "Részmunkaidő",
+          "parameters": {
+            "uds": "AJ5uw1_a2D0D09lxm8gpKKOTUn4rWZU_l-CLLb_qXjPXe_Ia6Sw0wJtoF3O4JC64j797Av1yf1B5Y_g3CoTticc5qJ2yd8_jpBgMUDqFWy-KDJflsu1bH-w6VVslpIj2eL7MQJ5ZQL27b8JW37zM7yjsKRUfh98m_gZ9G0ziICs3s61GZGv_Hu3jXZe5G6jrothRCWe3flTJF6WCFDBpAxlNeU0BScYE5gBHgiQpgj3Kkp0A2LhRCX_2yVn8dslGwV1cHdyK-W9oaMRu7dx-EDEX4AQ4_EAHMNUZ1XX8KYF_7Nl41NksF-0Hy1CrnIbWMTv30NoD4eAl0No6zXgXI73OuIgUKNU0jsomXHqCBhtvtMSwol-vBlqvp_5pAOkNpgDz0VL2Yrtq",
+            "q": "CÉGINFO WWW.VMK.HU részmunkaidő"
+          },
+          "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU+r%C3%A9szmunkaid%C5%91&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4rWZU_l-CLLb_qXjPXe_Ia6Sw0wJtoF3O4JC64j797Av1yf1B5Y_g3CoTticc5qJ2yd8_jpBgMUDqFWy-KDJflsu1bH-w6VVslpIj2eL7MQJ5ZQL27b8JW37zM7yjsKRUfh98m_gZ9G0ziICs3s61GZGv_Hu3jXZe5G6jrothRCWe3flTJF6WCFDBpAxlNeU0BScYE5gBHgiQpgj3Kkp0A2LhRCX_2yVn8dslGwV1cHdyK-W9oaMRu7dx-EDEX4AQ4_EAHMNUZ1XX8KYF_7Nl41NksF-0Hy1CrnIbWMTv30NoD4eAl0No6zXgXI73OuIgUKNU0jsomXHqCBhtvtMSwol-vBlqvp_5pAOkNpgDz0VL2Yrtq&sa=X&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQkbEKegQIIhAD",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU+r%C3%A9szmunkaid%C5%91&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4rWZU_l-CLLb_qXjPXe_Ia6Sw0wJtoF3O4JC64j797Av1yf1B5Y_g3CoTticc5qJ2yd8_jpBgMUDqFWy-KDJflsu1bH-w6VVslpIj2eL7MQJ5ZQL27b8JW37zM7yjsKRUfh98m_gZ9G0ziICs3s61GZGv_Hu3jXZe5G6jrothRCWe3flTJF6WCFDBpAxlNeU0BScYE5gBHgiQpgj3Kkp0A2LhRCX_2yVn8dslGwV1cHdyK-W9oaMRu7dx-EDEX4AQ4_EAHMNUZ1XX8KYF_7Nl41NksF-0Hy1CrnIbWMTv30NoD4eAl0No6zXgXI73OuIgUKNU0jsomXHqCBhtvtMSwol-vBlqvp_5pAOkNpgDz0VL2Yrtq"
+        },
+        {
+          "name": "Szerződés",
+          "parameters": {
+            "uds": "AJ5uw1_a2D0D09lxm8gpKKOTUn4rprWL6OpWZoNRzUmdBA3qDxW3IRcpvECr4hj5NYmI6vHakwSgO6eaiOhki1xDlTo2Cble276R_KPpvul78bjvxNdOX4It4JKxzjV3s37kv0gqrl0YO3KYY-shkQlUG9BHxeo-Nah6Ca0cHNnC4imksJDD-mJ-YhHYCr5-qq58-BgToM1KE0U67XQ0F1kGr-vXUoTogxGAqP4xPAxEHmN-xCr53wqRBv8ZvYMUMbLu84FJ712SVxkIJI0Mdq0gAPZm0yws27Kzn-VYJ58hIcV4GyX-fZS3FoK09yCWntexnQnsRcJmtl4IAhxhoiLZPelFcnQpo6wEOMX2LBV-ayQ6Zwr-KYgmXfP-TvMyFWGF19Tpmn1h",
+            "q": "CÉGINFO WWW.VMK.HU szerződés"
+          },
+          "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU+szerz%C5%91d%C3%A9s&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4rprWL6OpWZoNRzUmdBA3qDxW3IRcpvECr4hj5NYmI6vHakwSgO6eaiOhki1xDlTo2Cble276R_KPpvul78bjvxNdOX4It4JKxzjV3s37kv0gqrl0YO3KYY-shkQlUG9BHxeo-Nah6Ca0cHNnC4imksJDD-mJ-YhHYCr5-qq58-BgToM1KE0U67XQ0F1kGr-vXUoTogxGAqP4xPAxEHmN-xCr53wqRBv8ZvYMUMbLu84FJ712SVxkIJI0Mdq0gAPZm0yws27Kzn-VYJ58hIcV4GyX-fZS3FoK09yCWntexnQnsRcJmtl4IAhxhoiLZPelFcnQpo6wEOMX2LBV-ayQ6Zwr-KYgmXfP-TvMyFWGF19Tpmn1h&sa=X&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQkbEKegQIIhAE",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU+szerz%C5%91d%C3%A9s&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4rprWL6OpWZoNRzUmdBA3qDxW3IRcpvECr4hj5NYmI6vHakwSgO6eaiOhki1xDlTo2Cble276R_KPpvul78bjvxNdOX4It4JKxzjV3s37kv0gqrl0YO3KYY-shkQlUG9BHxeo-Nah6Ca0cHNnC4imksJDD-mJ-YhHYCr5-qq58-BgToM1KE0U67XQ0F1kGr-vXUoTogxGAqP4xPAxEHmN-xCr53wqRBv8ZvYMUMbLu84FJ712SVxkIJI0Mdq0gAPZm0yws27Kzn-VYJ58hIcV4GyX-fZS3FoK09yCWntexnQnsRcJmtl4IAhxhoiLZPelFcnQpo6wEOMX2LBV-ayQ6Zwr-KYgmXfP-TvMyFWGF19Tpmn1h"
+        },
+        {
+          "name": "Szakmai gyakorlat",
+          "parameters": {
+            "uds": "AJ5uw1_a2D0D09lxm8gpKKOTUn4r3dv6TGVRfd6DXtZirxI0o-noqEMu92lAG-6yzHiPnUOKCOuaHjtfR-Jc_8qczwhgUL_pDP9XrzJz9kmfAbN-SKkVg-8K8-YN_B4Hefxef0VTD7JnESrmvMX6cqi-n4QZhsLYTLodmQxAGq0-VHOsgLbzDbSE76F3GWCj5RIWcoLCt3dMLIBOGO2yuotjtE9GNQpL9DbZJKwd5erbUwcfbmKGxqy30f3WAs7J6tDXr1VZiZHSrG19s8fvLrVsdmm6va7FO7ZtxJN86CqdNmgTHIPWDYdLbapUw9Lwj954SwgSbwi6NsWjk-VeJkXrXcgnagg3zTumKEnUpwvEwJwe3f8_w9vCz97WXjVuU6F0BoDMI3zK",
+            "q": "CÉGINFO WWW.VMK.HU szakmai gyakorlat"
+          },
+          "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU+szakmai+gyakorlat&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r3dv6TGVRfd6DXtZirxI0o-noqEMu92lAG-6yzHiPnUOKCOuaHjtfR-Jc_8qczwhgUL_pDP9XrzJz9kmfAbN-SKkVg-8K8-YN_B4Hefxef0VTD7JnESrmvMX6cqi-n4QZhsLYTLodmQxAGq0-VHOsgLbzDbSE76F3GWCj5RIWcoLCt3dMLIBOGO2yuotjtE9GNQpL9DbZJKwd5erbUwcfbmKGxqy30f3WAs7J6tDXr1VZiZHSrG19s8fvLrVsdmm6va7FO7ZtxJN86CqdNmgTHIPWDYdLbapUw9Lwj954SwgSbwi6NsWjk-VeJkXrXcgnagg3zTumKEnUpwvEwJwe3f8_w9vCz97WXjVuU6F0BoDMI3zK&sa=X&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQkbEKegQIIhAF",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU+szakmai+gyakorlat&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r3dv6TGVRfd6DXtZirxI0o-noqEMu92lAG-6yzHiPnUOKCOuaHjtfR-Jc_8qczwhgUL_pDP9XrzJz9kmfAbN-SKkVg-8K8-YN_B4Hefxef0VTD7JnESrmvMX6cqi-n4QZhsLYTLodmQxAGq0-VHOsgLbzDbSE76F3GWCj5RIWcoLCt3dMLIBOGO2yuotjtE9GNQpL9DbZJKwd5erbUwcfbmKGxqy30f3WAs7J6tDXr1VZiZHSrG19s8fvLrVsdmm6va7FO7ZtxJN86CqdNmgTHIPWDYdLbapUw9Lwj954SwgSbwi6NsWjk-VeJkXrXcgnagg3zTumKEnUpwvEwJwe3f8_w9vCz97WXjVuU6F0BoDMI3zK"
+        }
+      ]
+    }
+  ],
+  "pagination": {
+    "current": 1,
+    "next": "https://www.google.com/search?q=C%C3%89GINFO+WWW.VMK.HU&sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&ei=c_eZas75N9vH0PEPicXbiQc&start=10&sa=N&sstk=AS6-VmLRR6xdZnrjAzULX-LQk-ud7RjhRnoszOyTlg8Y38QM0YA20EXubAiUnaqm6SHMmmPXDqozN29TXwVY-P8CwSYDIPJcwuvnwQ&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQ8NMDegQIJBAW",
+    "other_pages": {
+      "2": "https://www.google.com/search?q=C%C3%89GINFO+WWW.VMK.HU&sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&ei=c_eZas75N9vH0PEPicXbiQc&start=10&sa=N&sstk=AS6-VmLRR6xdZnrjAzULX-LQk-ud7RjhRnoszOyTlg8Y38QM0YA20EXubAiUnaqm6SHMmmPXDqozN29TXwVY-P8CwSYDIPJcwuvnwQ&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQ8tMDegQIJBAE",
+      "3": "https://www.google.com/search?q=C%C3%89GINFO+WWW.VMK.HU&sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&ei=c_eZas75N9vH0PEPicXbiQc&start=20&sa=N&sstk=AS6-VmLRR6xdZnrjAzULX-LQk-ud7RjhRnoszOyTlg8Y38QM0YA20EXubAiUnaqm6SHMmmPXDqozN29TXwVY-P8CwSYDIPJcwuvnwQ&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQ8tMDegQIJBAG",
+      "4": "https://www.google.com/search?q=C%C3%89GINFO+WWW.VMK.HU&sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&ei=c_eZas75N9vH0PEPicXbiQc&start=30&sa=N&sstk=AS6-VmLRR6xdZnrjAzULX-LQk-ud7RjhRnoszOyTlg8Y38QM0YA20EXubAiUnaqm6SHMmmPXDqozN29TXwVY-P8CwSYDIPJcwuvnwQ&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQ8tMDegQIJBAI",
+      "5": "https://www.google.com/search?q=C%C3%89GINFO+WWW.VMK.HU&sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&ei=c_eZas75N9vH0PEPicXbiQc&start=40&sa=N&sstk=AS6-VmLRR6xdZnrjAzULX-LQk-ud7RjhRnoszOyTlg8Y38QM0YA20EXubAiUnaqm6SHMmmPXDqozN29TXwVY-P8CwSYDIPJcwuvnwQ&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQ8tMDegQIJBAK",
+      "6": "https://www.google.com/search?q=C%C3%89GINFO+WWW.VMK.HU&sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&ei=c_eZas75N9vH0PEPicXbiQc&start=50&sa=N&sstk=AS6-VmLRR6xdZnrjAzULX-LQk-ud7RjhRnoszOyTlg8Y38QM0YA20EXubAiUnaqm6SHMmmPXDqozN29TXwVY-P8CwSYDIPJcwuvnwQ&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQ8tMDegQIJBAM",
+      "7": "https://www.google.com/search?q=C%C3%89GINFO+WWW.VMK.HU&sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&ei=c_eZas75N9vH0PEPicXbiQc&start=60&sa=N&sstk=AS6-VmLRR6xdZnrjAzULX-LQk-ud7RjhRnoszOyTlg8Y38QM0YA20EXubAiUnaqm6SHMmmPXDqozN29TXwVY-P8CwSYDIPJcwuvnwQ&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQ8tMDegQIJBAO",
+      "8": "https://www.google.com/search?q=C%C3%89GINFO+WWW.VMK.HU&sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&ei=c_eZas75N9vH0PEPicXbiQc&start=70&sa=N&sstk=AS6-VmLRR6xdZnrjAzULX-LQk-ud7RjhRnoszOyTlg8Y38QM0YA20EXubAiUnaqm6SHMmmPXDqozN29TXwVY-P8CwSYDIPJcwuvnwQ&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQ8tMDegQIJBAQ",
+      "9": "https://www.google.com/search?q=C%C3%89GINFO+WWW.VMK.HU&sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&ei=c_eZas75N9vH0PEPicXbiQc&start=80&sa=N&sstk=AS6-VmLRR6xdZnrjAzULX-LQk-ud7RjhRnoszOyTlg8Y38QM0YA20EXubAiUnaqm6SHMmmPXDqozN29TXwVY-P8CwSYDIPJcwuvnwQ&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQ8tMDegQIJBAS",
+      "10": "https://www.google.com/search?q=C%C3%89GINFO+WWW.VMK.HU&sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&ei=c_eZas75N9vH0PEPicXbiQc&start=90&sa=N&sstk=AS6-VmLRR6xdZnrjAzULX-LQk-ud7RjhRnoszOyTlg8Y38QM0YA20EXubAiUnaqm6SHMmmPXDqozN29TXwVY-P8CwSYDIPJcwuvnwQ&ved=2ahUKEwiO_9HAvdOWAxXbIzQIHYniNnEQ8tMDegQIJBAU"
+    }
+  },
+  "serpapi_pagination": {
+    "current": 1,
+    "next_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU&start=10",
+    "next": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU&start=10",
+    "other_pages": {
+      "2": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU&start=10",
+      "3": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU&start=20",
+      "4": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU&start=30",
+      "5": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU&start=40",
+      "6": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU&start=50",
+      "7": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU&start=60",
+      "8": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU&start=70",
+      "9": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU&start=80",
+      "10": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=C%C3%89GINFO+WWW.VMK.HU&start=90"
+    }
+  }
+}

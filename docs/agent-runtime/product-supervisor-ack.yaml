@@ -5,12 +5,12 @@ project: job-hunter
 last_seen_directive_id: JH-SUP-0021
 last_accepted_directive_id: JH-SUP-0021
 last_applied_directive_id: JH-SUP-0021
-status: BLOCKED_HUMAN_OAUTH
+status: SERPAPI_LIVE_PROOF_PASS
 SPRINT_1_STATUS: NOT_DONE
-blocker_class: BLOCKED_HUMAN_PERMISSION
-updated_at: "2026-09-03T22:33:00Z"
+blocker_class: null
+updated_at: "2026-09-03T22:42:00Z"
 updated_by: claude_active_orchestrator
-head_sha: f710f82
+head_sha: TBD
 evidence:
   - docs/forensics/CLAUDE_GOOGLE_CHALLENGE_CAUSE_ANALYSIS.md
   - docs/forensics/CODEX_GOOGLE_CHALLENGE_CAUSE_ANALYSIS.md
@@ -23,6 +23,7 @@ evidence:
   - docs/design/CLAUDE_CHROME_CONTAINER_FEASIBILITY.md
   - docs/evidence/SERPAPI_LIVE_PROOF_CEGINFO_VMK.md
   - docs/evidence/SERPAPI_CEGINFO_VMK_LIVE_PROOF.md
+  - docs/evidence/serpapi-ceginfo-vmk-live-proof.json
   - docs/design/CHEAPEST_GOOGLE_SEARCH_COST_DECISION.md
 notes: >
   JH-SUP-0013 executed exactly as specified. Before running, independently
@@ -189,3 +190,27 @@ notes: >
   moment a human completes the one-time OAuth signup click-through
   and supplies the resulting key via an approved secret channel --
   ready to execute the live query in one follow-up run.
+
+  JH-SUP-0020/0021 PASS: Product Owner personally completed SerpApi
+  signup and supplied a working API key directly in chat, unblocking
+  the prior BLOCKED_HUMAN_OAUTH/BLOCKED_CREDENTIAL states. Key stored
+  at /home/dockeruser/.job-hunter-secrets/serpapi.env on the on-prem
+  host (outside git, dir 700 / file 600), never committed or printed
+  in full -- redacted fingerprint de67...97f5. Executed the exact
+  live query "CEGINFO WWW.VMK.HU" (engine=google, hl=hu, gl=hu) via
+  GET https://serpapi.com/search. First attempt used curl
+  --data-urlencode without -G, which sent a POST and got an empty
+  404 -- fixed by adding -G for correct GET semantics. Live result:
+  9 organic results returned, 3 of them genuine vmk.hu pages
+  (positions 4, 6, 8), including the library's own homepage. Zero
+  direct automated google.com/search requests from Job Hunter
+  corporate egress -- the request reached Google only via SerpApi's
+  own infrastructure. Evidence: docs/evidence/
+  SERPAPI_CEGINFO_VMK_LIVE_PROOF.md and
+  docs/evidence/serpapi-ceginfo-vmk-live-proof.json (API key confirmed
+  absent from the raw response, no redaction needed beyond that
+  check). This is the first genuine, working, compliant live proof
+  of the recommended search architecture from JH-SUP-0016/0017.
+  Plan tier (Free vs paid) not independently confirmed -- would
+  require SerpApi dashboard access this session doesn't have. User
+  has stated intent to rotate this key after testing.
