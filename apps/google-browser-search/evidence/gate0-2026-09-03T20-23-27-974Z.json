@@ -1,0 +1,16 @@
+{
+  "gate": "SPRINT1_EXACT_FINAL_ENVIRONMENT_GATE0",
+  "query": "IT vezető",
+  "startedAt": "2026-09-03T20:23:27.974Z",
+  "host": "ac9b0b858c7e",
+  "finalEnvironmentClaim": "on-prem Docker worker",
+  "googleUrl": "https://www.google.com/search?q=IT%20vezet%C5%91&hl=hu&gl=hu",
+  "browser": "151.0.7922.34",
+  "consentHandled": false,
+  "challenge": true,
+  "organicResults": [],
+  "status": "FAIL",
+  "reason": "GOOGLE_CHALLENGE",
+  "finishedAt": "2026-09-03T20:23:29.896Z",
+  "screenshot": "/evidence/gate0-2026-09-03T20-23-27-974Z.png"
+}
