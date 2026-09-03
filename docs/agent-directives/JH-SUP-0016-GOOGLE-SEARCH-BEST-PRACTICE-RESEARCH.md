@@ -10,9 +10,9 @@ Find the safest, legitimate, production-grade way to satisfy the Job Hunter need
 
 This is a research/decision task. Do not generate any new Google Search traffic from the corporate network or from an automated Job Hunter browser.
 
-## Mandatory independent work
+## Mandatory independent work — all three agents
 
-Claude and Codex MUST research independently before reconciliation. Do not anchor Codex on Claude's conclusion.
+**Claude, Codex and Gemini MUST each research independently before reconciliation.** Gemini is mandatory for this directive, not optional/non-blocking. Do not anchor one agent on another agent's conclusion. If a normal Gemini channel is occupied, park/wait or use the project's authorized Gemini execution path rather than declaring this three-way research complete without a Gemini analysis.
 
 Each analysis must investigate at minimum:
 
@@ -60,16 +60,18 @@ Create:
 
 - `docs/design/CLAUDE_GOOGLE_SEARCH_BEST_PRACTICE.md`
 - `docs/design/CODEX_GOOGLE_SEARCH_BEST_PRACTICE.md`
+- `docs/design/GEMINI_GOOGLE_SEARCH_BEST_PRACTICE.md`
 - `docs/design/GOOGLE_SEARCH_BEST_PRACTICE_DECISION.md`
 
 The decision document must state:
 
 1. Claude recommendation.
 2. Codex recommendation.
-3. Reconciled team recommendation.
-4. Whether Web Search Service API is the new preferred path and exactly what prerequisite blocks immediate use.
-5. Whether Product Owner should amend Sprint 1 from 'browser live SERP' to 'official Google Search result service returning genuine Google results'.
-6. Smallest safe next action that does not risk the corporate IP.
-7. Top 10 operational/legal/product pitfalls.
+3. Gemini recommendation.
+4. Reconciled team recommendation.
+5. Whether Web Search Service API is the new preferred path and exactly what prerequisite blocks immediate use.
+6. Whether Product Owner should amend Sprint 1 from 'browser live SERP' to 'official Google Search result service returning genuine Google results'.
+7. Smallest safe next action that does not risk the corporate IP.
+8. Top 10 operational/legal/product pitfalls.
 
-Update supervisor ACK with `GOOGLE_SEARCH_BEST_PRACTICE_RESEARCH_COMPLETE` when complete and include evidence paths.
+Update supervisor ACK with `GOOGLE_SEARCH_BEST_PRACTICE_RESEARCH_COMPLETE` only when all three independent reports exist and include evidence paths.
