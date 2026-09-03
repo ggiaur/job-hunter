@@ -2,40 +2,35 @@
 schema_version: 1
 channel: product_supervisor_ack
 project: job-hunter
-last_seen_directive_id: JH-SUP-0009
-last_accepted_directive_id: JH-SUP-0009
-last_applied_directive_id: JH-SUP-0009
-status: DISCUSSION_COMPLETE
+last_seen_directive_id: JH-SUP-0010
+last_accepted_directive_id: JH-SUP-0010
+last_applied_directive_id: JH-SUP-0010
+status: ACKNOWLEDGED_PRODUCT_TRUTH_NO_IMPLEMENTATION
 blocker_class: null
-updated_at: "2026-09-03T00:55:00Z"
+updated_at: "2026-09-03T01:15:00Z"
 updated_by: claude_active_orchestrator
-head_sha: 7d03ced
+head_sha: TBD
 evidence:
-  - docs/design/CLAUDE_NEXT_STEP_AFTER_GOOGLE_BLOCK.md
-  - docs/design/CODEX_NEXT_STEP_AFTER_GOOGLE_BLOCK.md
-  - docs/design/GEMINI_NEXT_STEP_AFTER_GOOGLE_BLOCK.md
-  - docs/design/NEXT_STEP_AFTER_GOOGLE_BLOCK_DECISION.md
+  - SPRINT_1.md
+SPRINT_1_SOURCE_OF_TRUTH: SPRINT_1.md
+SPRINT_1_STATUS: NOT_DONE
+PROFESSION_ADAPTER_IS_NOT_SPRINT_1: true
 notes: >
-  JH-SUP-0009 discussion-only directive complete. Claude and Codex answers
-  independent (Codex given only the bare problem statement, no prior
-  answer shown). Both converge without prompting: revive the frozen,
-  already-proven-live JH-SUP-0003 portal-native adapter (profession.hu,
-  zero cost, zero blocking, already found 15+ relevant IT-leadership
-  postings) as the primary next experiment; Brave Search API (or Google
-  PSE, pending current-terms verification) as fallback; explicitly reject
-  further Google-browser retries and residential-proxy-as-evasion.
+  JH-SUP-0010 acknowledged. Canonical Sprint 1 source of truth is
+  SPRINT_1.md: submit two short keywords to real Google Search, read
+  live organic results, expose title+URL+snippet to the Product Owner.
+  Nothing else (portal adapters, Brave Search API, relevance scoring,
+  job discovery generally) counts toward Sprint 1 unless the Product
+  Owner explicitly redefines it.
 
-  Gemini recorded GEMINI_NOT_AVAILABLE_NONBLOCKING per directive section C
-  -- the only channel was mid-task on unrelated work; not interrupted, not
-  waited on.
+  JH-SUP-0009's profession.hu recommendation is explicitly NOT Sprint 1
+  progress -- noted and will not be presented as such going forward.
 
-  No implementation was performed or authorized -- this directive is
-  design/decision output only, per its own explicit rule. The broad
-  development freeze (JH-SUP-0005/0009) remains in force.
+  Current Sprint 1 status: NOT_DONE. apps/google-browser-search/ reached
+  Google but every acceptance query hit a real CAPTCHA/unusual-traffic
+  challenge before any organic result could be read (JH-SUP-0007/0008
+  evidence, unchanged by this directive).
 
-  Also: since this ack was last updated, I set up a persistent background
-  watcher (Monitor) polling job-hunter's origin/main every 45s, so future
-  SUP-directive commits generate an immediate notification instead of
-  requiring the Product Owner to prompt me to check -- a real fix for the
-  repeated "why didn't you notice this" gap earlier in this session,
-  not just a promise to check more often.
+  No implementation started under this directive -- broad development
+  freeze remains in force. Stopping, pending Product Owner authorization
+  of the next concrete Sprint 1 experiment.
