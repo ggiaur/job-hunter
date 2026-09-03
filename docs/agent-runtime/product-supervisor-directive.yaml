@@ -2,8 +2,8 @@
 schema_version: 1
 channel: product_supervisor
 
-directive_id: JH-SUP-0012
-issued_at: "2026-09-03T08:56:00+02:00"
+directive_id: JH-SUP-0013
+issued_at: "2026-09-03T22:07:00+02:00"
 issued_by: chatgpt_product_architect
 authority: PRODUCT_ARCHITECT_ORCHESTRATION_SUPERVISOR
 priority: P0
@@ -11,13 +11,13 @@ status: ACTIVE
 requires_ack: true
 execute_immediately: true
 interrupt_current_work: true
-instruction_file: docs/agent-directives/JH-SUP-0012-SPRINT1-AUTONOMOUS-OPERATING-MODE-DISCUSSION.md
+instruction_file: docs/agent-directives/JH-SUP-0013-ONPREM-DOCKER-GATE0-EXECUTION.md
 ack_file: docs/agent-runtime/product-supervisor-ack.yaml
 continuity_policy: docs/EXECUTION_CONTINUITY_POLICY.md
 orchestrator_runtime: docs/agent-runtime/orchestrator.yaml
 project_claude_contract: CLAUDE.md
 watcher_enforcement: scripts/watch_product_supervisor_directive.sh
-supersedes: JH-SUP-0011
+supersedes: JH-SUP-0012
 redelivery_seq: 0
 
-summary: "PRODUCT OWNER correction: the prior local-Owner-PC approach can be diagnostic only and cannot be the final Sprint 1 operating model. Canonical SPRINT_1.md now requires literal two-keyword Google Search -> live Google SERP -> organic title+URL AND an autonomous dedicated environment independent of the Product Owner's personal workstation/presence, suitable for normal approximately twice-weekly scheduled operation. DISCUSSION ONLY; full development freeze remains. Claude and Codex must independently evaluate dedicated always-on physical worker on ordinary non-datacenter internet, dedicated organization/site worker, legitimate managed browser/browser-compute service, alternate cloud/provider, and other literal-Google candidates. Local extension/human-in-loop may be diagnostic/manual fallback but must not be presented as Sprint 1 completion. For every serious FINAL environment, define its own cheapest pre-build Gate 0: can that exact environment obtain one normal two-keyword Google SERP without anti-bot circumvention? Produce full operational/security/Google/process pitfall register and SPRINT1_AUTONOMOUS_OPERATING_MODE_DECISION.md. Gemini optional/non-blocking. No implementation, Google retry, PoC, portal work, Firecrawl, paid purchase, deployment or bypass is authorized."
+summary: "PRODUCT OWNER confirms an existing on-premises Ubuntu server is already available and Claude runs locally there. Execute immediately on that exact on-prem host the authoritative Sprint 1 Gate 0 using the committed Docker + headed Chromium under Xvfb probe. One literal two-term Google Search query ('IT vezető'), no retry/fallback/proxy/stealth/bypass/Firecrawl/portal/API reinterpretation. Preserve live SERP organic title+URL evidence and screenshot/JSON, commit a textual evidence record, update ACK with PASS/FAIL and commit SHA, then stop. This directive authorizes this bounded Gate 0 execution despite JH-SUP-0012's prior discussion-only freeze; broad development remains frozen."
