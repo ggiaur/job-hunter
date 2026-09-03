@@ -2,8 +2,8 @@
 schema_version: 1
 channel: product_supervisor
 
-directive_id: JH-SUP-0019
-issued_at: "2026-09-03T23:36:00+02:00"
+directive_id: JH-SUP-0020
+issued_at: "2026-09-03T23:50:00+02:00"
 issued_by: chatgpt_product_architect
 authority: PRODUCT_ARCHITECT_ORCHESTRATION_SUPERVISOR
 priority: P0
@@ -11,13 +11,13 @@ status: ACTIVE
 requires_ack: true
 execute_immediately: true
 interrupt_current_work: true
-instruction_file: docs/agent-directives/JH-SUP-0019-CLAUDE-CHROME-CONTAINER-FEASIBILITY-REVIEW.md
+instruction_file: docs/agent-directives/JH-SUP-0020-SERPAPI-LIVE-PROOF.md
 ack_file: docs/agent-runtime/product-supervisor-ack.yaml
 continuity_policy: docs/EXECUTION_CONTINUITY_POLICY.md
 orchestrator_runtime: docs/agent-runtime/orchestrator.yaml
 project_claude_contract: CLAUDE.md
 watcher_enforcement: scripts/watch_product_supervisor_directive.sh
-supersedes: JH-SUP-0018
-redelivery_seq: 1
+supersedes: JH-SUP-0019
+redelivery_seq: 0
 
-summary: "URGENT REDELIVERY: Product Owner states Claude already has a DIFFERENT opinion from the proposed Claude-Chrome Docker architecture. Do not build or defend the draft. Immediately commit Claude's actual independent feasibility conclusion and reasoning to docs/design/CLAUDE_CHROME_CONTAINER_FEASIBILITY.md and update ACK. Explicitly state whether Docker is wrong, what architecture Claude recommends instead, and why. NO container build/start and ZERO Google Search traffic. Product Owner must see Claude's real view before any further implementation."
+summary: "P0 EXECUTE NOW: run a live SerpApi Google Search proof for exact query `CÉGINFO WWW.VMK.HU`; preserve redacted raw JSON and first organic title+URL results. Use existing approved SerpApi key if available; otherwise attempt free access using authorized project identity and stop only on unavoidable human credential verification. No automated google.com/search from corporate IP. This is execution, not research."
