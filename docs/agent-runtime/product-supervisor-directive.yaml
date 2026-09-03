@@ -2,8 +2,8 @@
 schema_version: 1
 channel: product_supervisor
 
-directive_id: JH-SUP-0009
-issued_at: "2026-09-03T08:03:00+02:00"
+directive_id: JH-SUP-0010
+issued_at: "2026-09-03T08:18:00+02:00"
 issued_by: chatgpt_product_architect
 authority: PRODUCT_ARCHITECT_ORCHESTRATION_SUPERVISOR
 priority: P0
@@ -11,13 +11,13 @@ status: ACTIVE
 requires_ack: true
 execute_immediately: true
 interrupt_current_work: true
-instruction_file: docs/agent-directives/JH-SUP-0009-NEXT-STEP-DISCUSSION-AFTER-GOOGLE-BLOCK.md
+instruction_file: docs/agent-directives/JH-SUP-0010-SPRINT1-PRODUCT-TRUTH-CORRECTION.md
 ack_file: docs/agent-runtime/product-supervisor-ack.yaml
 continuity_policy: docs/EXECUTION_CONTINUITY_POLICY.md
 orchestrator_runtime: docs/agent-runtime/orchestrator.yaml
 project_claude_contract: CLAUDE.md
 watcher_enforcement: scripts/watch_product_supervisor_directive.sh
-supersedes: JH-SUP-0008
-redelivery_seq: 1
+supersedes: JH-SUP-0009
+redelivery_seq: 0
 
-summary: "JH-SUP-0009 discussion compliance: current ACK still references JH-SUP-0008. The required Claude and Codex next-step discussion files are absent and no substantive discussion commit has appeared since activation. Maintain full development freeze. Required sequence: acknowledge JH-SUP-0009; produce Claude independent answer; obtain Codex independent answer from the same factual problem statement; treat Gemini as optional and non-blocking; only then write the synthesis. No application code, PoC, Google retry, Firecrawl work, deployment, or production integration is authorized."
+summary: "PRODUCT OWNER CORRECTION: Sprint 1 was already clearly defined. Canonical source of truth is now repository-root SPRINT_1.md. Sprint 1 = enter two short keywords into Google Search and read/show the real Google result page. Current status = NOT DONE because the cloud-browser app reached only Google's unusual-traffic/CAPTCHA challenge and exposed zero organic results. Profession.hu, Brave Search API, portal adapters, relevance scoring, multi-source acquisition, and alternative search engines are NOT Sprint 1 substitutes unless the Product Owner explicitly changes scope. This directive repairs product truth only; no new implementation is authorized and the broad development freeze remains in force. ACK JH-SUP-0010 with SPRINT_1.md as source of truth, then stop."
