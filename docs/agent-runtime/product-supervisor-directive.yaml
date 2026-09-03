@@ -18,6 +18,6 @@ orchestrator_runtime: docs/agent-runtime/orchestrator.yaml
 project_claude_contract: CLAUDE.md
 watcher_enforcement: scripts/watch_product_supervisor_directive.sh
 supersedes: JH-SUP-0018
-redelivery_seq: 0
+redelivery_seq: 1
 
-summary: "P0 PRODUCT OWNER correction: PAUSE further Claude-Chrome container build/implementation. Before any more build work, local Claude must independently determine whether Claude Code CLI + official Claude in Chrome + official Chrome is actually viable/supported inside Docker on the on-prem Ubuntu server. Inspect native-messaging/session/auth/GUI requirements, Docker isolation, persistence, unattended control, and compare host GUI/VM/container alternatives. Review the already-committed apps/claude-chrome-worker draft critically. NO container build/start and ZERO Google Search traffic under this directive. Produce CLAUDE_CHROME_CONTAINER_FEASIBILITY.md with VIABLE / VIABLE_WITH_CHANGES / NOT_VIABLE_AS_DESIGNED verdict, minimal recommended architecture, and ACK."
+summary: "URGENT REDELIVERY: Product Owner states Claude already has a DIFFERENT opinion from the proposed Claude-Chrome Docker architecture. Do not build or defend the draft. Immediately commit Claude's actual independent feasibility conclusion and reasoning to docs/design/CLAUDE_CHROME_CONTAINER_FEASIBILITY.md and update ACK. Explicitly state whether Docker is wrong, what architecture Claude recommends instead, and why. NO container build/start and ZERO Google Search traffic. Product Owner must see Claude's real view before any further implementation."
