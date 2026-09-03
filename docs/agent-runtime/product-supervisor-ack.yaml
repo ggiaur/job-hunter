@@ -2,54 +2,40 @@
 schema_version: 1
 channel: product_supervisor_ack
 project: job-hunter
-last_seen_directive_id: JH-SUP-0008
-last_accepted_directive_id: JH-SUP-0008
-last_applied_directive_id: JH-SUP-0008
-status: BLOCKED_HUMAN_PERMISSION
-blocker_class: BLOCKED_HUMAN_PERMISSION
-updated_at: "2026-09-03T00:35:00Z"
+last_seen_directive_id: JH-SUP-0009
+last_accepted_directive_id: JH-SUP-0009
+last_applied_directive_id: JH-SUP-0009
+status: DISCUSSION_COMPLETE
+blocker_class: null
+updated_at: "2026-09-03T00:55:00Z"
 updated_by: claude_active_orchestrator
-head_sha: 0467ee3
+head_sha: TBD
 evidence:
-  - docs/evidence/GOOGLE_BROWSER_POC_RESULTS.md
-  - docs/evidence/GOOGLE_BROWSER_APP_RESULTS.md
-  - docs/reviews/CODEX_GOOGLE_BROWSER_APP_REVIEW.md
+  - docs/design/CLAUDE_NEXT_STEP_AFTER_GOOGLE_BLOCK.md
+  - docs/design/CODEX_NEXT_STEP_AFTER_GOOGLE_BLOCK.md
+  - docs/design/GEMINI_NEXT_STEP_AFTER_GOOGLE_BLOCK.md
+  - docs/design/NEXT_STEP_AFTER_GOOGLE_BLOCK_DECISION.md
 notes: >
-  JH-SUP-0007 (PoC) and JH-SUP-0008 (working application) both executed
-  and pushed. JH-SUP-0006's Gemini-blocker note (last ack) is superseded:
-  JH-SUP-0007 explicitly waived the 4-AI requirement and JH-SUP-0006's
-  synthesis doc was never produced -- not resumed, per JH-SUP-0007's own
-  "do not wait for Gemini" instruction.
+  JH-SUP-0009 discussion-only directive complete. Claude and Codex answers
+  independent (Codex given only the bare problem statement, no prior
+  answer shown). Both converge without prompting: revive the frozen,
+  already-proven-live JH-SUP-0003 portal-native adapter (profession.hu,
+  zero cost, zero blocking, already found 15+ relevant IT-leadership
+  postings) as the primary next experiment; Brave Search API (or Google
+  PSE, pending current-terms verification) as fallback; explicitly reject
+  further Google-browser retries and residential-proxy-as-evasion.
 
-  JH-SUP-0007 PoC (poc/google-browser/): first query hit a real Google
-  "unusual traffic"/CAPTCHA challenge on the very first request. Verified
-  manually (re-fetched the same URL, read raw challenge text) before
-  reporting -- not a false positive from the automated detector. Stopped
-  immediately per the hard rule, no bypass attempted. Result:
-  BLOCKED_HUMAN_PERMISSION.
+  Gemini recorded GEMINI_NOT_AVAILABLE_NONBLOCKING per directive section C
+  -- the only channel was mid-task on unrelated work; not interrupted, not
+  waited on.
 
-  JH-SUP-0008 application (apps/google-browser-search/, runnable via
-  npm install && npm start, UI + /health + /api/search): ran all 3
-  required queries through the app's own endpoint (not a side script) on
-  a completely independent fresh profile. All 3 hit the same Google
-  challenge on the first request -- second, independent confirmation of
-  the same block, not a retry of the first. 0 organic results, 0 verified
-  jobs, 0 Firecrawl/search-API calls, no evasion attempted.
+  No implementation was performed or authorized -- this directive is
+  design/decision output only, per its own explicit rule. The broad
+  development freeze (JH-SUP-0005/0009) remains in force.
 
-  Independent Codex review of the app (docs/reviews/CODEX_GOOGLE_BROWSER
-  _APP_REVIEW.md) confirmed: no hidden Firecrawl/search-API path, hard
-  budgets enforced in code, no evasion, no production-code integration.
-  Flagged and I fixed: evidence file's SHA placeholder (now exact),
-  missing query-length guard on POST /api/search (200-char cap added).
-  One review claim (npm test = 1/1) did not reproduce when I re-ran it
-  independently twice outside Codex's sandbox (consistently 7/7) --
-  recorded as a likely sandbox glob-expansion difference in the evidence
-  addendum, not silently accepted or dismissed either way.
-
-  Both directives' completion conditions are met (evidence pushed, Codex
-  review done for JH-SUP-0008). Per both directives: after evidence and
-  review are pushed, stop and wait for Product Owner review. Not
-  attempting a third live Google request without new authorization --
-  two independent implementations, two fresh profiles, both blocked on
-  the first request each, is sufficient repeated confirmation that this
-  is a host/IP-level block, not a code defect worth re-testing blindly.
+  Also: since this ack was last updated, I set up a persistent background
+  watcher (Monitor) polling job-hunter's origin/main every 45s, so future
+  SUP-directive commits generate an immediate notification instead of
+  requiring the Product Owner to prompt me to check -- a real fix for the
+  repeated "why didn't you notice this" gap earlier in this session,
+  not just a promise to check more often.
