@@ -2,15 +2,15 @@
 schema_version: 1
 channel: product_supervisor_ack
 project: job-hunter
-last_seen_directive_id: JH-SUP-0020
-last_accepted_directive_id: JH-SUP-0020
-last_applied_directive_id: JH-SUP-0020
-status: SERPAPI_LIVE_PROOF_BLOCKED_CREDENTIAL
+last_seen_directive_id: JH-SUP-0021
+last_accepted_directive_id: JH-SUP-0021
+last_applied_directive_id: JH-SUP-0021
+status: BLOCKED_HUMAN_OAUTH
 SPRINT_1_STATUS: NOT_DONE
 blocker_class: BLOCKED_HUMAN_PERMISSION
-updated_at: "2026-09-03T22:10:00Z"
+updated_at: "2026-09-03T22:33:00Z"
 updated_by: claude_active_orchestrator
-head_sha: c9c2d70
+head_sha: TBD
 evidence:
   - docs/forensics/CLAUDE_GOOGLE_CHALLENGE_CAUSE_ANALYSIS.md
   - docs/forensics/CODEX_GOOGLE_CHALLENGE_CAUSE_ANALYSIS.md
@@ -22,6 +22,7 @@ evidence:
   - docs/design/CHEAPEST_GOOGLE_SEARCH_COST_DECISION.md
   - docs/design/CLAUDE_CHROME_CONTAINER_FEASIBILITY.md
   - docs/evidence/SERPAPI_LIVE_PROOF_CEGINFO_VMK.md
+  - docs/evidence/SERPAPI_CEGINFO_VMK_LIVE_PROOF.md
   - docs/design/CHEAPEST_GOOGLE_SEARCH_COST_DECISION.md
 notes: >
   JH-SUP-0013 executed exactly as specified. Before running, independently
@@ -173,3 +174,18 @@ notes: >
   as soon as a real SerpApi key is supplied via an approved secret
   channel. Stopped per directive's own "unavoidable credential
   blocker" stop condition.
+
+  JH-SUP-0021 applied: attempted SerpApi account creation via GitHub/
+  Google OAuth per directive. Result: BLOCKED_HUMAN_OAUTH. This
+  session has no interactive browser-automation tool of any kind
+  (only WebFetch, read-only page-fetch-and-summarize, and WebSearch)
+  -- cannot click an OAuth "Sign up with GitHub" button, cannot carry
+  session cookies through an authorization redirect, cannot click
+  "Authorize". Same capability gap already established in
+  JH-SUP-0019's feasibility review. Did not invent an email/password
+  (explicitly forbidden by this directive) or fabricate a result.
+  Zero Google traffic. No API key exists yet. Recorded in
+  docs/evidence/SERPAPI_CEGINFO_VMK_LIVE_PROOF.md. Unblocks the
+  moment a human completes the one-time OAuth signup click-through
+  and supplies the resulting key via an approved secret channel --
+  ready to execute the live query in one follow-up run.
