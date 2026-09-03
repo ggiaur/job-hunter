@@ -18,6 +18,6 @@ orchestrator_runtime: docs/agent-runtime/orchestrator.yaml
 project_claude_contract: CLAUDE.md
 watcher_enforcement: scripts/watch_product_supervisor_directive.sh
 supersedes: JH-SUP-0012
-redelivery_seq: 0
+redelivery_seq: 1
 
-summary: "PRODUCT OWNER confirms an existing on-premises Ubuntu server is already available and Claude runs locally there. Execute immediately on that exact on-prem host the authoritative Sprint 1 Gate 0 using the committed Docker + headed Chromium under Xvfb probe. One literal two-term Google Search query ('IT vezető'), no retry/fallback/proxy/stealth/bypass/Firecrawl/portal/API reinterpretation. Preserve live SERP organic title+URL evidence and screenshot/JSON, commit a textual evidence record, update ACK with PASS/FAIL and commit SHA, then stop. This directive authorizes this bounded Gate 0 execution despite JH-SUP-0012's prior discussion-only freeze; broad development remains frozen."
+summary: "URGENT SAFETY REDELIVERY: Product Owner requires protection of the company's Google/network reputation. JH-SUP-0013 authorizes ONE AND ONLY ONE Google search attempt total from the on-prem corporate egress. No retry, no parallel run, no repeated validation, no result clicking, no scheduled recurrence, no account login/session reuse, no proxy/stealth/bypass. Any CAPTCHA/unusual-traffic/login/rate-limit/anti-abuse signal means immediate browser close and hard stop with no second Google request. Claude must re-read the updated instruction before execution. Execute only the bounded one-shot on-prem Docker + Xvfb + headed Chromium Gate 0, preserve evidence, ACK, then stop."
