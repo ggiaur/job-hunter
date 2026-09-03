@@ -2,19 +2,23 @@
 schema_version: 1
 channel: product_supervisor_ack
 project: job-hunter
-last_seen_directive_id: JH-SUP-0015
-last_accepted_directive_id: JH-SUP-0015
-last_applied_directive_id: JH-SUP-0015
-status: GOOGLE_CHALLENGE_FORENSIC_ANALYSIS_COMPLETE
+last_seen_directive_id: JH-SUP-0016
+last_accepted_directive_id: JH-SUP-0016
+last_applied_directive_id: JH-SUP-0016
+status: GOOGLE_SEARCH_BEST_PRACTICE_RESEARCH_COMPLETE
 SPRINT_1_STATUS: NOT_DONE
-blocker_class: null
-updated_at: "2026-09-03T20:45:00Z"
+blocker_class: PENDING_PRODUCT_OWNER_DECISION
+updated_at: "2026-09-03T21:25:00Z"
 updated_by: claude_active_orchestrator
-head_sha: 60e18fd
+head_sha: TBD
 evidence:
   - docs/forensics/CLAUDE_GOOGLE_CHALLENGE_CAUSE_ANALYSIS.md
   - docs/forensics/CODEX_GOOGLE_CHALLENGE_CAUSE_ANALYSIS.md
   - docs/forensics/GOOGLE_CHALLENGE_CAUSE_RECONCILIATION.md
+  - docs/design/CLAUDE_GOOGLE_SEARCH_BEST_PRACTICE.md
+  - docs/design/CODEX_GOOGLE_SEARCH_BEST_PRACTICE.md
+  - docs/design/GEMINI_GOOGLE_SEARCH_BEST_PRACTICE.md
+  - docs/design/GOOGLE_SEARCH_BEST_PRACTICE_DECISION.md
 notes: >
   JH-SUP-0013 executed exactly as specified. Before running, independently
   verified (not assumed) that this session is genuinely on the on-prem
@@ -76,3 +80,27 @@ notes: >
   Google decision weighting cannot be determined without Google's
   internal telemetry -- stated explicitly as unknowable. No retry, no
   bypass, no new Google request. JH-SUP-0014 hard stop remains in force.
+
+  JH-SUP-0016 applied: Claude, Codex, and Gemini each researched
+  independently (Gemini mandatory per this directive, not optional).
+  Zero new Google Search traffic. Team consensus: literal browser
+  automation of google.com/search is a documented Google ToS violation,
+  not just a detection problem -- reject as production architecture.
+  The real official Google Web Search Service API (WSS,
+  websearchservice.googleapis.com) is the preferred target, gated
+  behind a Google partner agreement + client_id, no self-service path
+  found. Custom Search JSON API rejected as a new foundation (closed to
+  new customers, EOL 2027-01-01). Self-correction recorded: an initial
+  Claude check of a bare/incomplete URL wrongly concluded WSS did not
+  exist; corrected after cross-checking Codex's finding against the
+  live docs. Gemini's report had one factual error (wrong WSS
+  endpoint/hostname) caught and corrected in the reconciliation; its
+  overall recommendation was otherwise independently corroborated by
+  Claude and Codex. Gemini dispatch note: the shared gemini-freshcheck
+  channel was mid-task on an unrelated project when queried; request
+  completed after that work rather than interrupting it -- disclosed
+  in the decision doc. Recommendation to Product Owner: amend
+  SPRINT_1.md from literal browser-SERP wording to an outcome
+  requirement, and pursue WSS partner contact (no Google traffic
+  required) as the smallest safe next action. Awaiting Product Owner
+  decision -- no implementation started under this directive.
