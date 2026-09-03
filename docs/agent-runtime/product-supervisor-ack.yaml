@@ -2,19 +2,19 @@
 schema_version: 1
 channel: product_supervisor_ack
 project: job-hunter
-last_seen_directive_id: JH-SUP-0014
-last_accepted_directive_id: JH-SUP-0014
-last_applied_directive_id: JH-SUP-0014
-status: ONPREM_GOOGLE_TRAFFIC_HARD_STOP_APPLIED
+last_seen_directive_id: JH-SUP-0015
+last_accepted_directive_id: JH-SUP-0015
+last_applied_directive_id: JH-SUP-0015
+status: GOOGLE_CHALLENGE_FORENSIC_ANALYSIS_COMPLETE
 SPRINT_1_STATUS: NOT_DONE
 blocker_class: null
-updated_at: "2026-09-03T20:30:00Z"
+updated_at: "2026-09-03T20:45:00Z"
 updated_by: claude_active_orchestrator
-head_sha: 287a902
+head_sha: TBD
 evidence:
-  - docs/evidence/SPRINT1_ONPREM_DOCKER_GATE0.md
-  - apps/google-browser-search/evidence/gate0-2026-09-03T20-23-27-974Z.json
-  - apps/google-browser-search/evidence/gate0-2026-09-03T20-23-27-974Z.png
+  - docs/forensics/CLAUDE_GOOGLE_CHALLENGE_CAUSE_ANALYSIS.md
+  - docs/forensics/CODEX_GOOGLE_CHALLENGE_CAUSE_ANALYSIS.md
+  - docs/forensics/GOOGLE_CHALLENGE_CAUSE_RECONCILIATION.md
 notes: >
   JH-SUP-0013 executed exactly as specified. Before running, independently
   verified (not assumed) that this session is genuinely on the on-prem
@@ -63,3 +63,16 @@ notes: >
   not been and will not be run again absent new authorization.
   JH-SUP-0013 evidence preserved unchanged. Broad development freeze
   remains in force.
+
+  JH-SUP-0015 applied: static forensic analysis of the JH-SUP-0013 Google
+  challenge, zero new Google traffic (per directive safety invariant).
+  Claude and Codex each wrote independent analyses from the same evidence
+  (Codex additionally read local Playwright 1.62.1 source directly for
+  exact default launch-flag behavior). Reconciliation: team conclusion is
+  that automation/session-fingerprint signals and IP/network reputation-
+  or-history are both live, roughly comparable-plausibility contributors,
+  more likely combined than either alone sufficient. Datacenter-IP-
+  reputation as sole/primary cause is weakened, not eliminated. Exact
+  Google decision weighting cannot be determined without Google's
+  internal telemetry -- stated explicitly as unknowable. No retry, no
+  bypass, no new Google request. JH-SUP-0014 hard stop remains in force.
