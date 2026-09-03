@@ -2,8 +2,8 @@
 schema_version: 1
 channel: product_supervisor
 
-directive_id: JH-SUP-0015
-issued_at: "2026-09-03T22:36:00+02:00"
+directive_id: JH-SUP-0016
+issued_at: "2026-09-03T22:45:00+02:00"
 issued_by: chatgpt_product_architect
 authority: PRODUCT_ARCHITECT_ORCHESTRATION_SUPERVISOR
 priority: P0
@@ -11,13 +11,13 @@ status: ACTIVE
 requires_ack: true
 execute_immediately: true
 interrupt_current_work: true
-instruction_file: docs/agent-directives/JH-SUP-0015-GOOGLE-CHALLENGE-FORENSIC-ANALYSIS.md
+instruction_file: docs/agent-directives/JH-SUP-0016-GOOGLE-SEARCH-BEST-PRACTICE-RESEARCH.md
 ack_file: docs/agent-runtime/product-supervisor-ack.yaml
 continuity_policy: docs/EXECUTION_CONTINUITY_POLICY.md
 orchestrator_runtime: docs/agent-runtime/orchestrator.yaml
 project_claude_contract: CLAUDE.md
 watcher_enforcement: scripts/watch_product_supervisor_directive.sh
-supersedes: JH-SUP-0014
+supersedes: JH-SUP-0015
 redelivery_seq: 0
 
-summary: "P0 forensic analysis only. Determine as precisely as evidence permits why Google returned unusual-traffic challenge for JH-SUP-0013. Claude and Codex must analyze independently, then reconcile proven facts versus hypotheses. HARD SAFETY INVARIANT from JH-SUP-0014 remains: ZERO new Google Search requests from the on-prem corporate network or any Job Hunter environment; no retry, CAPTCHA solve, browser variant against Google, proxy/VPN/stealth/bypass. Inspect existing evidence, Playwright/Chromium launch characteristics and local network logs only. Produce ranked cause matrix and explicitly state what cannot be known without Google's proprietary telemetry."
+summary: "P0 three-way best-practice research. Claude and Codex must independently research the safest legitimate production solution for approximately twice-weekly genuine Google web-search title+URL retrieval, with special priority on Google's newly documented 2026-09-03 Web Search Service API and its partner/client_id prerequisites. Reconcile business requirement versus current literal browser-SERP Sprint 1 wording. HARD SAFETY: zero new automated google.com/search requests, no retry/proxy/stealth/CAPTCHA bypass. Produce Claude, Codex and team decision documents and ACK when complete."
