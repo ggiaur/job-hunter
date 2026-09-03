@@ -1,0 +1,23 @@
+services:
+  claude-chrome-worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: job-hunter-claude-chrome-worker
+    restart: unless-stopped
+    shm_size: "2gb"
+    environment:
+      VNC_PASSWORD: "${VNC_PASSWORD:?Set VNC_PASSWORD before starting the worker}"
+      TZ: Europe/Budapest
+    ports:
+      - "127.0.0.1:6080:6080"
+    volumes:
+      - claude_chrome_profile:/home/worker/.config/google-chrome
+      - claude_code_state:/home/worker/.claude
+      - ../..:/workspace/job-hunter:ro
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  claude_chrome_profile:
+  claude_code_state:
