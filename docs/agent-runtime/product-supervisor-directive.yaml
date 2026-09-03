@@ -2,8 +2,8 @@
 schema_version: 1
 channel: product_supervisor
 
-directive_id: JH-SUP-0014
-issued_at: "2026-09-03T22:30:00+02:00"
+directive_id: JH-SUP-0015
+issued_at: "2026-09-03T22:36:00+02:00"
 issued_by: chatgpt_product_architect
 authority: PRODUCT_ARCHITECT_ORCHESTRATION_SUPERVISOR
 priority: P0
@@ -11,13 +11,13 @@ status: ACTIVE
 requires_ack: true
 execute_immediately: true
 interrupt_current_work: true
-instruction_file: docs/agent-directives/JH-SUP-0014-HARD-STOP-ONPREM-GOOGLE-TRAFFIC.md
+instruction_file: docs/agent-directives/JH-SUP-0015-GOOGLE-CHALLENGE-FORENSIC-ANALYSIS.md
 ack_file: docs/agent-runtime/product-supervisor-ack.yaml
 continuity_policy: docs/EXECUTION_CONTINUITY_POLICY.md
 orchestrator_runtime: docs/agent-runtime/orchestrator.yaml
 project_claude_contract: CLAUDE.md
 watcher_enforcement: scripts/watch_product_supervisor_directive.sh
-supersedes: JH-SUP-0013
+supersedes: JH-SUP-0014
 redelivery_seq: 0
 
-summary: "HARD STOP after JH-SUP-0013 GOOGLE_CHALLENGE on the organization's real on-prem public IP 78.131.58.101. No further automated Google Search traffic from that on-prem network under Job Hunter until explicit Product Owner authorization. Disable pending/scheduled Google tests, preserve JH-SUP-0013 evidence, ACK that the hard stop is applied and that no further Google request was issued after the failed Gate 0. No retry, second diagnostic, browser/profile variant, scheduled check, proxy/stealth/bypass, or account-login experiment is authorized."
+summary: "P0 forensic analysis only. Determine as precisely as evidence permits why Google returned unusual-traffic challenge for JH-SUP-0013. Claude and Codex must analyze independently, then reconcile proven facts versus hypotheses. HARD SAFETY INVARIANT from JH-SUP-0014 remains: ZERO new Google Search requests from the on-prem corporate network or any Job Hunter environment; no retry, CAPTCHA solve, browser variant against Google, proxy/VPN/stealth/bypass. Inspect existing evidence, Playwright/Chromium launch characteristics and local network logs only. Produce ranked cause matrix and explicitly state what cannot be known without Google's proprietary telemetry."
