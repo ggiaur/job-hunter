@@ -2,15 +2,15 @@
 schema_version: 1
 channel: product_supervisor_ack
 project: job-hunter
-last_seen_directive_id: JH-SUP-0016
-last_accepted_directive_id: JH-SUP-0016
-last_applied_directive_id: JH-SUP-0016
-status: GOOGLE_SEARCH_BEST_PRACTICE_RESEARCH_COMPLETE
+last_seen_directive_id: JH-SUP-0017
+last_accepted_directive_id: JH-SUP-0017
+last_applied_directive_id: JH-SUP-0017
+status: CHEAPEST_GOOGLE_SEARCH_COST_REVIEW_COMPLETE
 SPRINT_1_STATUS: NOT_DONE
 blocker_class: PENDING_PRODUCT_OWNER_DECISION
-updated_at: "2026-09-03T21:25:00Z"
+updated_at: "2026-09-03T21:45:00Z"
 updated_by: claude_active_orchestrator
-head_sha: 958e699
+head_sha: TBD
 evidence:
   - docs/forensics/CLAUDE_GOOGLE_CHALLENGE_CAUSE_ANALYSIS.md
   - docs/forensics/CODEX_GOOGLE_CHALLENGE_CAUSE_ANALYSIS.md
@@ -19,6 +19,7 @@ evidence:
   - docs/design/CODEX_GOOGLE_SEARCH_BEST_PRACTICE.md
   - docs/design/GEMINI_GOOGLE_SEARCH_BEST_PRACTICE.md
   - docs/design/GOOGLE_SEARCH_BEST_PRACTICE_DECISION.md
+  - docs/design/CHEAPEST_GOOGLE_SEARCH_COST_DECISION.md
 notes: >
   JH-SUP-0013 executed exactly as specified. Before running, independently
   verified (not assumed) that this session is genuinely on the on-prem
@@ -104,3 +105,25 @@ notes: >
   requirement, and pursue WSS partner contact (no Google traffic
   required) as the smallest safe next action. Awaiting Product Owner
   decision -- no implementation started under this directive.
+
+  JH-SUP-0016 redelivered (cheapest-cost + Gemini mandatory + account/
+  incognito questions) and JH-SUP-0017 (near-duplicate cost question,
+  explicit Gemini prompt required) both applied together -- overlap
+  disclosed in the decision doc. Claude, Codex, Gemini each answered
+  independently (Codex fact-check role per JH-SUP-0017's framing).
+  Zero new Google traffic. Updated cheapest-first finding: at the real
+  ~8-10 searches/month volume, SerpApi's free tier (250/month, $0,
+  returns ranked organic title+URL) is now the recommended immediate
+  path, not WSS -- WSS pricing remains unconfirmed/partner-gated and
+  is no longer the near-term recommendation, though still worth
+  pursuing in parallel long-term. Gemini Grounding is the cheapest
+  official first-party Google option ($0 at this volume) but returns
+  synthesized-answer+citations, not a raw ranked SERP list -- flagged
+  as a different data shape, not a drop-in equivalent. One correction
+  applied to Gemini's report: it ranked Custom Search JSON API as a
+  viable $0 option without noting it is closed to new customers since
+  2025 and EOL 2027-01-01 -- fixed in the reconciliation. No Google
+  account required or recommended; Incognito-vs-Playwright difference
+  explained as a stack of automation/session signals, not proven to a
+  single cause. No implementation started -- awaiting Product Owner
+  decision on SPRINT_1.md amendment and vendor selection.

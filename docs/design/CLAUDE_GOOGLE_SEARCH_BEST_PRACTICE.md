@@ -168,6 +168,112 @@ automation while a real, compliant, Google-documented path exists to pursue in
 parallel. See reconciliation doc for the team's joint recommendation on how to
 frame that decision.
 
+## Redelivery addendum (2026-09-03T23:27) — cheapest-cost + incognito/account questions
+
+The directive was redelivered requiring a cost-first ranking and answers to
+new questions. Everything above stands; this section adds the new material.
+Zero new Google traffic; all findings from public pricing/documentation
+research.
+
+### Cheapest-first cost table at ~8-10 queries/month
+
+| Candidate | Free quota | Min. paid entry | Effective cost at 8-10/month | Google-derived | Account/card needed | Corporate-IP risk |
+|---|---|---|---|---|---|---|
+| **SerpApi** | 250 searches/month, free plan, no expiry | $25/mo (Starter) — not needed at this volume | **$0** — stays inside the always-free plan | Yes (scrapes real Google SERP) | Email signup, no card for free plan | None — vendor infra, not Job Hunter's IP |
+| **Serper.dev** | 2,500 one-time signup credits, no card | $50 top-up when exhausted | **$0** for ~20+ years at this volume (2,500 ÷ 10/mo) | Yes | Email signup, no card | None — vendor infra |
+| **Gemini Grounding w/ Google Search (Gemini 3.x)** | 5,000 free grounded prompts/month | Requires a billing-enabled ("paid tier") API project to unlock the free grounding quota per Google's own forum guidance — not a pure no-account option | **$0** if billing account already exists/acceptable | Yes, but see caveat below — not a raw SERP list | Google Cloud/AI Studio account + billing enabled | None — Google's own infra |
+| SearchAPI.io | Limited/trial only | ~$40/month minimum plan | ~$40/month (below free-tier ceiling of options above) | Yes | Signup + card | None |
+| Zenserp | 50 free (trial only, not monthly) | $49.99/month (5,000 searches) | ~$49.99/month | Yes | Signup + card | None |
+| Google Web Search Service API | Unknown/unpublished | **No published self-service price found.** A figure of "$15/1,000 + $30,000/month minimum" is sometimes cited but I could not verify it against Google's official pricing page — flagging it explicitly as **unconfirmed/reported, not officially published**, per the directive's own instruction to distinguish these. | Unknown — likely far above the alternatives if the reported minimum is real, and inaccessible regardless (partner-gated) | Yes, genuine | Partner agreement + `client_id`, no self-service | None |
+| Custom Search JSON API | 100/day (existing customers only) | $5/1,000 beyond free | Moot — closed to new customers, EOL 2027-01-01 | Partial (configured PSE, not full web) | Existing customer only | None |
+
+**Cheapest good solution for the business need (Question A): a free-tier
+commercial SERP API — SerpApi or Serper.dev — costs literally $0/month at
+this volume**, requires no partner approval, no card, and sends zero traffic
+from Job Hunter's own IP (the vendor's infrastructure makes the request, not
+ours). This is cheaper and faster to obtain than pursuing WSS partner access,
+though it carries the same category of caveat as any third-party SERP vendor
+(see prior section — the vendor's own terms don't constitute Google's
+authorization; the risk is transferred to a third party with mature
+infrastructure, not eliminated). Gemini Grounding is also effectively free at
+this volume but returns AI-synthesized answers with citation metadata, not a
+guaranteed ordered raw-SERP result list — treat as a materially different
+data shape, not a drop-in equivalent, per the directive's own caution.
+
+### Google Web Search Service API pricing — precision per directive instruction
+
+No officially published self-service price was found on Google's own WSS
+documentation pages during this research. The commonly-cited "$15/1,000
+queries, $30,000/month minimum" figure appears in third-party discussion but
+was not independently confirmed against an official Google pricing page in
+this research pass — stated here explicitly as **unconfirmed/reported**, not
+as a verified fact, in line with the directive's explicit instruction not to
+conflate reported terms with officially published ones.
+
+### Why does human Incognito Search work but Playwright headed Chromium gets challenged?
+
+Grounded in the JH-SUP-0015 forensic analysis (same evidence, same repo) plus
+Playwright's documented launch defaults. A real Incognito session in a
+user-installed, branded Chrome differs from the Gate 0 Playwright run in
+every one of these observable ways simultaneously:
+
+- **Browser build**: Incognito uses the real signed Google Chrome binary;
+  Playwright's default is its own managed "Chrome for Testing" build.
+- **Automation transport**: Playwright launches with a CDP
+  (`--remote-debugging-pipe`) connection and a cluster of test-oriented
+  Chromium switches (`--no-sandbox` by default, `--disable-background-
+  networking`, `--no-first-run`, `--password-store=basic`, etc., per direct
+  Playwright source inspection in JH-SUP-0015). A manually opened Incognito
+  window has none of these.
+- **Session/profile history**: a real user's browser — even in Incognito —
+  runs inside a Chrome installation with genuine prior browsing history,
+  installed extensions/sync state, and a long-lived machine/browser identity.
+  The Gate 0 context is a brand-new, disposable, cookie-less profile with zero
+  history, created fresh milliseconds before the one request.
+- **Display/rendering environment**: a real desktop vs. a virtual Xvfb
+  framebuffer inside Docker — a detectable environment difference in some
+  fingerprinting techniques (screen metrics, GPU/render string).
+- **Human interaction signal**: a real Incognito search is preceded by real
+  mouse/keyboard/timing signals a browser session normally has; Gate 0 issues
+  one bare `page.goto` with no interaction at all.
+
+None of these alone is proven as *the* cause (see JH-SUP-0015 reconciliation
+— Google's exact decision weighting is not observable). But collectively they
+explain, without needing to invoke evasion, why an ordinary human Incognito
+search and a fresh Playwright/Chromium Docker session are not equivalent
+requests from Google's perspective even before considering IP history.
+
+### Is a Google account required? Does logging in help?
+
+No evidence supports this as a fix, and it is **not recommended**. Nothing in
+Google's public documentation or in the JH-SUP-0015 evidence ties the
+"unusual traffic" interstitial to a missing login — the Product Owner's own
+observation that ordinary Incognito search works with no account is correct
+and consistent with account state being unrelated to this signal. Logging in
+a dedicated automation account adds a new risk class instead of removing one:
+that specific Google account itself becomes linkable to automated traffic and
+can be flagged/restricted/require re-verification, and its credentials become
+a secret Job Hunter must store and rotate. **Recommendation: do not add a
+Google account to this architecture; it doesn't address the demonstrated
+cause and only adds attack surface and operational fragility.**
+
+### Real stock Chrome GUI / persistent-profile worker — legitimate architecture or not?
+
+Evaluated strictly as architecture, not stealth, per the directive. Even
+using a genuine, user-installed Chrome binary instead of Playwright's
+managed Chromium, **controlling it via CDP or WebDriver still exposes
+automation signals** — the CDP/WebDriver control channel itself is what
+Playwright/Selenium use to drive any browser, branded or not, and that
+control channel is a distinct, detectable layer from "which browser binary is
+running." Swapping the binary removes only one of the several stacked signals
+identified above (browser build), not the automation-transport, fresh-profile,
+or no-human-interaction signals. It is **not reliable enough for unattended
+production** on its own; it would need to be combined with a genuinely
+long-lived, organically-used profile and real interaction timing to meaningfully
+change the fingerprint picture, which is no longer "just point Playwright at
+real Chrome" — it becomes a much larger, still-unproven engineering effort for
+an architecture that remains a Google ToS violation regardless.
+
 ## Top pitfalls (partial list — see reconciliation for the merged top 10)
 
 1. Treating "not currently detected" as "compliant" — it is a ToS violation

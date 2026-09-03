@@ -142,6 +142,20 @@ JH-SUP-0014 exception.
     Gemini's specific endpoint string was wrong despite its overall
     conclusion being correct.
 
+## Redelivery addendum — cheapest-cost requirement (2026-09-03T23:27, plus JH-SUP-0017)
+
+JH-SUP-0016 was redelivered requiring a cost-first analysis, and JH-SUP-0017
+arrived minutes later asking essentially the same cost question with a
+dedicated required Gemini prompt. See `CHEAPEST_GOOGLE_SEARCH_COST_DECISION.md`
+for the full cheapest-first table and the three specific recommendations
+required by JH-SUP-0017 (cheapest Google-authorized option, cheapest
+raw-title+URL option, recommended production choice). Headline: **at the
+actual ~8-10 searches/month volume, the correct recommendation changes from
+"pursue WSS partner access" to "adopt SerpApi's free tier now" ($0/month,
+available today, no partner approval needed)** — WSS remains worth pursuing in
+parallel as a longer-term first-party path, but it is no longer the
+recommended immediate action once cost and availability are both weighed.
+
 ## Process note on Gemini's independence
 
 JH-SUP-0016 makes Gemini mandatory, not optional. The shared `gemini-freshcheck`
