@@ -2,8 +2,8 @@
 schema_version: 1
 channel: product_supervisor
 
-directive_id: JH-SUP-0016
-issued_at: "2026-09-03T22:45:00+02:00"
+directive_id: JH-SUP-0017
+issued_at: "2026-09-03T23:26:00+02:00"
 issued_by: chatgpt_product_architect
 authority: PRODUCT_ARCHITECT_ORCHESTRATION_SUPERVISOR
 priority: P0
@@ -11,13 +11,13 @@ status: ACTIVE
 requires_ack: true
 execute_immediately: true
 interrupt_current_work: true
-instruction_file: docs/agent-directives/JH-SUP-0016-GOOGLE-SEARCH-BEST-PRACTICE-RESEARCH.md
+instruction_file: docs/agent-directives/JH-SUP-0017-CHEAPEST-GOOGLE-SEARCH-COST-REVIEW.md
 ack_file: docs/agent-runtime/product-supervisor-ack.yaml
 continuity_policy: docs/EXECUTION_CONTINUITY_POLICY.md
 orchestrator_runtime: docs/agent-runtime/orchestrator.yaml
 project_claude_contract: CLAUDE.md
 watcher_enforcement: scripts/watch_product_supervisor_directive.sh
-supersedes: JH-SUP-0015
-redelivery_seq: 2
+supersedes: JH-SUP-0016
+redelivery_seq: 0
 
-summary: "URGENT REDELIVERY: Product Owner requires the CHEAPEST good automated Google-search solution, not enterprise pricing. Claude must explicitly ask Gemini; Claude, Codex and Gemini must independently compare Google Web Search Service, Gemini/Vertex Google Search grounding, SerpApi, Serper, SearchAPI.io, Zenserp and credible cheaper options at only ~8-10 searches/month. Resolve exact/free/minimum costs, real Google-derived organic title+URL capability, Hungarian localization, corporate-IP risk, and whether a Google account is required. Explain why human Incognito works while Playwright headed Chromium can be challenged, without anti-bot evasion. HARD SAFETY remains zero new automated google.com/search traffic from corporate egress. Complete only when all three reports exist."
+summary: "P0 targeted cost review. Claude MUST explicitly ask Gemini what is the cheapest good solution for ~8-10 automated Google-derived searches/month with title+URL, no corporate-IP risk and no anti-bot bypass. Compare Gemini API Google Search grounding, SerpApi, Zenserp, Serper, SearchAPI.io and Google WSS; distinguish raw SERP semantics from grounding citations; resolve exact free/minimum costs; answer Google-account/login and Incognito-vs-Playwright questions. ZERO new automated google.com/search traffic. Produce cheapest-first decision and ACK only after Claude + Gemini answers."
