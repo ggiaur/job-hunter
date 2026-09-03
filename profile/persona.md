@@ -47,5 +47,6 @@ Budapest és agglomeráció, remote/hibrid elfogadható
 - Junior / entry-level **KIVÉVE ha a pozíció maga vezetői/menedzseri jellegű** (pl. "junior IT manager", "assistant IT team lead") — ilyenkor a vezetői jelleg felülírja a junior címkét, NE zárd ki automatikusan
 - Kizárólag szoftverfejlesztő / programozó (nem vezetői beosztásban)
 - Nem IT fókuszú menedzsment
-- **Bármilyen kötelező középfokú vagy annál magasabb angol nyelvtudás kizáró ok.** Ide tartozik többek között: "középfokú angol", B1/B2/C1/C2, "jó angoltudás", "kommunikációképes angol", "magabiztos angol", "aktív angol", "folyékony angol", "tárgyalásképes angol", "felsőfokú angol" vagy ezekkel egyenértékű kötelező elvárás.
-- Elfogadható: nincs angol követelmény; az angol csak előny; illetve kifejezetten alapfokú, minimális vagy ritka/alkalmi angolhasználat, ha nem várnak önálló szakmai kommunikációt angolul.
+- **Felsőfokú, folyékony, tárgyalásképes, anyanyelvi vagy ezekkel egyenértékű magas szintű angol nyelvtudás kötelező előírásként kizáró ok.**
+- **Középfokú / B1–B2 / "jó" / "kommunikációképes" angol NEM automatikus kizáró ok.** Ezeket a találatokat bent kell hagyni és a többi illeszkedési szemponttal együtt értékelni.
+- Előnyben részesítendő: nincs angol követelmény; az angol csak előny; alapfokú vagy ritka/alkalmi angolhasználat.
