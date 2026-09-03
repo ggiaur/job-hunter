@@ -1,0 +1,489 @@
+{
+  "search_metadata": {
+    "id": "6a99f95cb9dbc4d02c9b3fab",
+    "status": "Success",
+    "json_endpoint": "https://serpapi.com/searches/jRbJDpp_ZlT-tMjod8fxZNOE8qZGfIHH9I8q-nIeBx4/6a99f95cb9dbc4d02c9b3fab.json",
+    "markdown_endpoint": "https://serpapi.com/searches/jRbJDpp_ZlT-tMjod8fxZNOE8qZGfIHH9I8q-nIeBx4/6a99f95cb9dbc4d02c9b3fab.md",
+    "pixel_position_endpoint": "https://serpapi.com/searches/jRbJDpp_ZlT-tMjod8fxZNOE8qZGfIHH9I8q-nIeBx4/6a99f95cb9dbc4d02c9b3fab.json_with_pixel_position",
+    "created_at": "2026-09-03 22:49:00 UTC",
+    "processed_at": "2026-09-03 22:49:00 UTC",
+    "google_url": "https://www.google.com/search?q=IT+vezet%C5%91&oq=IT+vezet%C5%91&hl=hu&gl=hu&sourceid=chrome&ie=UTF-8",
+    "raw_html_file": "https://serpapi.com/searches/jRbJDpp_ZlT-tMjod8fxZNOE8qZGfIHH9I8q-nIeBx4/6a99f95cb9dbc4d02c9b3fab.html",
+    "total_time_taken": 3.43
+  },
+  "search_parameters": {
+    "engine": "google",
+    "q": "IT vezető",
+    "google_domain": "google.com",
+    "hl": "hu",
+    "gl": "hu",
+    "device": "desktop"
+  },
+  "search_information": {
+    "query_displayed": "IT vezető",
+    "total_results": 109,
+    "time_taken_displayed": 0.14,
+    "organic_results_state": "Results for exact spelling"
+  },
+  "ai_overview": {
+    "page_token": "TK8t7HiczZbdcqo6FMcf4DxHuTlVED_pDLMnxGhj1UrVKr1xkI9gFVGior3b73Ke6jzNCQiKVnq698WZs2aEBJK1_knWj-XPvxaz5fzvP7bOZrOiDzwfBEGeeB5ZWHnDc3mdHpYGb3sL6hvOD-ptfcOambLh-J5rcWQhO1vOia6HnVzkDCoLnDWTx7b7pvuuh_RDd2nR3nblVwRAucidPJnq1Hpn0fbvlJ_w7DK_K9ZZJ0_zzja_ftVa2miQ0xQhLwpiMf_M6y4bAP47UyFA7Ar64Y0ZvjlKAQB-wxmEoSswTz3CgCQe4hbohC0M4DEgJBnC4pkYYeU4tZ4Tx0EdNE6igiwdhKkg8YLYOC32qMUymESUNfXTkpItGSa6vhqtZL2I4p2UNy8D3DZ87Q2CANRUJZlw8ZZ1nHMvWmAcpAyUUg_ARwi8bN1MXqMDjD7A8HYCnK2vNK3kJIOuxpq8SVjOCvzUZ7cCPzMcI2r4NExlOJAED1lKQ5wI3eeKVHvNNQu2uMVdFxS31XXAG1M2buHppmVOnInwI-oXxEJZkIrV2n3EkEFPENE0RIfhS7VmD5_7ZiffziuFhKDTsX3aRNZXbp6-Ew-9dYaz81P15Jk04q0LDccHyXAKsw-pQEunSuMx3P002BIBzxfJlEQIn90iKAp5aocERTkZhvVOaZQ-PcbAeXzKCWjdWCG8ymykBAlBWCEpYJREY8ofOroksaMLUyFE2AnnM7XQJxHJBFztM0p66KxWAQgDVY3Xkv48wTRBbASKBL5DNqUFPAXAkB01iYHO4tEVNDd5DTd_BL__ibi0Lyg7GUpYuUr9NDLNnqR12mB0aNe7cw9Vc7virPhRNQqaqd5GxHOnv1BojP8VRMcypMVlCIJOFkTwGxCxMqR-WYaidlKGjhBBkgERPkL0qQx1TyHPZegKIoJeUhA52rGZUYZ-ESL1K4jiQpMBUeMWRP0siPA1RBDtL8tQSsO5DJ0g-q0y5P1WGYqQso63y5q0fSeZtanRm1cHSns9xXj_ipfWvj7GxW45576U_r022e7mwdXNxf1kZj4oYmtzMO8n7IH3YJncWsaDP3fWh7W5g-U7qcC5C9-TBb2qTSl4d-HH40pvtdE40HXJlrA3XTuzAVVBruIP57unGsIDcynpfav38pbrLevLdTMn9XZPq0fTIGO7O6WW4NkrrUJbPfvNCPamPd8iaaNMhM7TE3XMgdKytOJkoDrDzdvA-zjA-lDriYU9GnXbxlralcAAloJIF5XJ9rFG9ma5JnY41zdkdsIlAroqGBFgAMhQZP_VVOixX8B-FaAihaOGPrHoTjZ0oWzbFUuU7JJo16acSzaHlVwqcHTpy4V_ALhzPCM",
+    "serpapi_link": "https://serpapi.com/search.json?engine=google_ai_overview&page_token=TK8t7HiczZbdcqo6FMcf4DxHuTlVED_pDLMnxGhj1UrVKr1xkI9gFVGior3b73Ke6jzNCQiKVnq698WZs2aEBJK1_knWj-XPvxaz5fzvP7bOZrOiDzwfBEGeeB5ZWHnDc3mdHpYGb3sL6hvOD-ptfcOambLh-J5rcWQhO1vOia6HnVzkDCoLnDWTx7b7pvuuh_RDd2nR3nblVwRAucidPJnq1Hpn0fbvlJ_w7DK_K9ZZJ0_zzja_ftVa2miQ0xQhLwpiMf_M6y4bAP47UyFA7Ar64Y0ZvjlKAQB-wxmEoSswTz3CgCQe4hbohC0M4DEgJBnC4pkYYeU4tZ4Tx0EdNE6igiwdhKkg8YLYOC32qMUymESUNfXTkpItGSa6vhqtZL2I4p2UNy8D3DZ87Q2CANRUJZlw8ZZ1nHMvWmAcpAyUUg_ARwi8bN1MXqMDjD7A8HYCnK2vNK3kJIOuxpq8SVjOCvzUZ7cCPzMcI2r4NExlOJAED1lKQ5wI3eeKVHvNNQu2uMVdFxS31XXAG1M2buHppmVOnInwI-oXxEJZkIrV2n3EkEFPENE0RIfhS7VmD5_7ZiffziuFhKDTsX3aRNZXbp6-Ew-9dYaz81P15Jk04q0LDccHyXAKsw-pQEunSuMx3P002BIBzxfJlEQIn90iKAp5aocERTkZhvVOaZQ-PcbAeXzKCWjdWCG8ymykBAlBWCEpYJREY8ofOroksaMLUyFE2AnnM7XQJxHJBFztM0p66KxWAQgDVY3Xkv48wTRBbASKBL5DNqUFPAXAkB01iYHO4tEVNDd5DTd_BL__ibi0Lyg7GUpYuUr9NDLNnqR12mB0aNe7cw9Vc7virPhRNQqaqd5GxHOnv1BojP8VRMcypMVlCIJOFkTwGxCxMqR-WYaidlKGjhBBkgERPkL0qQx1TyHPZegKIoJeUhA52rGZUYZ-ESL1K4jiQpMBUeMWRP0siPA1RBDtL8tQSsO5DJ0g-q0y5P1WGYqQso63y5q0fSeZtanRm1cHSns9xXj_ipfWvj7GxW45576U_r022e7mwdXNxf1kZj4oYmtzMO8n7IH3YJncWsaDP3fWh7W5g-U7qcC5C9-TBb2qTSl4d-HH40pvtdE40HXJlrA3XTuzAVVBruIP57unGsIDcynpfav38pbrLevLdTMn9XZPq0fTIGO7O6WW4NkrrUJbPfvNCPamPd8iaaNMhM7TE3XMgdKytOJkoDrDzdvA-zjA-lDriYU9GnXbxlralcAAloJIF5XJ9rFG9ma5JnY41zdkdsIlAroqGBFgAMhQZP_VVOixX8B-FaAihaOGPrHoTjZ0oWzbFUuU7JJo16acSzaHlVwqcHTpy4V_ALhzPCM"
+  },
+  "organic_results": [
+    {
+      "position": 1,
+      "title": "It vezető állás, munka - 145 állásajánlat - 2026 Szeptember",
+      "link": "https://www.profession.hu/allasok/1,0,0,it%20vezet%C5%91",
+      "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAEScAHrOzAVZNNQ4gOyaoMp8eVubM11IK_9qgR6lMSv-26nFo12mOjcVmgeW-3P8la1ZRU1qMeWUbTiSzmEedOkPccwxnDFzSoKE6emNKQ5uPvrZf_OgfGDiQzCuES1jrUd-npqsmsspfFVoDI-SbTTxRo&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQFnoECCAQAQ&uoh=1",
+      "displayed_link": "https://www.profession.hu › Állások",
+      "favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAdVBMVEVHcExQjNU7tuhHydBXqLFDwthEutZTk8o5s-xBv9xGrttN0sRIys5M0MZFw9NFxdRMwck-u-I5s-1LsM9O1cFNfOhWjMdSj85NeupNeOxBv91Dwtg-u-JL0MZHyc9FxtNJzctN1MJOg-BNeulQidY8t-dUnMH8HSScAAAAGnRSTlMA4-T1_g2S_v5xIenUkr9NMq_M_VTGE6iQ-Di9h58AAAEWSURBVCiRbdLZkoMgEAVQxoWAUaMxcWbADbf__8ShLzLhgftGnbotdMmYS1HdDbJu2-_7p2BBHqONpXG78v5YviwOASvSe6yAozm9rPu-eywXp5sHm9v3hdNEaDoP-43iBjeEy2i-XCDneUqgnJxec3qS8-yeONUzsPRXaCxlmRA4pDOq1f_TsowM2M8zqo8Qh0MkWI-eUc298awbLOKbXKOa0qpeUspaa0WI25YaWttNjeMyTfOFmKQcSlaaEDkubpG0qEyIiVuBclVmQnTGWkKtyyZEfl18UFD-ulNSm5r7V-WEVj8rCP-QwVXzGPKBVKuYsSdQtVE8DqiMWXGQKlXEUApU6-jUVlA1iRpLhDiS6AcZ-wPvjyvi2H5suQAAAABJRU5ErkJggg.png",
+      "snippet": "145 db friss it vezető állás, munka. Nézze meg a legfrissebb it vezető állásajánlatokat Magyarország közkedvelt állásportálján és jelentkezzen egyszerűen ...",
+      "snippet_highlighted_words": [
+        "145 db friss it vezető állás, munka"
+      ],
+      "about_this_result": {
+        "source": {
+          "description": "145 db friss it vezető állás, munka. Nézze meg a legfrissebb it vezető állásajánlatokat Magyarország közkedvelt állásportálján és jelentkezzen egyszerűen ...",
+          "source_info_link": "https://www.profession.hu/allasok/1,0,0,it%20vezet%C5%91",
+          "icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAdVBMVEVHcExQjNU7tuhHydBXqLFDwthEutZTk8o5s-xBv9xGrttN0sRIys5M0MZFw9NFxdRMwck-u-I5s-1LsM9O1cFNfOhWjMdSj85NeupNeOxBv91Dwtg-u-JL0MZHyc9FxtNJzctN1MJOg-BNeulQidY8t-dUnMH8HSScAAAAGnRSTlMA4-T1_g2S_v5xIenUkr9NMq_M_VTGE6iQ-Di9h58AAAEWSURBVCiRbdLZkoMgEAVQxoWAUaMxcWbADbf__8ShLzLhgftGnbotdMmYS1HdDbJu2-_7p2BBHqONpXG78v5YviwOASvSe6yAozm9rPu-eywXp5sHm9v3hdNEaDoP-43iBjeEy2i-XCDneUqgnJxec3qS8-yeONUzsPRXaCxlmRA4pDOq1f_TsowM2M8zqo8Qh0MkWI-eUc298awbLOKbXKOa0qpeUspaa0WI25YaWttNjeMyTfOFmKQcSlaaEDkubpG0qEyIiVuBclVmQnTGWkKtyyZEfl18UFD-ulNSm5r7V-WEVj8rCP-QwVXzGPKBVKuYsSdQtVE8DqiMWXGQKlXEUApU6-jUVlA1iRpLhDiS6AcZ-wPvjyvi2H5suQAAAABJRU5ErkJggg.png"
+        },
+        "languages": [
+          "hu"
+        ],
+        "regions": [
+          "HU"
+        ]
+      },
+      "about_page_link": "https://www.google.com/search?q=About+https://www.profession.hu/allasok/1,0,0,it%20vezet%C5%91&tbm=ilp",
+      "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&q=About+https%3A%2F%2Fwww.profession.hu%2Fallasok%2F1%2C0%2C0%2Cit%2520vezet%25C5%2591",
+      "source": "Profession.hu"
+    },
+    {
+      "position": 2,
+      "title": "Több mint 200 IT Vezető állás, munka: Budapest 2026, ...",
+      "link": "https://hu.indeed.com/q-it-vezet%C5%91-l-budapest-%C3%A1ll%C3%A1sok.html",
+      "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESgAEB6zswFVt944k0_96J8X60D6suc_cQEN9EAm75DpzFZwEQ00M1GJ37ylQVehPs0W3wZEXmi7LbPwiktNwn9VtlkQnODIBe7cUxRI-74zBxW6WS5Q_i8UPBeAK8HQsA_9CsIFqCUuj4rU0ctBm3h3ImThOIZ5JNk4cLhEAHUmMbnQ&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQFnoECCYQAQ&uoh=1",
+      "displayed_link": "https://hu.indeed.com › q-it-vezető-l-budapest-állások",
+      "favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAflBMVEUAAAD_______________________________________________-_zuZvkMZQd7pAa7Sgtdnv8_gAOptgg8AgUqcgU6evweCAnc0QRqF_nc3v8vhwkMcwXq3f5vLP2uz____f5_JfhMB_nM0wX66AnM1PeLqPqdOftdrv8_mN6_jEAAAAIXRSTlMAEGCfz-__XyCQj98w_________________________6AQ1BAWAAABD0lEQVR4AYWThRZCIQxAR-11h939_z-oHECHGNd4sbvR8IJxIRWikiJiEBInCl-IGHxYim-kfnqGARkpkj_jRVnVVdMaIw_yi7qr-7IaxolXg7n4dDZfGHEojGFG4_q3XK3RsSE9jV3-SqevC6ToRrbmdjc84m3ddeOOCAkAQ8Oo6--7BzURFANuB3DQ_8dOgwTuWjjpAnjW8YEKAqS5KU0dLVyoIEGZYdnOr8veH4YCN-5vWGGBVtxc68IXFFLqrus8QYH8LUjY_hYE8N9CBEz9FBhA8ksQZLmpQJeblAiFxNtyoZCxYNMvu252CzY-2fa3fVU84_nfg0NgyXs8YeATb0lUJTGEML61x5-T7DuGyRy8BcS3-wAAAABJRU5ErkJggg.png",
+      "snippet": "A felelős vezető(k) folyamatos tájékoztatása, a szükséges döntéseknél a vezetők időbeli bevonása. IT üzleti elemző állás Budapest.",
+      "snippet_highlighted_words": [
+        "vezető",
+        "vezetők",
+        "IT"
+      ],
+      "about_this_result": {
+        "source": {
+          "description": "A felelős vezető(k) folyamatos tájékoztatása, a szükséges döntéseknél a vezetők időbeli bevonása. IT üzleti elemző állás Budapest.",
+          "source_info_link": "https://hu.indeed.com/q-it-vezet%C5%91-l-budapest-%C3%A1ll%C3%A1sok.html",
+          "icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAflBMVEUAAAD_______________________________________________-_zuZvkMZQd7pAa7Sgtdnv8_gAOptgg8AgUqcgU6evweCAnc0QRqF_nc3v8vhwkMcwXq3f5vLP2uz____f5_JfhMB_nM0wX66AnM1PeLqPqdOftdrv8_mN6_jEAAAAIXRSTlMAEGCfz-__XyCQj98w_________________________6AQ1BAWAAABD0lEQVR4AYWThRZCIQxAR-11h939_z-oHECHGNd4sbvR8IJxIRWikiJiEBInCl-IGHxYim-kfnqGARkpkj_jRVnVVdMaIw_yi7qr-7IaxolXg7n4dDZfGHEojGFG4_q3XK3RsSE9jV3-SqevC6ToRrbmdjc84m3ddeOOCAkAQ8Oo6--7BzURFANuB3DQ_8dOgwTuWjjpAnjW8YEKAqS5KU0dLVyoIEGZYdnOr8veH4YCN-5vWGGBVtxc68IXFFLqrus8QYH8LUjY_hYE8N9CBEz9FBhA8ksQZLmpQJeblAiFxNtyoZCxYNMvu252CzY-2fa3fVU84_nfg0NgyXs8YeATb0lUJTGEML61x5-T7DuGyRy8BcS3-wAAAABJRU5ErkJggg.png"
+        },
+        "languages": [
+          "hu"
+        ],
+        "regions": [
+          "HU"
+        ]
+      },
+      "about_page_link": "https://www.google.com/search?q=About+https://hu.indeed.com/q-it-vezet%C5%91-l-budapest-%C3%A1ll%C3%A1sok.html&tbm=ilp",
+      "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&q=About+https%3A%2F%2Fhu.indeed.com%2Fq-it-vezet%25C5%2591-l-budapest-%25C3%25A1ll%25C3%25A1sok.html",
+      "source": "Indeed"
+    },
+    {
+      "position": 3,
+      "title": "Állások - IT Vezető - Magyarország",
+      "link": "https://www.careerjet.hu/it-vezeto-allasok",
+      "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESYgHrOzAVaZJA8vlJvcq_wFeK39mKg-7bPj3wlpPmQG9lQKfB1jdjnwdD_xhBQZsciLPJo-dhMYosTGXar6lgXh5T1DvVlx5wx6yL8JaO1rGzL3g2sq_0YWepSLPJfp5goa81&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQFnoECCcQAQ&uoh=1",
+      "displayed_link": "https://www.careerjet.hu › it-vezeto-allasok",
+      "favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAbFBMVEX____m7PWqvdumutmzxN_e5vEAT6gAWKsAVKkAVaoqaLJ5mcgAWas5cLYXX669zON0lseEocyJpM5BdLcSXa1hiMDT3ewAS6bN2OpDdbhZg75tkcSWrtMAQqPF0uYATqcgZLDy9vpRfrycs9adCY7fAAAA4UlEQVR4AazRRQLCQAxA0VQzacM47nD_O0I6eGXF21R-qgN_kOWFKIdaVaMS1EBfy7NWaDL9aNGCYPyOpXPOBx28bHWcy3YBia8ZEaOOKHS35eUqRdTrza8m2hQJzcAbbB9XYv_btlNxt9-NR8hgKGZ-PdseAIZifuQ7NR-Kh1prv1sz2oF40kE2nuuqFytFVRri_tsaVM_vtL24InUGcWHXi1BHl4aev5S4yBIAj9RWWUGnCEmjWXWWV4ALRSJZvzbFBSnqLOUNr_E-ZrdMjwrVA3Qy2W5pf4ZRu_w2StI5AO5CDontlY9UAAAAAElFTkSuQmCC.png",
+      "snippet": "Összes IT Vezető állás és munka Magyarországon. Álláskeresés a Careerjet.hu állásportál segítségével Magyarországon.",
+      "snippet_highlighted_words": [
+        "Összes IT Vezető állás és munka Magyarországon"
+      ],
+      "about_this_result": {
+        "source": {
+          "description": "Összes IT Vezető állás és munka Magyarországon. Álláskeresés a Careerjet.hu állásportál segítségével Magyarországon.",
+          "source_info_link": "https://www.careerjet.hu/it-vezeto-allasok",
+          "icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAbFBMVEX____m7PWqvdumutmzxN_e5vEAT6gAWKsAVKkAVaoqaLJ5mcgAWas5cLYXX669zON0lseEocyJpM5BdLcSXa1hiMDT3ewAS6bN2OpDdbhZg75tkcSWrtMAQqPF0uYATqcgZLDy9vpRfrycs9adCY7fAAAA4UlEQVR4AazRRQLCQAxA0VQzacM47nD_O0I6eGXF21R-qgN_kOWFKIdaVaMS1EBfy7NWaDL9aNGCYPyOpXPOBx28bHWcy3YBia8ZEaOOKHS35eUqRdTrza8m2hQJzcAbbB9XYv_btlNxt9-NR8hgKGZ-PdseAIZifuQ7NR-Kh1prv1sz2oF40kE2nuuqFytFVRri_tsaVM_vtL24InUGcWHXi1BHl4aev5S4yBIAj9RWWUGnCEmjWXWWV4ALRSJZvzbFBSnqLOUNr_E-ZrdMjwrVA3Qy2W5pf4ZRu_w2StI5AO5CDontlY9UAAAAAElFTkSuQmCC.png"
+        },
+        "languages": [
+          "hu"
+        ],
+        "regions": [
+          "HU"
+        ]
+      },
+      "about_page_link": "https://www.google.com/search?q=About+https://www.careerjet.hu/it-vezeto-allasok&tbm=ilp",
+      "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&q=About+https%3A%2F%2Fwww.careerjet.hu%2Fit-vezeto-allasok",
+      "source": "Careerjet.hu"
+    },
+    {
+      "position": 4,
+      "title": "It Manager Állások itt: Hungary (462 Nyitva szerepkörök)",
+      "link": "https://hu.linkedin.com/jobs/it-manager-jobs",
+      "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESZAHrOzAVMmb0ZpUID2aYzFsPjEu3ipwjNaN3BhQ1ZbXYug_RW3lvwCLneDUfHx86RKTSibuMFE0DVyAlZVFiqW7gIdor8grtIKMBOK2l2cuVCIXV4L-d7isbLO4E40Wm5QZ2n2g&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQFnoECCwQAQ&uoh=1",
+      "displayed_link": "https://hu.linkedin.com › jobs › it-manager-jobs",
+      "favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABDUlEQVR4AWP4____gOLB44D6nTcsGIo33QHi_zTGd0B2YTiAPpYjHIHNAf_piQk6wGPW8f_rLz8HYRCbXg5AWI4GQGJ0cwDY12gAJDbcHUA4CkZAIqQUK7Ts_m_SfxBMs5RupswBaACr-P47b_5zlG_5DyzZ_r_-8hNF7vuvP__nn3r0X6JhJ-0ccPrR-_-H7735jw9cf_n5v0D1Nuo5gBxQve06zR0AjoL7b7_-__zjN4bc-ScfaOeA33___k9Yfg4mDw7u_Xdeo6uhnQP6D93FMNxlxjF0ZbRzgMXEQ9iyI90cALIMJoccDXRzAK6CZog6YNQBow6gIx54Bwx4x2RAu2bAysoEZu9o7xgAQrvkxt3WZi0AAAAASUVORK5CYII.png",
+      "snippet": "Napjaink legjobb 462 It Manager állásai Hungary. Használja ki szakmai hálózatát, és szerezzen felvételt. Naponta új It Manager állások bővülnek.",
+      "snippet_highlighted_words": [
+        "It",
+        "It"
+      ],
+      "about_this_result": {
+        "source": {
+          "description": "Napjaink legjobb 462 It Manager állásai Hungary. Használja ki szakmai hálózatát, és szerezzen felvételt. Naponta új It Manager állások bővülnek.",
+          "source_info_link": "https://hu.linkedin.com/jobs/it-manager-jobs",
+          "icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABDUlEQVR4AWP4____gOLB44D6nTcsGIo33QHi_zTGd0B2YTiAPpYjHIHNAf_piQk6wGPW8f_rLz8HYRCbXg5AWI4GQGJ0cwDY12gAJDbcHUA4CkZAIqQUK7Ts_m_SfxBMs5RupswBaACr-P47b_5zlG_5DyzZ_r_-8hNF7vuvP__nn3r0X6JhJ-0ccPrR-_-H7735jw9cf_n5v0D1Nuo5gBxQve06zR0AjoL7b7_-__zjN4bc-ScfaOeA33___k9Yfg4mDw7u_Xdeo6uhnQP6D93FMNxlxjF0ZbRzgMXEQ9iyI90cALIMJoccDXRzAK6CZog6YNQBow6gIx54Bwx4x2RAu2bAysoEZu9o7xgAQrvkxt3WZi0AAAAASUVORK5CYII.png"
+        },
+        "languages": [
+          "hu"
+        ],
+        "regions": [
+          "HU"
+        ]
+      },
+      "about_page_link": "https://www.google.com/search?q=About+https://hu.linkedin.com/jobs/it-manager-jobs&tbm=ilp",
+      "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&q=About+https%3A%2F%2Fhu.linkedin.com%2Fjobs%2Fit-manager-jobs",
+      "source": "LinkedIn"
+    },
+    {
+      "position": 5,
+      "title": "Fizetés IT-igazgató - Magyarország - Fizetesek.hu",
+      "link": "https://www.fizetesek.hu/fizetesek/cegvezetes/it-igazgato",
+      "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAEScQHrOzAVBV3ecy3BFRXX63PRnQy764vvaHc2nOjJbqY34_ut6ZsNTjSXRDA-RB-wc2AC1eMbUmYpGCfYBwV7kH0KOrwhLBTBOXe8SwpvgfcUn6Qe9L91ruyrl1fHCU0F6Gkfz0VNuE4O0CVVh4lNzX6J&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQFnoECCkQAQ&uoh=1",
+      "displayed_link": "https://www.fizetesek.hu › cegvezetes › it-igazgato",
+      "favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAYFBMVEVHcEyexliQvV-Qv1-RwF6KtlqItFiSvF-Hs1iGsFeGsVePvmGGsVeGsFeFsFeFsFaOvFyGsVeGsleJtFmZxGWLuVuTw2Ccz2Wi1mmj12ml2mqm22uk2Wql2mum2muk2WuDRvdZAAAAIHRSTlMAAQwmNE9fBJOy2BeI7PX_Q6J1yAf__f_9t_9XetGY5V65JVMAAAELSURBVHgBjdBVgkMhDEDR4s5zt_3vcmCapi7396A5YQQ7PUUZFzIlOKMPpCiX2tiU0ZJTdUOEOOGNDbEoYrDGC3dztnJllSmXuSqdQqSlt5mgYH1JgYhidQMGm5uaKQKHChNuKO81Ag5ued0UDzU1b8-YbnxEvJWK6hkr8TN2uRdYatt1fQ7Z6pLia_thzA199_haJqdhnP8DjfhPxZYJbD7vjdbDhEjL1w0sacZQSXcZu9hvcOhiaCRrL7jsxw32TVUzql7i0WiB-_Jsb449ppW5llwRX5vaVvggRCjftxEOneCDiMQt-3bkM7d9YXAm1rpynbZjm5JRMIy0ji857uAPD34iihB1v-0Pmk8ho_98_GMAAAAASUVORK5CYII.png",
+      "snippet": "Milyen munkát végez általában a(z) IT-igazgató · Belső informatikai stratégia kidolgozása és bevezetése. · Informatikai stratégia betartásának ellenőrzése.",
+      "snippet_highlighted_words": [
+        "IT",
+        "igazgató"
+      ],
+      "about_this_result": {
+        "source": {
+          "description": "Milyen munkát végez általában a(z) IT-igazgató · Belső informatikai stratégia kidolgozása és bevezetése. · Informatikai stratégia betartásának ellenőrzése.",
+          "source_info_link": "https://www.fizetesek.hu/fizetesek/cegvezetes/it-igazgato",
+          "icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAYFBMVEVHcEyexliQvV-Qv1-RwF6KtlqItFiSvF-Hs1iGsFeGsVePvmGGsVeGsFeFsFeFsFaOvFyGsVeGsleJtFmZxGWLuVuTw2Ccz2Wi1mmj12ml2mqm22uk2Wql2mum2muk2WuDRvdZAAAAIHRSTlMAAQwmNE9fBJOy2BeI7PX_Q6J1yAf__f_9t_9XetGY5V65JVMAAAELSURBVHgBjdBVgkMhDEDR4s5zt_3vcmCapi7396A5YQQ7PUUZFzIlOKMPpCiX2tiU0ZJTdUOEOOGNDbEoYrDGC3dztnJllSmXuSqdQqSlt5mgYH1JgYhidQMGm5uaKQKHChNuKO81Ag5ued0UDzU1b8-YbnxEvJWK6hkr8TN2uRdYatt1fQ7Z6pLia_thzA199_haJqdhnP8DjfhPxZYJbD7vjdbDhEjL1w0sacZQSXcZu9hvcOhiaCRrL7jsxw32TVUzql7i0WiB-_Jsb449ppW5llwRX5vaVvggRCjftxEOneCDiMQt-3bkM7d9YXAm1rpynbZjm5JRMIy0ji857uAPD34iihB1v-0Pmk8ho_98_GMAAAAASUVORK5CYII.png"
+        },
+        "languages": [
+          "hu"
+        ],
+        "regions": [
+          "HU"
+        ]
+      },
+      "about_page_link": "https://www.google.com/search?q=About+https://www.fizetesek.hu/fizetesek/cegvezetes/it-igazgato&tbm=ilp",
+      "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&q=About+https%3A%2F%2Fwww.fizetesek.hu%2Ffizetesek%2Fcegvezetes%2Fit-igazgato",
+      "source": "fizetesek.hu"
+    },
+    {
+      "position": 6,
+      "title": "IT vezető állás Budapest (Sürgősen!) - 137 új állásajánlat",
+      "link": "https://hu.jooble.org/%C3%A1ll%C3%A1s-IT-vezet%C5%91/Budapest",
+      "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESdQHrOzAVl6O8kv8jJh3vjTlMTzHpioRNflCwpUrKL8JSokZ3joT_B978jCd3b1Ax7OPMXM0RAePq9KnuMsaMpgc8DtYss805gCDhSOyNiG-zqNaIIgJYaVZl3LZAU9Dbmh5NcKkVRiseQ_ap8B3kFHU3nE68fQ&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQFnoECC0QAQ&uoh=1",
+      "displayed_link": "https://hu.jooble.org › Állás Budapest › IT vezető",
+      "favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAQlBMVEVHcEz_1QELcdn___8Lcdn-1QH-1QELcdn-1QELcdkAbtrrzRciecj_1ABXlOD96pP93leMt-v_9s7_8bXT5fiVu-jg88jOAAAACnRSTlMA____1tfWTEzXT-TREQAAAI1JREFUKJG9z80SwiAMRtFPaAuNRirg-7-qBWckrcnCjXeXOcNPgDA5tSkAQadWwGrjCtucOyK1dCR61FrvpKKjp_fewP2kje5fSLI3fsJN1lcZI66ytOM2RlxE3HHMCvLPyMzFxC018-ImgbmRT6whdyzyDwJTzkU8-PUhPthxlXOYbVsQbYxAXHSaI16vwgvD07aJtgAAAABJRU5ErkJggg.png",
+      "snippet": "IT vezetőként az Ön elsődleges feladata a vállalat informatikai stratégiájának kialakítása, végrehajtása és folyamatos fejlesztése lesz, közvetlenül a ...",
+      "snippet_highlighted_words": [
+        "IT",
+        "informatikai"
+      ],
+      "about_this_result": {
+        "source": {
+          "description": "IT vezetőként az Ön elsődleges feladata a vállalat informatikai stratégiájának kialakítása, végrehajtása és folyamatos fejlesztése lesz, közvetlenül a ...",
+          "source_info_link": "https://hu.jooble.org/%C3%A1ll%C3%A1s-IT-vezet%C5%91/Budapest",
+          "icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAQlBMVEVHcEz_1QELcdn___8Lcdn-1QH-1QELcdn-1QELcdkAbtrrzRciecj_1ABXlOD96pP93leMt-v_9s7_8bXT5fiVu-jg88jOAAAACnRSTlMA____1tfWTEzXT-TREQAAAI1JREFUKJG9z80SwiAMRtFPaAuNRirg-7-qBWckrcnCjXeXOcNPgDA5tSkAQadWwGrjCtucOyK1dCR61FrvpKKjp_fewP2kje5fSLI3fsJN1lcZI66ytOM2RlxE3HHMCvLPyMzFxC018-ImgbmRT6whdyzyDwJTzkU8-PUhPthxlXOYbVsQbYxAXHSaI16vwgvD07aJtgAAAABJRU5ErkJggg.png"
+        },
+        "languages": [
+          "hu"
+        ],
+        "regions": [
+          "HU"
+        ]
+      },
+      "about_page_link": "https://www.google.com/search?q=About+https://hu.jooble.org/%C3%A1ll%C3%A1s-IT-vezet%C5%91/Budapest&tbm=ilp",
+      "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&q=About+https%3A%2F%2Fhu.jooble.org%2F%25C3%25A1ll%25C3%25A1s-IT-vezet%25C5%2591%2FBudapest",
+      "source": "Jooble HU"
+    },
+    {
+      "position": 7,
+      "title": "Az IT vezetők titkos élete",
+      "link": "https://www.innoteka.hu/cikk/az_it_vezetok_titkos_elete.1717.html",
+      "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESeQHrOzAVl2Zw_uKGO0EBdlo7CFEmm1_A_6YFjNwwsL-tNXC28l_OUhparJErBhRNxwGINqJCOLzvw5CL_woYsweMJwOiX8uXWz1YUOBOmThnDbAjgx3xbSehnGCHCBoaG1aZ1ArRQeVeSJvqeBQcQswdei2kwkZmWnY&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQFnoECCgQAQ&uoh=1",
+      "displayed_link": "https://www.innoteka.hu › cikk › az_it_vezetok_titkos_el...",
+      "favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAL0lEQVR4AWNYy-qMiZx-8UMQphQDDtUIRKkGypyEiQho-HWLHRMNqAYEoreGUQ0APwkqDlKjDa8AAAAASUVORK5CYII.png",
+      "date": "2018. ápr. 4.",
+      "snippet": "– Az informatikai vezető legfőbb feladata a rendszerismeret. A vállalat rendszereit ismernie kell, értenie kell az azok között fennálló logikai ...",
+      "snippet_highlighted_words": [
+        "Az informatikai vezető legfőbb feladata a rendszerismeret"
+      ],
+      "about_this_result": {
+        "source": {
+          "description": "– Az informatikai vezető legfőbb feladata a rendszerismeret. A vállalat rendszereit ismernie kell, értenie kell az azok között fennálló logikai ...",
+          "source_info_link": "https://www.innoteka.hu/cikk/az_it_vezetok_titkos_elete.1717.html",
+          "icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAL0lEQVR4AWNYy-qMiZx-8UMQphQDDtUIRKkGypyEiQho-HWLHRMNqAYEoreGUQ0APwkqDlKjDa8AAAAASUVORK5CYII.png"
+        },
+        "languages": [
+          "hu"
+        ],
+        "regions": [
+          "HU"
+        ]
+      },
+      "about_page_link": "https://www.google.com/search?q=About+https://www.innoteka.hu/cikk/az_it_vezetok_titkos_elete.1717.html&tbm=ilp",
+      "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&q=About+https%3A%2F%2Fwww.innoteka.hu%2Fcikk%2Faz_it_vezetok_titkos_elete.1717.html",
+      "source": "Innotéka"
+    },
+    {
+      "position": 8,
+      "title": "Állás informatikai vezető - 81 aktuális álláshirdetések",
+      "link": "https://hu.jobsora.com/%C3%A1ll%C3%A1sok-informatikai-vezet%C5%91",
+      "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESeQHrOzAVV22RDrPZIGc1fzoQqV5QjSVYaZa_6a8EEHyER87Im615X_JqzMDQDVO3nY-yPvp8y00hs_xRhXdrQXLrfJgN75PDClVKufmfhFbbT4xHddHRqI6vUufyE8XSFlN6YgW55XhM3KAhF9A-LfrnzdGCmLtzyBI&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQFnoECC4QAQ&uoh=1",
+      "displayed_link": "https://hu.jobsora.com › állások-informatikai-vezető",
+      "favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAA2FBMVEX____9_P7Ovd2ohcSJVbF7PKiifsDJtd7z7_e0mMt1MqN6PKZ9Q6l_SKn49fvi1-3UxeFuLJ58R6a9p9GTa7W1ncxyNaByO5_e0ep4RqK1n8uGW6uVcbVmLJbAp9je2eZrNpl0RJ51KK15Mq98N7GYasGdgrlxQ5x-PbKAQbO0ltF4T6BkMpNcKY1tQpitnsFqQZajjryPXLxoQJNxHquPeK1aMIplP5HZ0uLMxNhQIYO8sM1hPY1yVZiQf6tRL4FNJn9ZOoZlR49CGXjAt85XOoR8aZ2YjLGcPMO2AAABWElEQVR4AayOQwLEMBRAaytO7ftfceLRti_4hvcAfhBGcRwlafYfyouyqgVVWYTNd6ytytpRFd1nrAPaW1VKQoA-6gCEsCowQXlEoQQEbh4TJk30IrzXUbtWzvqeDi51hH3fs8lYs9AToTTpwqVgvWBeVTDY9n0WXfhxXsctHEg49k23ejVC14gRw1AURd9UmUrpQ2ZmZkse3P-Oou-Qkiqn1BW7uue9AMz0gyCwQuD46knPIJHnxXLagxUQG4BHEpA4TeMMeLP3aNL0VErYHvM8L-hIan65j0gfsSIAHEu2-hHQEhpJDpCatuuSHkBom6VsGMZOikAmGefugB-9rG0BwsZZWphSs3YeNexWTrWd6Du1AdLQzgs-MLERLuYTFyOd3vCzhk_DefshsmHlIlPOUCvnXKxQXM78-m07Z_jleDvzbU_8vGj4S8sWcT6L011NKsYO-K93a1g7-9UALPgAAAAASUVORK5CYII.png",
+      "snippet": "Főbb feladatok Az MNB prudenciális felügyelési tevékenységéhez kapcsolódóan az informatikai vizsgálatok megtervezése, vezetése, koordinálása, valamint az...",
+      "snippet_highlighted_words": [
+        "informatikai"
+      ],
+      "about_this_result": {
+        "source": {
+          "description": "Főbb feladatok Az MNB prudenciális felügyelési tevékenységéhez kapcsolódóan az informatikai vizsgálatok megtervezése, vezetése, koordinálása, valamint az...",
+          "source_info_link": "https://hu.jobsora.com/%C3%A1ll%C3%A1sok-informatikai-vezet%C5%91",
+          "icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAA2FBMVEX____9_P7Ovd2ohcSJVbF7PKiifsDJtd7z7_e0mMt1MqN6PKZ9Q6l_SKn49fvi1-3UxeFuLJ58R6a9p9GTa7W1ncxyNaByO5_e0ep4RqK1n8uGW6uVcbVmLJbAp9je2eZrNpl0RJ51KK15Mq98N7GYasGdgrlxQ5x-PbKAQbO0ltF4T6BkMpNcKY1tQpitnsFqQZajjryPXLxoQJNxHquPeK1aMIplP5HZ0uLMxNhQIYO8sM1hPY1yVZiQf6tRL4FNJn9ZOoZlR49CGXjAt85XOoR8aZ2YjLGcPMO2AAABWElEQVR4AayOQwLEMBRAaytO7ftfceLRti_4hvcAfhBGcRwlafYfyouyqgVVWYTNd6ytytpRFd1nrAPaW1VKQoA-6gCEsCowQXlEoQQEbh4TJk30IrzXUbtWzvqeDi51hH3fs8lYs9AToTTpwqVgvWBeVTDY9n0WXfhxXsctHEg49k23ejVC14gRw1AURd9UmUrpQ2ZmZkse3P-Oou-Qkiqn1BW7uue9AMz0gyCwQuD46knPIJHnxXLagxUQG4BHEpA4TeMMeLP3aNL0VErYHvM8L-hIan65j0gfsSIAHEu2-hHQEhpJDpCatuuSHkBom6VsGMZOikAmGefugB-9rG0BwsZZWphSs3YeNexWTrWd6Du1AdLQzgs-MLERLuYTFyOd3vCzhk_DefshsmHlIlPOUCvnXKxQXM78-m07Z_jleDvzbU_8vGj4S8sWcT6L011NKsYO-K93a1g7-9UALPgAAAAASUVORK5CYII.png"
+        },
+        "languages": [
+          "hu"
+        ],
+        "regions": [
+          "HU"
+        ]
+      },
+      "about_page_link": "https://www.google.com/search?q=About+https://hu.jobsora.com/%C3%A1ll%C3%A1sok-informatikai-vezet%C5%91&tbm=ilp",
+      "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&q=About+https%3A%2F%2Fhu.jobsora.com%2F%25C3%25A1ll%25C3%25A1sok-informatikai-vezet%25C5%2591",
+      "source": "Jobsora"
+    },
+    {
+      "position": 9,
+      "title": "Informatikai vezető állás, munka Budapesten",
+      "link": "https://www.profession.hu/allasok/budapest/1,0,23,informatikai%20vezet%C5%91",
+      "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAEShAEB6zswFTPAFDZATKGu6tuHs1MXynjuFtXaowATKTKTClVg-TFAdXwBgVoYXpnoxcHDn7uPkLBgTcUTnmdWzVD0p00hGZgphgsrYJol40dthrMA3CztmS4Lw0HyoQsBpI72CzuR-SUtEVxa6TD3B37yPGlsw6h2Qc0T3SCr8ZK69AHHzPs&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQFnoECCoQAQ&uoh=1",
+      "displayed_link": "https://www.profession.hu › ... › informatikai vezető",
+      "favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAdVBMVEVHcExQjNU7tuhHydBXqLFDwthEutZTk8o5s-xBv9xGrttN0sRIys5M0MZFw9NFxdRMwck-u-I5s-1LsM9O1cFNfOhWjMdSj85NeupNeOxBv91Dwtg-u-JL0MZHyc9FxtNJzctN1MJOg-BNeulQidY8t-dUnMH8HSScAAAAGnRSTlMA4-T1_g2S_v5xIenUkr9NMq_M_VTGE6iQ-Di9h58AAAEWSURBVCiRbdLZkoMgEAVQxoWAUaMxcWbADbf__8ShLzLhgftGnbotdMmYS1HdDbJu2-_7p2BBHqONpXG78v5YviwOASvSe6yAozm9rPu-eywXp5sHm9v3hdNEaDoP-43iBjeEy2i-XCDneUqgnJxec3qS8-yeONUzsPRXaCxlmRA4pDOq1f_TsowM2M8zqo8Qh0MkWI-eUc298awbLOKbXKOa0qpeUspaa0WI25YaWttNjeMyTfOFmKQcSlaaEDkubpG0qEyIiVuBclVmQnTGWkKtyyZEfl18UFD-ulNSm5r7V-WEVj8rCP-QwVXzGPKBVKuYsSdQtVE8DqiMWXGQKlXEUApU6-jUVlA1iRpLhDiS6AcZ-wPvjyvi2H5suQAAAABJRU5ErkJggg.png",
+      "snippet": "77 db friss informatikai vezető állás, munka Budapesten. Nézze meg a legfrissebb állásajánlatokat és jelentkezzen egyszerűen!",
+      "snippet_highlighted_words": [
+        "77 db friss informatikai vezető állás, munka Budapesten"
+      ],
+      "about_this_result": {
+        "source": {
+          "description": "77 db friss informatikai vezető állás, munka Budapesten. Nézze meg a legfrissebb állásajánlatokat és jelentkezzen egyszerűen!",
+          "source_info_link": "https://www.profession.hu/allasok/budapest/1,0,23,informatikai%20vezet%C5%91",
+          "icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAdVBMVEVHcExQjNU7tuhHydBXqLFDwthEutZTk8o5s-xBv9xGrttN0sRIys5M0MZFw9NFxdRMwck-u-I5s-1LsM9O1cFNfOhWjMdSj85NeupNeOxBv91Dwtg-u-JL0MZHyc9FxtNJzctN1MJOg-BNeulQidY8t-dUnMH8HSScAAAAGnRSTlMA4-T1_g2S_v5xIenUkr9NMq_M_VTGE6iQ-Di9h58AAAEWSURBVCiRbdLZkoMgEAVQxoWAUaMxcWbADbf__8ShLzLhgftGnbotdMmYS1HdDbJu2-_7p2BBHqONpXG78v5YviwOASvSe6yAozm9rPu-eywXp5sHm9v3hdNEaDoP-43iBjeEy2i-XCDneUqgnJxec3qS8-yeONUzsPRXaCxlmRA4pDOq1f_TsowM2M8zqo8Qh0MkWI-eUc298awbLOKbXKOa0qpeUspaa0WI25YaWttNjeMyTfOFmKQcSlaaEDkubpG0qEyIiVuBclVmQnTGWkKtyyZEfl18UFD-ulNSm5r7V-WEVj8rCP-QwVXzGPKBVKuYsSdQtVE8DqiMWXGQKlXEUApU6-jUVlA1iRpLhDiS6AcZ-wPvjyvi2H5suQAAAABJRU5ErkJggg.png"
+        },
+        "languages": [
+          "hu"
+        ],
+        "regions": [
+          "HU"
+        ]
+      },
+      "about_page_link": "https://www.google.com/search?q=About+https://www.profession.hu/allasok/budapest/1,0,23,informatikai%20vezet%C5%91&tbm=ilp",
+      "about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&q=About+https%3A%2F%2Fwww.profession.hu%2Fallasok%2Fbudapest%2F1%2C0%2C23%2Cinformatikai%2520vezet%25C5%2591",
+      "source": "Profession.hu"
+    }
+  ],
+  "filters": [
+    {
+      "name": "Közzététel dátuma",
+      "options": [
+        {
+          "name": "Tegnap",
+          "parameters": {
+            "uds": "AJ5uw1_a2D0D09lxm8gpKKOTUn4rj-wr9e0nFxf2HrH1Zx9c12QWzhMsN_0lUD9ue4-fcOcPHamvFjhgoR7sSuT13AAd2B-xq0cmA5Mcb3R2Gfg0_BZDKLCjLstZH_o2zS0-vJT0TD4c0jA_qCSKY8DswGT5kCRJnkOvdFROSVRwSj9Oa4FnqfFom7gdJ6S646xZHLiqdDIqXSnaoBtwIiyEptkxQfltCv2faMKSksiWR1vP1nJC_WWf6duzEPLcmNhgsg1ay9FjoN1hrn-_kEWp9y-SD3j1SS41V3zZwtCxlGd3zlQc1KNiWsYek2XKhtMsBRuuVZ5xhPfq98c1iv3JAdIfrtjdkl9XCosgAckCgJQzvixTk-M",
+            "q": "IT vezető tegnap óta"
+          },
+          "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=IT+vezet%C5%91+tegnap+%C3%B3ta&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4rj-wr9e0nFxf2HrH1Zx9c12QWzhMsN_0lUD9ue4-fcOcPHamvFjhgoR7sSuT13AAd2B-xq0cmA5Mcb3R2Gfg0_BZDKLCjLstZH_o2zS0-vJT0TD4c0jA_qCSKY8DswGT5kCRJnkOvdFROSVRwSj9Oa4FnqfFom7gdJ6S646xZHLiqdDIqXSnaoBtwIiyEptkxQfltCv2faMKSksiWR1vP1nJC_WWf6duzEPLcmNhgsg1ay9FjoN1hrn-_kEWp9y-SD3j1SS41V3zZwtCxlGd3zlQc1KNiWsYek2XKhtMsBRuuVZ5xhPfq98c1iv3JAdIfrtjdkl9XCosgAckCgJQzvixTk-M&sa=X&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQkbEKegQIHhAC",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=IT+vezet%C5%91+tegnap+%C3%B3ta&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4rj-wr9e0nFxf2HrH1Zx9c12QWzhMsN_0lUD9ue4-fcOcPHamvFjhgoR7sSuT13AAd2B-xq0cmA5Mcb3R2Gfg0_BZDKLCjLstZH_o2zS0-vJT0TD4c0jA_qCSKY8DswGT5kCRJnkOvdFROSVRwSj9Oa4FnqfFom7gdJ6S646xZHLiqdDIqXSnaoBtwIiyEptkxQfltCv2faMKSksiWR1vP1nJC_WWf6duzEPLcmNhgsg1ay9FjoN1hrn-_kEWp9y-SD3j1SS41V3zZwtCxlGd3zlQc1KNiWsYek2XKhtMsBRuuVZ5xhPfq98c1iv3JAdIfrtjdkl9XCosgAckCgJQzvixTk-M"
+        },
+        {
+          "name": "Az elmúlt 3 nap",
+          "parameters": {
+            "uds": "AJ5uw1_a2D0D09lxm8gpKKOTUn4r17aGM3IXK8YqQsv6R6q94H0bar6FnhvTxJSBB0igqP98mQFDeT8LZKS_YIF5RuW6D_8BAek6CvD6q9TDfHryzVDEZotGfaycavEdLxqIdt8n1IlbTVXGwq7PAt_0xsUJhRydsYAQL4EZUUwWrk1gZ2UWwdb1mIbit3i_vOQhsXVOhO2xcpHQ-71H7creheo6IBSeljOvT5xWcYQqZX4tGL9CP21dysswcA0H1glOC0CjVxHvsVaouoX05d-xkY1j9em-gmjEie_fYQmdqO8Bss-IrZ8qMVG-TZkFuTuOIK3VYKjB87Buwd8o8dz4eO0dhzDa9RQ62wshiiel87tYJf2hvq8",
+            "q": "IT vezető az elmúlt 3 napban"
+          },
+          "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=IT+vezet%C5%91+az+elm%C3%BAlt+3+napban&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r17aGM3IXK8YqQsv6R6q94H0bar6FnhvTxJSBB0igqP98mQFDeT8LZKS_YIF5RuW6D_8BAek6CvD6q9TDfHryzVDEZotGfaycavEdLxqIdt8n1IlbTVXGwq7PAt_0xsUJhRydsYAQL4EZUUwWrk1gZ2UWwdb1mIbit3i_vOQhsXVOhO2xcpHQ-71H7creheo6IBSeljOvT5xWcYQqZX4tGL9CP21dysswcA0H1glOC0CjVxHvsVaouoX05d-xkY1j9em-gmjEie_fYQmdqO8Bss-IrZ8qMVG-TZkFuTuOIK3VYKjB87Buwd8o8dz4eO0dhzDa9RQ62wshiiel87tYJf2hvq8&sa=X&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQkbEKegQIHhAD",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=IT+vezet%C5%91+az+elm%C3%BAlt+3+napban&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r17aGM3IXK8YqQsv6R6q94H0bar6FnhvTxJSBB0igqP98mQFDeT8LZKS_YIF5RuW6D_8BAek6CvD6q9TDfHryzVDEZotGfaycavEdLxqIdt8n1IlbTVXGwq7PAt_0xsUJhRydsYAQL4EZUUwWrk1gZ2UWwdb1mIbit3i_vOQhsXVOhO2xcpHQ-71H7creheo6IBSeljOvT5xWcYQqZX4tGL9CP21dysswcA0H1glOC0CjVxHvsVaouoX05d-xkY1j9em-gmjEie_fYQmdqO8Bss-IrZ8qMVG-TZkFuTuOIK3VYKjB87Buwd8o8dz4eO0dhzDa9RQ62wshiiel87tYJf2hvq8"
+        },
+        {
+          "name": "Az elmúlt hét",
+          "parameters": {
+            "uds": "AJ5uw1_a2D0D09lxm8gpKKOTUn4r6LUzyRs4vLyA9dIpaQGcsmv9PeeLspNoZeKylbu7zzSMQD70fPO6letq2DlNm_-iigSa-he27WDkQDjGQT0kRKamGdaZ3sAEHbcOOTHTvBN-szgcllOMC6l34wLbKhljL-txmIaLfxFiPO7FIjgTVfQ7hBgFW71g9FA5zOaYW5l6tqNKMcYuujv0L7beKPQs1B_lfB_VW4KA2eSEycupVxp-Tw8HjcjuDkccWf77Rj6AHhFQJrTlaKAX-pQ9sV351KZcf7bT2G3r2_bR2-X6vkDx08FH1PCM3GQXUyO2mMkXaiT7UAgb1z5u9l-i2bvGYrNd2csAJgTFXQvZQs77N3XDS6g",
+            "q": "IT vezető az elmúlt héten"
+          },
+          "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=IT+vezet%C5%91+az+elm%C3%BAlt+h%C3%A9ten&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r6LUzyRs4vLyA9dIpaQGcsmv9PeeLspNoZeKylbu7zzSMQD70fPO6letq2DlNm_-iigSa-he27WDkQDjGQT0kRKamGdaZ3sAEHbcOOTHTvBN-szgcllOMC6l34wLbKhljL-txmIaLfxFiPO7FIjgTVfQ7hBgFW71g9FA5zOaYW5l6tqNKMcYuujv0L7beKPQs1B_lfB_VW4KA2eSEycupVxp-Tw8HjcjuDkccWf77Rj6AHhFQJrTlaKAX-pQ9sV351KZcf7bT2G3r2_bR2-X6vkDx08FH1PCM3GQXUyO2mMkXaiT7UAgb1z5u9l-i2bvGYrNd2csAJgTFXQvZQs77N3XDS6g&sa=X&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQkbEKegQIHhAE",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=IT+vezet%C5%91+az+elm%C3%BAlt+h%C3%A9ten&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r6LUzyRs4vLyA9dIpaQGcsmv9PeeLspNoZeKylbu7zzSMQD70fPO6letq2DlNm_-iigSa-he27WDkQDjGQT0kRKamGdaZ3sAEHbcOOTHTvBN-szgcllOMC6l34wLbKhljL-txmIaLfxFiPO7FIjgTVfQ7hBgFW71g9FA5zOaYW5l6tqNKMcYuujv0L7beKPQs1B_lfB_VW4KA2eSEycupVxp-Tw8HjcjuDkccWf77Rj6AHhFQJrTlaKAX-pQ9sV351KZcf7bT2G3r2_bR2-X6vkDx08FH1PCM3GQXUyO2mMkXaiT7UAgb1z5u9l-i2bvGYrNd2csAJgTFXQvZQs77N3XDS6g"
+        },
+        {
+          "name": "Az elmúlt hónap",
+          "parameters": {
+            "uds": "AJ5uw1_a2D0D09lxm8gpKKOTUn4r_N1UzR5kRYz-7NKv2QvnNoxlm1qtUFnwBnAJq-hhogM8ewRVX-DIcKrTYpP48Pf8XLfxVswITq3GjBlJCKq3kMGHyDiAEEkkQ3cy70-XVh0Vmo4-SpmYDZLsqrNJ8WHci4VItt91d6cDbp7_WW_UZYeaQlqreJ8CRju8x6NocaZ2r1NEJa5wPjOo5hJRZKjNnsnJdbXxeyE-OsQLRCT4Y7xewlemGZ24Uyu8gIIg0febu5xh6wpfJtBAaY-aq0cDaXY1X22nXPObaVVnzK52PtW7kFtUzhOARmymA2dEjMsqtURMdnuTo4iYY2QhBy5m5O0z_lpTVk8fY9fzh8yF1iWzXOo",
+            "q": "IT vezető az elmúlt hónapban"
+          },
+          "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=IT+vezet%C5%91+az+elm%C3%BAlt+h%C3%B3napban&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r_N1UzR5kRYz-7NKv2QvnNoxlm1qtUFnwBnAJq-hhogM8ewRVX-DIcKrTYpP48Pf8XLfxVswITq3GjBlJCKq3kMGHyDiAEEkkQ3cy70-XVh0Vmo4-SpmYDZLsqrNJ8WHci4VItt91d6cDbp7_WW_UZYeaQlqreJ8CRju8x6NocaZ2r1NEJa5wPjOo5hJRZKjNnsnJdbXxeyE-OsQLRCT4Y7xewlemGZ24Uyu8gIIg0febu5xh6wpfJtBAaY-aq0cDaXY1X22nXPObaVVnzK52PtW7kFtUzhOARmymA2dEjMsqtURMdnuTo4iYY2QhBy5m5O0z_lpTVk8fY9fzh8yF1iWzXOo&sa=X&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQkbEKegQIHhAF",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=IT+vezet%C5%91+az+elm%C3%BAlt+h%C3%B3napban&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r_N1UzR5kRYz-7NKv2QvnNoxlm1qtUFnwBnAJq-hhogM8ewRVX-DIcKrTYpP48Pf8XLfxVswITq3GjBlJCKq3kMGHyDiAEEkkQ3cy70-XVh0Vmo4-SpmYDZLsqrNJ8WHci4VItt91d6cDbp7_WW_UZYeaQlqreJ8CRju8x6NocaZ2r1NEJa5wPjOo5hJRZKjNnsnJdbXxeyE-OsQLRCT4Y7xewlemGZ24Uyu8gIIg0febu5xh6wpfJtBAaY-aq0cDaXY1X22nXPObaVVnzK52PtW7kFtUzhOARmymA2dEjMsqtURMdnuTo4iYY2QhBy5m5O0z_lpTVk8fY9fzh8yF1iWzXOo"
+        }
+      ]
+    },
+    {
+      "name": "Közzététel dátuma",
+      "options": [
+        {
+          "name": "Tegnap",
+          "parameters": {
+            "uds": "AJ5uw1_a2D0D09lxm8gpKKOTUn4rj-wr9e0nFxf2HrH1Zx9c12QWzhMsN_0lUD9ue4-fcOcPHamvFjhgoR7sSuT13AAd2B-xq0cmA5Mcb3R2Gfg0_BZDKLCjLstZH_o2zS0-vJT0TD4c0jA_qCSKY8DswGT5kCRJnkOvdFROSVRwSj9Oa4FnqfFom7gdJ6S646xZHLiqdDIqXSnaoBtwIiyEptkxQfltCv2faMKSksiWR1vP1nJC_WWf6duzEPLcmNhgsg1ay9FjoN1hrn-_kEWp9y-SD3j1SS41V3zZwtCxlGd3zlQc1KNiWsYek2XKhtMsBRuuVZ5xhPfq98c1iv3JAdIfrtjdkl9XCosgAckCgJQzvixTk-M",
+            "q": "IT vezető tegnap óta"
+          },
+          "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=IT+vezet%C5%91+tegnap+%C3%B3ta&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4rj-wr9e0nFxf2HrH1Zx9c12QWzhMsN_0lUD9ue4-fcOcPHamvFjhgoR7sSuT13AAd2B-xq0cmA5Mcb3R2Gfg0_BZDKLCjLstZH_o2zS0-vJT0TD4c0jA_qCSKY8DswGT5kCRJnkOvdFROSVRwSj9Oa4FnqfFom7gdJ6S646xZHLiqdDIqXSnaoBtwIiyEptkxQfltCv2faMKSksiWR1vP1nJC_WWf6duzEPLcmNhgsg1ay9FjoN1hrn-_kEWp9y-SD3j1SS41V3zZwtCxlGd3zlQc1KNiWsYek2XKhtMsBRuuVZ5xhPfq98c1iv3JAdIfrtjdkl9XCosgAckCgJQzvixTk-M&sa=X&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQkbEKegQIHhAC",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=IT+vezet%C5%91+tegnap+%C3%B3ta&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4rj-wr9e0nFxf2HrH1Zx9c12QWzhMsN_0lUD9ue4-fcOcPHamvFjhgoR7sSuT13AAd2B-xq0cmA5Mcb3R2Gfg0_BZDKLCjLstZH_o2zS0-vJT0TD4c0jA_qCSKY8DswGT5kCRJnkOvdFROSVRwSj9Oa4FnqfFom7gdJ6S646xZHLiqdDIqXSnaoBtwIiyEptkxQfltCv2faMKSksiWR1vP1nJC_WWf6duzEPLcmNhgsg1ay9FjoN1hrn-_kEWp9y-SD3j1SS41V3zZwtCxlGd3zlQc1KNiWsYek2XKhtMsBRuuVZ5xhPfq98c1iv3JAdIfrtjdkl9XCosgAckCgJQzvixTk-M"
+        },
+        {
+          "name": "Az elmúlt 3 nap",
+          "parameters": {
+            "uds": "AJ5uw1_a2D0D09lxm8gpKKOTUn4r17aGM3IXK8YqQsv6R6q94H0bar6FnhvTxJSBB0igqP98mQFDeT8LZKS_YIF5RuW6D_8BAek6CvD6q9TDfHryzVDEZotGfaycavEdLxqIdt8n1IlbTVXGwq7PAt_0xsUJhRydsYAQL4EZUUwWrk1gZ2UWwdb1mIbit3i_vOQhsXVOhO2xcpHQ-71H7creheo6IBSeljOvT5xWcYQqZX4tGL9CP21dysswcA0H1glOC0CjVxHvsVaouoX05d-xkY1j9em-gmjEie_fYQmdqO8Bss-IrZ8qMVG-TZkFuTuOIK3VYKjB87Buwd8o8dz4eO0dhzDa9RQ62wshiiel87tYJf2hvq8",
+            "q": "IT vezető az elmúlt 3 napban"
+          },
+          "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=IT+vezet%C5%91+az+elm%C3%BAlt+3+napban&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r17aGM3IXK8YqQsv6R6q94H0bar6FnhvTxJSBB0igqP98mQFDeT8LZKS_YIF5RuW6D_8BAek6CvD6q9TDfHryzVDEZotGfaycavEdLxqIdt8n1IlbTVXGwq7PAt_0xsUJhRydsYAQL4EZUUwWrk1gZ2UWwdb1mIbit3i_vOQhsXVOhO2xcpHQ-71H7creheo6IBSeljOvT5xWcYQqZX4tGL9CP21dysswcA0H1glOC0CjVxHvsVaouoX05d-xkY1j9em-gmjEie_fYQmdqO8Bss-IrZ8qMVG-TZkFuTuOIK3VYKjB87Buwd8o8dz4eO0dhzDa9RQ62wshiiel87tYJf2hvq8&sa=X&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQkbEKegQIHhAD",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=IT+vezet%C5%91+az+elm%C3%BAlt+3+napban&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r17aGM3IXK8YqQsv6R6q94H0bar6FnhvTxJSBB0igqP98mQFDeT8LZKS_YIF5RuW6D_8BAek6CvD6q9TDfHryzVDEZotGfaycavEdLxqIdt8n1IlbTVXGwq7PAt_0xsUJhRydsYAQL4EZUUwWrk1gZ2UWwdb1mIbit3i_vOQhsXVOhO2xcpHQ-71H7creheo6IBSeljOvT5xWcYQqZX4tGL9CP21dysswcA0H1glOC0CjVxHvsVaouoX05d-xkY1j9em-gmjEie_fYQmdqO8Bss-IrZ8qMVG-TZkFuTuOIK3VYKjB87Buwd8o8dz4eO0dhzDa9RQ62wshiiel87tYJf2hvq8"
+        },
+        {
+          "name": "Az elmúlt hét",
+          "parameters": {
+            "uds": "AJ5uw1_a2D0D09lxm8gpKKOTUn4r6LUzyRs4vLyA9dIpaQGcsmv9PeeLspNoZeKylbu7zzSMQD70fPO6letq2DlNm_-iigSa-he27WDkQDjGQT0kRKamGdaZ3sAEHbcOOTHTvBN-szgcllOMC6l34wLbKhljL-txmIaLfxFiPO7FIjgTVfQ7hBgFW71g9FA5zOaYW5l6tqNKMcYuujv0L7beKPQs1B_lfB_VW4KA2eSEycupVxp-Tw8HjcjuDkccWf77Rj6AHhFQJrTlaKAX-pQ9sV351KZcf7bT2G3r2_bR2-X6vkDx08FH1PCM3GQXUyO2mMkXaiT7UAgb1z5u9l-i2bvGYrNd2csAJgTFXQvZQs77N3XDS6g",
+            "q": "IT vezető az elmúlt héten"
+          },
+          "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=IT+vezet%C5%91+az+elm%C3%BAlt+h%C3%A9ten&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r6LUzyRs4vLyA9dIpaQGcsmv9PeeLspNoZeKylbu7zzSMQD70fPO6letq2DlNm_-iigSa-he27WDkQDjGQT0kRKamGdaZ3sAEHbcOOTHTvBN-szgcllOMC6l34wLbKhljL-txmIaLfxFiPO7FIjgTVfQ7hBgFW71g9FA5zOaYW5l6tqNKMcYuujv0L7beKPQs1B_lfB_VW4KA2eSEycupVxp-Tw8HjcjuDkccWf77Rj6AHhFQJrTlaKAX-pQ9sV351KZcf7bT2G3r2_bR2-X6vkDx08FH1PCM3GQXUyO2mMkXaiT7UAgb1z5u9l-i2bvGYrNd2csAJgTFXQvZQs77N3XDS6g&sa=X&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQkbEKegQIHhAE",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=IT+vezet%C5%91+az+elm%C3%BAlt+h%C3%A9ten&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r6LUzyRs4vLyA9dIpaQGcsmv9PeeLspNoZeKylbu7zzSMQD70fPO6letq2DlNm_-iigSa-he27WDkQDjGQT0kRKamGdaZ3sAEHbcOOTHTvBN-szgcllOMC6l34wLbKhljL-txmIaLfxFiPO7FIjgTVfQ7hBgFW71g9FA5zOaYW5l6tqNKMcYuujv0L7beKPQs1B_lfB_VW4KA2eSEycupVxp-Tw8HjcjuDkccWf77Rj6AHhFQJrTlaKAX-pQ9sV351KZcf7bT2G3r2_bR2-X6vkDx08FH1PCM3GQXUyO2mMkXaiT7UAgb1z5u9l-i2bvGYrNd2csAJgTFXQvZQs77N3XDS6g"
+        },
+        {
+          "name": "Az elmúlt hónap",
+          "parameters": {
+            "uds": "AJ5uw1_a2D0D09lxm8gpKKOTUn4r_N1UzR5kRYz-7NKv2QvnNoxlm1qtUFnwBnAJq-hhogM8ewRVX-DIcKrTYpP48Pf8XLfxVswITq3GjBlJCKq3kMGHyDiAEEkkQ3cy70-XVh0Vmo4-SpmYDZLsqrNJ8WHci4VItt91d6cDbp7_WW_UZYeaQlqreJ8CRju8x6NocaZ2r1NEJa5wPjOo5hJRZKjNnsnJdbXxeyE-OsQLRCT4Y7xewlemGZ24Uyu8gIIg0febu5xh6wpfJtBAaY-aq0cDaXY1X22nXPObaVVnzK52PtW7kFtUzhOARmymA2dEjMsqtURMdnuTo4iYY2QhBy5m5O0z_lpTVk8fY9fzh8yF1iWzXOo",
+            "q": "IT vezető az elmúlt hónapban"
+          },
+          "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=IT+vezet%C5%91+az+elm%C3%BAlt+h%C3%B3napban&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r_N1UzR5kRYz-7NKv2QvnNoxlm1qtUFnwBnAJq-hhogM8ewRVX-DIcKrTYpP48Pf8XLfxVswITq3GjBlJCKq3kMGHyDiAEEkkQ3cy70-XVh0Vmo4-SpmYDZLsqrNJ8WHci4VItt91d6cDbp7_WW_UZYeaQlqreJ8CRju8x6NocaZ2r1NEJa5wPjOo5hJRZKjNnsnJdbXxeyE-OsQLRCT4Y7xewlemGZ24Uyu8gIIg0febu5xh6wpfJtBAaY-aq0cDaXY1X22nXPObaVVnzK52PtW7kFtUzhOARmymA2dEjMsqtURMdnuTo4iYY2QhBy5m5O0z_lpTVk8fY9fzh8yF1iWzXOo&sa=X&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQkbEKegQIHhAF",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=IT+vezet%C5%91+az+elm%C3%BAlt+h%C3%B3napban&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r_N1UzR5kRYz-7NKv2QvnNoxlm1qtUFnwBnAJq-hhogM8ewRVX-DIcKrTYpP48Pf8XLfxVswITq3GjBlJCKq3kMGHyDiAEEkkQ3cy70-XVh0Vmo4-SpmYDZLsqrNJ8WHci4VItt91d6cDbp7_WW_UZYeaQlqreJ8CRju8x6NocaZ2r1NEJa5wPjOo5hJRZKjNnsnJdbXxeyE-OsQLRCT4Y7xewlemGZ24Uyu8gIIg0febu5xh6wpfJtBAaY-aq0cDaXY1X22nXPObaVVnzK52PtW7kFtUzhOARmymA2dEjMsqtURMdnuTo4iYY2QhBy5m5O0z_lpTVk8fY9fzh8yF1iWzXOo"
+        }
+      ]
+    },
+    {
+      "name": "Állás típusa",
+      "options": [
+        {
+          "name": "Teljes munkaidő",
+          "parameters": {
+            "uds": "AJ5uw1_a2D0D09lxm8gpKKOTUn4r_DP25nz0TUK3XSDkXrYX_Y_RZuLBrkfP4YVkP34bAAFI5Xq6kPZfUXoTmv9iLXhoPcnH5_a5IKklaqZEUWiKVp_tkxqIvsHCUKZ7RddrJzjdH_MtwT8M9o62K2Rhdv2v5OwdKKULaqlKb3iG5lrYUI_hJXmqdoNP5ml78tXqId0563RX6-mf70qQ1vXpJsw4pcHul0EhsQImxSetyFhH1AcQYfVIQRGnyN_y6jGn2pg85CKfmHopW5tQsdpB-C_KZArxFkkW3e5PpovACMvOxzbVEfKhlscc8OivgKwfBwrvFyMNVRwaxRxFbxTfUtRnknXb2HuB791mGlccEm3S9dRbJZI",
+            "q": "IT vezető teljes munkaidő"
+          },
+          "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=IT+vezet%C5%91+teljes+munkaid%C5%91&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r_DP25nz0TUK3XSDkXrYX_Y_RZuLBrkfP4YVkP34bAAFI5Xq6kPZfUXoTmv9iLXhoPcnH5_a5IKklaqZEUWiKVp_tkxqIvsHCUKZ7RddrJzjdH_MtwT8M9o62K2Rhdv2v5OwdKKULaqlKb3iG5lrYUI_hJXmqdoNP5ml78tXqId0563RX6-mf70qQ1vXpJsw4pcHul0EhsQImxSetyFhH1AcQYfVIQRGnyN_y6jGn2pg85CKfmHopW5tQsdpB-C_KZArxFkkW3e5PpovACMvOxzbVEfKhlscc8OivgKwfBwrvFyMNVRwaxRxFbxTfUtRnknXb2HuB791mGlccEm3S9dRbJZI&sa=X&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQkbEKegQIHxAC",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=IT+vezet%C5%91+teljes+munkaid%C5%91&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r_DP25nz0TUK3XSDkXrYX_Y_RZuLBrkfP4YVkP34bAAFI5Xq6kPZfUXoTmv9iLXhoPcnH5_a5IKklaqZEUWiKVp_tkxqIvsHCUKZ7RddrJzjdH_MtwT8M9o62K2Rhdv2v5OwdKKULaqlKb3iG5lrYUI_hJXmqdoNP5ml78tXqId0563RX6-mf70qQ1vXpJsw4pcHul0EhsQImxSetyFhH1AcQYfVIQRGnyN_y6jGn2pg85CKfmHopW5tQsdpB-C_KZArxFkkW3e5PpovACMvOxzbVEfKhlscc8OivgKwfBwrvFyMNVRwaxRxFbxTfUtRnknXb2HuB791mGlccEm3S9dRbJZI"
+        },
+        {
+          "name": "Részmunkaidő",
+          "parameters": {
+            "uds": "AJ5uw1_a2D0D09lxm8gpKKOTUn4r-xpUZ_26_ZO9vkRZA6fxwbFnRLXjYIZ2reDSigT7z6ifmhzZa-oZU1DF1gvrVJt8X0hElTunbkp3I6ORvVlYVNzuxw1NcApeJVcQqHwmLbTbAMcd9WVDOTXudDhAGrQPTRBBQTtenb_3khsu3SZYId_uv_hsLkbsroqwdOjMTe_0C3h7J5UWgORGIH3yvYtoULiupeYCoz0T-4OIllx8ZJlZmgATEeqlb2SRHwGPh-2yfTk7fEyiv0DhpuC37HRTwhiR2agJnfMuLEpWVFaToQYTnZbTJ21hzj_VOQsF8cFxJMkAQIUsMf0wiNzz-uDG1leEGkLPpviNBRQGU-wi_CaLBc-E4QuqXUQahPVrOBZnBLS8",
+            "q": "IT vezető részmunkaidő"
+          },
+          "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=IT+vezet%C5%91+r%C3%A9szmunkaid%C5%91&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r-xpUZ_26_ZO9vkRZA6fxwbFnRLXjYIZ2reDSigT7z6ifmhzZa-oZU1DF1gvrVJt8X0hElTunbkp3I6ORvVlYVNzuxw1NcApeJVcQqHwmLbTbAMcd9WVDOTXudDhAGrQPTRBBQTtenb_3khsu3SZYId_uv_hsLkbsroqwdOjMTe_0C3h7J5UWgORGIH3yvYtoULiupeYCoz0T-4OIllx8ZJlZmgATEeqlb2SRHwGPh-2yfTk7fEyiv0DhpuC37HRTwhiR2agJnfMuLEpWVFaToQYTnZbTJ21hzj_VOQsF8cFxJMkAQIUsMf0wiNzz-uDG1leEGkLPpviNBRQGU-wi_CaLBc-E4QuqXUQahPVrOBZnBLS8&sa=X&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQkbEKegQIHxAD",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=IT+vezet%C5%91+r%C3%A9szmunkaid%C5%91&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r-xpUZ_26_ZO9vkRZA6fxwbFnRLXjYIZ2reDSigT7z6ifmhzZa-oZU1DF1gvrVJt8X0hElTunbkp3I6ORvVlYVNzuxw1NcApeJVcQqHwmLbTbAMcd9WVDOTXudDhAGrQPTRBBQTtenb_3khsu3SZYId_uv_hsLkbsroqwdOjMTe_0C3h7J5UWgORGIH3yvYtoULiupeYCoz0T-4OIllx8ZJlZmgATEeqlb2SRHwGPh-2yfTk7fEyiv0DhpuC37HRTwhiR2agJnfMuLEpWVFaToQYTnZbTJ21hzj_VOQsF8cFxJMkAQIUsMf0wiNzz-uDG1leEGkLPpviNBRQGU-wi_CaLBc-E4QuqXUQahPVrOBZnBLS8"
+        },
+        {
+          "name": "Szerződés",
+          "parameters": {
+            "uds": "AJ5uw1_a2D0D09lxm8gpKKOTUn4r3kTpjpcGwUSmeo6G_N0aFoz4TsK09YAaVZyMwmkuBfHQPWQQNZaxmJCo8qaoDhBoI6Tid2Cet44iZL_cp2waeZ5VWhDDTQQBx1tcfNKpkFLmmlkoOyBTHkoZ4LOZ6AKzlFvTfzpASZa9foWhEv_ECT8AVT9s-aGLeWgZswJ9lXf9wS3ttO2Q6ap2YxHY9qL9fVc7ViJVnryW6sWM7XhfthO5eM_6MZGm3G9tmY6PpIKH3xYUtKtXvCVR8y8_p8OMtf1V5cv7sAER2owfw_ZdW3r6PGCzkLlYP7-0jzQJmhvYron0vYbfndcuJgpNHdRtsyY5ZxIbUq40WxDRBI7ZMax64Sw",
+            "q": "IT vezető szerződés"
+          },
+          "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=IT+vezet%C5%91+szerz%C5%91d%C3%A9s&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r3kTpjpcGwUSmeo6G_N0aFoz4TsK09YAaVZyMwmkuBfHQPWQQNZaxmJCo8qaoDhBoI6Tid2Cet44iZL_cp2waeZ5VWhDDTQQBx1tcfNKpkFLmmlkoOyBTHkoZ4LOZ6AKzlFvTfzpASZa9foWhEv_ECT8AVT9s-aGLeWgZswJ9lXf9wS3ttO2Q6ap2YxHY9qL9fVc7ViJVnryW6sWM7XhfthO5eM_6MZGm3G9tmY6PpIKH3xYUtKtXvCVR8y8_p8OMtf1V5cv7sAER2owfw_ZdW3r6PGCzkLlYP7-0jzQJmhvYron0vYbfndcuJgpNHdRtsyY5ZxIbUq40WxDRBI7ZMax64Sw&sa=X&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQkbEKegQIHxAE",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=IT+vezet%C5%91+szerz%C5%91d%C3%A9s&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r3kTpjpcGwUSmeo6G_N0aFoz4TsK09YAaVZyMwmkuBfHQPWQQNZaxmJCo8qaoDhBoI6Tid2Cet44iZL_cp2waeZ5VWhDDTQQBx1tcfNKpkFLmmlkoOyBTHkoZ4LOZ6AKzlFvTfzpASZa9foWhEv_ECT8AVT9s-aGLeWgZswJ9lXf9wS3ttO2Q6ap2YxHY9qL9fVc7ViJVnryW6sWM7XhfthO5eM_6MZGm3G9tmY6PpIKH3xYUtKtXvCVR8y8_p8OMtf1V5cv7sAER2owfw_ZdW3r6PGCzkLlYP7-0jzQJmhvYron0vYbfndcuJgpNHdRtsyY5ZxIbUq40WxDRBI7ZMax64Sw"
+        },
+        {
+          "name": "Szakmai gyakorlat",
+          "parameters": {
+            "uds": "AJ5uw1_a2D0D09lxm8gpKKOTUn4rXU76ScWBwxKToAdO0Enw8c-UthHLaQTO4nmEvTuWpAOvuqTh0GuB0XxnZf_6reEQBfbILaIq9ndkqbh5jbcI3rDkbb1lkzsaP5eiSjNCoBG3-Od5udBFMX20zwcww_32CVVdt7WGZTluEa0-I8c1fJzUZSX9gVv60YO8CV5FawIKoqIRhMdhK1e1pGePbf54oYwSJKEGK74bG3vz5HWyLddH4WNI9lTRV-gAxBzrUR8L6KHeQO3Up-ks4-2y40btS9t95QDJ2Cr6qx-GgGZHbbrA54vqkSHxSK35bsjuJRD4sY429ShIgd6DIYPOf-qD42ug3epj6RqrFfcyMRZ0bdsDoIQ",
+            "q": "IT vezető szakmai gyakorlat"
+          },
+          "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=IT+vezet%C5%91+szakmai+gyakorlat&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4rXU76ScWBwxKToAdO0Enw8c-UthHLaQTO4nmEvTuWpAOvuqTh0GuB0XxnZf_6reEQBfbILaIq9ndkqbh5jbcI3rDkbb1lkzsaP5eiSjNCoBG3-Od5udBFMX20zwcww_32CVVdt7WGZTluEa0-I8c1fJzUZSX9gVv60YO8CV5FawIKoqIRhMdhK1e1pGePbf54oYwSJKEGK74bG3vz5HWyLddH4WNI9lTRV-gAxBzrUR8L6KHeQO3Up-ks4-2y40btS9t95QDJ2Cr6qx-GgGZHbbrA54vqkSHxSK35bsjuJRD4sY429ShIgd6DIYPOf-qD42ug3epj6RqrFfcyMRZ0bdsDoIQ&sa=X&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQkbEKegQIHxAF",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=IT+vezet%C5%91+szakmai+gyakorlat&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4rXU76ScWBwxKToAdO0Enw8c-UthHLaQTO4nmEvTuWpAOvuqTh0GuB0XxnZf_6reEQBfbILaIq9ndkqbh5jbcI3rDkbb1lkzsaP5eiSjNCoBG3-Od5udBFMX20zwcww_32CVVdt7WGZTluEa0-I8c1fJzUZSX9gVv60YO8CV5FawIKoqIRhMdhK1e1pGePbf54oYwSJKEGK74bG3vz5HWyLddH4WNI9lTRV-gAxBzrUR8L6KHeQO3Up-ks4-2y40btS9t95QDJ2Cr6qx-GgGZHbbrA54vqkSHxSK35bsjuJRD4sY429ShIgd6DIYPOf-qD42ug3epj6RqrFfcyMRZ0bdsDoIQ"
+        }
+      ]
+    },
+    {
+      "name": "Állás típusa",
+      "options": [
+        {
+          "name": "Teljes munkaidő",
+          "parameters": {
+            "uds": "AJ5uw1_a2D0D09lxm8gpKKOTUn4r_DP25nz0TUK3XSDkXrYX_Y_RZuLBrkfP4YVkP34bAAFI5Xq6kPZfUXoTmv9iLXhoPcnH5_a5IKklaqZEUWiKVp_tkxqIvsHCUKZ7RddrJzjdH_MtwT8M9o62K2Rhdv2v5OwdKKULaqlKb3iG5lrYUI_hJXmqdoNP5ml78tXqId0563RX6-mf70qQ1vXpJsw4pcHul0EhsQImxSetyFhH1AcQYfVIQRGnyN_y6jGn2pg85CKfmHopW5tQsdpB-C_KZArxFkkW3e5PpovACMvOxzbVEfKhlscc8OivgKwfBwrvFyMNVRwaxRxFbxTfUtRnknXb2HuB791mGlccEm3S9dRbJZI",
+            "q": "IT vezető teljes munkaidő"
+          },
+          "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=IT+vezet%C5%91+teljes+munkaid%C5%91&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r_DP25nz0TUK3XSDkXrYX_Y_RZuLBrkfP4YVkP34bAAFI5Xq6kPZfUXoTmv9iLXhoPcnH5_a5IKklaqZEUWiKVp_tkxqIvsHCUKZ7RddrJzjdH_MtwT8M9o62K2Rhdv2v5OwdKKULaqlKb3iG5lrYUI_hJXmqdoNP5ml78tXqId0563RX6-mf70qQ1vXpJsw4pcHul0EhsQImxSetyFhH1AcQYfVIQRGnyN_y6jGn2pg85CKfmHopW5tQsdpB-C_KZArxFkkW3e5PpovACMvOxzbVEfKhlscc8OivgKwfBwrvFyMNVRwaxRxFbxTfUtRnknXb2HuB791mGlccEm3S9dRbJZI&sa=X&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQkbEKegQIHxAC",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=IT+vezet%C5%91+teljes+munkaid%C5%91&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r_DP25nz0TUK3XSDkXrYX_Y_RZuLBrkfP4YVkP34bAAFI5Xq6kPZfUXoTmv9iLXhoPcnH5_a5IKklaqZEUWiKVp_tkxqIvsHCUKZ7RddrJzjdH_MtwT8M9o62K2Rhdv2v5OwdKKULaqlKb3iG5lrYUI_hJXmqdoNP5ml78tXqId0563RX6-mf70qQ1vXpJsw4pcHul0EhsQImxSetyFhH1AcQYfVIQRGnyN_y6jGn2pg85CKfmHopW5tQsdpB-C_KZArxFkkW3e5PpovACMvOxzbVEfKhlscc8OivgKwfBwrvFyMNVRwaxRxFbxTfUtRnknXb2HuB791mGlccEm3S9dRbJZI"
+        },
+        {
+          "name": "Részmunkaidő",
+          "parameters": {
+            "uds": "AJ5uw1_a2D0D09lxm8gpKKOTUn4r-xpUZ_26_ZO9vkRZA6fxwbFnRLXjYIZ2reDSigT7z6ifmhzZa-oZU1DF1gvrVJt8X0hElTunbkp3I6ORvVlYVNzuxw1NcApeJVcQqHwmLbTbAMcd9WVDOTXudDhAGrQPTRBBQTtenb_3khsu3SZYId_uv_hsLkbsroqwdOjMTe_0C3h7J5UWgORGIH3yvYtoULiupeYCoz0T-4OIllx8ZJlZmgATEeqlb2SRHwGPh-2yfTk7fEyiv0DhpuC37HRTwhiR2agJnfMuLEpWVFaToQYTnZbTJ21hzj_VOQsF8cFxJMkAQIUsMf0wiNzz-uDG1leEGkLPpviNBRQGU-wi_CaLBc-E4QuqXUQahPVrOBZnBLS8",
+            "q": "IT vezető részmunkaidő"
+          },
+          "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=IT+vezet%C5%91+r%C3%A9szmunkaid%C5%91&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r-xpUZ_26_ZO9vkRZA6fxwbFnRLXjYIZ2reDSigT7z6ifmhzZa-oZU1DF1gvrVJt8X0hElTunbkp3I6ORvVlYVNzuxw1NcApeJVcQqHwmLbTbAMcd9WVDOTXudDhAGrQPTRBBQTtenb_3khsu3SZYId_uv_hsLkbsroqwdOjMTe_0C3h7J5UWgORGIH3yvYtoULiupeYCoz0T-4OIllx8ZJlZmgATEeqlb2SRHwGPh-2yfTk7fEyiv0DhpuC37HRTwhiR2agJnfMuLEpWVFaToQYTnZbTJ21hzj_VOQsF8cFxJMkAQIUsMf0wiNzz-uDG1leEGkLPpviNBRQGU-wi_CaLBc-E4QuqXUQahPVrOBZnBLS8&sa=X&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQkbEKegQIHxAD",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=IT+vezet%C5%91+r%C3%A9szmunkaid%C5%91&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r-xpUZ_26_ZO9vkRZA6fxwbFnRLXjYIZ2reDSigT7z6ifmhzZa-oZU1DF1gvrVJt8X0hElTunbkp3I6ORvVlYVNzuxw1NcApeJVcQqHwmLbTbAMcd9WVDOTXudDhAGrQPTRBBQTtenb_3khsu3SZYId_uv_hsLkbsroqwdOjMTe_0C3h7J5UWgORGIH3yvYtoULiupeYCoz0T-4OIllx8ZJlZmgATEeqlb2SRHwGPh-2yfTk7fEyiv0DhpuC37HRTwhiR2agJnfMuLEpWVFaToQYTnZbTJ21hzj_VOQsF8cFxJMkAQIUsMf0wiNzz-uDG1leEGkLPpviNBRQGU-wi_CaLBc-E4QuqXUQahPVrOBZnBLS8"
+        },
+        {
+          "name": "Szerződés",
+          "parameters": {
+            "uds": "AJ5uw1_a2D0D09lxm8gpKKOTUn4r3kTpjpcGwUSmeo6G_N0aFoz4TsK09YAaVZyMwmkuBfHQPWQQNZaxmJCo8qaoDhBoI6Tid2Cet44iZL_cp2waeZ5VWhDDTQQBx1tcfNKpkFLmmlkoOyBTHkoZ4LOZ6AKzlFvTfzpASZa9foWhEv_ECT8AVT9s-aGLeWgZswJ9lXf9wS3ttO2Q6ap2YxHY9qL9fVc7ViJVnryW6sWM7XhfthO5eM_6MZGm3G9tmY6PpIKH3xYUtKtXvCVR8y8_p8OMtf1V5cv7sAER2owfw_ZdW3r6PGCzkLlYP7-0jzQJmhvYron0vYbfndcuJgpNHdRtsyY5ZxIbUq40WxDRBI7ZMax64Sw",
+            "q": "IT vezető szerződés"
+          },
+          "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=IT+vezet%C5%91+szerz%C5%91d%C3%A9s&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r3kTpjpcGwUSmeo6G_N0aFoz4TsK09YAaVZyMwmkuBfHQPWQQNZaxmJCo8qaoDhBoI6Tid2Cet44iZL_cp2waeZ5VWhDDTQQBx1tcfNKpkFLmmlkoOyBTHkoZ4LOZ6AKzlFvTfzpASZa9foWhEv_ECT8AVT9s-aGLeWgZswJ9lXf9wS3ttO2Q6ap2YxHY9qL9fVc7ViJVnryW6sWM7XhfthO5eM_6MZGm3G9tmY6PpIKH3xYUtKtXvCVR8y8_p8OMtf1V5cv7sAER2owfw_ZdW3r6PGCzkLlYP7-0jzQJmhvYron0vYbfndcuJgpNHdRtsyY5ZxIbUq40WxDRBI7ZMax64Sw&sa=X&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQkbEKegQIHxAE",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=IT+vezet%C5%91+szerz%C5%91d%C3%A9s&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4r3kTpjpcGwUSmeo6G_N0aFoz4TsK09YAaVZyMwmkuBfHQPWQQNZaxmJCo8qaoDhBoI6Tid2Cet44iZL_cp2waeZ5VWhDDTQQBx1tcfNKpkFLmmlkoOyBTHkoZ4LOZ6AKzlFvTfzpASZa9foWhEv_ECT8AVT9s-aGLeWgZswJ9lXf9wS3ttO2Q6ap2YxHY9qL9fVc7ViJVnryW6sWM7XhfthO5eM_6MZGm3G9tmY6PpIKH3xYUtKtXvCVR8y8_p8OMtf1V5cv7sAER2owfw_ZdW3r6PGCzkLlYP7-0jzQJmhvYron0vYbfndcuJgpNHdRtsyY5ZxIbUq40WxDRBI7ZMax64Sw"
+        },
+        {
+          "name": "Szakmai gyakorlat",
+          "parameters": {
+            "uds": "AJ5uw1_a2D0D09lxm8gpKKOTUn4rXU76ScWBwxKToAdO0Enw8c-UthHLaQTO4nmEvTuWpAOvuqTh0GuB0XxnZf_6reEQBfbILaIq9ndkqbh5jbcI3rDkbb1lkzsaP5eiSjNCoBG3-Od5udBFMX20zwcww_32CVVdt7WGZTluEa0-I8c1fJzUZSX9gVv60YO8CV5FawIKoqIRhMdhK1e1pGePbf54oYwSJKEGK74bG3vz5HWyLddH4WNI9lTRV-gAxBzrUR8L6KHeQO3Up-ks4-2y40btS9t95QDJ2Cr6qx-GgGZHbbrA54vqkSHxSK35bsjuJRD4sY429ShIgd6DIYPOf-qD42ug3epj6RqrFfcyMRZ0bdsDoIQ",
+            "q": "IT vezető szakmai gyakorlat"
+          },
+          "link": "https://www.google.com/search?sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&q=IT+vezet%C5%91+szakmai+gyakorlat&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4rXU76ScWBwxKToAdO0Enw8c-UthHLaQTO4nmEvTuWpAOvuqTh0GuB0XxnZf_6reEQBfbILaIq9ndkqbh5jbcI3rDkbb1lkzsaP5eiSjNCoBG3-Od5udBFMX20zwcww_32CVVdt7WGZTluEa0-I8c1fJzUZSX9gVv60YO8CV5FawIKoqIRhMdhK1e1pGePbf54oYwSJKEGK74bG3vz5HWyLddH4WNI9lTRV-gAxBzrUR8L6KHeQO3Up-ks4-2y40btS9t95QDJ2Cr6qx-GgGZHbbrA54vqkSHxSK35bsjuJRD4sY429ShIgd6DIYPOf-qD42ug3epj6RqrFfcyMRZ0bdsDoIQ&sa=X&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQkbEKegQIHxAF",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=IT+vezet%C5%91+szakmai+gyakorlat&uds=AJ5uw1_a2D0D09lxm8gpKKOTUn4rXU76ScWBwxKToAdO0Enw8c-UthHLaQTO4nmEvTuWpAOvuqTh0GuB0XxnZf_6reEQBfbILaIq9ndkqbh5jbcI3rDkbb1lkzsaP5eiSjNCoBG3-Od5udBFMX20zwcww_32CVVdt7WGZTluEa0-I8c1fJzUZSX9gVv60YO8CV5FawIKoqIRhMdhK1e1pGePbf54oYwSJKEGK74bG3vz5HWyLddH4WNI9lTRV-gAxBzrUR8L6KHeQO3Up-ks4-2y40btS9t95QDJ2Cr6qx-GgGZHbbrA54vqkSHxSK35bsjuJRD4sY429ShIgd6DIYPOf-qD42ug3epj6RqrFfcyMRZ0bdsDoIQ"
+        }
+      ]
+    }
+  ],
+  "pagination": {
+    "current": 1,
+    "next": "https://www.google.com/search?q=IT+vezet%C5%91&sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&ei=XfmZarmoEayNnesPupr60As&start=10&sa=N&sstk=AS6-VmIcXC7CI8HXKIyuT3sr5WFK3vlOcj-ZwOTrt7sbjO2dP89kT-7TmbteXt6SZdhkUTLuDN0uyPyzExtGqGtmeliDTFeUTMSa0A&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQ8NMDegQIIxAW",
+    "other_pages": {
+      "2": "https://www.google.com/search?q=IT+vezet%C5%91&sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&ei=XfmZarmoEayNnesPupr60As&start=10&sa=N&sstk=AS6-VmIcXC7CI8HXKIyuT3sr5WFK3vlOcj-ZwOTrt7sbjO2dP89kT-7TmbteXt6SZdhkUTLuDN0uyPyzExtGqGtmeliDTFeUTMSa0A&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQ8tMDegQIIxAE",
+      "3": "https://www.google.com/search?q=IT+vezet%C5%91&sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&ei=XfmZarmoEayNnesPupr60As&start=20&sa=N&sstk=AS6-VmIcXC7CI8HXKIyuT3sr5WFK3vlOcj-ZwOTrt7sbjO2dP89kT-7TmbteXt6SZdhkUTLuDN0uyPyzExtGqGtmeliDTFeUTMSa0A&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQ8tMDegQIIxAG",
+      "4": "https://www.google.com/search?q=IT+vezet%C5%91&sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&ei=XfmZarmoEayNnesPupr60As&start=30&sa=N&sstk=AS6-VmIcXC7CI8HXKIyuT3sr5WFK3vlOcj-ZwOTrt7sbjO2dP89kT-7TmbteXt6SZdhkUTLuDN0uyPyzExtGqGtmeliDTFeUTMSa0A&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQ8tMDegQIIxAI",
+      "5": "https://www.google.com/search?q=IT+vezet%C5%91&sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&ei=XfmZarmoEayNnesPupr60As&start=40&sa=N&sstk=AS6-VmIcXC7CI8HXKIyuT3sr5WFK3vlOcj-ZwOTrt7sbjO2dP89kT-7TmbteXt6SZdhkUTLuDN0uyPyzExtGqGtmeliDTFeUTMSa0A&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQ8tMDegQIIxAK",
+      "6": "https://www.google.com/search?q=IT+vezet%C5%91&sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&ei=XfmZarmoEayNnesPupr60As&start=50&sa=N&sstk=AS6-VmIcXC7CI8HXKIyuT3sr5WFK3vlOcj-ZwOTrt7sbjO2dP89kT-7TmbteXt6SZdhkUTLuDN0uyPyzExtGqGtmeliDTFeUTMSa0A&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQ8tMDegQIIxAM",
+      "7": "https://www.google.com/search?q=IT+vezet%C5%91&sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&ei=XfmZarmoEayNnesPupr60As&start=60&sa=N&sstk=AS6-VmIcXC7CI8HXKIyuT3sr5WFK3vlOcj-ZwOTrt7sbjO2dP89kT-7TmbteXt6SZdhkUTLuDN0uyPyzExtGqGtmeliDTFeUTMSa0A&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQ8tMDegQIIxAO",
+      "8": "https://www.google.com/search?q=IT+vezet%C5%91&sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&ei=XfmZarmoEayNnesPupr60As&start=70&sa=N&sstk=AS6-VmIcXC7CI8HXKIyuT3sr5WFK3vlOcj-ZwOTrt7sbjO2dP89kT-7TmbteXt6SZdhkUTLuDN0uyPyzExtGqGtmeliDTFeUTMSa0A&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQ8tMDegQIIxAQ",
+      "9": "https://www.google.com/search?q=IT+vezet%C5%91&sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&ei=XfmZarmoEayNnesPupr60As&start=80&sa=N&sstk=AS6-VmIcXC7CI8HXKIyuT3sr5WFK3vlOcj-ZwOTrt7sbjO2dP89kT-7TmbteXt6SZdhkUTLuDN0uyPyzExtGqGtmeliDTFeUTMSa0A&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQ8tMDegQIIxAS",
+      "10": "https://www.google.com/search?q=IT+vezet%C5%91&sca_esv=ca05ff6e29f42f8b&gl=hu&hl=hu&ei=XfmZarmoEayNnesPupr60As&start=90&sa=N&sstk=AS6-VmIcXC7CI8HXKIyuT3sr5WFK3vlOcj-ZwOTrt7sbjO2dP89kT-7TmbteXt6SZdhkUTLuDN0uyPyzExtGqGtmeliDTFeUTMSa0A&ved=2ahUKEwj5yv6pv9OWAxWsRmcHHTqNHroQ8tMDegQIIxAU"
+    }
+  },
+  "serpapi_pagination": {
+    "current": 1,
+    "next_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=IT+vezet%C5%91&start=10",
+    "next": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=IT+vezet%C5%91&start=10",
+    "other_pages": {
+      "2": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=IT+vezet%C5%91&start=10",
+      "3": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=IT+vezet%C5%91&start=20",
+      "4": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=IT+vezet%C5%91&start=30",
+      "5": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=IT+vezet%C5%91&start=40",
+      "6": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=IT+vezet%C5%91&start=50",
+      "7": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=IT+vezet%C5%91&start=60",
+      "8": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=IT+vezet%C5%91&start=70",
+      "9": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=IT+vezet%C5%91&start=80",
+      "10": "https://serpapi.com/search.json?device=desktop&engine=google&gl=hu&google_domain=google.com&hl=hu&q=IT+vezet%C5%91&start=90"
+    }
+  }
+}
