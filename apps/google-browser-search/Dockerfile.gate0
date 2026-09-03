@@ -1,0 +1,14 @@
+FROM mcr.microsoft.com/playwright:v1.62.1-noble
+
+WORKDIR /work
+
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev
+
+COPY gate0-onprem.mjs ./gate0-onprem.mjs
+
+RUN mkdir -p /evidence
+
+ENV GATE0_EVIDENCE_DIR=/evidence
+
+ENTRYPOINT ["xvfb-run", "-a", "node", "gate0-onprem.mjs"]
