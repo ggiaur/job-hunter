@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Job Hunter Claude Browser Local Test</title></head>
+<body>
+  <h1 id="status">CLAUDE_BROWSER_LOCAL_TEST_READY</h1>
+  <p>This page is served entirely inside the worker container. It is safe for validating Claude in Chrome without contacting Google Search.</p>
+  <label>Verification text <input id="verification" value=""></label>
+  <button id="apply" type="button">Apply</button>
+  <p id="result">NOT_APPLIED</p>
+  <script>
+    document.getElementById('apply').addEventListener('click', () => {
+      const value = document.getElementById('verification').value.trim();
+      document.getElementById('result').textContent = value === 'JOB_HUNTER_BROWSER_OK'
+        ? 'LOCAL_BROWSER_CONTROL_PASS'
+        : `LOCAL_BROWSER_CONTROL_FAIL:${value}`;
+    });
+  </script>
+</body>
+</html>
