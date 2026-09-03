@@ -3,7 +3,7 @@ schema_version: 1
 channel: product_supervisor
 
 directive_id: JH-SUP-0009
-issued_at: "2026-09-03T07:48:00+02:00"
+issued_at: "2026-09-03T08:03:00+02:00"
 issued_by: chatgpt_product_architect
 authority: PRODUCT_ARCHITECT_ORCHESTRATION_SUPERVISOR
 priority: P0
@@ -18,6 +18,6 @@ orchestrator_runtime: docs/agent-runtime/orchestrator.yaml
 project_claude_contract: CLAUDE.md
 watcher_enforcement: scripts/watch_product_supervisor_directive.sh
 supersedes: JH-SUP-0008
-redelivery_seq: 0
+redelivery_seq: 1
 
-summary: "PRODUCT OWNER requests a fresh next-step engineering discussion after the cloud Google-browser application was proven blocked by real unusual-traffic/CAPTCHA on the current host/IP. DESIGN/DISCUSSION ONLY; full development freeze is back in force. Claude and Codex must independently evaluate the best continuation, including official Google-supported search/grounding, a local/residential browser worker, and other legitimate discovery mechanisms, with result quality, reliability, cost, complexity, exact URL capability, ToS/policy risk, and cheapest live falsification test. Gemini is optional/non-blocking only: do not wait or repair its tooling. After Claude+Codex answers, produce NEXT_STEP_AFTER_GOOGLE_BLOCK_DECISION.md with agreement/disagreement, smallest experiments, primary/fallback recommendation, and no implementation authorization. Then ACK DISCUSSION_COMPLETE and stop."
+summary: "JH-SUP-0009 discussion compliance: current ACK still references JH-SUP-0008. The required Claude and Codex next-step discussion files are absent and no substantive discussion commit has appeared since activation. Maintain full development freeze. Required sequence: acknowledge JH-SUP-0009; produce Claude independent answer; obtain Codex independent answer from the same factual problem statement; treat Gemini as optional and non-blocking; only then write the synthesis. No application code, PoC, Google retry, Firecrawl work, deployment, or production integration is authorized."
