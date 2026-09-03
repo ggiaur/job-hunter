@@ -18,6 +18,6 @@ orchestrator_runtime: docs/agent-runtime/orchestrator.yaml
 project_claude_contract: CLAUDE.md
 watcher_enforcement: scripts/watch_product_supervisor_directive.sh
 supersedes: JH-SUP-0015
-redelivery_seq: 1
+redelivery_seq: 2
 
-summary: "P0 REQUIRED THREE-AGENT best-practice research: Claude, Codex AND Gemini must independently research the safest legitimate production solution for approximately twice-weekly genuine Google web-search title+URL retrieval. Special priority: Google's newly documented 2026-09-03 Web Search Service API, partner/client_id eligibility and commercial prerequisites. Gemini is mandatory for this directive, not optional/non-blocking. Reconcile business need versus current literal browser-SERP Sprint 1 wording. HARD SAFETY: zero new automated google.com/search requests, no retry/proxy/stealth/CAPTCHA bypass. Produce all three reports plus team decision; ACK complete only when all three exist."
+summary: "URGENT REDELIVERY: Product Owner requires the CHEAPEST good automated Google-search solution, not enterprise pricing. Claude must explicitly ask Gemini; Claude, Codex and Gemini must independently compare Google Web Search Service, Gemini/Vertex Google Search grounding, SerpApi, Serper, SearchAPI.io, Zenserp and credible cheaper options at only ~8-10 searches/month. Resolve exact/free/minimum costs, real Google-derived organic title+URL capability, Hungarian localization, corporate-IP risk, and whether a Google account is required. Explain why human Incognito works while Playwright headed Chromium can be challenged, without anti-bot evasion. HARD SAFETY remains zero new automated google.com/search traffic from corporate egress. Complete only when all three reports exist."
