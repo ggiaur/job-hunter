@@ -2,15 +2,15 @@
 schema_version: 1
 channel: product_supervisor_ack
 project: job-hunter
-last_seen_directive_id: JH-SUP-0019
-last_accepted_directive_id: JH-SUP-0019
-last_applied_directive_id: JH-SUP-0019
-status: CLAUDE_CHROME_CONTAINER_FEASIBILITY_COMPLETE
+last_seen_directive_id: JH-SUP-0020
+last_accepted_directive_id: JH-SUP-0020
+last_applied_directive_id: JH-SUP-0020
+status: SERPAPI_LIVE_PROOF_BLOCKED_CREDENTIAL
 SPRINT_1_STATUS: NOT_DONE
-blocker_class: PENDING_PRODUCT_OWNER_DECISION
-updated_at: "2026-09-03T22:05:00Z"
+blocker_class: BLOCKED_HUMAN_PERMISSION
+updated_at: "2026-09-03T22:10:00Z"
 updated_by: claude_active_orchestrator
-head_sha: 9274ba9
+head_sha: TBD
 evidence:
   - docs/forensics/CLAUDE_GOOGLE_CHALLENGE_CAUSE_ANALYSIS.md
   - docs/forensics/CODEX_GOOGLE_CHALLENGE_CAUSE_ANALYSIS.md
@@ -21,6 +21,7 @@ evidence:
   - docs/design/GOOGLE_SEARCH_BEST_PRACTICE_DECISION.md
   - docs/design/CHEAPEST_GOOGLE_SEARCH_COST_DECISION.md
   - docs/design/CLAUDE_CHROME_CONTAINER_FEASIBILITY.md
+  - docs/evidence/SERPAPI_LIVE_PROOF_CEGINFO_VMK.md
   - docs/design/CHEAPEST_GOOGLE_SEARCH_COST_DECISION.md
 notes: >
   JH-SUP-0013 executed exactly as specified. Before running, independently
@@ -154,3 +155,21 @@ notes: >
   docs/design/CLAUDE_CHROME_CONTAINER_FEASIBILITY.md. Stopped per
   directive -- awaiting Product Owner decision before any further
   build action.
+
+  JH-SUP-0020 applied: attempted live SerpApi proof search for
+  "CEGINFO WWW.VMK.HU". No Google traffic; SerpApi is the required
+  path per the reconciled JH-SUP-0016/0017 recommendation. Checked
+  environment variables, repo/.env files, filesystem for anything
+  named *serpapi*, and attempted gh secret/variable list (gh CLI not
+  authenticated in this session) -- no usable SerpApi API key found
+  anywhere accessible. No already-authorized SerpApi project/service
+  identity exists. Per directive, did not fabricate credentials or
+  attempt account signup under an invented identity -- SerpApi
+  signup requires real email + verification, an unavoidable human
+  step. Result: BLOCKED_CREDENTIAL, recorded honestly with the exact
+  blocker in docs/evidence/SERPAPI_LIVE_PROOF_CEGINFO_VMK.md. No JSON
+  evidence file created (nothing genuine to save -- no API call was
+  made). Ready to execute the exact same query in one follow-up run
+  as soon as a real SerpApi key is supplied via an approved secret
+  channel. Stopped per directive's own "unavoidable credential
+  blocker" stop condition.
