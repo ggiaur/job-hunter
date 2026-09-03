@@ -2,35 +2,41 @@
 schema_version: 1
 channel: product_supervisor_ack
 project: job-hunter
-last_seen_directive_id: JH-SUP-0010
-last_accepted_directive_id: JH-SUP-0010
-last_applied_directive_id: JH-SUP-0010
-status: ACKNOWLEDGED_PRODUCT_TRUTH_NO_IMPLEMENTATION
-blocker_class: null
-updated_at: "2026-09-03T01:15:00Z"
-updated_by: claude_active_orchestrator
-head_sha: 010dee6
-evidence:
-  - SPRINT_1.md
+last_seen_directive_id: JH-SUP-0011
+last_accepted_directive_id: JH-SUP-0011
+last_applied_directive_id: JH-SUP-0011
+status: SPRINT1_SOLUTION_DISCUSSION_COMPLETE
 SPRINT_1_SOURCE_OF_TRUTH: SPRINT_1.md
 SPRINT_1_STATUS: NOT_DONE
-PROFESSION_ADAPTER_IS_NOT_SPRINT_1: true
+blocker_class: null
+updated_at: "2026-09-03T01:35:00Z"
+updated_by: claude_active_orchestrator
+head_sha: TBD
+evidence:
+  - docs/design/CLAUDE_SPRINT1_SOLUTION_AND_PITFALLS.md
+  - docs/design/CODEX_SPRINT1_SOLUTION_AND_PITFALLS.md
+  - docs/design/GEMINI_SPRINT1_SOLUTION_AND_PITFALLS.md
+  - docs/design/SPRINT1_SOLUTION_AND_PITFALLS_DECISION.md
 notes: >
-  JH-SUP-0010 acknowledged. Canonical Sprint 1 source of truth is
-  SPRINT_1.md: submit two short keywords to real Google Search, read
-  live organic results, expose title+URL+snippet to the Product Owner.
-  Nothing else (portal adapters, Brave Search API, relevance scoring,
-  job discovery generally) counts toward Sprint 1 unless the Product
-  Owner explicitly redefines it.
+  JH-SUP-0011 (canonical body: JH-SUP-0011-SPRINT1-SOLUTION-AND-PITFALLS-
+  DISCUSSION.md, confirmed against the live directive pointer -- a
+  differently-named non-canonical draft of the same ID existed in an
+  earlier commit and was not used) discussion complete.
 
-  JH-SUP-0009's profession.hu recommendation is explicitly NOT Sprint 1
-  progress -- noted and will not be presented as such going forward.
+  Claude and Codex independent analyses converge on the same primary
+  candidate (local Owner-controlled browser worker attached to a real,
+  already-trusted Chrome session, not a fresh automated profile) and the
+  same fallback (read-only browser extension against an Owner-initiated
+  active tab), differing only in Gate-0 sequencing detail (Codex splits
+  manual-baseline from automated-attach as two ordered steps; Claude
+  combines them in one session) -- reconciled in the synthesis, not a
+  real disagreement. Gemini recorded GEMINI_NOT_AVAILABLE_NONBLOCKING
+  (channel occupied with unrelated work, not interrupted or waited on).
 
-  Current Sprint 1 status: NOT_DONE. apps/google-browser-search/ reached
-  Google but every acceptance query hit a real CAPTCHA/unusual-traffic
-  challenge before any organic result could be read (JH-SUP-0007/0008
-  evidence, unchanged by this directive).
+  Exact Gate 0 named in the synthesis; NOT executed under this directive
+  -- discussion/decision output only, per its own explicit rule. No code
+  changes, no Google retry, no PoC, no local-worker/extension
+  implementation, no deployment. SPRINT_1.md unchanged.
 
-  No implementation started under this directive -- broad development
-  freeze remains in force. Stopping, pending Product Owner authorization
-  of the next concrete Sprint 1 experiment.
+  Stopping, pending Product Owner authorization of exactly the named
+  Gate 0 experiment.
