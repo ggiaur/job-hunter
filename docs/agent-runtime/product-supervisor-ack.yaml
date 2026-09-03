@@ -2,41 +2,46 @@
 schema_version: 1
 channel: product_supervisor_ack
 project: job-hunter
-last_seen_directive_id: JH-SUP-0011
-last_accepted_directive_id: JH-SUP-0011
-last_applied_directive_id: JH-SUP-0011
-status: SPRINT1_SOLUTION_DISCUSSION_COMPLETE
-SPRINT_1_SOURCE_OF_TRUTH: SPRINT_1.md
+last_seen_directive_id: JH-SUP-0012
+last_accepted_directive_id: JH-SUP-0012
+last_applied_directive_id: JH-SUP-0012
+status: SPRINT1_AUTONOMOUS_MODE_DISCUSSION_COMPLETE
 SPRINT_1_STATUS: NOT_DONE
 blocker_class: null
-updated_at: "2026-09-03T01:35:00Z"
+updated_at: "2026-09-03T02:05:00Z"
 updated_by: claude_active_orchestrator
-head_sha: 0f47301
+head_sha: TBD
 evidence:
-  - docs/design/CLAUDE_SPRINT1_SOLUTION_AND_PITFALLS.md
-  - docs/design/CODEX_SPRINT1_SOLUTION_AND_PITFALLS.md
-  - docs/design/GEMINI_SPRINT1_SOLUTION_AND_PITFALLS.md
-  - docs/design/SPRINT1_SOLUTION_AND_PITFALLS_DECISION.md
+  - docs/design/CLAUDE_SPRINT1_AUTONOMOUS_OPERATING_MODE.md
+  - docs/design/CODEX_SPRINT1_AUTONOMOUS_OPERATING_MODE.md
+  - docs/design/GEMINI_SPRINT1_AUTONOMOUS_OPERATING_MODE.md
+  - docs/design/SPRINT1_AUTONOMOUS_OPERATING_MODE_DECISION.md
 notes: >
-  JH-SUP-0011 (canonical body: JH-SUP-0011-SPRINT1-SOLUTION-AND-PITFALLS-
-  DISCUSSION.md, confirmed against the live directive pointer -- a
-  differently-named non-canonical draft of the same ID existed in an
-  earlier commit and was not used) discussion complete.
+  JH-SUP-0012 discussion complete, correcting JH-SUP-0011's PO-local
+  recommendation per the Product Owner's direct SPRINT_1.md update
+  (commit aa23a5c): Sprint 1 now explicitly requires an autonomous,
+  twice-weekly, dedicated-environment mechanism independent of the
+  Product Owner's personal computer; a PO-local test is diagnostic
+  evidence only.
 
   Claude and Codex independent analyses converge on the same primary
-  candidate (local Owner-controlled browser worker attached to a real,
-  already-trusted Chrome session, not a fresh automated profile) and the
-  same fallback (read-only browser extension against an Owner-initiated
-  active tab), differing only in Gate-0 sequencing detail (Codex splits
-  manual-baseline from automated-attach as two ordered steps; Claude
-  combines them in one session) -- reconciled in the synthesis, not a
-  real disagreement. Gemini recorded GEMINI_NOT_AVAILABLE_NONBLOCKING
-  (channel occupied with unrelated work, not interrupted or waited on).
+  candidate: a dedicated non-datacenter always-on host (existing org/site
+  machine preferred, else a small appliance at an approved site),
+  outbound-only polling, reusing already-built extraction code. Both
+  independently reject managed remote-browser services (unverified
+  egress class, likely cloud-hosted) and alternate cloud/VPS (no
+  evidence of a different causal variable) as primary paths. Gemini
+  recorded GEMINI_NOT_AVAILABLE_NONBLOCKING (channel occupied, not
+  interrupted/waited on).
 
-  Exact Gate 0 named in the synthesis; NOT executed under this directive
-  -- discussion/decision output only, per its own explicit rule. No code
-  changes, no Google retry, no PoC, no local-worker/extension
-  implementation, no deployment. SPRINT_1.md unchanged.
+  Exact two-stage Gate 0 named in the synthesis (zero-cost network-class
+  pre-screen on the PO's own network, then an authoritative test on the
+  actual named final host) -- NOT executed under this directive,
+  discussion/decision output only. No code changes, no worker/extension
+  build, no hardware purchase, no Google retry, no deployment.
+  SPRINT_1.md unchanged by this directive (it was already updated by the
+  Product Owner directly, prior to this directive).
 
-  Stopping, pending Product Owner authorization of exactly the named
-  Gate 0 experiment.
+  Stopping, pending Product Owner decision on: (a) whether an existing
+  org/site machine exists, or (b) approval to acquire a dedicated
+  appliance, before any Gate 0 execution.
