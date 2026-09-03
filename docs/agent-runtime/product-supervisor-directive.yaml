@@ -2,8 +2,8 @@
 schema_version: 1
 channel: product_supervisor
 
-directive_id: JH-SUP-0011
-issued_at: "2026-09-03T08:40:00+02:00"
+directive_id: JH-SUP-0012
+issued_at: "2026-09-03T08:56:00+02:00"
 issued_by: chatgpt_product_architect
 authority: PRODUCT_ARCHITECT_ORCHESTRATION_SUPERVISOR
 priority: P0
@@ -11,13 +11,13 @@ status: ACTIVE
 requires_ack: true
 execute_immediately: true
 interrupt_current_work: true
-instruction_file: docs/agent-directives/JH-SUP-0011-SPRINT1-SOLUTION-AND-PITFALLS-DISCUSSION.md
+instruction_file: docs/agent-directives/JH-SUP-0012-SPRINT1-AUTONOMOUS-OPERATING-MODE-DISCUSSION.md
 ack_file: docs/agent-runtime/product-supervisor-ack.yaml
 continuity_policy: docs/EXECUTION_CONTINUITY_POLICY.md
 orchestrator_runtime: docs/agent-runtime/orchestrator.yaml
 project_claude_contract: CLAUDE.md
 watcher_enforcement: scripts/watch_product_supervisor_directive.sh
-supersedes: JH-SUP-0010
+supersedes: JH-SUP-0011
 redelivery_seq: 0
 
-summary: "PRODUCT OWNER requests a fresh, evidence-based Sprint 1 solution discussion. Canonical Sprint 1 remains SPRINT_1.md: two short ordinary keywords submitted to real Google Search, live Google SERP read, real organic title+URL shown to the Product Owner. Current status NOT_DONE. Discussion must focus on how to achieve literal Sprint 1 and exhaustively analyze pitfalls based on JH-SUP-0007/0008 and earlier failures. Claude and Codex must answer independently; Gemini optional/non-blocking. Compare local user-controlled browser worker, browser extension/local companion, alternate execution environment/network, human-in-the-loop browser session, and any other legitimate literal-Sprint-1 mechanism. Produce detailed risk register covering Google anti-automation/IP/session/account/rate/locale risks, local-worker security/availability/update/recovery risks, SERP extraction instability, and engineering-process failures. Define the cheapest Gate 0 for every serious candidate; no substantial build before one normal Google SERP is proven in the candidate environment. No implementation, Google retry, PoC, paid service, portal work, Firecrawl, deployment, or bypass is authorized. Produce SPRINT1_SOLUTION_AND_PITFALLS_DECISION.md, then ACK and stop."
+summary: "PRODUCT OWNER correction: the prior local-Owner-PC approach can be diagnostic only and cannot be the final Sprint 1 operating model. Canonical SPRINT_1.md now requires literal two-keyword Google Search -> live Google SERP -> organic title+URL AND an autonomous dedicated environment independent of the Product Owner's personal workstation/presence, suitable for normal approximately twice-weekly scheduled operation. DISCUSSION ONLY; full development freeze remains. Claude and Codex must independently evaluate dedicated always-on physical worker on ordinary non-datacenter internet, dedicated organization/site worker, legitimate managed browser/browser-compute service, alternate cloud/provider, and other literal-Google candidates. Local extension/human-in-loop may be diagnostic/manual fallback but must not be presented as Sprint 1 completion. For every serious FINAL environment, define its own cheapest pre-build Gate 0: can that exact environment obtain one normal two-keyword Google SERP without anti-bot circumvention? Produce full operational/security/Google/process pitfall register and SPRINT1_AUTONOMOUS_OPERATING_MODE_DECISION.md. Gemini optional/non-blocking. No implementation, Google retry, PoC, portal work, Firecrawl, paid purchase, deployment or bypass is authorized."
