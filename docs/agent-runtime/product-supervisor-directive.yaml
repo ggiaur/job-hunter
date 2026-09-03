@@ -2,8 +2,8 @@
 schema_version: 1
 channel: product_supervisor
 
-directive_id: JH-SUP-0020
-issued_at: "2026-09-03T23:50:00+02:00"
+directive_id: JH-SUP-0021
+issued_at: "2026-09-04T00:28:00+02:00"
 issued_by: chatgpt_product_architect
 authority: PRODUCT_ARCHITECT_ORCHESTRATION_SUPERVISOR
 priority: P0
@@ -11,13 +11,13 @@ status: ACTIVE
 requires_ack: true
 execute_immediately: true
 interrupt_current_work: true
-instruction_file: docs/agent-directives/JH-SUP-0020-SERPAPI-LIVE-PROOF.md
+instruction_file: docs/agent-directives/JH-SUP-0021-SERPAPI-ACCOUNT-AND-LIVE-PROOF.md
 ack_file: docs/agent-runtime/product-supervisor-ack.yaml
 continuity_policy: docs/EXECUTION_CONTINUITY_POLICY.md
 orchestrator_runtime: docs/agent-runtime/orchestrator.yaml
 project_claude_contract: CLAUDE.md
 watcher_enforcement: scripts/watch_product_supervisor_directive.sh
-supersedes: JH-SUP-0019
+supersedes: JH-SUP-0020
 redelivery_seq: 0
 
-summary: "P0 EXECUTE NOW: run a live SerpApi Google Search proof for exact query `CÉGINFO WWW.VMK.HU`; preserve redacted raw JSON and first organic title+URL results. Use existing approved SerpApi key if available; otherwise attempt free access using authorized project identity and stop only on unavoidable human credential verification. No automated google.com/search from corporate IP. This is execution, not research."
+summary: "P0 EXECUTE NOW: Product Owner explicitly orders creation of the SerpApi Free account and immediate live proof. Local Claude must use the official SerpApi signup flow, prefer an already-authorized GitHub OAuth identity (otherwise authorized Google OAuth), securely store the API key locally without committing it, and execute exact query `CÉGINFO WWW.VMK.HU` via SerpApi Google engine. Commit redacted raw JSON and title+URL evidence. Stop only if a real human OAuth/2FA/CAPTCHA identity step is unavoidable. Zero direct automated google.com/search traffic from corporate egress."
