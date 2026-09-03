@@ -42,3 +42,15 @@ notes: >
   No retry, no stealth/proxy/fingerprint bypass. Evidence committed and
   pushed. Stopping per directive scope -- awaiting the next Product Owner
   directive.
+
+  JH-SUP-0013 hardened redelivery (2026-09-03T22:07, one-shot corporate
+  egress safety limit) ACKed retroactively: re-inspected gate0-onprem.mjs
+  and confirmed exactly one page.goto(googleUrl) call, no retry loop, no
+  fallback search path -- the run already executed above already
+  satisfied the hardened one-shot limit. Evidence file updated with an
+  explicit "total Google search attempts sent: 1" statement. The
+  one-shot budget for JH-SUP-0013 is fully consumed. No second Google
+  request has been made or will be made under this directive. Real
+  user separately raised the same corporate-network-reputation concern
+  directly in chat; confirmed to them no further automated Google
+  request will run without explicit new authorization.

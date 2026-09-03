@@ -13,6 +13,10 @@
 
 This is the exact on-prem, non-datacenter environment JH-SUP-0013 required to be verified before running Gate 0.
 
+## Total Google search attempts sent from this test: **1**
+
+Re-verified against the committed `gate0-onprem.mjs` source (per JH-SUP-0013's hardened redelivery, 2026-09-03T22:07): the script contains exactly one `page.goto(googleUrl, ...)` navigation (no loop, no retry-on-timeout, no fallback UI-search-box path — that fallback exists only in the separate, unrelated `apps/google-browser-search/lib/browser.mjs` used by the full app, not in this Gate 0 probe). No second Google request was possible from this code path, and none occurred. The one-shot budget authorized by JH-SUP-0013 is fully consumed by the single run already recorded below; no further Google request has been or will be made under this directive.
+
 ## Execution
 
 Command run exactly as specified:
