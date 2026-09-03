@@ -2,8 +2,8 @@
 schema_version: 1
 channel: product_supervisor
 
-directive_id: JH-SUP-0018
-issued_at: "2026-09-03T23:31:00+02:00"
+directive_id: JH-SUP-0019
+issued_at: "2026-09-03T23:36:00+02:00"
 issued_by: chatgpt_product_architect
 authority: PRODUCT_ARCHITECT_ORCHESTRATION_SUPERVISOR
 priority: P0
@@ -11,13 +11,13 @@ status: ACTIVE
 requires_ack: true
 execute_immediately: true
 interrupt_current_work: true
-instruction_file: docs/agent-directives/JH-SUP-0018-CLAUDE-CHROME-WORKER-CONTAINER.md
+instruction_file: docs/agent-directives/JH-SUP-0019-CLAUDE-CHROME-CONTAINER-FEASIBILITY-REVIEW.md
 ack_file: docs/agent-runtime/product-supervisor-ack.yaml
 continuity_policy: docs/EXECUTION_CONTINUITY_POLICY.md
 orchestrator_runtime: docs/agent-runtime/orchestrator.yaml
 project_claude_contract: CLAUDE.md
 watcher_enforcement: scripts/watch_product_supervisor_directive.sh
-supersedes: JH-SUP-0017
+supersedes: JH-SUP-0018
 redelivery_seq: 0
 
-summary: "P0 IMPLEMENTATION: build and locally validate on the actual on-prem Ubuntu server the committed apps/claude-chrome-worker container: Claude Code CLI + official google-chrome-stable + official Anthropic Claude in Chrome extension + persistent profile + GUI/noVNC. This intentionally replaces Playwright-managed Chromium with the same normal-Chrome control model already observed working on a user workstation. Validate only against the container-local test page and preserve evidence. HARD SAFETY: ZERO automated google.com/search requests under this directive; JH-SUP-0014 corporate-IP hard stop remains binding. If the sole remaining step is unavoidable one-time Anthropic interactive sign-in/permission, report BLOCKED_HUMAN_PERMISSION after completing all other build validation."
+summary: "P0 PRODUCT OWNER correction: PAUSE further Claude-Chrome container build/implementation. Before any more build work, local Claude must independently determine whether Claude Code CLI + official Claude in Chrome + official Chrome is actually viable/supported inside Docker on the on-prem Ubuntu server. Inspect native-messaging/session/auth/GUI requirements, Docker isolation, persistence, unattended control, and compare host GUI/VM/container alternatives. Review the already-committed apps/claude-chrome-worker draft critically. NO container build/start and ZERO Google Search traffic under this directive. Produce CLAUDE_CHROME_CONTAINER_FEASIBILITY.md with VIABLE / VIABLE_WITH_CHANGES / NOT_VIABLE_AS_DESIGNED verdict, minimal recommended architecture, and ACK."
