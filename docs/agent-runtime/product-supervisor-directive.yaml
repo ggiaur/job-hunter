@@ -2,8 +2,8 @@
 schema_version: 1
 channel: product_supervisor
 
-directive_id: JH-SUP-0025
-issued_at: "2026-09-04T14:56:00+02:00"
+directive_id: JH-SUP-0026
+issued_at: "2026-09-04T15:18:00+02:00"
 issued_by: chatgpt_product_architect
 authority: PRODUCT_ARCHITECT_ORCHESTRATION_SUPERVISOR
 priority: P0
@@ -11,13 +11,13 @@ status: ACTIVE
 requires_ack: true
 execute_immediately: true
 interrupt_current_work: true
-instruction_file: docs/agent-directives/JH-SUP-0025-PILLER-MISS-ROOT-CAUSE.md
+instruction_file: docs/agent-directives/JH-SUP-0026-RECALL-REPAIR-AND-LEARNING.md
 ack_file: docs/agent-runtime/product-supervisor-ack.yaml
 continuity_policy: docs/EXECUTION_CONTINUITY_POLICY.md
 orchestrator_runtime: docs/agent-runtime/orchestrator.yaml
 project_claude_contract: CLAUDE.md
 watcher_enforcement: scripts/watch_product_supervisor_directive.sh
-supersedes: JH-SUP-0024
+supersedes: JH-SUP-0025
 redelivery_seq: 0
 
-summary: "P0 ROOT-CAUSE ROUNDTABLE: explain with evidence why the still-active Pillér Nonprofit Kft. Projektmenedzser vacancy — already stored as a known-good positive reference — was absent from today's live Job Hunter harvest. Claude must obtain independent Claude, Codex and Gemini analyses, then reconcile the earliest miss stage and all false-negative mechanisms. Audit query/top-10 depth, Profession listing traversal, 12-link second-level cap, JobPosting verification, title/domain gates, English, dedup and scoring. Also sample 10+ current plausible Profession candidates to estimate false-negative blast radius. No implementation until root cause is reconciled; no direct automated google.com traffic; SerpApi/direct legitimate job-source access allowed."
+summary: "P0 CONTINUE DEVELOPMENT FROM THE PILLER FAILURE. First commit the SUP-0025 Claude/Codex/Gemini reconciliation; then repair acquisition recall rather than merely changing a constant: distinguish real vacancy-detail links before applying caps, add bounded listing depth/pagination, activate direct Profession acquisition alongside SerpApi, generate regional + hybrid/remote acquisition coverage from canonical location rules, persist candidate-level stage evidence, add live known-positive discovery canaries including Pillér while active, preserve PO rejection reasons as structured learning data, and commit a causal-miss protocol requiring first-proven-disappearance tracing plus contradiction checks. Codex must independently falsify false-negative behavior and Gemini must independently review live recall. Final PASS requires live Pillér acquisition if still active plus additional Pillér-like candidates and auditable funnel metrics."
