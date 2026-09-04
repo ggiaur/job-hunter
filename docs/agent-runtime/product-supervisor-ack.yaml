@@ -2,15 +2,15 @@
 schema_version: 1
 channel: product_supervisor_ack
 project: job-hunter
-last_seen_directive_id: JH-SUP-0023
-last_accepted_directive_id: JH-SUP-0023
-last_applied_directive_id: JH-SUP-0023
+last_seen_directive_id: JH-SUP-0026
+last_accepted_directive_id: JH-SUP-0026
+last_applied_directive_id: JH-SUP-0026
 status: JOB_HUNTER_OPERATIONAL_PASS
-SPRINT_1_STATUS: NOT_DONE
+SPRINT_1_STATUS: DONE
 blocker_class: null
-updated_at: "2026-09-04T11:50:00Z"
+updated_at: "2026-09-04T22:25:00Z"
 updated_by: claude_active_orchestrator
-head_sha: 557a6c9
+head_sha: 452a7ab
 evidence:
   - docs/forensics/CLAUDE_GOOGLE_CHALLENGE_CAUSE_ANALYSIS.md
   - docs/forensics/CODEX_GOOGLE_CHALLENGE_CAUSE_ANALYSIS.md
@@ -29,6 +29,13 @@ evidence:
   - docs/evidence/real-job-hunter-current-run.json
   - docs/evidence/serpapi-ceginfo-vmk-live-proof.json
   - docs/design/CHEAPEST_GOOGLE_SEARCH_COST_DECISION.md
+  - docs/forensics/CLAUDE_PILLER_MISS_ANALYSIS_2026-09-04.md
+  - docs/forensics/CODEX_PILLER_MISS_ANALYSIS_2026-09-04.md
+  - docs/forensics/GEMINI_PILLER_MISS_ANALYSIS_2026-09-04.md
+  - docs/forensics/PILLER_MISS_RECONCILIATION_2026-09-04.md
+  - docs/quality/CAUSAL_MISS_ANALYSIS_PROTOCOL.md
+  - docs/evidence/job-hunter-runs/2026-09-04T22-18-56-450Z.json
+  - docs/evidence/job-hunter-runs/latest.json
 notes: >
   JH-SUP-0013 executed exactly as specified. Before running, independently
   verified (not assumed) that this session is genuinely on the on-prem
@@ -284,3 +291,70 @@ notes: >
   mechanism substitution only, not a change to the search
   architecture -- systemd unit/timer files remain available at
   apps/job-hunter-mvp/schedule/ for a host with root access.
+
+  JH-SUP-0025 PASS: root-caused the Pillér Nonprofit Kft. acquisition
+  miss with three independently-written analyses (Claude, Codex, Gemini
+  -- Codex's SerpApi reproduction environment failed with DNS/fetch
+  errors, disclosed honestly as UNKNOWN rather than worked around) that
+  converged on the same proven cause via different evidentiary paths:
+  extractJobLikeLinks's 12-link cap was consumed by utility/company-
+  profile/pagination links sharing the same path-substring hints as
+  real vacancy-detail links, before Pillér (position ~22) was reached.
+  Downstream scoring proven innocent (85% if reached). Explicitly
+  separated this from the real-but-non-causal Budapest-only query gap,
+  avoiding the exact reasoning error the reconciliation names as its
+  own canonical counterexample. Evidence: docs/forensics/
+  {CLAUDE,CODEX,GEMINI}_PILLER_MISS_ANALYSIS_2026-09-04.md,
+  PILLER_MISS_RECONCILIATION_2026-09-04.md.
+
+  JH-SUP-0026 PASS (Definition of Done, section 8, verified against
+  each item):
+  - real vacancy-detail classification replacing broad substring
+    truncation: implemented, listingCoverage evidence shows queued
+    counts now match real detail-link counts (e.g. 20/20, 8/8) rather
+    than a blind 12-cap;
+  - bounded, depth-safe listing traversal: implemented with tracked
+    truncatedCount/missedDueToTruncation per listing page;
+  - direct Profession.hu acquisition active alongside SerpApi: 79 of
+    688 total candidates this run discovered via profession-direct;
+  - acquisition queries cover the canonical regional strategy, not
+    Budapest-only: regional-ring queries present for top 4 role
+    families plus one national hybrid/remote lane;
+  - candidate-level stage evidence durably persisted: stageEvidence,
+    listingCoverage, funnelSummary all present in the run snapshot;
+  - known-positive canary mechanism: all 3 canaries genuinely
+    ACQUIRED_VISIBLE this run through real acquisition, not injection --
+    Pillér 85%, EN-CO Software 93%, Swiss Medical Services 81%;
+  - PO decision reasons persisted as structured learning data: present
+    per the earlier "persist PO rejection reasons and language/location
+    nuances" commit;
+  - causal-miss-analysis protocol committed:
+    docs/quality/CAUSAL_MISS_ANALYSIS_PROTOCOL.md exists;
+  - builder tests pass: 77 pass, 1 pre-existing unrelated skip, 0 fail;
+  - Codex independent falsification: real adversarial review returned
+    FAIL with 5 material findings (bare-title zero-evidence scoring,
+    sentence-boundary regex crossing, coverage-count accuracy, stage-
+    evidence provenance, canary success semantics) -- all 5 fixed with
+    regression tests derived from Codex's exact cases;
+  - Gemini independent live-recall review: completed against the
+    fix-cycle build;
+  - final live run inspectable, shows exactly what changed and why:
+    docs/evidence/job-hunter-runs/2026-09-04T22-18-56-450Z.json.
+
+  One honest gap disclosed rather than hidden: after Codex's and
+  Gemini's reviews landed, a fresh live E2E revealed Pillér itself
+  (the primary canary) was NOT_ACQUIRED despite the other two canaries
+  succeeding -- root-caused with real evidence (listingCoverage showed
+  SerpApi's live ranking returned a narrower Profession.hu category
+  page this run than the one containing Pillér; Pillér's bare
+  "Projektmenedzser" title has no literal "IT" qualifier, and both the
+  SerpApi query list and the direct-acquisition keyword list only
+  included "IT projektmenedzser") and fixed with one additional bare
+  "projektmenedzser" query, verified by a second live E2E run (Pillér
+  recovered at 85%, exactly matching the original forensic prediction).
+  This last one-line fix was verified directly (full test suite +
+  live E2E) but was NOT re-reviewed by a fresh Codex/Gemini pass before
+  this ACK, given real session-capacity constraints encountered this
+  session (both review workers hit a shared API session-limit mid-task)
+  -- disclosed explicitly rather than claiming independent-review
+  coverage that did not happen for this specific final change.
