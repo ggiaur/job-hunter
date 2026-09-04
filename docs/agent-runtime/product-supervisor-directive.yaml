@@ -2,8 +2,8 @@
 schema_version: 1
 channel: product_supervisor
 
-directive_id: JH-SUP-0024
-issued_at: "2026-09-04T12:58:00+02:00"
+directive_id: JH-SUP-0025
+issued_at: "2026-09-04T14:56:00+02:00"
 issued_by: chatgpt_product_architect
 authority: PRODUCT_ARCHITECT_ORCHESTRATION_SUPERVISOR
 priority: P0
@@ -11,13 +11,13 @@ status: ACTIVE
 requires_ack: true
 execute_immediately: true
 interrupt_current_work: true
-instruction_file: docs/agent-directives/JH-SUP-0024-IMPLEMENT-RELEVANCE-SPRINT1.md
+instruction_file: docs/agent-directives/JH-SUP-0025-PILLER-MISS-ROOT-CAUSE.md
 ack_file: docs/agent-runtime/product-supervisor-ack.yaml
 continuity_policy: docs/EXECUTION_CONTINUITY_POLICY.md
 orchestrator_runtime: docs/agent-runtime/orchestrator.yaml
 project_claude_contract: CLAUDE.md
 watcher_enforcement: scripts/watch_product_supervisor_directive.sh
-supersedes: JH-SUP-0023
+supersedes: JH-SUP-0024
 redelivery_seq: 0
 
-summary: "P0 IMPLEMENT APPROVED RELEVANCE SPRINT 1 NOW. Canonical SPRINT_1.md and docs/product/PO_DECISIONS_2026-09-04.md replace the superseded two-keyword Google acceptance goal. Product outcome: real current vacancies, explainable 0-100 scoring, every >=60% result visible and durably persisted, minimum one PO-judged APPLY result for final Sprint 1 acceptance. Source choice is engineering-owned; Google/SerpApi is allowed, direct portal/Jooble/company sources and useful job-searcher/allas-figyelo assets may be reused when they improve results. Claude integrates and runs live E2E; Gemini builds isolated presentation slice; Codex independently falsifies acceptance rules under its environment limits. No destructive repository/service action."
+summary: "P0 ROOT-CAUSE ROUNDTABLE: explain with evidence why the still-active Pillér Nonprofit Kft. Projektmenedzser vacancy — already stored as a known-good positive reference — was absent from today's live Job Hunter harvest. Claude must obtain independent Claude, Codex and Gemini analyses, then reconcile the earliest miss stage and all false-negative mechanisms. Audit query/top-10 depth, Profession listing traversal, 12-link second-level cap, JobPosting verification, title/domain gates, English, dedup and scoring. Also sample 10+ current plausible Profession candidates to estimate false-negative blast radius. No implementation until root cause is reconciled; no direct automated google.com traffic; SerpApi/direct legitimate job-source access allowed."
