@@ -1,132 +1,122 @@
-# SPRINT 1 — GOOGLE SEARCH: TWO KEYWORDS → REAL RESULTS
+# SPRINT 1 — REAL RELEVANT VACANCIES
 
-**Authority:** Product Owner
-**Status:** DEFINED / NOT YET ACCEPTED
-**This file is the canonical Sprint 1 source of truth.**
+**Authority:** Product Owner  
+**Status:** APPROVED / IMPLEMENTATION AUTHORIZED  
+**Canonical Sprint 1 source of truth:** this file  
+**Supporting PO decisions:** `docs/product/PO_DECISIONS_2026-09-04.md`
 
-## 1. Sprint 1 goal
+## 1. Sprint goal
 
-Sprint 1 is intentionally minimal in search behavior, but it must prove the intended operating model.
+Produce a live, inspectable set of **real current vacancies that are relevant to the Product Owner's actual profile**, with an explainable 0–100 relevance score.
 
-The system must be able to do the same basic action the Product Owner can do manually:
+The search technology is not the product goal. The team may choose the most effective legitimate acquisition mix available in Hungary. Google/SerpApi is acceptable when it produces useful vacancies; direct job portals, aggregators, company career pages and reusable acquisition work from earlier repositories are also acceptable when they improve results.
 
-1. open Google Search in a real browser/search session;
-2. enter **two ordinary keywords / a two-term short query** into Google;
-3. submit the search;
-4. read the **real Google result page**;
-5. expose the returned results so the Product Owner can inspect them.
+The sprint must optimise for **genuine apply-worthiness**, not result count or architecture completion.
 
-That is the search behavior of Sprint 1.
+## 2. Required business rules
 
-The Product Owner has additionally clarified the operating requirement: this capability is intended to run automatically roughly **twice per week**, therefore the final Sprint 1 solution **must not depend on the Product Owner's personal computer being on, the Product Owner being physically present, or the Product Owner manually initiating each search**.
+Implement the approved rules in `docs/product/PO_DECISIONS_2026-09-04.md`, including:
 
-A test on the Product Owner's personal computer may be used only as a diagnostic experiment to isolate a cause. It is **not Sprint 1 completion and not an acceptable production operating model**.
+- leadership/group-lead/project-lead work is preferred;
+- project leadership does not require direct reports when the role genuinely directs people, suppliers, delivery or development;
+- developer, helpdesk, one-person-IT and pure non-lead individual-contributor roles are excluded;
+- mandatory advanced/fluent/native-level English is excluded; intermediate/basic/no requirement or English merely as an advantage is allowed;
+- salary omission is neutral; confirmed salary below HUF 700,000 gross receives only a small/moderate penalty;
+- location is evaluated from Fehérvárcsurgó accessibility and work arrangement, not by a rigid Budapest-only rule;
+- newer active adverts receive a freshness advantage; older still-active adverts are not excluded solely by age;
+- employer type is not a hard exclusion;
+- operations, infrastructure, projects, applications and digitalisation/AI-transformation leadership may all be relevant.
 
-Sprint 1 is **not** a job-ranking sprint, not a portal-integration sprint, not a Firecrawl sprint, not a notification sprint, and not a full Job Hunter workflow sprint.
+## 3. Acquisition requirement
 
-## 2. Required user-visible behavior
+Use the best current source mix that produces real relevant jobs. Source choice is an engineering responsibility, not a PO configuration exercise.
 
-Given two short search terms, for example:
+Before building new acquisition infrastructure, compare and reuse valuable existing assets where appropriate:
 
-`IT vezető`
+- current live JS pipeline: `apps/job-hunter-mvp/run.mjs`;
+- dormant/internal Python acquisition work: `tools/acquisition/*.py`;
+- `job-searcher` acquisition/feedback assets, including the direct Profession.hu work;
+- `allas-figyelo` Jooble/regional acquisition and lightweight result presentation;
+- other sources only where evidence shows they materially improve relevant coverage.
 
-or another two-term query chosen for acceptance, the running system must return the real Google results visible to the Product Owner.
+Do not delay useful results merely to unify architecture first. Reconciliation and migration may proceed in parallel, but Sprint 1 acceptance depends on live relevant output.
 
-At minimum each visible result must contain:
+## 4. Relevance scoring
 
-- result title;
-- destination URL;
-- visible snippet/domain when Google exposes it.
+Every accepted real vacancy must receive an explainable score from 0 to 100.
 
-The result list must come from the live Google search result page. Synthetic fixtures, mocks, cached hand-written examples, portal-native results, or another search engine do not satisfy Sprint 1.
+All results scoring **60% or above must be visible to the Product Owner**.
 
-## 3. Required operating behavior
+The score must not be an unexplained LLM opinion. It must be traceable to explicit factors such as:
 
-The final Sprint 1 mechanism must be capable of running from a **dedicated environment independent of the Product Owner's personal workstation**.
+- IT/role-family fit;
+- leadership/coordination scope;
+- seniority/step fit;
+- responsibilities matching the PO's experience;
+- English requirement;
+- location/commute/work arrangement;
+- salary when explicitly known;
+- freshness;
+- explicit exclusions and penalties.
 
-It must support the intended low-volume autonomous operating pattern: approximately two scheduled search runs per week, without requiring the Product Owner to start Chrome, keep a personal PC awake, click an extension, solve an ordinary interaction for every run, or manually submit the query.
+The explanation must identify both positive matches and material weaknesses.
 
-A human may still be needed for exceptional operational blockers such as a genuine Google challenge, but such a challenge is a blocked run, not normal operating behavior and not a PASS substitute.
+## 5. Required visible output
 
-The dedicated environment may be cloud, on-premises, office/site-hosted, a dedicated appliance/mini-PC, or another legitimate architecture — but it must be evaluated on actual ability to receive a normal Google SERP without anti-bot circumvention.
+For every shown 60%+ vacancy, expose at minimum:
 
-## 4. Definition of Done
+- position title;
+- employer;
+- location;
+- work arrangement when known;
+- salary only when actually stated;
+- direct vacancy/application URL;
+- relevance percentage;
+- concise reasons for the score — what fits;
+- concise reasons for the score — what does not fit / is uncertain;
+- PO decision field: APPLY / DO_NOT_APPLY;
+- room for a short PO reason.
 
-Sprint 1 is PASS only when all of the following are true in live acceptance evidence:
+A lightweight browsable HTML/static result page is acceptable for Sprint 1. Do not overbuild a full application shell before relevance is proven.
 
-1. A runnable application/system exists.
-2. The acceptance runner supplies two short search terms.
-3. The system submits those terms to **Google Search**.
-4. Google returns a normal result page without an unresolved CAPTCHA / unusual-traffic / mandatory-login blocker.
-5. The system reads the live results from that Google result page.
-6. At least one real organic result is exposed with exact title + URL; the acceptance evidence should preserve several first-page results when available.
-7. The Product Owner can inspect the results produced by the running system.
-8. No fake/synthetic result is used to satisfy the acceptance gate.
-9. The accepted mechanism runs from a dedicated environment that is **not the Product Owner's personal computer and does not require the Product Owner to initiate the search**.
-10. The architecture demonstrably supports unattended low-volume scheduling for the intended approximately twice-weekly operation; normal runs must not require a person to be present.
+Every live run must persist its result set so the exact candidates can be reviewed later; a result list must not disappear after the run.
 
-If the browser/application launches but Google results cannot be read, Sprint 1 is **NOT DONE**.
+## 6. Definition of Done
 
-If Google results can be read only by using the Product Owner's personal browser/workstation interactively, Sprint 1 is also **NOT DONE** because the required operating model has not been proven.
+Sprint 1 is PASS only when all of the following are true:
 
-## 5. Explicit non-goals for Sprint 1
+1. A real live search is executed against current vacancy sources.
+2. Results are genuine individual job adverts, not synthetic fixtures or category/listing pages.
+3. Relevant results are scored 0–100 using the approved business rules.
+4. Every result at or above 60% is made inspectable with the required fields and explanation.
+5. Mandatory advanced-English and excluded role types are demonstrably filtered correctly without confusing preferred/incidental wording with mandatory requirements.
+6. The exact live result set is durably persisted for later PO review.
+7. At least **one real result is judged by the Product Owner as genuinely apply-worthy**. One is the minimum gate; more is better.
+8. The evidence includes the acquisition source(s), scoring breakdown and direct vacancy links so the run is auditable.
 
-The following are outside Sprint 1 and must not be used to redefine or inflate it:
+A run with many technically valid ads but zero PO-apply-worthy jobs is **NOT Sprint 1 PASS**.
 
-- finding 3 relevant jobs;
-- opening job detail pages;
-- profession.hu / cvonline.hu portal-native discovery;
-- relevance scoring against `profile/persona.md`;
-- deduplication across sources;
-- LLM ranking;
-- Firecrawl;
-- Telegram/email notifications;
-- saved searches;
-- employer/ATS adapters;
-- full production Job Hunter integration;
-- broad multi-source acquisition architecture.
+## 7. Non-goals for Sprint 1
 
-These may belong to later work, but **none of them is required to complete Sprint 1**.
+Do not block Sprint 1 on:
 
-## 6. What does NOT count as a substitute
+- a perfect final multi-source architecture;
+- retiring or deleting `job-searcher` or `allas-figyelo`;
+- migrating every useful legacy component;
+- a complete long-term learning engine;
+- CV rewriting/generation;
+- motivation/cover-letter generation;
+- a polished production-grade web application;
+- arbitrary result-count targets.
 
-The Sprint 1 product requirement is specifically about **Google Search results in the required autonomous operating model**.
+## 8. Parallel consolidation constraint
 
-Therefore these do NOT satisfy Sprint 1 unless the Product Owner later changes the requirement explicitly:
+The Product Owner has decided the final job-search product must live in exactly one repository: `ggiaur/job-hunter`.
 
-- Profession.hu results, even if useful;
-- Brave Search API results;
-- Google Programmable Search / another Google API that does not expose the actual required Google Search result behavior;
-- another search engine;
-- a manually copied list of Google results;
-- browser automation that reaches only a CAPTCHA/challenge page;
-- a solution that works only on the Product Owner's personal computer;
-- a solution that requires the Product Owner to manually start each search or keep their personal browser/session continuously available.
+During Sprint 1, the team must continue the evidence-backed inheritance audit and migrate only useful assets that improve the product. Do not archive/delete/disable old repositories or live services until their unique useful assets are migrated or explicitly retained as reference and the replacement behavior is validated.
 
-A technology may be useful later without satisfying Sprint 1.
+The two internal acquisition implementations already present inside `job-hunter` must also be reconciled technically so future work does not continue along duplicate hidden paths.
 
-## 7. Current evidence and current status
+## 9. Next direction after Sprint 1
 
-The committed `apps/google-browser-search/` application was run against Google from the current cloud host. The acceptance evidence shows that Google returned an `unusual traffic` / CAPTCHA challenge before organic results could be read.
-
-A later discussion proposed a Product-Owner-local browser worker / extension as a diagnostic route. The Product Owner clarified that this is **not an acceptable final operating model**, because the real system must run automatically about twice per week without depending on the Product Owner's own computer.
-
-Therefore the current status is:
-
-**SPRINT 1 = NOT DONE**
-
-## 8. Direction for all next-step engineering
-
-Every proposed next step must answer **both** questions:
-
-> **A. Will this get us from two short keywords entered into Google to real, inspectable Google results?**
-
-> **B. Can it do so autonomously from a dedicated environment, approximately twice per week, without depending on the Product Owner's personal computer or physical presence?**
-
-If either answer is no, that work cannot be the Sprint 1 solution.
-
-Before any substantial implementation, run the smallest possible live falsification test of the proposed **final operating environment**. Do not build an application around a mechanism until that environment has first demonstrated that it can obtain a normal Google result page.
-
-A Product-Owner-local test may still be used to diagnose network-versus-automation causes, but it must never be mistaken for evidence that the final Sprint 1 operating model works.
-
-Portal-native adapters and other discovery sources may be evaluated later, but they must not replace or redefine this Sprint 1 goal.
+After relevance is proven, the next product direction is a repeatable review/learning workflow: structured per-result feedback and history, manual + scheduled runs, a practical web review surface, and continued source expansion where it improves real-job coverage. This is direction only until separately approved as Sprint 2 scope.
