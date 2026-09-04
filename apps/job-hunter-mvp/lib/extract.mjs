@@ -84,18 +84,36 @@ export function extractMetaSiteName(html) {
 // ("felsőfokú angol" or "Angol felsőfokú nyelvtudás" in a requirements list),
 // so a plain substring list would miss the reversed form. Match "angol" and
 // the level word within a short window of each other, in either order.
+// The window excludes ';' as well as '.'/'\n' — an earlier version only
+// stopped at sentence boundaries, so "Elvárt a felsőfokú német; angol
+// nyelvtudás előny." wrongly associated "felsőfokú" (which modifies
+// "német") with the unrelated "angol" clause across the semicolon
+// (found by independent Codex adversarial review, 2026-09-04).
 const ADVANCED_ENGLISH_REGEX =
-  /angol[^.\n]{0,25}(felsőfok|tárgyalóképes|tárgyalásképes|anyanyelvi|kiváló|c1|c2)|(felsőfok|tárgyalóképes|tárgyalásképes|anyanyelvi|kiváló|c1|c2)[^.\n]{0,25}angol|excellent english|fluent english|advanced english|negotiation[- ]level english|native[- ]level english/i;
+  /angol[^.\n;]{0,25}(felsőfok|tárgyalóképes|tárgyalásképes|anyanyelvi|kiváló|folyékony|magabiztos|üzleti szint|c1|c2)|(felsőfok|tárgyalóképes|tárgyalásképes|anyanyelvi|kiváló|folyékony|magabiztos|üzleti szint|c1|c2)[^.\n;]{0,25}angol|excellent english|fluent english|advanced english|negotiation[- ]level english|native[- ]level english/i;
 
 const BASIC_ENGLISH_REGEX =
-  /angol[^.\n]{0,25}(alapfok|középfok|jó angoltudás|b1|b2)|(alapfok|középfok)[^.\n]{0,25}angol|basic english|intermediate english/i;
+  /angol[^.\n;]{0,25}(alapfok|középfok|jó angoltudás|b1|b2)|(alapfok|középfok)[^.\n;]{0,25}angol|basic english|intermediate english/i;
+
+// PO_DECISIONS_2026-09-04.md §3: mandatory advanced English excludes, but
+// advanced English merely offered as a preference/advantage must NOT
+// exclude. The level-proximity regex above cannot tell "felsőfokú angol
+// kötelező" from "felsőfokú angol előnyt jelent" — both mention an
+// advanced level near "angol". This override looks for an explicit
+// preference/non-mandatory phrase near the same "angol" mention and, if
+// found, treats the match as non-exclusionary (found by independent Codex
+// adversarial review, 2026-09-04).
+const ENGLISH_PREFERENCE_OVERRIDE_REGEX =
+  /angol[^.\n;]{0,40}(előnyt jelent|előny|nem elvárás|nem feltétel|nem kötelező|nem szükséges)|(előnyt jelent|előny|nem elvárás|nem feltétel|nem kötelező|nem szükséges)[^.\n;]{0,40}angol/i;
 
 export function checkAdvancedEnglishRequired(text) {
-  return ADVANCED_ENGLISH_REGEX.test(text);
+  if (!ADVANCED_ENGLISH_REGEX.test(text)) return false;
+  return !ENGLISH_PREFERENCE_OVERRIDE_REGEX.test(text);
 }
 
 export function englishRequirementLabel(text) {
-  if (ADVANCED_ENGLISH_REGEX.test(text)) return 'advanced/fluent/native (EXCLUDING)';
+  if (checkAdvancedEnglishRequired(text)) return 'advanced/fluent/native (EXCLUDING)';
+  if (ADVANCED_ENGLISH_REGEX.test(text)) return 'advanced/fluent/native mentioned as preference/advantage (not disqualifying)';
   if (BASIC_ENGLISH_REGEX.test(text)) return 'basic/intermediate (not disqualifying)';
   return 'not specified in extracted text';
 }
@@ -178,9 +196,17 @@ const PROJECT_LEADERSHIP_MARKERS = [
   'szervezeti szereplők összehangolása',
 ];
 
+// Require at least two distinct markers, not one: a single incidental word
+// (e.g. a coordinator role mentioning "stakeholder" once, or a PM role
+// mentioning "projektterv" once with no other evidence) is not enough to
+// prove genuine direction of people/suppliers/delivery/development —
+// exactly the false positive an independent Codex adversarial review found
+// on 2026-09-04 (routine PM administration text like "Stakeholder
+// meetingek adminisztrációja." was wrongly credited as real leadership).
 export function hasProjectLeadershipScope(text) {
   const lower = text.toLowerCase();
-  return PROJECT_LEADERSHIP_MARKERS.some((m) => lower.includes(m));
+  const matched = PROJECT_LEADERSHIP_MARKERS.filter((m) => lower.includes(m));
+  return matched.length >= 2;
 }
 
 const INSTITUTIONAL_CONTEXT_MARKERS = [

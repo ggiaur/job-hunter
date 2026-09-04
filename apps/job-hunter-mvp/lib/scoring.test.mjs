@@ -182,6 +182,133 @@ test('score is always clamped to [0, 100]', () => {
   assert.ok(r.score <= 100 && r.score >= 0);
 });
 
+// --- Adversarial cases from the independent Codex acceptance review
+// (docs/product/SPRINT1_ACCEPTANCE_REVIEW_CODEX.md, 2026-09-04) ---
+
+test('Codex #1: a "manager"-titled role with zero corroborating scope evidence does not score visible', () => {
+  const r = computeRelevanceAssessment({
+    title: 'IT szolgáltatásmenedzser',
+    descriptionText: 'Önálló hibajegykezelés és felhasználói támogatás. Székesfehérvár.',
+    locationText: 'Székesfehérvár',
+    datePosted: new Date().toISOString(),
+    positionRelevant: true,
+    isGenericTitle: false,
+  });
+  assert.equal(r.hardExcluded, false);
+  assert.ok(r.score < RELEVANCE_VISIBLE_THRESHOLD, `expected <60 (no-scope-evidence penalty), got ${r.score}`);
+});
+
+test('Codex #1: broader IC title terms (szoftvermérnök, IT support, service desk) are hard excluded', () => {
+  assert.equal(isHardExcludedICRole('Szoftvermérnök', 'Önállóan fejleszt és üzemeltet.'), true);
+  assert.equal(isHardExcludedICRole('IT Support', 'Felhasználók támogatása.'), true);
+  assert.equal(isHardExcludedICRole('Service Desk Analyst', 'Incidenseket kezel.'), true);
+  assert.equal(isHardExcludedICRole('IT ügyféltámogató', 'Hibajegyek kezelése.'), true);
+});
+
+test('Codex #1: broader one-person-IT phrasing is caught', () => {
+  assert.equal(isOnePersonITRole('A vállalat egyetlen informatikusaként teljes körű IT-támogatást nyújt.'), true);
+  assert.equal(isOnePersonITRole('Az IT-infrastruktúra kizárólagos felelőse lesz.'), true);
+  assert.equal(isOnePersonITRole('Egy főből álló IT-csapatunkhoz keresünk kollégát.'), true);
+});
+
+test('Codex #2: a single incidental leadership word does not grant project-leadership credit', () => {
+  const r = computeRelevanceAssessment({
+    title: 'Senior Developer',
+    descriptionText: 'Stakeholder igényeket egyeztet a fejlesztéshez.',
+    locationText: 'Budapest',
+    datePosted: null,
+    positionRelevant: false, // "Senior Developer" title alone does not match target position terms
+    isGenericTitle: false,
+  });
+  // hard-excluded via isHardExcludedICRole (developer title, single incidental
+  // "stakeholder" word is not enough project-leadership evidence)
+  assert.equal(r.hardExcluded, true);
+});
+
+test('Codex #2: routine PM administration text (single marker) still gets the no-scope-evidence penalty', () => {
+  for (const desc of [
+    'Projektterv dokumentációjának karbantartása.',
+    'Erőforrásigények rögzítése.',
+    'Határidők nyomon követése.',
+    'Kockázatkezelési folyamat támogatása.',
+  ]) {
+    const r = computeRelevanceAssessment({
+      title: 'Projektmenedzser',
+      descriptionText: desc,
+      locationText: 'Budapest',
+      datePosted: null,
+      positionRelevant: true,
+      isGenericTitle: true,
+    });
+    assert.equal(r.hardExcluded, false);
+    assert.ok(r.score < RELEVANCE_VISIBLE_THRESHOLD, `expected <60 for weak evidence "${desc}", got ${r.score}`);
+  }
+});
+
+test('Codex #3: advanced English offered as a preference/advantage does not exclude', () => {
+  for (const desc of [
+    'Felsőfokú angol nyelvtudás előnyt jelent.',
+    'Angol nyelvtudás: felsőfok előny.',
+    'Tárgyalóképes angol előnyt jelent.',
+    'Elvárt a felsőfokú német; angol nyelvtudás előny.',
+  ]) {
+    const r = computeRelevanceAssessment({
+      title: 'IT vezető',
+      descriptionText: desc,
+      locationText: 'Budapest',
+      datePosted: null,
+      positionRelevant: true,
+      isGenericTitle: false,
+    });
+    assert.equal(r.hardExcluded, false, `should not exclude for: ${desc}`);
+  }
+});
+
+test('Codex #3: genuinely mandatory advanced English (fluent/confident business level) excludes', () => {
+  for (const desc of [
+    'Az angol nyelv magabiztos, üzleti használata elengedhetetlen.',
+    'Folyékony angol kommunikáció szükséges.',
+  ]) {
+    const r = computeRelevanceAssessment({
+      title: 'IT vezető',
+      descriptionText: desc,
+      locationText: 'Budapest',
+      datePosted: null,
+      positionRelevant: true,
+      isGenericTitle: false,
+    });
+    assert.equal(r.hardExcluded, true, `should exclude for: ${desc}`);
+  }
+});
+
+test('Codex #4: cafeteria/travel/project-budget HUF amounts are not misread as salary', () => {
+  for (const desc of [
+    'Éves cafeteria keret: 500 000 Ft.',
+    'Utazási támogatás maximum 650 000 Ft/év.',
+    'A projekt költségvetése 600 000 Ft.',
+  ]) {
+    const r = scoreSalary(desc);
+    assert.equal(r.amount, null, `should not attribute a salary from: ${desc}`);
+    assert.equal(r.points, 0);
+  }
+});
+
+test('Codex #4: "Bruttó 650.000,- Ft" formatting is correctly read as a real salary', () => {
+  const r = scoreSalary('Bruttó 650.000,- Ft/hó.');
+  assert.equal(r.amount, 650000);
+  assert.equal(r.points, -10);
+});
+
+test('Codex #5: a short ring-city substring inside an unrelated word does not score a location bonus', () => {
+  const r = scoreLocation('London', 'Learn more about our company.');
+  assert.equal(r.points, 0, 'the English word "more" must not match the "Mor" ring-city term');
+});
+
+test('Codex #5: "tatai ügyfél" (a client from Tata, in a Budapest role) does not override the real workplace', () => {
+  const r = scoreLocation('Budapest', 'Rendszeres egyeztetés egy tatai ügyféllel.');
+  assert.equal(r.points, 6, 'should score as Budapest, not the Tata ring bonus, from an incidental client mention');
+});
+
 test('every non-excluded assessment carries both fit and mismatch context when applicable (explainability requirement)', () => {
   const r = computeRelevanceAssessment({
     title: 'Projektmenedzser',

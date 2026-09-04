@@ -23,14 +23,20 @@ import {
 // Plain substring match, not \b-anchored regex: JS's default \w is ASCII-only,
 // so a trailing \b after an accented Hungarian word ending (e.g. "fejlesztő")
 // silently fails to match — confirmed via this file's own test suite.
-const IC_ONLY_TITLE_TERMS = ['fejlesztő', 'developer', 'programozó', 'programmer', 'helpdesk', 'support specialist', 'ügyfélszolgálati munkatárs', 'ügyfélszolgálati informatikus'];
+// Expanded per independent Codex adversarial review (2026-09-04), which
+// found "szoftvermérnök", "it support", "service desk", and Hungarian
+// customer-support synonyms slipped past the original narrow list.
+const IC_ONLY_TITLE_TERMS = ['fejlesztő', 'developer', 'programozó', 'programmer', 'szoftvermérnök', 'software engineer', 'helpdesk', 'help desk', 'service desk', 'support specialist', 'it support', 'ügyfélszolgálati munkatárs', 'ügyfélszolgálati informatikus', 'ügyféltámogató'];
 
 const ONE_PERSON_IT_MARKERS = [
   'egyszemélyes it',
   'egyszemélyes informatik',
   'egy fős it csapat',
+  'egy főből álló it',
+  'egyetlen informatikusaként',
   'egyedül felel az it',
   'önállóan felel az összes it',
+  'kizárólagos felelőse lesz',
   'one-person it',
   'sole it',
   'you will be the only it',
@@ -56,10 +62,28 @@ const SECONDARY_CITIES = ['pécs', 'pecs', 'szeged', 'szombathely', 'sopron'];
 const REMOTE_HYBRID_MARKERS = /home\s?office|remote|távmunka|hibrid|hybrid/i;
 const BUDAPEST_MARKERS = /budapest|agglomeráció/i;
 
+// Manual word-boundary check: JS's native \b is ASCII-only \w, so it cannot
+// be trusted around accented Hungarian letters (see the checkAdvancedEnglishRequired
+// fix history in extract.mjs). Short ring-city forms like "mor" or "tata"
+// need this — plain .includes() matched "mor" inside the English word
+// "more" and would match "tata" inside unrelated longer words, found by
+// independent Codex adversarial review (2026-09-04).
+const HU_WORD_CHAR = /[a-z0-9áéíóöőúüű]/i;
+function includesWholeWord(haystack, needle) {
+  let idx = 0;
+  while ((idx = haystack.indexOf(needle, idx)) !== -1) {
+    const before = idx === 0 ? '' : haystack[idx - 1];
+    const after = idx + needle.length >= haystack.length ? '' : haystack[idx + needle.length];
+    if (!HU_WORD_CHAR.test(before) && !HU_WORD_CHAR.test(after)) return true;
+    idx += needle.length;
+  }
+  return false;
+}
+
 export function scoreLocation(locationText, descriptionText) {
   const lower = `${locationText || ''} ${descriptionText || ''}`.toLowerCase();
   const remoteOrHybrid = REMOTE_HYBRID_MARKERS.test(lower);
-  if (PRIMARY_RING.some((c) => lower.includes(c))) {
+  if (PRIMARY_RING.some((c) => includesWholeWord(lower, c))) {
     return { points: 15, note: 'Fehérvárcsurgóról jól elérhető helyszín (elsődleges gyűrű: Székesfehérvár/Mór/Várpalota/Győr/Tata/Tatabánya/Veszprém/Dunaújváros).' };
   }
   if (remoteOrHybrid) {
@@ -68,22 +92,36 @@ export function scoreLocation(locationText, descriptionText) {
   if (BUDAPEST_MARKERS.test(lower)) {
     return { points: 6, note: 'Budapest/agglomeráció — ingázással elérhető, de nem az elsődleges gyűrű.' };
   }
-  if (SECONDARY_CITIES.some((c) => lower.includes(c))) {
+  if (SECONDARY_CITIES.some((c) => includesWholeWord(lower, c))) {
     return { points: 4, note: 'Távolabbi magyar város — csak ritka/hibrid jelenlét mellett reális, ezért csak kis pontszám, nem kizárás.' };
   }
   return { points: 0, note: 'Helyszín nem azonosítható a szövegből — nem kizáró ok (nincs vak helyszín-tiltás), csak nulla pontszámú semleges jelzés.' };
 }
 
-// Crude but deliberately conservative HUF gross-salary reader: requires an
-// explicit currency marker immediately after the number, and a plausible
-// monthly-gross magnitude, so unrelated numbers (dates, phone numbers) are
-// not misread as salary. Never fabricates a figure when none is present.
-const SALARY_REGEX = /(\d[\d\s.]{2,})\s?(?:ft|huf|forint)\b/i;
+// Deliberately conservative HUF gross-salary reader. An earlier version
+// matched ANY number immediately followed by "Ft"/"HUF"/"forint" — an
+// independent Codex adversarial review (2026-09-04) showed this fabricates
+// a salary reading from cafeteria budgets, travel allowances, and project
+// budgets that happen to be phrased in HUF. Now requires an explicit
+// salary-context word (fizetés/bér/kereset/jövedelem/bruttó/nettó) within a
+// short window of the number, and allows a little punctuation/whitespace
+// between the number and the currency marker (e.g. "650.000,- Ft").
+const SALARY_CONTEXT_WORDS = '(?:fizetés|bér|kereset|jövedelem|bruttó|nettó)';
+// The bridge between the context word and the number excludes digits, not
+// just '.'/'\n'/';': a plain [^.\n;] bridge is greedy and happily eats into
+// the number itself (e.g. "Bruttó fizetés: 550000 Ft" backtracked to
+// capturing only the trailing "00" instead of "550000"), found while
+// verifying the fix for the salary-misattribution bug Codex reported.
+const SALARY_REGEX = new RegExp(
+  `${SALARY_CONTEXT_WORDS}[^.\\n;\\d]{0,20}(\\d[\\d\\s.]{2,})[\\s,.\\-]{0,4}(?:ft|huf|forint)\\b` +
+  `|(\\d[\\d\\s.]{2,})[\\s,.\\-]{0,4}(?:ft|huf|forint)\\b[^.\\n;\\d]{0,20}${SALARY_CONTEXT_WORDS}`,
+  'i',
+);
 
 export function scoreSalary(descriptionText) {
   const m = (descriptionText || '').match(SALARY_REGEX);
   if (!m) return { points: 0, note: 'Fizetés nincs megadva a hirdetésben — semleges, nem büntetjük.', amount: null };
-  const amount = parseInt(m[1].replace(/[\s.]/g, ''), 10);
+  const amount = parseInt((m[1] || m[2]).replace(/[\s.]/g, ''), 10);
   if (!Number.isFinite(amount) || amount < 200000 || amount > 3000000) {
     return { points: 0, note: 'A szövegben talált szám nem értelmezhető megbízhatóan havi bruttó fizetésként — semleges, nem találgatunk.', amount: null };
   }
@@ -161,17 +199,28 @@ export function computeRelevanceAssessment({ title, descriptionText, locationTex
     score += 15;
     fitReasons.push('Valódi projekt-/programvezetői felelősség (tervezés, erőforrás/határidő/kockázat, stakeholder-koordináció) — közvetlen beosztottak nélkül is elfogadott a PO döntés szerint.');
   }
+
   if (!hasMgmtScope && !hasProjectLeadership) {
     mismatchReasons.push('A szövegből nem derül ki konkrét vezetői vagy projektvezetői felelősség — csak a cím alapján releváns.');
-  }
-
-  if (isLikelySeniorICWithoutManagement(title, descriptionText)) {
-    score -= 25;
-    mismatchReasons.push('Senior szakértői/technical lead cím, vezetői felelősség jele nélkül.');
-  }
-  if (isPMWithoutManagementScope(title, descriptionText)) {
-    score -= 15;
-    mismatchReasons.push('Projektmenedzseri cím, de a szöveg nem támasztja alá a valódi vezetői/projektvezetői felelősséget.');
+    if (isLikelySeniorICWithoutManagement(title, descriptionText)) {
+      score -= 25;
+      mismatchReasons.push('Senior szakértői/technical lead cím, vezetői felelősség jele nélkül.');
+    } else if (isPMWithoutManagementScope(title, descriptionText)) {
+      score -= 15;
+      mismatchReasons.push('Projektmenedzseri cím, de a szöveg nem támasztja alá a valódi vezetői/projektvezetői felelősséget.');
+    } else {
+      // General case: any other matched title (including "manager"/"menedzser"
+      // labeled roles such as "IT szolgáltatásmenedzser") with literally zero
+      // corroborating scope evidence. An earlier version only penalized the
+      // two narrow title patterns above and left every other matched title
+      // unpenalized, so a bare "IT szolgáltatásmenedzser" with no leadership
+      // evidence at all scored 78/visible — found by independent Codex
+      // adversarial review (2026-09-04); a title label alone is not proof of
+      // real leadership per PO_DECISIONS §2's "pure individual-contributor
+      // roles... hard exclusion" intent, which this generalizes to.
+      score -= 30;
+      mismatchReasons.push('A cím vezetői/menedzseri jellegű, de a leírásban semmilyen konkrét vezetői vagy projektvezetői felelősség nem azonosítható — erősen visszasorolva.');
+    }
   }
 
   if (hasInstitutionalContext(descriptionText)) {
