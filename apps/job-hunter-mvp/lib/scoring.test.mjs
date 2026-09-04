@@ -309,6 +309,54 @@ test('Codex #5: "tatai ügyfél" (a client from Tata, in a Budapest role) does n
   assert.equal(r.points, 6, 'should score as Budapest, not the Tata ring bonus, from an incidental client mention');
 });
 
+// --- Regression cases from the Hourly Repository Supervisor's inspection
+// of the real live-run snapshot (docs/evidence/job-hunter-runs/latest.json,
+// generated 2026-09-04T11:29:18.410Z) -- JOB-HUNTER-SPRINT1-LIVE-FALSENEGATIVE-001 ---
+
+test('Supervisor #1: real WHC Ltd "Rendszermérnök Csoportvezető" keyDuties text is recognized as genuine management scope', () => {
+  const keyDuties = 'Feladatok\n Rendszermérnökök és rendszerintegrációs szakemberek csapatának hatékony, átlátható működtetése\n Éves célok kidolgozása, jóváhagyatása és teljesülésük biztosítása\n Együttműködés belső egységekkel és külső partnerekkel, koordináció ellátása\n Részvétel vállalati és IT-projektekben\n Csapattagok motiválása, fejlesztése teljesítményalapú jutalmazás támogatása\n Szabályzatok és jogszabályok betartása és betartatása\n Központi IT infrastruktúra üzemeltetésének, karbantartásának és fejlesztéséne';
+  const r = computeRelevanceAssessment({
+    title: 'Rendszermérnök Csoportvezető',
+    descriptionText: keyDuties,
+    locationText: 'Budapest, HU',
+    datePosted: new Date(Date.now() - 21 * 86400000).toISOString(),
+    positionRelevant: true,
+    isGenericTitle: true,
+  });
+  assert.equal(r.hardExcluded, false);
+  assert.ok(r.score >= RELEVANCE_VISIBLE_THRESHOLD, `expected >=60 with real leadership evidence recognized, got ${r.score}`);
+  assert.equal(r.visible, true);
+  assert.ok(
+    r.fitReasons.some((f) => f.includes('vezetői')),
+    'expected a fit reason crediting management/people-leadership scope'
+  );
+});
+
+test('Supervisor #1 guard: a plain developer role "team development" text (no leadership) still does not trigger management scope', () => {
+  // Guards against the exact collision risk this fix introduces: bare
+  // "fejleszt-" (generic "software development") must not fire the new
+  // team-operation detector just because "csapat" also appears nearby.
+  const r = computeRelevanceAssessment({
+    title: 'Senior Fejlesztő',
+    descriptionText: 'Csapatban dolgozunk, agilis fejlesztés, kódolás.',
+    locationText: 'Budapest',
+    datePosted: null,
+    positionRelevant: false,
+    isGenericTitle: false,
+  });
+  assert.equal(r.hardExcluded, true);
+});
+
+test('Supervisor #2: real WAY Group/CAIP Hungary record with a known but unlisted city gives an accurate, non-misleading location explanation', () => {
+  const r = scoreLocation('Nyíregyháza, HU', 'Building a new manufacturing facility in Nyíregyháza.');
+  assert.equal(r.points, 0, 'unlisted distant city stays neutral, never a hard exclusion');
+  assert.ok(
+    r.note.includes('Nyíregyháza'),
+    `expected the explanation to name the identified location instead of claiming it could not be identified, got: ${r.note}`
+  );
+  assert.ok(!r.note.includes('nem azonosítható'), 'must not claim the location could not be identified when locationText was populated');
+});
+
 test('every non-excluded assessment carries both fit and mismatch context when applicable (explainability requirement)', () => {
   const r = computeRelevanceAssessment({
     title: 'Projektmenedzser',

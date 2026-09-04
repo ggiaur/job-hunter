@@ -150,6 +150,8 @@ const MANAGEMENT_SCOPE_MARKERS = [
   'költségvetési felelősség',
   'emberek irányítása',
   'teljesítményértékelés',
+  'csapattagok motiválása',
+  'csapattagok fejlesztése',
   'people management',
   'direct reports',
   'line management',
@@ -158,9 +160,37 @@ const MANAGEMENT_SCOPE_MARKERS = [
   'managing a team',
 ];
 
+// Fixed-phrase substring markers above miss real Hungarian inflected forms
+// -- e.g. "csapatának ... működtetése" ("operating his/her team") never
+// contains the literal substring "csapata" because the dative suffix
+// lengthens the final vowel (a -> á). Rather than enumerate every inflected
+// form, this regex requires the "csapat" stem to be followed, within at
+// most a few words, by a possessive-suffixed operating/leading noun form
+// (e.g. "...vezetése", "...irányítása", "...működtetése" -- literally "the
+// leading/directing/running OF [the team]"). That specific grammatical
+// pattern is what genuinely means "I run/lead the team", so it stays a
+// two-piece proximity requirement (not a single generic word) without
+// reopening the single-incidental-word false positive an independent Codex
+// adversarial review found in the separate PROJECT_LEADERSHIP_MARKERS logic
+// on 2026-09-04. Deliberately excludes broad domain-collision stems like
+// bare "fejleszt-" (which also means generic "software development" and
+// would falsely fire on "csapatban dolgozunk, agilis fejlesztés") -- the
+// team-member-development phrasing is instead covered by the two exact
+// MANAGEMENT_SCOPE_MARKERS entries above.
+// Found via the real "Rendszermérnök Csoportvezető" @ WHC Ltd false
+// negative (Hourly Repository Supervisor, 2026-09-04): keyDuties genuinely
+// describes running a team of systems engineers, but hasManagementScope
+// returned false.
+// \S* (not \w*) to consume the rest of the current word: JS's \w is
+// ASCII-only and does not match accented Hungarian letters, so an inflected
+// suffix like "-ának" directly appended with no space (e.g. "csapatának")
+// would otherwise break the match right after the plain "csapat" stem.
+const TEAM_OPERATED_REGEX = /csapat\S*(?:\s+\S+){0,4}?\s+(irányítása|vezetése|működtetése|menedzselése|felügyelete)/i;
+
 export function hasManagementScope(text) {
   const lower = text.toLowerCase();
-  return MANAGEMENT_SCOPE_MARKERS.some((m) => lower.includes(m));
+  if (MANAGEMENT_SCOPE_MARKERS.some((m) => lower.includes(m))) return true;
+  return TEAM_OPERATED_REGEX.test(lower);
 }
 
 const SENIOR_IC_TITLE_MARKERS = /senior fejlesztő|senior developer|technical lead|tech lead|senior mérnök|senior engineer/i;

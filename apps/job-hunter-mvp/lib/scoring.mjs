@@ -95,6 +95,21 @@ export function scoreLocation(locationText, descriptionText) {
   if (SECONDARY_CITIES.some((c) => includesWholeWord(lower, c))) {
     return { points: 4, note: 'Távolabbi magyar város — csak ritka/hibrid jelenlét mellett reális, ezért csak kis pontszám, nem kizárás.' };
   }
+  // Distinguish "locationText really is empty/missing" from "locationText is
+  // present but names a city outside the recognized rings" -- the previous
+  // single fallback message claimed the location "cannot be identified from
+  // the text" even when locationText was populated (e.g. "Nyíregyháza, HU"),
+  // which is factually wrong and misleading in the explanation shown to the
+  // PO. Found by the Hourly Repository Supervisor, 2026-09-04, on a real WAY
+  // Group/CAIP Hungary record. Scoring stays neutral either way (0 points,
+  // never a hard exclusion) per PO_DECISIONS §5 -- only the explanation text
+  // changes.
+  if (locationText && locationText.trim()) {
+    return {
+      points: 0,
+      note: `Helyszín azonosítva (${locationText.trim()}), de nem esik az elsődleges/másodlagos gyűrűbe vagy Budapestre, és táv-/hibrid munkavégzésre sincs jelzés — nem kizáró ok, csak nulla pontszámú semleges jelzés.`,
+    };
+  }
   return { points: 0, note: 'Helyszín nem azonosítható a szövegből — nem kizáró ok (nincs vak helyszín-tiltás), csak nulla pontszámú semleges jelzés.' };
 }
 
