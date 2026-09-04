@@ -34,14 +34,22 @@ const KNOWN_NON_DETAIL_PREFIXES = [
   { prefix: '/allas-kulcsszo', reason: 'keyword-search entry point' },
 ];
 
-// Generic fallback for any future non-Profession listing source: still
-// requires a job-path hint, but additionally excludes the same classes of
-// non-detail path (RSS, alerts, advice, pagination-style query-only pages)
-// so a new source doesn't silently regress to the old over-inclusive
-// behavior. Kept intentionally conservative -- Profession.hu is the only
-// verified listing source in this pipeline.
+// Generic fallback for any future non-Profession listing source. Originally
+// a bare job-path-hint substring match; an independent Codex adversarial
+// review (2026-09-04) reproduced the exact cap-exhaustion bug through this
+// fallback with a fixture (/companies/acme-careers-1001, /job-feed/...,
+// /allasfigyelo/feliratkozas-... all wrongly classified DETAIL). Fixed by
+// requiring the SAME structural signal the Profession-specific regex uses --
+// a trailing numeric ID -- not just a keyword appearing anywhere in the
+// path, so a category/feed/alert page with an incidental job-word cannot
+// pass just because it also happens to end in a number.
 const GENERIC_JOB_PATH_HINTS = ['allas', 'job', 'vacancy', 'poz', 'career', 'karrier', 'toborzas'];
-const GENERIC_NON_DETAIL_HINTS = ['rss', 'ertesito', 'alert', 'tanacs', 'kulcsszo', 'signup', 'regisztracio'];
+// 'compan'/'employer' cover /companies/, /company/, /employer/ -- common
+// company-profile/directory path segments across job boards generally, not
+// specific to one fixture; a trailing numeric ID alone (company ID) is not
+// enough to distinguish a company-profile page from a real vacancy page.
+const GENERIC_NON_DETAIL_HINTS = ['rss', 'ertesito', 'alert', 'tanacs', 'kulcsszo', 'signup', 'regisztracio', 'feed', 'figyelo', 'compan', 'employer'];
+const GENERIC_TRAILING_ID_REGEX = /-\d{3,}\/?$/;
 
 function decodeHtmlEntities(s) {
   return s.replace(/&amp;/gi, '&').replace(/&lt;/gi, '<').replace(/&gt;/gi, '>').replace(/&quot;/gi, '"').replace(/&#39;/gi, "'");
@@ -62,7 +70,10 @@ export function classifyJobPath(hostname, pathname) {
   // Generic fallback for a non-Profession source.
   const lowerPath = pathname.toLowerCase();
   if (GENERIC_NON_DETAIL_HINTS.some((h) => lowerPath.includes(h))) {
-    return { kind: 'OTHER', reason: 'matches a known non-detail path hint (alert/rss/advice/signup)' };
+    return { kind: 'OTHER', reason: 'matches a known non-detail path hint (alert/rss/feed/advice/signup)' };
+  }
+  if (!GENERIC_TRAILING_ID_REGEX.test(pathname)) {
+    return { kind: 'OTHER', reason: 'no trailing numeric ID -- does not match the vacancy-detail structural pattern' };
   }
   if (GENERIC_JOB_PATH_HINTS.some((h) => lowerPath.includes(h))) return { kind: 'DETAIL' };
   return { kind: 'OTHER', reason: 'no job-path hint matched' };

@@ -124,3 +124,33 @@ test('discoverPaginationLinks respects the maxPages bound', () => {
   const pages = discoverPaginationLinks(many, 'https://www.profession.hu/allasok/budapest/1,0,23,x', 2);
   assert.equal(pages.length, 2);
 });
+
+test('Codex adversarial finding #1: the generic non-Profession fallback no longer misclassifies career/feed/alert pages as DETAIL', () => {
+  // Exact reproduction of the independent Codex adversarial review
+  // (2026-09-04): a company-profile page, a job-feed page, and a Hungarian
+  // job-alert-signup page, none of which are real vacancy detail pages, were
+  // all classified DETAIL by the original generic fallback because it only
+  // checked for a job-path substring anywhere in the URL. Fixed by requiring
+  // the same trailing-numeric-ID structural signal as the Profession-
+  // specific classifier.
+  const html = `
+    <a href="/companies/acme-careers-1001">Acme careers hub</a>
+    <a href="/job-feed/latest-1002">Job feed</a>
+    <a href="/allasfigyelo/feliratkozas-1003">Job alert signup</a>
+    <a href="/jobs/genuine-vacancy-2001">Genuine vacancy 1</a>
+    <a href="/jobs/genuine-vacancy-2002">Genuine vacancy 2</a>
+    <a href="/jobs/genuine-vacancy-2003">Genuine vacancy 3</a>
+  `;
+  const result = extractJobLikeLinks(html, 'https://careers.example.hu/jobs', 3);
+  assert.equal(result.detailLinks.some((u) => u.includes('acme-careers-1001')), false, 'company-profile page must not be classified DETAIL');
+  assert.equal(result.detailLinks.some((u) => u.includes('job-feed/latest-1002')), false, 'job-feed page must not be classified DETAIL');
+  assert.equal(result.detailLinks.some((u) => u.includes('allasfigyelo/feliratkozas-1003')), false, 'job-alert signup must not be classified DETAIL');
+  assert.equal(result.detailLinks.length, 3, 'only the 3 genuine vacancies should be queued');
+  assert.ok(result.detailLinks.every((u) => u.includes('genuine-vacancy')));
+});
+
+test('classifyJobPath: generic fallback requires a trailing numeric ID, not just a job-path keyword', () => {
+  assert.equal(classifyJobPath('careers.example.hu', '/companies/acme-careers-1001').kind, 'OTHER');
+  assert.equal(classifyJobPath('careers.example.hu', '/jobs/genuine-vacancy-2001').kind, 'DETAIL');
+  assert.equal(classifyJobPath('careers.example.hu', '/jobs/no-trailing-id-here').kind, 'OTHER');
+});

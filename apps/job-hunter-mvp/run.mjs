@@ -18,7 +18,7 @@ import { persistRunHistory } from './lib/run-history.mjs';
 import { buildAcquisitionQueries, ROLE_FAMILIES } from './lib/queries.mjs';
 import { runDirectProfessionAcquisition } from './lib/profession-direct.mjs';
 import { createStageEvidenceRow, buildListingCoverageRow, summarizeFunnel } from './lib/stage-evidence.mjs';
-import { checkCanaries } from './lib/canaries.mjs';
+import { checkCanaries, allCanariesReachedScoring } from './lib/canaries.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
@@ -162,6 +162,9 @@ async function main() {
     const e = evidence(norm);
     if (!e.discoveredVia) e.discoveredVia = 'serpapi';
     e.query = r.query;
+    // Fix for Codex adversarial finding #3: SerpApi returns a real organic
+    // rank (r.position) that was never propagated to stage evidence.
+    if (e.serpRank == null) e.serpRank = r.position ?? null;
   }
   console.log(`\nUnique candidate URLs from SERP: ${stageACandidates.size}`);
 
@@ -203,7 +206,13 @@ async function main() {
   const confirmedJobAds = []; // { ...cand, schema, html }
   const listingPages = [];
   const unreachable = [];
-  const listingCoverage = [];
+  // Map, not array: rows are created at Stage B/pagination-discovery time
+  // with default zero fetchedCount/confirmedCount, then MUTATED once Stage
+  // C actually fetches their candidate links below. An independent Codex
+  // adversarial review (2026-09-04) found the prior array-only version
+  // never updated these counts, so every persisted run falsely reported
+  // fetchedCount/confirmedCount as 0 for every listing page.
+  const listingCoverageMap = new Map();
 
   for (const item of stageBResults) {
     const e = evidence(item.url);
@@ -222,7 +231,7 @@ async function main() {
     } else if (cls.kind === 'LISTING') {
       const paginationLinks = discoverPaginationLinks(item.fetched.html, item.url, MAX_PAGINATION_PAGES_PER_LISTING);
       listingPages.push({ ...item, jobLinks: cls.linkResult.detailLinks, paginationLinks });
-      listingCoverage.push(buildListingCoverageRow(item.url, cls.linkResult));
+      listingCoverageMap.set(item.url, buildListingCoverageRow(item.url, cls.linkResult));
     } else {
       unreachable.push({ url: item.url, reason: 'no schema.org JobPosting data and too few real vacancy-detail links to classify as a listing' });
       e.outcome = 'unreachable';
@@ -255,7 +264,7 @@ async function main() {
       e.fetch = { attempted: true, ok: fetched.ok, status: fetched.status ?? null, error: fetched.error ?? null };
       if (!fetched.ok || !fetched.html) continue;
       const pageLinks = extractJobLikeLinks(fetched.html, pageUrl, LISTING_LINK_CAP);
-      listingCoverage.push(buildListingCoverageRow(pageUrl, pageLinks));
+      listingCoverageMap.set(pageUrl, buildListingCoverageRow(pageUrl, pageLinks));
       for (const link of pageLinks.detailLinks) {
         secondLevelCandidates.push({ url: normalizeUrl(link), serpTitle: lp.serpTitle, snippet: lp.snippet, query: lp.query, priorityWeight: lp.priorityWeight, fromListing: pageUrl });
       }
@@ -282,6 +291,12 @@ async function main() {
   for (const item of secondLevelResults) {
     const e = evidence(item.url);
     e.fetch = { attempted: true, ok: item.fetched.ok, status: item.fetched.status ?? null, error: item.fetched.error ?? null };
+    // Real per-listing coverage counters (fix for Codex adversarial finding
+    // #2): every second-level candidate traces back to the listing page
+    // that produced it via fromListing, so its fetch/confirm outcome
+    // updates that page's row in place.
+    const coverageRow = item.fromListing ? listingCoverageMap.get(item.fromListing) : null;
+    if (coverageRow) coverageRow.fetchedCount += 1;
     if (!item.fetched.ok || !item.fetched.html) {
       unreachable.push({ url: item.url, reason: item.fetched.error || `HTTP ${item.fetched.status}`, fromListing: item.fromListing });
       e.outcome = 'unreachable';
@@ -294,6 +309,7 @@ async function main() {
       e.sourceType = 'JOB_AD_CONFIRMED';
       confirmedJobAds.push({ ...item, schema, html: item.fetched.html });
       secondLevelConfirmed++;
+      if (coverageRow) coverageRow.confirmedCount += 1;
     } else {
       unreachable.push({ url: item.url, reason: 'second-level link had no schema.org JobPosting data; excluded to avoid presenting an unverified page as a job ad', fromListing: item.fromListing });
       e.outcome = 'unreachable';
@@ -340,6 +356,10 @@ async function main() {
 
     const positionRelevant =
       matchesTargetPosition(title) || (isGenericProjectTitle(title) && hasITDomainContext(descriptionText));
+    // Fix for Codex adversarial finding #3: this decision was computed but
+    // never recorded on the stage-evidence row, leaving titleDomainGate
+    // permanently null.
+    e.titleDomainGate = positionRelevant ? 'passed' : 'failed';
 
     const assessment = computeRelevanceAssessment({
       title,
@@ -357,7 +377,11 @@ async function main() {
       continue;
     }
 
-    e.outcome = 'visible'; // provisional; corrected to 'deduped' below if collapsed
+    // Independent Codex adversarial review (2026-09-04) found this was
+    // unconditionally 'visible' regardless of the real score, making the
+    // funnel summary misleading for exactly a false-negative investigation.
+    // Provisional; corrected to 'deduped' below if collapsed.
+    e.outcome = assessment.visible ? 'visible' : 'scored_below_threshold';
     e.score = assessment.score;
     e.visible = assessment.visible;
 
@@ -400,14 +424,19 @@ async function main() {
 
   // JH-SUP-0026 section 2: known-positive canary check. Discovery through
   // real acquisition only -- canaries are never injected into results.
-  const allTrackedUrls = [...stageEvidence.keys()];
-  const canaryResults = checkCanaries(allTrackedUrls, { results, excluded });
-  for (const c of canaryResults) {
-    console.log(`Canary [${c.id}]: ${c.status}${c.score != null ? ` (score ${c.score})` : ''}`);
-  }
-
+  // Uses full stage-evidence rows (not bare URL presence) per the fix for
+  // Codex adversarial finding #5 -- a canary must have a real fetch outcome
+  // to be more than NOT_ACQUIRED.
   const stageEvidenceRows = [...stageEvidence.values()];
+  const canaryResults = checkCanaries(stageEvidenceRows, { results, excluded });
+  const canariesReachedScoring = allCanariesReachedScoring(canaryResults);
+  for (const c of canaryResults) {
+    console.log(`Canary [${c.id}]: ${c.status}${c.score != null ? ` (score ${c.score})` : ''}${c.fetchError ? ` (${c.fetchError})` : ''}`);
+  }
+  console.log(`Canaries reached scoring (visible/below-threshold/excluded, not merely discovered): ${canariesReachedScoring ? 'YES' : 'NO'}`);
+
   const funnelSummary = summarizeFunnel(stageEvidenceRows);
+  const listingCoverage = [...listingCoverageMap.values()];
 
   const output = {
     generatedAt: new Date().toISOString(),
@@ -430,6 +459,7 @@ async function main() {
     stageEvidence: stageEvidenceRows,
     funnelSummary,
     canaries: canaryResults,
+    canariesReachedScoring,
   };
 
   const outPath = path.join(REPO_ROOT, 'docs', 'evidence', 'real-job-hunter-current-run.json');
