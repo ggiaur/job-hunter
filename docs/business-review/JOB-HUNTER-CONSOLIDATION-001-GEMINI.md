@@ -1,107 +1,121 @@
-# Job Hunter — One-Repo Consolidation Audit & Planning (Gemini, Independent)
+# Job Hunter — One-Repo Consolidation Audit & Asset Inventory (Gemini, Independent)
 
 **Task:** `JOB-HUNTER-CONSOLIDATION-001` (Track B of `JOB-HUNTER-PO-CLARIFICATION-AND-CONSOLIDATION-001`)  
-**Role:** Gemini 3.6 Flash (Independent AI Research & System Audit Role)  
+**Role:** Gemini 3.6 Flash (Independent AI System Architecture & Asset Audit Role)  
 **Date:** 2026-09-04  
-**Scope:** Analysis and migration planning only. **Zero code moves, zero merges, zero file deletions, zero service/scheduler disables, and zero repository retirements were performed.**  
-**Canonical Destination Repository:** `ggiaur/job-hunter` (Confirmed target).  
-**Repositories Inspected:**
-- `job-hunter` (local checkout `/srv/projects/job-hunter`)
-- `job-searcher` (local checkout `/srv/projects/job-searcher`)
-- `allas-figyelo` (cloned checkout `git@github.com:ggiaur/allas-figyelo.git`)
-- `cv-linkedin` (remote checked via `git ls-remote git@github.com:ggiaur/cv-linkedin.git` — confirmed 0 refs/empty)
+**Status:** Complete Audit & Strategy (Analysis & Planning Only — No Merges or Deletions Executed)  
+**Canonical Repository Target:** `ggiaur/job-hunter` (Confirmed identity; canonical single-repo owner for the product).  
+**Inspected Scope:**
+- `ggiaur/job-hunter` (local workspace `/srv/projects/job-hunter`)
+- `ggiaur/job-searcher` (local workspace `/srv/projects/job-searcher`)
+- `ggiaur/allas-figyelo` (cloned checkout `/home/dockeruser/.gemini/antigravity-cli/brain/159798aa-aac1-49e9-a4c1-cc55472aa259/scratch/allas-figyelo`)
+- `ggiaur/cv-linkedin` (confirmed empty remote; 0 refs, 0 commits, no assets)
 
 ---
 
-## 1. Executive Summary & Core Findings
+## 1. Executive Summary & Code Lineage Verification
 
-1. **Lineage & Dead Code Verification:**  
-   `job-hunter` was originally bootstrapped from `job-searcher`. The files `bot_service.py` and `Dockerfile.bot` in `job-hunter` are **byte-identical** to those in `job-searcher` (`diff` exit code 0). However, `job-hunter`'s active operational pipeline (`apps/job-hunter-mvp/run.mjs` under JH-SUP-0022/0023) does **not** import or execute `bot_service.py`. Therefore, the bot-service files inside `job-hunter` represent **dead code** relative to the live production pipeline.
+1. **Canonical Mandate:**  
+   `ggiaur/job-hunter` is established as the sole canonical repository for the Job Hunter product. All legacy repositories (`job-searcher`, `allas-figyelo`, `cv-linkedin`) will eventually be retired after unique valuable assets are migrated into `job-hunter`.
 
-2. **Complementary Assets Identified:**  
-   `job-searcher` and `allas-figyelo` contain valuable capabilities that directly solve gaps identified in Track A's business model review:
-   - **Feedback & Learning (`job-searcher`):** Working 1-click feedback capture (`tools/feedback.py`) and active-learning rule auto-promotion (2x DISLIKE → `exclusions.yaml`, 2x LIKE → `preferred_companies.yaml`).
-   - **Direct Source Ingestion (`job-searcher`):** Direct Profession.hu scraper via Firecrawl (`tools/scraper.py`), bypassing search engine indexing latency.
-   - **Geographic & Aggregator Expansion (`allas-figyelo`):** Jooble API adapter (`fetch_jobs.py`) covering the PO's home region (Székesfehérvár, Győr, Veszprém, Tata, Tatabánya, Várpalota).
-   - **Web Presentation (`allas-figyelo`):** Lightweight static web UI output generator (`docs/jobs.json` + GitHub Pages pattern).
+2. **Code Lineage Audit (`job-hunter` vs `job-searcher`):**  
+   - `job-hunter` was originally bootstrapped from `job-searcher`.
+   - `job-hunter/bot_service.py` and `job-searcher/bot_service.py` are **byte-identical** (137 lines, `diff` exit 0).
+   - `job-hunter/Dockerfile.bot` and `job-searcher/Dockerfile.bot` are **byte-identical**.
+   - `job-hunter/cloudbuild-bot.yaml` differs only by project image tag strings.
+   - **Crucial Finding:** The active production pipeline in `job-hunter` (`apps/job-hunter-mvp/run.mjs`, invoked by `schedule/run-job-hunter-mvp.sh`) does **not** reference or execute `bot_service.py`. Therefore, `bot_service.py` inside `job-hunter` is currently **dead code** relative to the operational SerpApi pipeline.
 
-3. **No Immediate Retirement:**  
-   No running services or repository retirements should occur until candidate features are ported to `job-hunter` and validated under real operational runs.
-
----
-
-## 2. Code Lineage & File Comparison Details
-
-| File Pair | `job-hunter` vs `job-searcher` | Status in `job-hunter` | Analysis |
-|---|---|---|---|
-| `bot_service.py` | Byte-identical (137 lines) | Dead code | Carried over during repo fork; not referenced by `apps/job-hunter-mvp/run.mjs` or `schedule/run-job-hunter-mvp.sh`. |
-| `Dockerfile.bot` | Byte-identical (720 bytes) | Dead code | Unused in `job-hunter` active MVP container footprint. |
-| `cloudbuild-bot.yaml` | String diff (`job-hunter-503608` vs `job-searcher-503608`) | Inactive config | Referencing separate GCP Artifact Registry repos. |
-| `profile/persona.md` | ~90% content overlap | Active baseline | `job-hunter` copy is more evolved (stricter language floor, updated IT leadership focus). |
-| `profile/learned_preferences.md` | Diverged | Active baseline | `job-searcher` contains template placeholders; `job-hunter` has real feedback history from JH-SUP runs. |
+3. **Key Asset Opportunities Outside `job-hunter`:**  
+   `job-searcher` and `allas-figyelo` contain several critical implementations that directly address gaps identified in Track A's business model review:
+   - **Direct Source Ingestion (`job-searcher`):** Direct Profession.hu scraper using Firecrawl (`tools/scraper.py`).
+   - **Active Learning Feedback Loop (`job-searcher`):** Automated preference promotion (`tools/feedback.py`) adjusting `exclusions.yaml` and `preferred_companies.yaml`.
+   - **Geographic Aggregator Expansion (`allas-figyelo`):** Jooble REST API adapter (`fetch_jobs.py`) targeting the PO's home region (Székesfehérvár, Győr, Veszprém, Tata, Tatabánya, Várpalota).
+   - **Web UI & Email Digest (`allas-figyelo`):** Static web UI deployment (`docs/jobs.json` + GitHub Pages) and SMTP email digest notifications.
 
 ---
 
-## 3. Migration & Retirement Readiness Matrix
+## 2. Granular Asset Inventory & Migration Matrix
 
-| Asset Description | Origin Repository | Classification | Evidence & Test State | Strategic Value for `job-hunter` |
+The table below evaluates all unique technical components, workflows, source adapters, profiles, feedback systems, UIs, schedules, notifications, deployments, tests, and operational knowledge across the legacy repositories.
+
+| Asset Category | Item Description | Exact Source Location | Classification | Detailed Justification & Evidence |
 |---|---|---|---|---|
-| **Bot-Service Files** (`bot_service.py`, `Dockerfile.bot`, `cloudbuild-bot.yaml`) | `job-hunter` & `job-searcher` | `OBSOLETE_OR_DUPLICATED` in `job-hunter` | Byte-identical `diff`; completely detached from `run.mjs` pipeline. | Candidate for deletion in `job-hunter` clean-up pass once PO approves architecture. |
-| **Active Learning & Preference Promotion** (`tools/feedback.py`, `profile/`) | `job-searcher` | `KEEP_AND_MIGRATE (Candidate)` | `DONE.md` §3; 35/35 passing unit tests. Auto-promotes 2x DISLIKE → `exclusions.yaml` (0 pt) & 2x LIKE → `preferred_companies.yaml` (+10 pt). | Directly implements the "learn from feedback" gap flagged in Track A review. High priority for migration. |
-| **Telegram Card & 1-Click Feedback Flow** (`tools/notifier.py`, `tools/feedback.py`) | `job-searcher` | `KEEP_AND_MIGRATE (Candidate)` | Telegram inline keyboard buttons sending callbacks to `feedback.py`. | Provides instant PO feedback delivery channel if Telegram is preferred over local Web UI. |
-| **Direct Profession.hu Scraper** (`tools/scraper.py`) | `job-searcher` | `KEEP_AND_MIGRATE (Candidate)` | `DECISIONS.md` §3; validated 20 real job ads directly from Profession.hu search URL. | Solves PO's requirement for direct source ingestion bypassing SerpApi indexing lag. |
-| **Circuit Breaker & Rate Limiter** (`agents/job_search_agent.py`) | `job-searcher` | `KEEP_AS_REFERENCE_HISTORY` | 10s scraping timeout, 3-strike circuit breaker, 10 req/min Gemini backoff. | Reference pattern for scraping resilience when direct scraping is integrated. |
-| **Unit Test Suite** (35 tests, `tests/`) | `job-searcher` | `KEEP_AS_REFERENCE_HISTORY` | 35 passed in 100s. Includes regression tests for Firecrawl & GenAI SDK imports (`DECISIONS.md` §4). | Reference template for establishing Python unit test suite in `job-hunter`. |
-| **Firestore Run Logging** (`tools/storage.py`) | `job-searcher` | `PO_DECISION_REQUIRED` | Persists run execution status (`running`/`completed`) and counts to GCP Firestore. | External GCP dependency. Useful if cloud persistence is desired, otherwise local JSON logs suffice. |
-| **Jooble Aggregator Adapter** (`fetch_jobs.py`) | `allas-figyelo` | `KEEP_AND_MIGRATE (Candidate)` | Queries Jooble API for IT leadership roles across 7 home-region cities (Székesfehérvár, Győr, etc., radius 26km). | Expands ingestion coverage to non-Google job aggregator and home region outside Budapest. |
-| **GitHub Pages Web UI** (`docs/jobs.json` + static presentation) | `allas-figyelo` | `KEEP_AND_MIGRATE (Candidate)` | Zero-cost static web UI reading structured `jobs.json`. | Lightweight interim web presentation layer for `job-hunter` results before building full web app. |
-| **Email Digest Digest** (`fetch_jobs.py` SMTP Gmail) | `allas-figyelo` | `KEEP_AS_REFERENCE_HISTORY` | Sends HTML/text email digest of new listings via Gmail App Password. | Optional secondary notification delivery mechanism. |
-| **`cv-linkedin` Repo** | GitHub remote `git@github.com:ggiaur/cv-linkedin.git` | `OBSOLETE_OR_EMPTY` | `git ls-remote` returns 0 refs (empty repo). | No code or data to migrate. Safe to ignore or delete remote repo. |
+| **Source Adapters** | Direct Profession.hu Scraper | `job-searcher/tools/scraper.py` | `KEEP_AND_MIGRATE` | Direct ingestion of Profession.hu postings via Firecrawl API. Bypasses Google/SerpApi indexing delay. Tested & validated in `DECISIONS.md` §3 (extracted 20 real job ads). Has dependency fix (`V1FirecrawlApp`). |
+| **Source Adapters** | Jooble Aggregator API Fetcher | `allas-figyelo/fetch_jobs.py` | `KEEP_AND_MIGRATE` | Queries Jooble REST API for IT leadership roles across 7 Hungarian cities with configurable radius. Provides complementary non-Google aggregator coverage. |
+| **Source Adapters** | SerpApi Google Search Indexing | `job-hunter/apps/job-hunter-mvp/run.mjs` | `KEEP_AS_REFERENCE_HISTORY` | Currently active operational pipeline in `job-hunter`. Serves as primary Google search wrapper, but should be complemented by direct adapters. |
+| **Scoring & Relevance** | Active-Learning Rule Auto-Promotion | `job-searcher/tools/feedback.py` | `KEEP_AND_MIGRATE` | Automatically adds companies to `profile/exclusions.yaml` (0 pt) after 2x `DISLIKE` votes, and to `profile/preferred_companies.yaml` (+10 pt) after 2x `LIKE`/`STAR` votes. Solves Track A feedback gap. |
+| **Scoring & Relevance** | Language & Rule Filter | `job-searcher/tools/language_filter.py` | `KEEP_AND_MIGRATE` | Language filtering logic for strict Hungarian vs English requirements. Useful helper module for filtering job card descriptions. |
+| **Scoring & Relevance** | Heuristic & Prompt Scoring Engine | `job-searcher/tools/analyzer.py` | `KEEP_AS_REFERENCE_HISTORY` | Gemini prompt builder combining `persona.md` and `learned_preferences.md`. Useful reference for Python-based analysis pipelines. |
+| **Profile & Preferences** | Canonical Persona Definition | `job-hunter/profile/persona.md` | `KEEP_AND_MIGRATE` | `job-hunter`'s copy is the most evolved baseline (90% overlap with `job-searcher`, but has refined English level rules). |
+| **Profile & Preferences** | Learned Preferences Prose | `job-hunter/profile/learned_preferences.md` | `KEEP_AND_MIGRATE` | Contains real PO feedback history from recent JH-SUP runs (`job-searcher` copy only has blank template placeholders). |
+| **Profile & Preferences** | Exclusions & Preferred Companies | `job-hunter/profile/exclusions.yaml`, `preferred_companies.yaml` | `KEEP_AND_MIGRATE` | Target YAML files for structured feedback promotion. Currently empty, ready to receive active-learning output. |
+| **Feedback & History** | Telegram Feedback Card Handler | `job-searcher/tools/feedback.py`, `tools/notifier.py` | `KEEP_AND_MIGRATE` | Telegram inline button callback handler for instant `LIKE`/`DISLIKE`/`STAR` feedback capture. |
+| **Feedback & History** | Feedback History Storage | `job-searcher/profile/feedback_history.json` | `KEEP_AS_REFERENCE_HISTORY` | Schema definition for tracking feedback decisions (`job-searcher` file is empty `[]`). |
+| **UI & Reporting** | Static GitHub Pages Web UI | `allas-figyelo/docs/jobs.json`, `README.md` | `KEEP_AND_MIGRATE` | Zero-cost web presentation layer reading `jobs.json`. Solves Track A gap (no web UI in `job-hunter` yet). |
+| **UI & Reporting** | Telegram Interactive Job Cards | `job-searcher/tools/notifier.py` | `KEEP_AND_MIGRATE` | Markdown job card builder with inline action buttons for mobile delivery. |
+| **Scheduling** | Systemd User Service & Timer | `job-hunter/schedule/run-job-hunter-mvp.sh`, `job-hunter-mvp.service` | `KEEP_AND_MIGRATE` | Currently installed twice-weekly schedule (`0 8 * * 1,4`) on the target host. |
+| **Scheduling** | GitHub Actions Scheduled Workflow | `allas-figyelo/.github/workflows/job-search.yml` | `KEEP_AS_REFERENCE_HISTORY` | Cron workflow (`0 6 * * 1,4`). Cloud-native alternative to local systemd timer if GitHub Actions execution is preferred. |
+| **Notification** | Gmail SMTP Digest Sender | `allas-figyelo/fetch_jobs.py` (`send_email_digest`) | `KEEP_AS_REFERENCE_HISTORY` | Sends HTML/text email digest of new job listings using Gmail App Passwords via `smtp.gmail.com`. |
+| **Deployment & Config** | Local Node MVP Runner | `job-hunter/apps/job-hunter-mvp/run.mjs` | `KEEP_AND_MIGRATE` | Active operational entry point in `job-hunter`. |
+| **Deployment & Config** | Cloud Build & Container Specs | `job-searcher/Dockerfile`, `cloudbuild.yaml` | `PO_DECISION_REQUIRED` | GCP Cloud Build trigger and Cloud Run container setup. PO decision needed on whether GCP cloud execution is required alongside local systemd. |
+| **Deployment & Config** | Dead Bot Service Files | `job-hunter/bot_service.py`, `Dockerfile.bot`, `cloudbuild-bot.yaml` | `OBSOLETE_OR_DUPLICATED` | Byte-identical copy from `job-searcher`. Unused by `run.mjs`. Candidate for clean-up once Telegram/Web UI direction is settled. |
+| **Tests & Evidence** | 35-Case Pytest Test Suite | `job-searcher/tests/` | `KEEP_AS_REFERENCE_HISTORY` | Complete unit test suite (100% pass rate in `DONE.md`). Contains valuable mock fixtures and regression test cases (`test_scraper.py`, `test_analyzer.py`). |
+| **Operational Knowledge** | Architecture & Decisions Log | `job-searcher/DECISIONS.md`, `DONE.md` | `KEEP_AS_REFERENCE_HISTORY` | Documents critical architectural decisions: `MOCK_MODE`, rate limits, Firecrawl `V1FirecrawlApp` fix, and `google-genai` package fix. |
+| **Operational Knowledge** | Setup & Integration Guides | `allas-figyelo/README.md` | `KEEP_AS_REFERENCE_HISTORY` | Complete documentation for Jooble API registration, Gmail App Password setup, and GitHub Secrets configuration. |
+| **Legacy Repositories** | `cv-linkedin` Remote Repository | GitHub remote `git@github.com:ggiaur/cv-linkedin.git` | `OBSOLETE_OR_DUPLICATED` | Confirmed empty remote repository (0 refs, 0 commits). No unique assets exist. |
 
 ---
 
-## 4. External Secrets & Runtime Dependencies Audit
+## 3. External Runtime Dependencies & Uncommitted Data Audit
 
-1. **`job-searcher` Runtime Dependencies:**
-   - **Secrets required:** GCP Cloud Build trigger permissions, Firestore DB credentials, Telegram Bot Token & Chat ID, Gemini API Key, Firecrawl API Key.
-   - **Secret Storage:** Managed via `.env` files locally or GCP Secret Manager.
-   - **Migration Impact:** Standardize into `job-hunter`'s existing secret pattern `/home/dockeruser/.job-hunter-secrets/`.
+The following external service accounts, API keys, database instances, and cloud triggers are required by the legacy code but are **not safely stored in git**. They must be audited and managed during consolidation:
 
-2. **`allas-figyelo` Runtime Dependencies:**
-   - **Secrets required:** `JOOBLE_API_KEY`, `GMAIL_USER`, `GMAIL_APP_PASSWORD`, `RECIPIENT_EMAIL`.
-   - **Secret Storage:** Configured as GitHub Actions Repository Secrets.
-   - **Migration Impact:** Extract API keys to local `job-hunter` secret files if migrating Jooble ingestion.
+1. **`job-searcher` External Dependencies:**
+   - **GCP Cloud Build & Cloud Run:** Triggers bound to `job-searcher-503608` GCP project (`cloudbuild.yaml`, `cloudbuild-bot.yaml`).
+   - **Firestore DB:** `run_log` collection in GCP Firestore (`tools/storage.py`). Requires GCP service account credentials (`GOOGLE_APPLICATION_CREDENTIALS`).
+   - **Telegram Bot:** Telegram Bot Token & Chat ID (`TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` in `tools/notifier.py`).
+   - **Firecrawl API:** API Key for direct Profession.hu scraping (`FIRECRAWL_API_KEY` in `tools/scraper.py`).
+   - **Gemini API Key:** `GEMINI_API_KEY` required by `tools/analyzer.py`.
 
-3. **`job-hunter` Active Runtime:**
-   - **Secrets required:** SerpApi Key, Gemini API Key.
-   - **Secret Storage:** `/home/dockeruser/.job-hunter-secrets/` and local systemd environment variables.
+2. **`allas-figyelo` External Dependencies:**
+   - **Jooble API Key:** `JOOBLE_API_KEY` required for REST queries (`fetch_jobs.py`). Stored in GitHub Repository Secrets.
+   - **Gmail SMTP Credentials:** `GMAIL_USER` and `GMAIL_APP_PASSWORD` required for email digest dispatch. Stored in GitHub Repository Secrets.
+   - **Recipient Email:** `RECIPIENT_EMAIL` configured in GitHub Repository Secrets.
+
+3. **Secret Standardisation Recommendation:**  
+   All external secrets for the consolidated `job-hunter` should be managed via the established local directory pattern: `/home/dockeruser/.job-hunter-secrets/` or environment configuration files, avoiding uncommitted inline credentials.
 
 ---
 
-## 5. Recommended Phased Consolidation Roadmap
+## 4. Master Consolidation Roadmap
+
+To achieve the PO's objective of a single unified repository (`ggiaur/job-hunter`) without operational disruption:
 
 ```mermaid
 flowchart TD
-    subgraph Phase 1: PO Alignment & Design
-        A[PO Decision on Feedback UI: Telegram vs Web UI] --> B[PO Decision on Sources: SerpApi + Direct Profession + Jooble]
+    subgraph Step 1: Migration of Core Capabilities
+        A[Port job-searcher Active Learning feedback.py] --> D[Unified job-hunter Repository]
+        B[Port job-searcher Direct Profession.hu Scraper] --> D
+        C[Port allas-figyelo Jooble Aggregator Adapter] --> D
+        E[Port GitHub Pages / Web UI Presentation Layer] --> D
     end
 
-    subgraph Phase 2: Feature Migration into job-hunter
-        B --> C[Port job-searcher Active Learning feedback.py]
-        B --> D[Port job-searcher Direct Profession.hu Scraper]
-        B --> E[Port allas-figyelo Jooble Aggregator Adapter]
-        B --> F[Port GitHub Pages / Local Web UI Presentation]
+    subgraph Step 2: Consolidation & Verification
+        D --> F[Integrate Unit Test Suite into job-hunter]
+        D --> G[Standardize Secrets under /home/dockeruser/.job-hunter-secrets/]
+        F & G --> H[Run End-to-End Verification in job-hunter]
     end
 
-    subgraph Phase 3: Cleanup & Retirement
-        C & D & E & F --> G[Verify Unified Job Hunter Pipeline]
-        G --> H[Remove Dead bot_service.py from job-hunter]
-        G --> I[Deactivate job-searcher Cloud Build & allas-figyelo Cron]
-        G --> J[Archive job-searcher & allas-figyelo Repos]
+    subgraph Step 3: Cleanup & Decommissioning
+        H --> I[Remove Dead bot_service.py from job-hunter]
+        H --> J[Disable job-searcher Cloud Build & allas-figyelo Actions Cron]
+        H --> K[Archive job-searcher, allas-figyelo, and cv-linkedin Repositories]
     end
 ```
 
-### Next Actionable Steps for Product Owner:
-1. **Approve Target Channel:** Decide whether PO feedback should be captured via Telegram buttons (from `job-searcher`) or a local/GitHub Pages Web UI (from `allas-figyelo`/Track A draft).
-2. **Approve Ingestion Plugins:** Confirm enabling direct Profession.hu scraping (`job-searcher`) and Jooble home-region queries (`allas-figyelo`) alongside SerpApi in `job-hunter`.
-3. **Authorize Migration Sprint:** Authorize Sprint execution to port the selected candidate modules into `job-hunter` before retiring legacy repositories.
+### Actionable Summary of Next Steps:
+1. **Target Repository:** Keep all active development focused strictly in `ggiaur/job-hunter`.
+2. **Feature Porting Order:**
+   - **Sprint A:** Port `job-searcher/tools/feedback.py` (active learning) and `allas-figyelo/docs/` (web UI pattern) into `job-hunter`.
+   - **Sprint B:** Port `job-searcher/tools/scraper.py` (direct Profession.hu) and `allas-figyelo/fetch_jobs.py` (Jooble API) as modular ingestion adapters in `job-hunter`.
+3. **Decommissioning:** After Sprint A and B pass E2E validation in `job-hunter`, request PO authorization to archive `job-searcher` and `allas-figyelo`.
