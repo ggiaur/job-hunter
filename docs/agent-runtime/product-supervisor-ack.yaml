@@ -2,15 +2,15 @@
 schema_version: 1
 channel: product_supervisor_ack
 project: job-hunter
-last_seen_directive_id: JH-SUP-0022
-last_accepted_directive_id: JH-SUP-0022
-last_applied_directive_id: JH-SUP-0022
-status: REAL_JOB_HUNTER_MVP_PASS
+last_seen_directive_id: JH-SUP-0023
+last_accepted_directive_id: JH-SUP-0023
+last_applied_directive_id: JH-SUP-0023
+status: JOB_HUNTER_OPERATIONAL_PASS
 SPRINT_1_STATUS: NOT_DONE
 blocker_class: null
-updated_at: "2026-09-04T01:20:00Z"
+updated_at: "2026-09-04T02:10:00Z"
 updated_by: claude_active_orchestrator
-head_sha: ee53328
+head_sha: TBD
 evidence:
   - docs/forensics/CLAUDE_GOOGLE_CHALLENGE_CAUSE_ANALYSIS.md
   - docs/forensics/CODEX_GOOGLE_CHALLENGE_CAUSE_ANALYSIS.md
@@ -25,6 +25,8 @@ evidence:
   - docs/evidence/SERPAPI_CEGINFO_VMK_LIVE_PROOF.md
   - docs/evidence/REAL_JOB_HUNTER_MVP_LIVE_RUN.md
   - docs/evidence/real-job-hunter-mvp-live-run.json
+  - docs/evidence/REAL_JOB_HUNTER_CURRENT_RUN.md
+  - docs/evidence/real-job-hunter-current-run.json
   - docs/evidence/serpapi-ceginfo-vmk-live-proof.json
   - docs/design/CHEAPEST_GOOGLE_SEARCH_COST_DECISION.md
 notes: >
@@ -247,3 +249,38 @@ notes: >
   that remains a separate, still-open Product Owner decision.
   Evidence: docs/evidence/REAL_JOB_HUNTER_MVP_LIVE_RUN.md and
   docs/evidence/real-job-hunter-mvp-live-run.json.
+
+  JH-SUP-0023 PASS: operationalized Job Hunter. Same acquisition
+  architecture, not redesigned. Expanded queries + new Pillér-like
+  positive scoring (project-leadership scope, institutional/public-
+  service context) per Product Owner's learned_preferences.md
+  refinement. Found and fixed three real bugs while validating this
+  run's own output before reporting: (1) English-level detection
+  missed reversed Hungarian word order ("Angol felsőfokú" vs
+  "felsőfokú angol"), fixed with a bidirectional proximity regex;
+  (2) domain-ambiguous titles (Engineering Manager, Operations
+  Manager, bare osztályvezető/csoportvezető/projektmenedzser)
+  auto-accepted without an IT-domain check, which had let through a
+  MOL oil-refinery engineering-management role and a translation-
+  agency PM role -- fixed by requiring IT/software/digital context in
+  the description for these generic titles; (3) semantic duplicates
+  from the same job found via different tracking query-strings --
+  fixed with title+company dedup. Final live result: 13 real,
+  verified job ads (target 7-15), each schema.org/JobPosting-
+  confirmed, ranked best-first, zero fabricated facts. Evidence:
+  docs/evidence/REAL_JOB_HUNTER_CURRENT_RUN.md and
+  docs/evidence/real-job-hunter-current-run.json.
+
+  Unattended scheduling: systemd could not be installed -- no root/
+  sudo (`sudo: I'm sorry dockeruser...`), no user systemd/D-Bus
+  session, lingering disabled. Used crontab instead (available to
+  this user without root, already the established automation
+  mechanism on this host for it-lens-audit-system watchers).
+  Installed and verified:
+  `0 8 * * 1,4 /srv/projects/job-hunter/apps/job-hunter-mvp/schedule/run-job-hunter-mvp.sh >>/home/dockeruser/job-hunter-mvp-cron.log 2>&1`
+  Confirmed via `crontab -l` and `service cron status` (active,
+  running). Calls the identical tested pipeline. Secrets remain
+  outside git. Zero google.com/search traffic. This is a scheduling-
+  mechanism substitution only, not a change to the search
+  architecture -- systemd unit/timer files remain available at
+  apps/job-hunter-mvp/schedule/ for a host with root access.

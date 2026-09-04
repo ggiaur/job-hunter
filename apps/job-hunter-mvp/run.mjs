@@ -12,9 +12,13 @@ import {
   englishRequirementLabel,
   checkLocation,
   hasManagementScope,
+  hasProjectLeadershipScope,
+  hasInstitutionalContext,
   isLikelySeniorICWithoutManagement,
   isPMWithoutManagementScope,
   matchesTargetPosition,
+  isGenericProjectTitle,
+  hasITDomainContext,
 } from './lib/extract.mjs';
 import { extractJobLikeLinks, countJobLikeLinks } from './lib/links.mjs';
 
@@ -29,7 +33,11 @@ const QUERIES = [
   { q: 'IT osztályvezető állás Budapest', priorityWeight: 50 },
   { q: 'infrastruktúra vezető állás Budapest', priorityWeight: 50 },
   { q: 'IT projektmenedzser állás Budapest', priorityWeight: 40 },
+  { q: 'informatikai projektvezető állás Budapest', priorityWeight: 45 },
+  { q: 'digitalizációs projektmenedzser állás Budapest', priorityWeight: 45 },
   { q: 'digitalizációs vezető állás Budapest', priorityWeight: 30 },
+  { q: 'IT szolgáltatásmenedzser állás Budapest', priorityWeight: 35 },
+  { q: 'közintézményi digitalizációs projektmenedzser állás Budapest', priorityWeight: 40 },
   { q: 'AI transzformációs vezető állás Budapest', priorityWeight: 20 },
 ];
 
@@ -152,7 +160,7 @@ async function main() {
     if (cls.kind === 'JOB_AD_CONFIRMED') {
       confirmedJobAds.push({ ...item, schema: cls.schema, html: item.fetched.html });
     } else if (cls.kind === 'LISTING') {
-      listingPages.push({ ...item, jobLinks: extractJobLikeLinks(item.fetched.html, item.url, 6) });
+      listingPages.push({ ...item, jobLinks: extractJobLikeLinks(item.fetched.html, item.url, 12) });
     } else {
       unreachable.push({ url: item.url, reason: 'no schema.org JobPosting data and too few job-like links to classify as a listing' });
     }
@@ -213,7 +221,8 @@ async function main() {
     const englishLabel = englishRequirementLabel(descriptionText);
     const loc = checkLocation(descriptionText + ' ' + (fields.location || ''));
     const companyExcluded = isExcludedCompany(company, profile.excludedCompanies);
-    const positionRelevant = matchesTargetPosition(title);
+    const positionRelevant =
+      matchesTargetPosition(title) || (isGenericProjectTitle(title) && hasITDomainContext(descriptionText));
 
     const record = {
       title,
@@ -254,13 +263,34 @@ async function main() {
     }
     if (isPMWithoutManagementScope(title, descriptionText)) {
       score -= 15;
-      record.scoringNote = (record.scoringNote ? record.scoringNote + ' ' : '') + 'Projektmenedzseri cím vezetői felelősség jele nélkül — vezetői találatok mögé sorolva.';
+      record.scoringNote = (record.scoringNote ? record.scoringNote + ' ' : '') + 'Projektmenedzseri cím vezetői vagy projekt-vezetői felelősség jele nélkül — vezetői találatok mögé sorolva.';
+    }
+    const hasProjectLeadership = hasProjectLeadershipScope(descriptionText);
+    if (hasProjectLeadership) {
+      score += 20;
+      record.scoringNote = (record.scoringNote ? record.scoringNote + ' ' : '') + 'Pillér-szerű pozitív minta: valódi projekt-/programvezetői felelősség (tervezés, erőforrás/határidő/kockázat, stakeholder-koordináció, döntés-előkészítés) — a tanult pozitív preferencia szerint előresorolva.';
+    }
+    if (hasInstitutionalContext(descriptionText)) {
+      score += 10;
+      record.scoringNote = (record.scoringNote ? record.scoringNote + ' ' : '') + 'Intézményi/közszolgáltatói/nagyvállalati környezet — pozitív preferencia szerint bónusz.';
     }
 
     accepted.push({ ...record, score });
   }
 
-  accepted.sort((a, b) => b.score - a.score);
+  // Semantic dedup: the same job can be discovered twice under different
+  // tracking query-strings (e.g. profession.hu's ?keyword=... varies per
+  // search that found it). Keep the highest-scored copy per title+company.
+  const seenTitleCompany = new Map();
+  for (const rec of accepted) {
+    const key = `${rec.title.toLowerCase()}|${rec.company.toLowerCase()}`;
+    const existing = seenTitleCompany.get(key);
+    if (!existing || rec.score > existing.score) seenTitleCompany.set(key, rec);
+  }
+  const dedupedAccepted = [...seenTitleCompany.values()];
+  dedupedAccepted.sort((a, b) => b.score - a.score);
+  accepted.length = 0;
+  accepted.push(...dedupedAccepted);
 
   const output = {
     generatedAt: new Date().toISOString(),
@@ -274,7 +304,7 @@ async function main() {
     unreachable,
   };
 
-  const outPath = path.join(REPO_ROOT, 'docs', 'evidence', 'real-job-hunter-mvp-live-run.json');
+  const outPath = path.join(REPO_ROOT, 'docs', 'evidence', 'real-job-hunter-current-run.json');
   await writeFile(outPath, JSON.stringify(output, null, 2), 'utf8');
   console.log(`\nWrote ${outPath}`);
   console.log(`Accepted: ${accepted.length}, Rejected: ${rejected.length}, Unreachable: ${unreachable.length}`);

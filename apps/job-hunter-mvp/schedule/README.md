@@ -1,4 +1,23 @@
-# Job Hunter MVP — unattended schedule (definition only, not enabled)
+# Job Hunter MVP — unattended schedule
+
+**Update (JH-SUP-0023):** systemd could not be installed on this host — the
+Job Hunter service account has no root/sudo access and no user-level
+systemd/D-Bus session is running here. **A crontab entry was installed
+instead**, calling the identical tested pipeline via `run-job-hunter-mvp.sh`:
+
+```
+0 8 * * 1,4 /srv/projects/job-hunter/apps/job-hunter-mvp/schedule/run-job-hunter-mvp.sh >>/home/dockeruser/job-hunter-mvp-cron.log 2>&1
+```
+
+Verify with `crontab -l`. Output/errors go to
+`/home/dockeruser/job-hunter-mvp-cron.log`. `cron.service` was confirmed
+active on this host at install time. The systemd unit/timer files below
+remain available for a host with root access, but are not what is actually
+scheduled here.
+
+---
+
+## Original systemd definition (not installed on this host — see above)
 
 This directory contains a systemd service + timer definition that runs the
 exact same tested pipeline (`apps/job-hunter-mvp/run.mjs`) roughly twice a

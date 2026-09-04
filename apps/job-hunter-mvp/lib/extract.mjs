@@ -80,42 +80,23 @@ export function extractMetaSiteName(html) {
   return m ? m[1].trim() : null;
 }
 
-const ADVANCED_ENGLISH_MARKERS = [
-  'felsőfokú angol',
-  'felsőfokú angol nyelvtudás',
-  'tárgyalásképes angol',
-  'tárgyalóképes angol',
-  'anyanyelvi szintű angol',
-  'anyanyelvi angol',
-  'kiváló angol',
-  'excellent english',
-  'fluent english',
-  'advanced english',
-  'negotiation-level english',
-  'negotiation level english',
-  'native-level english',
-  'native level english',
-  'c1 szintű angol',
-  'c1 angol',
-];
+// Hungarian job ads phrase language requirements in either word order
+// ("felsőfokú angol" or "Angol felsőfokú nyelvtudás" in a requirements list),
+// so a plain substring list would miss the reversed form. Match "angol" and
+// the level word within a short window of each other, in either order.
+const ADVANCED_ENGLISH_REGEX =
+  /angol[^.\n]{0,25}(felsőfok|tárgyalóképes|tárgyalásképes|anyanyelvi|kiváló|c1|c2)|(felsőfok|tárgyalóképes|tárgyalásképes|anyanyelvi|kiváló|c1|c2)[^.\n]{0,25}angol|excellent english|fluent english|advanced english|negotiation[- ]level english|native[- ]level english/i;
 
-const BASIC_ENGLISH_MARKERS = [
-  'alapfokú angol',
-  'középfokú angol',
-  'jó angoltudás',
-  'basic english',
-  'intermediate english',
-];
+const BASIC_ENGLISH_REGEX =
+  /angol[^.\n]{0,25}(alapfok|középfok|jó angoltudás|b1|b2)|(alapfok|középfok)[^.\n]{0,25}angol|basic english|intermediate english/i;
 
 export function checkAdvancedEnglishRequired(text) {
-  const lower = text.toLowerCase();
-  return ADVANCED_ENGLISH_MARKERS.some((m) => lower.includes(m));
+  return ADVANCED_ENGLISH_REGEX.test(text);
 }
 
 export function englishRequirementLabel(text) {
-  const lower = text.toLowerCase();
-  if (ADVANCED_ENGLISH_MARKERS.some((m) => lower.includes(m))) return 'advanced/fluent/native (EXCLUDING)';
-  if (BASIC_ENGLISH_MARKERS.some((m) => lower.includes(m))) return 'basic/intermediate (not disqualifying)';
+  if (ADVANCED_ENGLISH_REGEX.test(text)) return 'advanced/fluent/native (EXCLUDING)';
+  if (BASIC_ENGLISH_REGEX.test(text)) return 'basic/intermediate (not disqualifying)';
   return 'not specified in extracted text';
 }
 
@@ -165,14 +146,63 @@ export function hasManagementScope(text) {
 }
 
 const SENIOR_IC_TITLE_MARKERS = /senior fejlesztő|senior developer|technical lead|tech lead|senior mérnök|senior engineer/i;
-const PM_TITLE_MARKERS = /project manager|projektmenedzser/i;
+const PM_TITLE_MARKERS = /project manager|projektmenedzser|projektvezető/i;
 
 export function isLikelySeniorICWithoutManagement(title, text) {
-  return SENIOR_IC_TITLE_MARKERS.test(title || '') && !hasManagementScope(text);
+  return SENIOR_IC_TITLE_MARKERS.test(title || '') && !hasManagementScope(text) && !hasProjectLeadershipScope(text);
 }
 
 export function isPMWithoutManagementScope(title, text) {
-  return PM_TITLE_MARKERS.test(title || '') && !hasManagementScope(text);
+  return PM_TITLE_MARKERS.test(title || '') && !hasManagementScope(text) && !hasProjectLeadershipScope(text);
+}
+
+// "Pillér-like" positive pattern (profile/learned_preferences.md): real
+// cross-functional project/program leadership does not require formal
+// people-management to be a strong fit — planning, stakeholder coordination,
+// resource/deadline/risk ownership and decision-support are the real signal.
+const PROJECT_LEADERSHIP_MARKERS = [
+  'stakeholder',
+  'projektterv',
+  'erőforrás',
+  'határidő',
+  'kockázatkezelés',
+  'kockázatok azonosítása',
+  'státuszriport',
+  'döntés-előkészítés',
+  'döntéselőkészítés',
+  'projektek teljes körű',
+  'projekt-keretek',
+  'projekt életciklus',
+  'cross-functional',
+  'többszereplős koordináció',
+  'szervezeti szereplők összehangolása',
+];
+
+export function hasProjectLeadershipScope(text) {
+  const lower = text.toLowerCase();
+  return PROJECT_LEADERSHIP_MARKERS.some((m) => lower.includes(m));
+}
+
+const INSTITUTIONAL_CONTEXT_MARKERS = [
+  'önkormányzat',
+  'közintézmény',
+  'nonprofit',
+  'közszolgáltat',
+  'egészségügy',
+  'kórház',
+  'bank',
+  'biztosító',
+  'közigazgatás',
+  'állami',
+  'egyetem',
+  'university',
+  'közműszolgáltat',
+  'energetik',
+];
+
+export function hasInstitutionalContext(text) {
+  const lower = text.toLowerCase();
+  return INSTITUTIONAL_CONTEXT_MARKERS.some((m) => lower.includes(m));
 }
 
 const POSITION_MATCH_TERMS = [
@@ -181,12 +211,9 @@ const POSITION_MATCH_TERMS = [
   'it manager',
   'it igazgat',
   'informatikai igazgat',
-  'osztályvezető',
   'infrastruktúra vezet',
   'infrastructure manager',
   'infrastructure lead',
-  'engineering manager',
-  'operations manager',
   'digitalizációs vezet',
   'digitalizációs igazgat',
   'digitalizációs menedzser',
@@ -198,13 +225,60 @@ const POSITION_MATCH_TERMS = [
   'head of ai',
   'ai product manager',
   'it projektmenedzser',
-  'projektmenedzser',
-  'csoportvezető',
+  'informatikai projektvezető',
+  'informatikai projektmenedzser',
+  'digitalizációs projektmenedzser',
+  'digitalizációs projektvezető',
+  'it szolgáltatásmenedzser',
+  'informatikai szolgáltatásmenedzser',
+  'it program',
   'platform lead',
   'cloud operations manager',
   'it biztonsági osztályvezető',
   'security manager',
 ];
+
+// Bare/generic project-leadership titles (no IT qualifier in the title itself)
+// are only accepted if the description text confirms an actual IT/digital
+// domain — otherwise a query for "IT projektmenedzser" can surface a
+// same-titled but unrelated role (e.g. a translation-services PMO).
+const GENERIC_PROJECT_TITLE_TERMS = ['projektmenedzser', 'projektvezető', 'programvezető', 'program manager', 'szolgáltatásmenedzser', 'service manager', 'pmo', 'osztályvezető', 'csoportvezető', 'engineering manager', 'operations manager'];
+const IT_DOMAIN_CONTEXT_TERMS = [
+  'informatik',
+  ' it ',
+  'it-',
+  'digitalizáci',
+  'szoftverfejleszt',
+  'it infrastruktúra',
+  'it-infrastruktúra',
+  'cloud',
+  'adatbázis-kezel',
+  'kiberbiztonsá',
+  'cybersecurity',
+  'software engineer',
+  'machine learning',
+  'data science',
+  'devops',
+  'backend',
+  'frontend',
+  'engineering team',
+  'tech stack',
+  'saas',
+  ' ai ',
+  'artificial intelligence',
+];
+
+export function isGenericProjectTitle(title) {
+  if (!title) return false;
+  const lower = title.toLowerCase();
+  return GENERIC_PROJECT_TITLE_TERMS.some((t) => lower.includes(t));
+}
+
+export function hasITDomainContext(text) {
+  if (!text) return false;
+  const lower = ` ${text.toLowerCase()} `;
+  return IT_DOMAIN_CONTEXT_TERMS.some((t) => lower.includes(t));
+}
 
 const NEGATIVE_DOMAIN_TERMS = [
   'toborz',
