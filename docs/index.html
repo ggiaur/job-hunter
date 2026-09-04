@@ -1,0 +1,3851 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Hunter — Executive Vacancy Review</title>
+  <style>
+    :root {
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border-color: #e2e8f0;
+      --primary-color: #2563eb;
+      --primary-hover: #1d4ed8;
+      --success-bg: #dcfce7;
+      --success-text: #166534;
+      --success-border: #86efac;
+      --warning-bg: #fef9c3;
+      --warning-text: #854d0e;
+      --danger-bg: #fee2e2;
+      --danger-text: #991b1b;
+      --danger-border: #fca5a5;
+      --badge-bg: #e0f2fe;
+      --badge-text: #0369a1;
+      --radius: 12px;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.5;
+      padding: 24px 16px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .audit-link {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      background: #f1f5f9;
+      padding: 6px 12px;
+      border-radius: 6px;
+      word-break: break-all;
+    }
+
+    .stats-bar {
+      display: flex;
+      gap: 16px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+    .stat-pill {
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
+
+    .stat-pill strong {
+      color: var(--primary-color);
+    }
+
+    .controls {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: all 0.2s;
+    }
+
+    .tab-btn:hover {
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+    }
+
+    .tab-btn.active {
+      background: var(--primary-color);
+      color: #ffffff;
+      border-color: var(--primary-color);
+    }
+
+    .job-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .job-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      position: relative;
+      transition: border-color 0.2s;
+    }
+
+    .job-card:hover {
+      border-color: #cbd5e1;
+    }
+
+    .job-card.visible-card {
+      border-left: 6px solid var(--primary-color);
+    }
+
+    .job-card.high-fit {
+      border-left: 6px solid #16a34a;
+    }
+
+    .job-card.excluded-card {
+      border-left: 6px solid #dc2626;
+      opacity: 0.85;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .job-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+      text-decoration: none;
+    }
+
+    .job-title:hover {
+      color: var(--primary-color);
+      text-decoration: underline;
+    }
+
+    .company-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .score-badge {
+      font-size: 1.1rem;
+      font-weight: 800;
+      padding: 6px 14px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .score-high { background: var(--success-bg); color: var(--success-text); border: 1px solid var(--success-border); }
+    .score-med  { background: var(--warning-bg); color: var(--warning-text); border: 1px solid #fde047; }
+    .score-low  { background: #f1f5f9; color: var(--text-muted); border: 1px solid var(--border-color); }
+    .score-excluded { background: var(--danger-bg); color: var(--danger-text); border: 1px solid var(--danger-border); }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .meta-tag {
+      font-size: 0.85rem;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: #f1f5f9;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .meta-tag.salary-tag {
+      background: #ecfdf5;
+      color: #047857;
+      border: 1px solid #a7f3d0;
+      font-weight: 600;
+    }
+
+    .meta-tag.work-tag {
+      background: var(--badge-bg);
+      color: var(--badge-text);
+    }
+
+    .reasons-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .reasons-block { grid-template-columns: 1fr; }
+    }
+
+    .reason-box {
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
+
+    .reason-box.fit {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .reason-box.mismatch {
+      background: #fffbeb;
+      border: 1px solid #fef3c7;
+    }
+
+    .reason-box.exclusion {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+    }
+
+    .reason-box h4 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+
+    .reason-box.fit h4 { color: #15803d; }
+    .reason-box.mismatch h4 { color: #b45309; }
+    .reason-box.exclusion h4 { color: #b91c1c; }
+
+    .reason-box ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+
+    .reason-box li {
+      margin-bottom: 4px;
+    }
+
+    .duties-preview {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      background: #f8fafc;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      border-left: 3px solid #cbd5e1;
+    }
+
+    .po-decision-bar {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: #fafafa;
+      padding: 14px;
+      border-radius: 8px;
+    }
+
+    .decision-buttons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-decision {
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      border: 1px solid var(--border-color);
+      background: #ffffff;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-decision.apply:hover, .btn-decision.apply.selected {
+      background: #16a34a;
+      color: #ffffff;
+      border-color: #16a34a;
+    }
+
+    .btn-decision.no-apply:hover, .btn-decision.no-apply.selected {
+      background: #dc2626;
+      color: #ffffff;
+      border-color: #dc2626;
+    }
+
+    .reason-input {
+      flex: 1;
+      min-width: 240px;
+      padding: 8px 12px;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      font-size: 0.88rem;
+    }
+
+    .btn-save {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-save:hover { background: var(--primary-hover); }
+
+    .no-results {
+      text-align: center;
+      padding: 48px;
+      background: white;
+      border-radius: var(--radius);
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <div>
+          <h1>🎯 Job Hunter — Executive Vacancy Review</h1>
+          <div class="audit-link">
+            📁 Snapshot Source: <strong>evidence/job-hunter-runs/latest.json</strong> | 
+            🕒 Generated: <strong>2026-09-04T11:29:18.410Z</strong> | 
+            v1
+          </div>
+        </div>
+        <div>
+          <a href="evidence/job-hunter-runs/latest.json" target="_blank" class="stat-pill" style="text-decoration:none;">📄 Raw JSON Snapshot</a>
+        </div>
+      </div>
+
+      <div class="stats-bar">
+        <div class="stat-pill">Apply Candidates (&ge;60%): <strong>2</strong></div>
+        <div class="stat-pill">Total Scored: <strong>3</strong></div>
+        <div class="stat-pill">Hard-Excluded: <strong>55</strong></div>
+        <div class="stat-pill">SERP Coverage: <strong>58 ad pages</strong></div>
+      </div>
+    </header>
+
+    <div class="controls">
+      <button class="tab-btn active" onclick="filterTab('apply')">🎯 Apply Candidates (&ge;60%) (2)</button>
+      <button class="tab-btn" onclick="filterTab('all')">📋 All Scored (3)</button>
+      <button class="tab-btn" onclick="filterTab('excluded')">🚫 Hard-Excluded (55)</button>
+    </div>
+
+    <main id="job-list" class="job-list">
+      
+      
+      <!-- Visible / Scored Results -->
+      
+    <article id="job-card-0" 
+      class="job-card high-fit" 
+      data-visible="true" 
+      data-excluded="false" 
+      data-url="https://hu.linkedin.com/jobs/view/e-p-it-operations-manager-at-mol-group-4456317248?position=4&amp;pageNum=0&amp;refId=TymbJAnhnI9I%2FYFUFcHgTw%3D%3D&amp;trackingId=H1Q%2FebFOqbxJEDml8YNHPg%3D%3D"
+      data-po-decision=""
+      style="display:block;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/e-p-it-operations-manager-at-mol-group-4456317248?position=4&amp;pageNum=0&amp;refId=TymbJAnhnI9I%2FYFUFcHgTw%3D%3D&amp;trackingId=H1Q%2FebFOqbxJEDml8YNHPg%3D%3D" target="_blank" rel="noopener" class="job-title">
+            E&amp;P IT Operations Manager 🔗
+          </a>
+          <div class="company-name">🏢 MOL Group</div>
+        </div>
+        <div>
+          <span class="score-badge score-high">
+            92% RELEVANCS
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        
+        
+        <span class="meta-tag">🌐 Angol: not specified in extracted text</span>
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-08-19</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box fit">
+            <h4>✅ Pozitív illeszkedési tényezők (6)</h4>
+            <ul>
+              <li>Általános vezetői/projektvezetői cím, IT-doménkontextussal megerősítve.</li><li>A szöveg konkrét vezetői (people-management) felelősséget említ.</li><li>Valódi projekt-/programvezetői felelősség (tervezés, erőforrás/határidő/kockázat, stakeholder-koordináció) — közvetlen beosztottak nélkül is elfogadott a PO döntés szerint.</li><li>Intézményi/közszolgáltatói/nagyvállalati környezet — pozitív preferencia szerinti bónusz.</li><li>Budapest/agglomeráció — ingázással elérhető, de nem az elsődleges gyűrű.</li><li>Viszonylag friss hirdetés (16 napja).</li>
+              
+            </ul>
+          </div>
+          <div class="reason-box mismatch">
+            <h4>⚠️ Kockázatok / Eltérések (0)</h4>
+            <ul>
+              
+              
+              <li>Nincs azonosított eltérés vagy kockázat.</li>
+            </ul>
+          </div>
+        </div>
+      
+
+      
+        <div class="duties-preview">
+          <strong>📝 Feladatkör / Részletek:</strong> PURPOSE OF THE POSITION
+ The Exploration and Production (E&amp;amp;P) IT Operations Manager leads and governs IT, application, and data operations across MOL Group E&amp;amp;P entities. The role ensures business continuity, service quality, cost-efficiency, and alignment with business needs with leading a t...
+        </div>
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-0', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-0', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-0', 'https://hu.linkedin.com/jobs/view/e-p-it-operations-manager-at-mol-group-4456317248?position=4&amp;pageNum=0&amp;refId=TymbJAnhnI9I%2FYFUFcHgTw%3D%3D&amp;trackingId=H1Q%2FebFOqbxJEDml8YNHPg%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-1" 
+      class="job-card visible-card" 
+      data-visible="true" 
+      data-excluded="false" 
+      data-url="https://hu.linkedin.com/jobs/view/it-manager-m-f-d-caip-hungary-at-way-group-4462161743?position=6&amp;pageNum=0&amp;refId=TymbJAnhnI9I%2FYFUFcHgTw%3D%3D&amp;trackingId=sQR1RZHQtS3cqRv5F5WnsA%3D%3D"
+      data-po-decision=""
+      style="display:block;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/it-manager-m-f-d-caip-hungary-at-way-group-4462161743?position=6&amp;pageNum=0&amp;refId=TymbJAnhnI9I%2FYFUFcHgTw%3D%3D&amp;trackingId=sQR1RZHQtS3cqRv5F5WnsA%3D%3D" target="_blank" rel="noopener" class="job-title">
+            IT Manager (m/f/d) | CAIP Hungary 🔗
+          </a>
+          <div class="company-name">🏢 WAY Group</div>
+        </div>
+        <div>
+          <span class="score-badge score-med">
+            78% RELEVANCS
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Nyíregyháza, HU</span>
+        
+        
+        <span class="meta-tag">🌐 Angol: not specified in extracted text</span>
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-09-02</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box fit">
+            <h4>✅ Pozitív illeszkedési tényezők (3)</h4>
+            <ul>
+              <li>A cím közvetlenül egyezik egy célzott IT-vezetői/projektvezetői pozícióval.</li><li>A szöveg konkrét vezetői (people-management) felelősséget említ.</li><li>Friss hirdetés (2 napja) — pozitív frissesség-bónusz.</li>
+              
+            </ul>
+          </div>
+          <div class="reason-box mismatch">
+            <h4>⚠️ Kockázatok / Eltérések (1)</h4>
+            <ul>
+              <li>Helyszín nem azonosítható a szövegből — nem kizáró ok (nincs vak helyszín-tiltás), csak nulla pontszámú semleges jelzés.</li>
+              
+              
+            </ul>
+          </div>
+        </div>
+      
+
+      
+        <div class="duties-preview">
+          <strong>📝 Feladatkör / Részletek:</strong> IT Manager (m/f/d) | CAIP Hungary 
+ 
+ CAIP Group is a global Tier 1 automotive supplier for premium interior components — instrument panels, door panels, and decorative trims — for leading European OEMs. As part of our European expansion we are building a new manufacturing facility in Nyíregyháza.
+ ...
+        </div>
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-1', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-1', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-1', 'https://hu.linkedin.com/jobs/view/it-manager-m-f-d-caip-hungary-at-way-group-4462161743?position=6&amp;pageNum=0&amp;refId=TymbJAnhnI9I%2FYFUFcHgTw%3D%3D&amp;trackingId=sQR1RZHQtS3cqRv5F5WnsA%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-2" 
+      class="job-card " 
+      data-visible="false" 
+      data-excluded="false" 
+      data-url="https://hu.linkedin.com/jobs/view/rendszerm%C3%A9rn%C3%B6k-csoportvezet%C5%91-at-whc-ltd-4453597605?position=9&amp;pageNum=0&amp;refId=TymbJAnhnI9I%2FYFUFcHgTw%3D%3D&amp;trackingId=GazK14sNMvgYq9pjseNTjA%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/rendszerm%C3%A9rn%C3%B6k-csoportvezet%C5%91-at-whc-ltd-4453597605?position=9&amp;pageNum=0&amp;refId=TymbJAnhnI9I%2FYFUFcHgTw%3D%3D&amp;trackingId=GazK14sNMvgYq9pjseNTjA%3D%3D" target="_blank" rel="noopener" class="job-title">
+            Rendszermérnök Csoportvezető 🔗
+          </a>
+          <div class="company-name">🏢 WHC Ltd</div>
+        </div>
+        <div>
+          <span class="score-badge score-low">
+            27% RELEVANCS
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        
+        
+        <span class="meta-tag">🌐 Angol: not specified in extracted text</span>
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-08-14</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box fit">
+            <h4>✅ Pozitív illeszkedési tényezők (3)</h4>
+            <ul>
+              <li>Általános vezetői/projektvezetői cím, IT-doménkontextussal megerősítve.</li><li>Budapest/agglomeráció — ingázással elérhető, de nem az elsődleges gyűrű.</li><li>Viszonylag friss hirdetés (21 napja).</li>
+              
+            </ul>
+          </div>
+          <div class="reason-box mismatch">
+            <h4>⚠️ Kockázatok / Eltérések (2)</h4>
+            <ul>
+              <li>A szövegből nem derül ki konkrét vezetői vagy projektvezetői felelősség — csak a cím alapján releváns.</li><li>A cím vezetői/menedzseri jellegű, de a leírásban semmilyen konkrét vezetői vagy projektvezetői felelősség nem azonosítható — erősen visszasorolva.</li>
+              
+              
+            </ul>
+          </div>
+        </div>
+      
+
+      
+        <div class="duties-preview">
+          <strong>📝 Feladatkör / Részletek:</strong> Feladatok
+ Rendszermérnökök és rendszerintegrációs szakemberek csapatának hatékony, átlátható működtetése
+ Éves célok kidolgozása, jóváhagyatása és teljesülésük biztosítása
+ Együttműködés belső egységekkel és külső partnerekkel, koordináció ellátása
+ Részvétel vállalati és IT-projektekben
+ Csapattag...
+        </div>
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-2', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-2', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-2', 'https://hu.linkedin.com/jobs/view/rendszerm%C3%A9rn%C3%B6k-csoportvezet%C5%91-at-whc-ltd-4453597605?position=9&amp;pageNum=0&amp;refId=TymbJAnhnI9I%2FYFUFcHgTw%3D%3D&amp;trackingId=GazK14sNMvgYq9pjseNTjA%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+      <!-- Excluded Results -->
+      
+    <article id="job-card-3" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/it-manager-production-environment-at-%F0%9F%94%B9future-talents-consulting-kft-%F0%9F%94%B9-4452427324?position=1&amp;pageNum=0&amp;refId=TymbJAnhnI9I%2FYFUFcHgTw%3D%3D&amp;trackingId=Q8T1Tf7tI7nOyRFpWvXGzA%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/it-manager-production-environment-at-%F0%9F%94%B9future-talents-consulting-kft-%F0%9F%94%B9-4452427324?position=1&amp;pageNum=0&amp;refId=TymbJAnhnI9I%2FYFUFcHgTw%3D%3D&amp;trackingId=Q8T1Tf7tI7nOyRFpWvXGzA%3D%3D" target="_blank" rel="noopener" class="job-title">
+            IT Manager (Production Environment) 🔗
+          </a>
+          <div class="company-name">🏢 🔹Future Talents Consulting Kft.🔹</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Veszprém, HU</span>
+        
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-08-11</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING)).</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-3', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-3', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-3', 'https://hu.linkedin.com/jobs/view/it-manager-production-environment-at-%F0%9F%94%B9future-talents-consulting-kft-%F0%9F%94%B9-4452427324?position=1&amp;pageNum=0&amp;refId=TymbJAnhnI9I%2FYFUFcHgTw%3D%3D&amp;trackingId=Q8T1Tf7tI7nOyRFpWvXGzA%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-4" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/information-technology-manager-at-four-seasons-4458737359?position=2&amp;pageNum=0&amp;refId=TymbJAnhnI9I%2FYFUFcHgTw%3D%3D&amp;trackingId=bxug3dddVMB9LLHnoJ6CBg%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/information-technology-manager-at-four-seasons-4458737359?position=2&amp;pageNum=0&amp;refId=TymbJAnhnI9I%2FYFUFcHgTw%3D%3D&amp;trackingId=bxug3dddVMB9LLHnoJ6CBg%3D%3D" target="_blank" rel="noopener" class="job-title">
+            Information Technology Manager 🔗
+          </a>
+          <div class="company-name">🏢 Four Seasons</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-08-25</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING)).</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-4', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-4', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-4', 'https://hu.linkedin.com/jobs/view/information-technology-manager-at-four-seasons-4458737359?position=2&amp;pageNum=0&amp;refId=TymbJAnhnI9I%2FYFUFcHgTw%3D%3D&amp;trackingId=bxug3dddVMB9LLHnoJ6CBg%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-5" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/it-manager-at-howmet-aerospace-4437680644?position=3&amp;pageNum=0&amp;refId=TymbJAnhnI9I%2FYFUFcHgTw%3D%3D&amp;trackingId=u%2BlXGjLw26wtVJ8cwhp2MA%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/it-manager-at-howmet-aerospace-4437680644?position=3&amp;pageNum=0&amp;refId=TymbJAnhnI9I%2FYFUFcHgTw%3D%3D&amp;trackingId=u%2BlXGjLw26wtVJ8cwhp2MA%3D%3D" target="_blank" rel="noopener" class="job-title">
+            IT Manager 🔗
+          </a>
+          <div class="company-name">🏢 Howmet Aerospace</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Székesfehérvár, HU</span>
+        
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-08-27</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING)).</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-5', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-5', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-5', 'https://hu.linkedin.com/jobs/view/it-manager-at-howmet-aerospace-4437680644?position=3&amp;pageNum=0&amp;refId=TymbJAnhnI9I%2FYFUFcHgTw%3D%3D&amp;trackingId=u%2BlXGjLw26wtVJ8cwhp2MA%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-6" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/information-technology-operations-team-lead-at-capsys-financial-technologies-ltd-4452479024?position=5&amp;pageNum=0&amp;refId=TymbJAnhnI9I%2FYFUFcHgTw%3D%3D&amp;trackingId=tnvqRI6SmDueKGi5ZBrTsw%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/information-technology-operations-team-lead-at-capsys-financial-technologies-ltd-4452479024?position=5&amp;pageNum=0&amp;refId=TymbJAnhnI9I%2FYFUFcHgTw%3D%3D&amp;trackingId=tnvqRI6SmDueKGi5ZBrTsw%3D%3D" target="_blank" rel="noopener" class="job-title">
+            Information Technology Operations Team Lead 🔗
+          </a>
+          <div class="company-name">🏢 Capsys Financial Technologies Ltd.</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 13th district of Budapest, HU</span>
+        <span class="meta-tag work-tag">🏠 remote/hibrid</span>
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-08-11</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-6', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-6', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-6', 'https://hu.linkedin.com/jobs/view/information-technology-operations-team-lead-at-capsys-financial-technologies-ltd-4452479024?position=5&amp;pageNum=0&amp;refId=TymbJAnhnI9I%2FYFUFcHgTw%3D%3D&amp;trackingId=tnvqRI6SmDueKGi5ZBrTsw%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-7" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/manager-servicenow-itsm-operations-process-governance-at-johnson-controls-4450835537?position=7&amp;pageNum=0&amp;refId=TymbJAnhnI9I%2FYFUFcHgTw%3D%3D&amp;trackingId=LTCu8bL5lt8OTeStAmVE0A%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/manager-servicenow-itsm-operations-process-governance-at-johnson-controls-4450835537?position=7&amp;pageNum=0&amp;refId=TymbJAnhnI9I%2FYFUFcHgTw%3D%3D&amp;trackingId=LTCu8bL5lt8OTeStAmVE0A%3D%3D" target="_blank" rel="noopener" class="job-title">
+            Manager, ServiceNow ITSM Operations &amp; Process Governance 🔗
+          </a>
+          <div class="company-name">🏢 Johnson Controls</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-09-04</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-7', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-7', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-7', 'https://hu.linkedin.com/jobs/view/manager-servicenow-itsm-operations-process-governance-at-johnson-controls-4450835537?position=7&amp;pageNum=0&amp;refId=TymbJAnhnI9I%2FYFUFcHgTw%3D%3D&amp;trackingId=LTCu8bL5lt8OTeStAmVE0A%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-8" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/service-and-team-manager-at-lupus-consulting-4455773072?position=8&amp;pageNum=0&amp;refId=TymbJAnhnI9I%2FYFUFcHgTw%3D%3D&amp;trackingId=zF4FfS0M5VMZCYF5WPkDeg%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/service-and-team-manager-at-lupus-consulting-4455773072?position=8&amp;pageNum=0&amp;refId=TymbJAnhnI9I%2FYFUFcHgTw%3D%3D&amp;trackingId=zF4FfS0M5VMZCYF5WPkDeg%3D%3D" target="_blank" rel="noopener" class="job-title">
+            Service and Team Manager 🔗
+          </a>
+          <div class="company-name">🏢 Lupus Consulting</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-08-18</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING)).</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-8', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-8', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-8', 'https://hu.linkedin.com/jobs/view/service-and-team-manager-at-lupus-consulting-4455773072?position=8&amp;pageNum=0&amp;refId=TymbJAnhnI9I%2FYFUFcHgTw%3D%3D&amp;trackingId=zF4FfS0M5VMZCYF5WPkDeg%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-9" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://nixstech.com/hu/career/employer-brand-manager/"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://nixstech.com/hu/career/employer-brand-manager/" target="_blank" rel="noopener" class="job-title">
+            Employer Brand Manager 🔗
+          </a>
+          <div class="company-name">🏢 NIX</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, Hungary</span>
+        
+        
+        
+        <span class="meta-tag">🌐 Forrás: nixstech.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-05-13</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-9', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-9', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-9', 'https://nixstech.com/hu/career/employer-brand-manager/')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-10" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://nixstech.com/hu/career/junior-it-toborzo/"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://nixstech.com/hu/career/junior-it-toborzo/" target="_blank" rel="noopener" class="job-title">
+            Junior IT Toborzó 🔗
+          </a>
+          <div class="company-name">🏢 NIX</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, Hungary</span>
+        
+        
+        
+        <span class="meta-tag">🌐 Forrás: nixstech.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2025-07-04</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-10', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-10', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-10', 'https://nixstech.com/hu/career/junior-it-toborzo/')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-11" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://nixstech.com/hu/career/senior-data-engineer/"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://nixstech.com/hu/career/senior-data-engineer/" target="_blank" rel="noopener" class="job-title">
+            Senior Data Engineer 🔗
+          </a>
+          <div class="company-name">🏢 NIX</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, Hungary</span>
+        
+        
+        
+        <span class="meta-tag">🌐 Forrás: nixstech.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2025-06-27</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-11', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-11', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-11', 'https://nixstech.com/hu/career/senior-data-engineer/')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-12" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://nixstech.com/hu/career/medior-data-engineer/"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://nixstech.com/hu/career/medior-data-engineer/" target="_blank" rel="noopener" class="job-title">
+            Medior Data Engineer 🔗
+          </a>
+          <div class="company-name">🏢 NIX</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, Hungary</span>
+        
+        
+        
+        <span class="meta-tag">🌐 Forrás: nixstech.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2025-06-26</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-12', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-12', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-12', 'https://nixstech.com/hu/career/medior-data-engineer/')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-13" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://nixstech.com/hu/career/medior-full-stack-php-developer/"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://nixstech.com/hu/career/medior-full-stack-php-developer/" target="_blank" rel="noopener" class="job-title">
+            Medior Full Stack PHP Fejlesztő 🔗
+          </a>
+          <div class="company-name">🏢 NIX</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, Hungary</span>
+        
+        
+        
+        <span class="meta-tag">🌐 Forrás: nixstech.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2024-06-20</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: fejlesztői/helpdesk jellegű egyéni közreműködői szerep, vezetői vagy projektvezetői felelősség jele nélkül a szövegben.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-13', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-13', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-13', 'https://nixstech.com/hu/career/medior-full-stack-php-developer/')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-14" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://nixstech.com/hu/career/secretary/"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://nixstech.com/hu/career/secretary/" target="_blank" rel="noopener" class="job-title">
+            Személyi Asszisztens 🔗
+          </a>
+          <div class="company-name">🏢 NIX</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, Hungary</span>
+        
+        
+        
+        <span class="meta-tag">🌐 Forrás: nixstech.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2023-11-16</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-14', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-14', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-14', 'https://nixstech.com/hu/career/secretary/')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-15" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://nixstech.com/hu/career/it-trener-mentor/"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://nixstech.com/hu/career/it-trener-mentor/" target="_blank" rel="noopener" class="job-title">
+            IT Oktató 🔗
+          </a>
+          <div class="company-name">🏢 NIX</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, Hungary</span>
+        
+        
+        
+        <span class="meta-tag">🌐 Forrás: nixstech.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2023-09-06</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-15', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-15', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-15', 'https://nixstech.com/hu/career/it-trener-mentor/')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-16" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://nixstech.com/hu/career/junior-data-engineer/"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://nixstech.com/hu/career/junior-data-engineer/" target="_blank" rel="noopener" class="job-title">
+            Junior Data Engineer 🔗
+          </a>
+          <div class="company-name">🏢 NIX</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, Hungary</span>
+        
+        
+        
+        <span class="meta-tag">🌐 Forrás: nixstech.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2023-09-05</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-16', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-16', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-16', 'https://nixstech.com/hu/career/junior-data-engineer/')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-17" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/project-manager-infrastructure-and-industrial-construction-projects-at-accenture-hungary-4453256900?position=1&amp;pageNum=0&amp;refId=R%2BRot33c8w83G%2FqF8Pgsjw%3D%3D&amp;trackingId=CDn3I6rVzBjjyWkLdlMCfw%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/project-manager-infrastructure-and-industrial-construction-projects-at-accenture-hungary-4453256900?position=1&amp;pageNum=0&amp;refId=R%2BRot33c8w83G%2FqF8Pgsjw%3D%3D&amp;trackingId=CDn3I6rVzBjjyWkLdlMCfw%3D%3D" target="_blank" rel="noopener" class="job-title">
+            Project Manager - Infrastructure and Industrial Construction Projects 🔗
+          </a>
+          <div class="company-name">🏢 Accenture Hungary</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-08-13</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-17', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-17', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-17', 'https://hu.linkedin.com/jobs/view/project-manager-infrastructure-and-industrial-construction-projects-at-accenture-hungary-4453256900?position=1&amp;pageNum=0&amp;refId=R%2BRot33c8w83G%2FqF8Pgsjw%3D%3D&amp;trackingId=CDn3I6rVzBjjyWkLdlMCfw%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-18" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/it-project-manager-infrastructure-amc-m-a-d-at-xylem-4430949278?position=3&amp;pageNum=0&amp;refId=R%2BRot33c8w83G%2FqF8Pgsjw%3D%3D&amp;trackingId=VuzfOH0sXcjxDwYoInvc0g%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/it-project-manager-infrastructure-amc-m-a-d-at-xylem-4430949278?position=3&amp;pageNum=0&amp;refId=R%2BRot33c8w83G%2FqF8Pgsjw%3D%3D&amp;trackingId=VuzfOH0sXcjxDwYoInvc0g%3D%3D" target="_blank" rel="noopener" class="job-title">
+            IT Project Manager - Infrastructure (AMC &amp; M&amp;A/D) 🔗
+          </a>
+          <div class="company-name">🏢 Xylem</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-08-24</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-18', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-18', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-18', 'https://hu.linkedin.com/jobs/view/it-project-manager-infrastructure-amc-m-a-d-at-xylem-4430949278?position=3&amp;pageNum=0&amp;refId=R%2BRot33c8w83G%2FqF8Pgsjw%3D%3D&amp;trackingId=VuzfOH0sXcjxDwYoInvc0g%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-19" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/m%C5%B1szaki-projektmenedzser-at-mvm-4459982189?position=4&amp;pageNum=0&amp;refId=R%2BRot33c8w83G%2FqF8Pgsjw%3D%3D&amp;trackingId=DjIXwbHU4Xx%2FT5opJrePkQ%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/m%C5%B1szaki-projektmenedzser-at-mvm-4459982189?position=4&amp;pageNum=0&amp;refId=R%2BRot33c8w83G%2FqF8Pgsjw%3D%3D&amp;trackingId=DjIXwbHU4Xx%2FT5opJrePkQ%3D%3D" target="_blank" rel="noopener" class="job-title">
+            Műszaki projektmenedzser 🔗
+          </a>
+          <div class="company-name">🏢 MVM</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-09-02</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-19', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-19', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-19', 'https://hu.linkedin.com/jobs/view/m%C5%B1szaki-projektmenedzser-at-mvm-4459982189?position=4&amp;pageNum=0&amp;refId=R%2BRot33c8w83G%2FqF8Pgsjw%3D%3D&amp;trackingId=DjIXwbHU4Xx%2FT5opJrePkQ%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-20" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/customer-project-manager-at-ericsson-4436828144?position=5&amp;pageNum=0&amp;refId=R%2BRot33c8w83G%2FqF8Pgsjw%3D%3D&amp;trackingId=qY%2BwNuYJDpER7ABLVRgHVw%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/customer-project-manager-at-ericsson-4436828144?position=5&amp;pageNum=0&amp;refId=R%2BRot33c8w83G%2FqF8Pgsjw%3D%3D&amp;trackingId=qY%2BwNuYJDpER7ABLVRgHVw%3D%3D" target="_blank" rel="noopener" class="job-title">
+            Customer Project Manager 🔗
+          </a>
+          <div class="company-name">🏢 Ericsson</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        <span class="meta-tag work-tag">🏠 remote/hibrid</span>
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-08-19</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-20', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-20', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-20', 'https://hu.linkedin.com/jobs/view/customer-project-manager-at-ericsson-4436828144?position=5&amp;pageNum=0&amp;refId=R%2BRot33c8w83G%2FqF8Pgsjw%3D%3D&amp;trackingId=qY%2BwNuYJDpER7ABLVRgHVw%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-21" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/customer-project-manager-at-ericsson-4457278515?position=6&amp;pageNum=0&amp;refId=R%2BRot33c8w83G%2FqF8Pgsjw%3D%3D&amp;trackingId=NJ%2FTiUpk6ZkEhZSNspvIEQ%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/customer-project-manager-at-ericsson-4457278515?position=6&amp;pageNum=0&amp;refId=R%2BRot33c8w83G%2FqF8Pgsjw%3D%3D&amp;trackingId=NJ%2FTiUpk6ZkEhZSNspvIEQ%3D%3D" target="_blank" rel="noopener" class="job-title">
+            Customer Project Manager 🔗
+          </a>
+          <div class="company-name">🏢 Ericsson</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        <span class="meta-tag work-tag">🏠 remote/hibrid</span>
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-08-26</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-21', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-21', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-21', 'https://hu.linkedin.com/jobs/view/customer-project-manager-at-ericsson-4457278515?position=6&amp;pageNum=0&amp;refId=R%2BRot33c8w83G%2FqF8Pgsjw%3D%3D&amp;trackingId=NJ%2FTiUpk6ZkEhZSNspvIEQ%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-22" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/digital-building-regional-project-manager-at-schneider-electric-4434662203?position=7&amp;pageNum=0&amp;refId=R%2BRot33c8w83G%2FqF8Pgsjw%3D%3D&amp;trackingId=BJfbnWV9EnHu3epWvVveAw%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/digital-building-regional-project-manager-at-schneider-electric-4434662203?position=7&amp;pageNum=0&amp;refId=R%2BRot33c8w83G%2FqF8Pgsjw%3D%3D&amp;trackingId=BJfbnWV9EnHu3epWvVveAw%3D%3D" target="_blank" rel="noopener" class="job-title">
+            Digital Building Regional Project Manager 🔗
+          </a>
+          <div class="company-name">🏢 Schneider Electric</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        <span class="meta-tag work-tag">🏠 remote/hibrid</span>
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-07-01</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING)).</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-22', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-22', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-22', 'https://hu.linkedin.com/jobs/view/digital-building-regional-project-manager-at-schneider-electric-4434662203?position=7&amp;pageNum=0&amp;refId=R%2BRot33c8w83G%2FqF8Pgsjw%3D%3D&amp;trackingId=BJfbnWV9EnHu3epWvVveAw%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-23" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/refining-project-engineering-manager-at-mol-group-4392913704?position=8&amp;pageNum=0&amp;refId=R%2BRot33c8w83G%2FqF8Pgsjw%3D%3D&amp;trackingId=VSo6mosRdsuYoxPWNidkTw%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/refining-project-engineering-manager-at-mol-group-4392913704?position=8&amp;pageNum=0&amp;refId=R%2BRot33c8w83G%2FqF8Pgsjw%3D%3D&amp;trackingId=VSo6mosRdsuYoxPWNidkTw%3D%3D" target="_blank" rel="noopener" class="job-title">
+            Refining Project Engineering Manager 🔗
+          </a>
+          <div class="company-name">🏢 MOL Group</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Százhalombatta, HU</span>
+        
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-03-30</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-23', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-23', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-23', 'https://hu.linkedin.com/jobs/view/refining-project-engineering-manager-at-mol-group-4392913704?position=8&amp;pageNum=0&amp;refId=R%2BRot33c8w83G%2FqF8Pgsjw%3D%3D&amp;trackingId=VSo6mosRdsuYoxPWNidkTw%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-24" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/lead-project-manager-ai-transformation-at-siemens-energy-4374394828?position=11&amp;pageNum=0&amp;refId=R%2BRot33c8w83G%2FqF8Pgsjw%3D%3D&amp;trackingId=6YYf8RKbpyGFuWUc9EWNtQ%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/lead-project-manager-ai-transformation-at-siemens-energy-4374394828?position=11&amp;pageNum=0&amp;refId=R%2BRot33c8w83G%2FqF8Pgsjw%3D%3D&amp;trackingId=6YYf8RKbpyGFuWUc9EWNtQ%3D%3D" target="_blank" rel="noopener" class="job-title">
+            (Lead) Project Manager AI Transformation 🔗
+          </a>
+          <div class="company-name">🏢 Siemens Energy</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-09-02</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-24', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-24', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-24', 'https://hu.linkedin.com/jobs/view/lead-project-manager-ai-transformation-at-siemens-energy-4374394828?position=11&amp;pageNum=0&amp;refId=R%2BRot33c8w83G%2FqF8Pgsjw%3D%3D&amp;trackingId=6YYf8RKbpyGFuWUc9EWNtQ%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-25" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/it-project-manager-at-qualysoft-4462406604?position=1&amp;pageNum=0&amp;refId=gz6%2Bejz04xaDu%2Fgp%2BUM%2FGw%3D%3D&amp;trackingId=6yaHVtk4pc5kRTwuVdeFoA%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/it-project-manager-at-qualysoft-4462406604?position=1&amp;pageNum=0&amp;refId=gz6%2Bejz04xaDu%2Fgp%2BUM%2FGw%3D%3D&amp;trackingId=6yaHVtk4pc5kRTwuVdeFoA%3D%3D" target="_blank" rel="noopener" class="job-title">
+            IT Project Manager 🔗
+          </a>
+          <div class="company-name">🏢 Qualysoft</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-09-04</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-25', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-25', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-25', 'https://hu.linkedin.com/jobs/view/it-project-manager-at-qualysoft-4462406604?position=1&amp;pageNum=0&amp;refId=gz6%2Bejz04xaDu%2Fgp%2BUM%2FGw%3D%3D&amp;trackingId=6yaHVtk4pc5kRTwuVdeFoA%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-26" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/it-project-manager-at-supercharge-4459651067?position=4&amp;pageNum=0&amp;refId=gz6%2Bejz04xaDu%2Fgp%2BUM%2FGw%3D%3D&amp;trackingId=x6dimkNuhLhptwn%2B2EJkZw%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/it-project-manager-at-supercharge-4459651067?position=4&amp;pageNum=0&amp;refId=gz6%2Bejz04xaDu%2Fgp%2BUM%2FGw%3D%3D&amp;trackingId=x6dimkNuhLhptwn%2B2EJkZw%3D%3D" target="_blank" rel="noopener" class="job-title">
+            IT Project Manager 🔗
+          </a>
+          <div class="company-name">🏢 Supercharge</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        <span class="meta-tag work-tag">🏠 remote/hibrid</span>
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-08-27</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-26', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-26', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-26', 'https://hu.linkedin.com/jobs/view/it-project-manager-at-supercharge-4459651067?position=4&amp;pageNum=0&amp;refId=gz6%2Bejz04xaDu%2Fgp%2BUM%2FGw%3D%3D&amp;trackingId=x6dimkNuhLhptwn%2B2EJkZw%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-27" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/it-project-manager-at-celanese-4440013643?position=7&amp;pageNum=0&amp;refId=gz6%2Bejz04xaDu%2Fgp%2BUM%2FGw%3D%3D&amp;trackingId=Y8IskXV55pNNMPEjaeL9LQ%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/it-project-manager-at-celanese-4440013643?position=7&amp;pageNum=0&amp;refId=gz6%2Bejz04xaDu%2Fgp%2BUM%2FGw%3D%3D&amp;trackingId=Y8IskXV55pNNMPEjaeL9LQ%3D%3D" target="_blank" rel="noopener" class="job-title">
+            IT Project Manager 🔗
+          </a>
+          <div class="company-name">🏢 Celanese</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        <span class="meta-tag work-tag">🏠 remote/hibrid</span>
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-08-26</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-27', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-27', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-27', 'https://hu.linkedin.com/jobs/view/it-project-manager-at-celanese-4440013643?position=7&amp;pageNum=0&amp;refId=gz6%2Bejz04xaDu%2Fgp%2BUM%2FGw%3D%3D&amp;trackingId=Y8IskXV55pNNMPEjaeL9LQ%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-28" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://nofluffjobs.com/hu/job/senior-technical-cloud-training-expert-t-cloud-public-deutsche-telekom-it-solutions-hungary-budapest"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://nofluffjobs.com/hu/job/senior-technical-cloud-training-expert-t-cloud-public-deutsche-telekom-it-solutions-hungary-budapest" target="_blank" rel="noopener" class="job-title">
+            Senior Technical Cloud Training Expert – T Cloud Public 🔗
+          </a>
+          <div class="company-name">🏢 Deutsche Telekom IT Solutions Hungary</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HUN</span>
+        <span class="meta-tag work-tag">🏠 remote/hibrid</span>
+        
+        
+        <span class="meta-tag">🌐 Forrás: nofluffjobs.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-08-08</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-28', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-28', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-28', 'https://nofluffjobs.com/hu/job/senior-technical-cloud-training-expert-t-cloud-public-deutsche-telekom-it-solutions-hungary-budapest')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-29" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://nofluffjobs.com/hu/job/project-coordinator-german-and-italian-or-french-martin-engineering-hungary-kft--remote"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://nofluffjobs.com/hu/job/project-coordinator-german-and-italian-or-french-martin-engineering-hungary-kft--remote" target="_blank" rel="noopener" class="job-title">
+            Project Coordinator (German AND / Italian OR French) 🔗
+          </a>
+          <div class="company-name">🏢 Martin Engineering Hungary Kft.</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 remote/telecommute</span>
+        <span class="meta-tag work-tag">🏠 remote/hibrid</span>
+        
+        
+        <span class="meta-tag">🌐 Forrás: nofluffjobs.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-08-07</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-29', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-29', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-29', 'https://nofluffjobs.com/hu/job/project-coordinator-german-and-italian-or-french-martin-engineering-hungary-kft--remote')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-30" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://nofluffjobs.com/hu/job/servicenow-architect-technical-product-owner-square-one-resources-remote-1"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://nofluffjobs.com/hu/job/servicenow-architect-technical-product-owner-square-one-resources-remote-1" target="_blank" rel="noopener" class="job-title">
+            ServiceNow Architect / Technical Product Owner 🔗
+          </a>
+          <div class="company-name">🏢 Square One Resources</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 remote/telecommute</span>
+        
+        
+        
+        <span class="meta-tag">🌐 Forrás: nofluffjobs.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-08-26</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-30', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-30', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-30', 'https://nofluffjobs.com/hu/job/servicenow-architect-technical-product-owner-square-one-resources-remote-1')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-31" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://nofluffjobs.com/hu/job/cybersecurity-project-manager-apreel-remote"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://nofluffjobs.com/hu/job/cybersecurity-project-manager-apreel-remote" target="_blank" rel="noopener" class="job-title">
+            Cybersecurity Project Manager 🔗
+          </a>
+          <div class="company-name">🏢 apreel Sp. z o.o.</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 remote/telecommute</span>
+        <span class="meta-tag work-tag">🏠 remote/hibrid</span>
+        
+        
+        <span class="meta-tag">🌐 Forrás: nofluffjobs.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-08-24</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-31', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-31', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-31', 'https://nofluffjobs.com/hu/job/cybersecurity-project-manager-apreel-remote')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-32" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://nofluffjobs.com/hu/job/servicenow-functional-consultant-nt-tech-people-hungary-budapest"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://nofluffjobs.com/hu/job/servicenow-functional-consultant-nt-tech-people-hungary-budapest" target="_blank" rel="noopener" class="job-title">
+            ServiceNow Functional Consultant (NT) 🔗
+          </a>
+          <div class="company-name">🏢 Tech People Hungary</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HUN</span>
+        
+        
+        
+        <span class="meta-tag">🌐 Forrás: nofluffjobs.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-09-03</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-32', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-32', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-32', 'https://nofluffjobs.com/hu/job/servicenow-functional-consultant-nt-tech-people-hungary-budapest')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-33" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://nofluffjobs.com/hu/job/salesforce-consultant-nk-tech-people-hungary-budapest"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://nofluffjobs.com/hu/job/salesforce-consultant-nk-tech-people-hungary-budapest" target="_blank" rel="noopener" class="job-title">
+            Salesforce Consultant (NK) 🔗
+          </a>
+          <div class="company-name">🏢 Tech People Hungary</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HUN</span>
+        
+        
+        
+        <span class="meta-tag">🌐 Forrás: nofluffjobs.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-09-03</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-33', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-33', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-33', 'https://nofluffjobs.com/hu/job/salesforce-consultant-nk-tech-people-hungary-budapest')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-34" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://nofluffjobs.com/hu/job/client-experience-projektmenedzser-bizalmi-kor-kft--budapest"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://nofluffjobs.com/hu/job/client-experience-projektmenedzser-bizalmi-kor-kft--budapest" target="_blank" rel="noopener" class="job-title">
+            Client Experience Projektmenedzser 🔗
+          </a>
+          <div class="company-name">🏢 Bizalmi Kör Kft.</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HUN</span>
+        
+        
+        
+        <span class="meta-tag">🌐 Forrás: nofluffjobs.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-08-15</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-34', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-34', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-34', 'https://nofluffjobs.com/hu/job/client-experience-projektmenedzser-bizalmi-kor-kft--budapest')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-35" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://nofluffjobs.com/hu/job/erp-tanacsado-sap-logisztika-gyartastervezes-lv-tech-people-hungary-alsonemedi"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://nofluffjobs.com/hu/job/erp-tanacsado-sap-logisztika-gyartastervezes-lv-tech-people-hungary-alsonemedi" target="_blank" rel="noopener" class="job-title">
+            ERP tanácsadó - SAP logisztika/ gyártástervezés (LV) 🔗
+          </a>
+          <div class="company-name">🏢 Tech People Hungary</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Alsónémedi, HUN</span>
+        
+        
+        
+        <span class="meta-tag">🌐 Forrás: nofluffjobs.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-08-06</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-35', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-35', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-35', 'https://nofluffjobs.com/hu/job/erp-tanacsado-sap-logisztika-gyartastervezes-lv-tech-people-hungary-alsonemedi')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-36" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://karrierhub.hu/job/it-menedzsment-allas-torokbalint-yettel-6a9a1df2e4ed0f6f1e893a05"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://karrierhub.hu/job/it-menedzsment-allas-torokbalint-yettel-6a9a1df2e4ed0f6f1e893a05" target="_blank" rel="noopener" class="job-title">
+            IT Product Owner (Enterprise Product Catalog) 🔗
+          </a>
+          <div class="company-name">🏢 Yettel.</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Törökbálint, HU</span>
+        <span class="meta-tag work-tag">🏠 remote/hibrid</span>
+        
+        
+        <span class="meta-tag">🌐 Forrás: karrierhub.hu</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-09-03</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING)).</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-36', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-36', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-36', 'https://karrierhub.hu/job/it-menedzsment-allas-torokbalint-yettel-6a9a1df2e4ed0f6f1e893a05')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-37" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://karrierhub.hu/job/it-menedzsment-allas-budapest-otp-bank-6a9a1db3e4ed0f6f1e8937d2"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://karrierhub.hu/job/it-menedzsment-allas-budapest-otp-bank-6a9a1db3e4ed0f6f1e8937d2" target="_blank" rel="noopener" class="job-title">
+            IT projektmenedzsment gyakornok 🔗
+          </a>
+          <div class="company-name">🏢 OTP Bank</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        <span class="meta-tag work-tag">🏠 remote/hibrid</span>
+        
+        
+        <span class="meta-tag">🌐 Forrás: karrierhub.hu</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-09-03</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-37', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-37', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-37', 'https://karrierhub.hu/job/it-menedzsment-allas-budapest-otp-bank-6a9a1db3e4ed0f6f1e8937d2')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-38" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://karrierhub.hu/job/it-menedzsment-allas-budapest-one-6a9629422b1464c8b47027d8"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://karrierhub.hu/job/it-menedzsment-allas-budapest-one-6a9629422b1464c8b47027d8" target="_blank" rel="noopener" class="job-title">
+            Projektmenedzser 🔗
+          </a>
+          <div class="company-name">🏢 One</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        <span class="meta-tag work-tag">🏠 remote/hibrid</span>
+        
+        
+        <span class="meta-tag">🌐 Forrás: karrierhub.hu</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-08-31</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-38', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-38', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-38', 'https://karrierhub.hu/job/it-menedzsment-allas-budapest-one-6a9629422b1464c8b47027d8')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-39" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://karrierhub.hu/job/it-menedzsment-allas-budapest-one-6a9629452b1464c8b47027e8"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://karrierhub.hu/job/it-menedzsment-allas-budapest-one-6a9629452b1464c8b47027e8" target="_blank" rel="noopener" class="job-title">
+            Mobil adatszolgáltatások csoportvezető 🔗
+          </a>
+          <div class="company-name">🏢 One</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        <span class="meta-tag work-tag">🏠 remote/hibrid</span>
+        
+        
+        <span class="meta-tag">🌐 Forrás: karrierhub.hu</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-08-31</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING)).</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-39', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-39', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-39', 'https://karrierhub.hu/job/it-menedzsment-allas-budapest-one-6a9629452b1464c8b47027e8')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-40" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/digital-project-manager-at-dept%C2%AE-4442528812?position=1&amp;pageNum=0&amp;refId=JkAgAfRRrNHsAMehFww%2BqQ%3D%3D&amp;trackingId=yAZ27JQ0oW%2BthJU%2Fm3s%2FFw%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/digital-project-manager-at-dept%C2%AE-4442528812?position=1&amp;pageNum=0&amp;refId=JkAgAfRRrNHsAMehFww%2BqQ%3D%3D&amp;trackingId=yAZ27JQ0oW%2BthJU%2Fm3s%2FFw%3D%3D" target="_blank" rel="noopener" class="job-title">
+            Digital Project Manager 🔗
+          </a>
+          <div class="company-name">🏢 DEPT®</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        <span class="meta-tag work-tag">🏠 remote/hibrid</span>
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-08-30</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-40', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-40', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-40', 'https://hu.linkedin.com/jobs/view/digital-project-manager-at-dept%C2%AE-4442528812?position=1&amp;pageNum=0&amp;refId=JkAgAfRRrNHsAMehFww%2BqQ%3D%3D&amp;trackingId=yAZ27JQ0oW%2BthJU%2Fm3s%2FFw%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-41" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/it-project-manager-at-supercharge-4459651067?position=2&amp;pageNum=0&amp;refId=JkAgAfRRrNHsAMehFww%2BqQ%3D%3D&amp;trackingId=9QzW7B1HX4ExQjI2rXtOaw%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/it-project-manager-at-supercharge-4459651067?position=2&amp;pageNum=0&amp;refId=JkAgAfRRrNHsAMehFww%2BqQ%3D%3D&amp;trackingId=9QzW7B1HX4ExQjI2rXtOaw%3D%3D" target="_blank" rel="noopener" class="job-title">
+            IT Project Manager 🔗
+          </a>
+          <div class="company-name">🏢 Supercharge</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        <span class="meta-tag work-tag">🏠 remote/hibrid</span>
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-08-27</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-41', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-41', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-41', 'https://hu.linkedin.com/jobs/view/it-project-manager-at-supercharge-4459651067?position=2&amp;pageNum=0&amp;refId=JkAgAfRRrNHsAMehFww%2BqQ%3D%3D&amp;trackingId=9QzW7B1HX4ExQjI2rXtOaw%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-42" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/technical-project-manager-at-dakai-group-4462184458?position=3&amp;pageNum=0&amp;refId=JkAgAfRRrNHsAMehFww%2BqQ%3D%3D&amp;trackingId=j8%2BSTq8o7tHXPVo78sHYHg%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/technical-project-manager-at-dakai-group-4462184458?position=3&amp;pageNum=0&amp;refId=JkAgAfRRrNHsAMehFww%2BqQ%3D%3D&amp;trackingId=j8%2BSTq8o7tHXPVo78sHYHg%3D%3D" target="_blank" rel="noopener" class="job-title">
+            Technical Project Manager 🔗
+          </a>
+          <div class="company-name">🏢 Dakai Group</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        <span class="meta-tag work-tag">🏠 remote/hibrid</span>
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-09-02</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-42', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-42', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-42', 'https://hu.linkedin.com/jobs/view/technical-project-manager-at-dakai-group-4462184458?position=3&amp;pageNum=0&amp;refId=JkAgAfRRrNHsAMehFww%2BqQ%3D%3D&amp;trackingId=j8%2BSTq8o7tHXPVo78sHYHg%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-43" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/project-manager-hr-digitalization-ai-projects-at-dhl-supply-chain-4407438048?position=6&amp;pageNum=0&amp;refId=JkAgAfRRrNHsAMehFww%2BqQ%3D%3D&amp;trackingId=EJAfR8BxVDzazvY30mNt9g%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/project-manager-hr-digitalization-ai-projects-at-dhl-supply-chain-4407438048?position=6&amp;pageNum=0&amp;refId=JkAgAfRRrNHsAMehFww%2BqQ%3D%3D&amp;trackingId=EJAfR8BxVDzazvY30mNt9g%3D%3D" target="_blank" rel="noopener" class="job-title">
+            Project Manager HR Digitalization (AI Projects) 🔗
+          </a>
+          <div class="company-name">🏢 DHL Supply Chain</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        <span class="meta-tag work-tag">🏠 remote/hibrid</span>
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-04-30</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-43', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-43', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-43', 'https://hu.linkedin.com/jobs/view/project-manager-hr-digitalization-ai-projects-at-dhl-supply-chain-4407438048?position=6&amp;pageNum=0&amp;refId=JkAgAfRRrNHsAMehFww%2BqQ%3D%3D&amp;trackingId=EJAfR8BxVDzazvY30mNt9g%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-44" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/it-implementation-project-manager-operations-digitalization-at-harman-international-4459231135?position=7&amp;pageNum=0&amp;refId=JkAgAfRRrNHsAMehFww%2BqQ%3D%3D&amp;trackingId=PGnTnsWzfUN0jPvpXWaeFA%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/it-implementation-project-manager-operations-digitalization-at-harman-international-4459231135?position=7&amp;pageNum=0&amp;refId=JkAgAfRRrNHsAMehFww%2BqQ%3D%3D&amp;trackingId=PGnTnsWzfUN0jPvpXWaeFA%3D%3D" target="_blank" rel="noopener" class="job-title">
+            IT Implementation Project Manager, Operations Digitalization 🔗
+          </a>
+          <div class="company-name">🏢 HARMAN International</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        <span class="meta-tag work-tag">🏠 remote/hibrid</span>
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-08-31</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-44', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-44', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-44', 'https://hu.linkedin.com/jobs/view/it-implementation-project-manager-operations-digitalization-at-harman-international-4459231135?position=7&amp;pageNum=0&amp;refId=JkAgAfRRrNHsAMehFww%2BqQ%3D%3D&amp;trackingId=PGnTnsWzfUN0jPvpXWaeFA%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-45" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/it-project-manager-with-german-at-deloitte-4431523556?position=8&amp;pageNum=0&amp;refId=JkAgAfRRrNHsAMehFww%2BqQ%3D%3D&amp;trackingId=m%2FhMUhhsEId7erD1KxS4bg%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/it-project-manager-with-german-at-deloitte-4431523556?position=8&amp;pageNum=0&amp;refId=JkAgAfRRrNHsAMehFww%2BqQ%3D%3D&amp;trackingId=m%2FhMUhhsEId7erD1KxS4bg%3D%3D" target="_blank" rel="noopener" class="job-title">
+            IT Project Manager with German 🔗
+          </a>
+          <div class="company-name">🏢 Deloitte</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-09-02</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-45', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-45', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-45', 'https://hu.linkedin.com/jobs/view/it-project-manager-with-german-at-deloitte-4431523556?position=8&amp;pageNum=0&amp;refId=JkAgAfRRrNHsAMehFww%2BqQ%3D%3D&amp;trackingId=m%2FhMUhhsEId7erD1KxS4bg%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-46" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/project-manager-at-yettel-hungary-4459140028?position=9&amp;pageNum=0&amp;refId=JkAgAfRRrNHsAMehFww%2BqQ%3D%3D&amp;trackingId=0IzX%2B8PUNPopy1R5UR6P2A%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/project-manager-at-yettel-hungary-4459140028?position=9&amp;pageNum=0&amp;refId=JkAgAfRRrNHsAMehFww%2BqQ%3D%3D&amp;trackingId=0IzX%2B8PUNPopy1R5UR6P2A%3D%3D" target="_blank" rel="noopener" class="job-title">
+            Project Manager 🔗
+          </a>
+          <div class="company-name">🏢 Yettel.Hungary</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Törökbálint, HU</span>
+        <span class="meta-tag work-tag">🏠 remote/hibrid</span>
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-08-26</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING)).</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-46', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-46', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-46', 'https://hu.linkedin.com/jobs/view/project-manager-at-yettel-hungary-4459140028?position=9&amp;pageNum=0&amp;refId=JkAgAfRRrNHsAMehFww%2BqQ%3D%3D&amp;trackingId=0IzX%2B8PUNPopy1R5UR6P2A%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-47" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/sap-project-manager-budapest-based-at-deloitte-4460411259?position=10&amp;pageNum=0&amp;refId=JkAgAfRRrNHsAMehFww%2BqQ%3D%3D&amp;trackingId=zSB1x0jEQMh%2BdbYpI4wMQw%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/sap-project-manager-budapest-based-at-deloitte-4460411259?position=10&amp;pageNum=0&amp;refId=JkAgAfRRrNHsAMehFww%2BqQ%3D%3D&amp;trackingId=zSB1x0jEQMh%2BdbYpI4wMQw%3D%3D" target="_blank" rel="noopener" class="job-title">
+            SAP Project Manager | Budapest based 🔗
+          </a>
+          <div class="company-name">🏢 Deloitte</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        <span class="meta-tag work-tag">🏠 remote/hibrid</span>
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-09-02</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-47', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-47', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-47', 'https://hu.linkedin.com/jobs/view/sap-project-manager-budapest-based-at-deloitte-4460411259?position=10&amp;pageNum=0&amp;refId=JkAgAfRRrNHsAMehFww%2BqQ%3D%3D&amp;trackingId=zSB1x0jEQMh%2BdbYpI4wMQw%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-48" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/senior-it-project-manager-german-speaking-at-aliz-4440464965?position=11&amp;pageNum=0&amp;refId=JkAgAfRRrNHsAMehFww%2BqQ%3D%3D&amp;trackingId=SbZBIGBM0Kw7UIwv7%2BMszQ%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/senior-it-project-manager-german-speaking-at-aliz-4440464965?position=11&amp;pageNum=0&amp;refId=JkAgAfRRrNHsAMehFww%2BqQ%3D%3D&amp;trackingId=SbZBIGBM0Kw7UIwv7%2BMszQ%3D%3D" target="_blank" rel="noopener" class="job-title">
+            Senior IT Project Manager (German speaking) 🔗
+          </a>
+          <div class="company-name">🏢 Aliz</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        <span class="meta-tag work-tag">🏠 remote/hibrid</span>
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-08-12</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-48', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-48', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-48', 'https://hu.linkedin.com/jobs/view/senior-it-project-manager-german-speaking-at-aliz-4440464965?position=11&amp;pageNum=0&amp;refId=JkAgAfRRrNHsAMehFww%2BqQ%3D%3D&amp;trackingId=SbZBIGBM0Kw7UIwv7%2BMszQ%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-49" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/manager-servicenow-itsm-operations-process-governance-at-johnson-controls-4450834511?position=2&amp;pageNum=0&amp;refId=d3q54MM6f7%2FkC%2BTqA9TcHA%3D%3D&amp;trackingId=tXsQo%2FsOb6lRGX0ZabxerQ%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/manager-servicenow-itsm-operations-process-governance-at-johnson-controls-4450834511?position=2&amp;pageNum=0&amp;refId=d3q54MM6f7%2FkC%2BTqA9TcHA%3D%3D&amp;trackingId=tXsQo%2FsOb6lRGX0ZabxerQ%3D%3D" target="_blank" rel="noopener" class="job-title">
+            Manager, ServiceNow ITSM Operations &amp; Process Governance 🔗
+          </a>
+          <div class="company-name">🏢 Johnson Controls</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-09-04</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-49', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-49', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-49', 'https://hu.linkedin.com/jobs/view/manager-servicenow-itsm-operations-process-governance-at-johnson-controls-4450834511?position=2&amp;pageNum=0&amp;refId=d3q54MM6f7%2FkC%2BTqA9TcHA%3D%3D&amp;trackingId=tXsQo%2FsOb6lRGX0ZabxerQ%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-50" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/service-delivery-manager-asd-dp-at-siemens-4437071622?position=4&amp;pageNum=0&amp;refId=d3q54MM6f7%2FkC%2BTqA9TcHA%3D%3D&amp;trackingId=wxwCb0RtC6%2Fta9oEWEKYiw%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/service-delivery-manager-asd-dp-at-siemens-4437071622?position=4&amp;pageNum=0&amp;refId=d3q54MM6f7%2FkC%2BTqA9TcHA%3D%3D&amp;trackingId=wxwCb0RtC6%2Fta9oEWEKYiw%3D%3D" target="_blank" rel="noopener" class="job-title">
+            Service Delivery Manager ASD DP 🔗
+          </a>
+          <div class="company-name">🏢 Siemens</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-08-21</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-50', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-50', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-50', 'https://hu.linkedin.com/jobs/view/service-delivery-manager-asd-dp-at-siemens-4437071622?position=4&amp;pageNum=0&amp;refId=d3q54MM6f7%2FkC%2BTqA9TcHA%3D%3D&amp;trackingId=wxwCb0RtC6%2Fta9oEWEKYiw%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-51" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/it-manager-at-howmet-aerospace-4437680644?position=5&amp;pageNum=0&amp;refId=d3q54MM6f7%2FkC%2BTqA9TcHA%3D%3D&amp;trackingId=rTStRKF1uTZcy8yfG2Z8zw%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/it-manager-at-howmet-aerospace-4437680644?position=5&amp;pageNum=0&amp;refId=d3q54MM6f7%2FkC%2BTqA9TcHA%3D%3D&amp;trackingId=rTStRKF1uTZcy8yfG2Z8zw%3D%3D" target="_blank" rel="noopener" class="job-title">
+            IT Manager 🔗
+          </a>
+          <div class="company-name">🏢 Howmet Aerospace</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Székesfehérvár, HU</span>
+        
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-08-27</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING)).</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-51', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-51', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-51', 'https://hu.linkedin.com/jobs/view/it-manager-at-howmet-aerospace-4437680644?position=5&amp;pageNum=0&amp;refId=d3q54MM6f7%2FkC%2BTqA9TcHA%3D%3D&amp;trackingId=rTStRKF1uTZcy8yfG2Z8zw%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-52" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/incident-manager-at-pont-systems-4440988081?position=6&amp;pageNum=0&amp;refId=d3q54MM6f7%2FkC%2BTqA9TcHA%3D%3D&amp;trackingId=ECPEJHuCF6NmnUbbSsBQiQ%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/incident-manager-at-pont-systems-4440988081?position=6&amp;pageNum=0&amp;refId=d3q54MM6f7%2FkC%2BTqA9TcHA%3D%3D&amp;trackingId=ECPEJHuCF6NmnUbbSsBQiQ%3D%3D" target="_blank" rel="noopener" class="job-title">
+            Incident Manager 🔗
+          </a>
+          <div class="company-name">🏢 PONT SYSTEMS</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-08-13</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-52', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-52', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-52', 'https://hu.linkedin.com/jobs/view/incident-manager-at-pont-systems-4440988081?position=6&amp;pageNum=0&amp;refId=d3q54MM6f7%2FkC%2BTqA9TcHA%3D%3D&amp;trackingId=ECPEJHuCF6NmnUbbSsBQiQ%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-53" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/problem-manager-at-magyar-%C3%A1llamkincst%C3%A1r-4461135764?position=9&amp;pageNum=0&amp;refId=d3q54MM6f7%2FkC%2BTqA9TcHA%3D%3D&amp;trackingId=nD%2FEacj%2FTUU14b%2Bg0iuHNA%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/problem-manager-at-magyar-%C3%A1llamkincst%C3%A1r-4461135764?position=9&amp;pageNum=0&amp;refId=d3q54MM6f7%2FkC%2BTqA9TcHA%3D%3D&amp;trackingId=nD%2FEacj%2FTUU14b%2Bg0iuHNA%3D%3D" target="_blank" rel="noopener" class="job-title">
+            Problem Manager 🔗
+          </a>
+          <div class="company-name">🏢 Magyar Államkincstár</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-09-04</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-53', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-53', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-53', 'https://hu.linkedin.com/jobs/view/problem-manager-at-magyar-%C3%A1llamkincst%C3%A1r-4461135764?position=9&amp;pageNum=0&amp;refId=d3q54MM6f7%2FkC%2BTqA9TcHA%3D%3D&amp;trackingId=nD%2FEacj%2FTUU14b%2Bg0iuHNA%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-54" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/dx-operations-manager-change-management-ai-governance-at-sony-europe-4448883255?position=1&amp;pageNum=0&amp;refId=jb98H%2FQMhi0FatIYMA3qlw%3D%3D&amp;trackingId=MWouQr1lSSo%2BlTcktcJB1A%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/dx-operations-manager-change-management-ai-governance-at-sony-europe-4448883255?position=1&amp;pageNum=0&amp;refId=jb98H%2FQMhi0FatIYMA3qlw%3D%3D&amp;trackingId=MWouQr1lSSo%2BlTcktcJB1A%3D%3D" target="_blank" rel="noopener" class="job-title">
+            DX Operations Manager (Change Management &amp; AI Governance) 🔗
+          </a>
+          <div class="company-name">🏢 Sony Europe</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        <span class="meta-tag work-tag">🏠 remote/hibrid</span>
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-08-25</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING)).</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-54', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-54', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-54', 'https://hu.linkedin.com/jobs/view/dx-operations-manager-change-management-ai-governance-at-sony-europe-4448883255?position=1&amp;pageNum=0&amp;refId=jb98H%2FQMhi0FatIYMA3qlw%3D%3D&amp;trackingId=MWouQr1lSSo%2BlTcktcJB1A%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-55" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/productivity-transformation-leader-at-schneider-electric-4461655083?position=4&amp;pageNum=0&amp;refId=jb98H%2FQMhi0FatIYMA3qlw%3D%3D&amp;trackingId=XmfHtAx%2FgFk0VBspmL5SMQ%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/productivity-transformation-leader-at-schneider-electric-4461655083?position=4&amp;pageNum=0&amp;refId=jb98H%2FQMhi0FatIYMA3qlw%3D%3D&amp;trackingId=XmfHtAx%2FgFk0VBspmL5SMQ%3D%3D" target="_blank" rel="noopener" class="job-title">
+            Productivity Transformation Leader 🔗
+          </a>
+          <div class="company-name">🏢 Schneider Electric</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-09-03</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-55', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-55', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-55', 'https://hu.linkedin.com/jobs/view/productivity-transformation-leader-at-schneider-electric-4461655083?position=4&amp;pageNum=0&amp;refId=jb98H%2FQMhi0FatIYMA3qlw%3D%3D&amp;trackingId=XmfHtAx%2FgFk0VBspmL5SMQ%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-56" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/technology-strategy-manager-at-deloitte-4444152122?position=6&amp;pageNum=0&amp;refId=jb98H%2FQMhi0FatIYMA3qlw%3D%3D&amp;trackingId=3UWxvzj5dhIy2vCwoOS4sg%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/technology-strategy-manager-at-deloitte-4444152122?position=6&amp;pageNum=0&amp;refId=jb98H%2FQMhi0FatIYMA3qlw%3D%3D&amp;trackingId=3UWxvzj5dhIy2vCwoOS4sg%3D%3D" target="_blank" rel="noopener" class="job-title">
+            Technology Strategy Manager 🔗
+          </a>
+          <div class="company-name">🏢 Deloitte</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Budapest, HU</span>
+        <span class="meta-tag work-tag">🏠 remote/hibrid</span>
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-08-20</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-56', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-56', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-56', 'https://hu.linkedin.com/jobs/view/technology-strategy-manager-at-deloitte-4444152122?position=6&amp;pageNum=0&amp;refId=jb98H%2FQMhi0FatIYMA3qlw%3D%3D&amp;trackingId=3UWxvzj5dhIy2vCwoOS4sg%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+
+    <article id="job-card-57" 
+      class="job-card excluded-card" 
+      data-visible="false" 
+      data-excluded="true" 
+      data-url="https://hu.linkedin.com/jobs/view/head-of-systems-change-management-m-f-diverse-ref95994v-at-continental-industry-4415910557?position=7&amp;pageNum=0&amp;refId=jb98H%2FQMhi0FatIYMA3qlw%3D%3D&amp;trackingId=93qCr%2FwG0xbmrVsYoIRVvA%3D%3D"
+      data-po-decision=""
+      style="display:none;">
+      
+      <div class="card-header">
+        <div>
+          <a href="https://hu.linkedin.com/jobs/view/head-of-systems-change-management-m-f-diverse-ref95994v-at-continental-industry-4415910557?position=7&amp;pageNum=0&amp;refId=jb98H%2FQMhi0FatIYMA3qlw%3D%3D&amp;trackingId=93qCr%2FwG0xbmrVsYoIRVvA%3D%3D" target="_blank" rel="noopener" class="job-title">
+            Head of Systems &amp; Change Management (m/f/diverse) - REF95994V 🔗
+          </a>
+          <div class="company-name">🏢 Continental Industry</div>
+        </div>
+        <div>
+          <span class="score-badge score-excluded">
+            KIZÁRVA
+          </span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-tag">📍 Szeged, HU</span>
+        
+        
+        
+        <span class="meta-tag">🌐 Forrás: hu.linkedin.com</span>
+        <span class="meta-tag">📅 Közzétéve: 2026-05-20</span>
+      </div>
+
+      
+        <div class="reasons-block">
+          <div class="reason-box exclusion" style="grid-column: 1 / -1;">
+            <h4>🚫 Kizárási Indok</h4>
+            <p>Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.</p>
+          </div>
+        </div>
+      
+
+      
+
+      <div class="po-decision-bar">
+        <div class="decision-buttons">
+          <button type="button" class="btn-decision apply " onclick="selectDecision('job-card-57', 'APPLY')">
+            👍 APPLY (Jelentkezésre ajánlott)
+          </button>
+          <button type="button" class="btn-decision no-apply " onclick="selectDecision('job-card-57', 'DO_NOT_APPLY')">
+            👎 DO NOT APPLY (Elutasítva)
+          </button>
+        </div>
+        <input type="text" class="reason-input" placeholder="Rövid PO indoklás / megjegyzés (pl. jó fizetés, kicsi csapat...)" value="">
+        <button type="button" class="btn-save" onclick="saveCardDecision('job-card-57', 'https://hu.linkedin.com/jobs/view/head-of-systems-change-management-m-f-diverse-ref95994v-at-continental-industry-4415910557?position=7&amp;pageNum=0&amp;refId=jb98H%2FQMhi0FatIYMA3qlw%3D%3D&amp;trackingId=93qCr%2FwG0xbmrVsYoIRVvA%3D%3D')">💾 Mentés</button>
+      </div>
+    </article>
+  
+    </main>
+  </div>
+
+  <script>
+    const STORAGE_KEY = 'jh_po_decisions';
+
+    function filterTab(tab) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const cards = document.querySelectorAll('.job-card');
+      cards.forEach(card => {
+        const isVisible = card.dataset.visible === 'true';
+        const isExcluded = card.dataset.excluded === 'true';
+
+        if (tab === 'apply') {
+          card.style.display = (isVisible && !isExcluded) ? 'block' : 'none';
+        } else if (tab === 'all') {
+          card.style.display = (!isExcluded) ? 'block' : 'none';
+        } else if (tab === 'excluded') {
+          card.style.display = (isExcluded) ? 'block' : 'none';
+        }
+      });
+    }
+
+    function selectDecision(cardId, decision) {
+      const card = document.getElementById(cardId);
+      const applyBtn = card.querySelector('.btn-decision.apply');
+      const noApplyBtn = card.querySelector('.btn-decision.no-apply');
+
+      if (decision === 'APPLY') {
+        applyBtn.classList.add('selected');
+        noApplyBtn.classList.remove('selected');
+        card.dataset.poDecision = 'APPLY';
+      } else if (decision === 'DO_NOT_APPLY') {
+        noApplyBtn.classList.add('selected');
+        applyBtn.classList.remove('selected');
+        card.dataset.poDecision = 'DO_NOT_APPLY';
+      }
+    }
+
+    function saveCardDecision(cardId, url) {
+      const card = document.getElementById(cardId);
+      const decision = card.dataset.poDecision || null;
+      const reasonInput = card.querySelector('.reason-input');
+      const reason = reasonInput ? reasonInput.value : '';
+
+      if (!decision) {
+        alert('Kérjük válasszon döntést (APPLY vagy DO_NOT_APPLY) a mentés előtt!');
+        return;
+      }
+
+      // Save to localStorage
+      const store = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      store[url] = {
+        poDecision: decision,
+        poReason: reason,
+        updatedAt: new Date().toISOString()
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+
+      // Visual Feedback
+      const saveBtn = card.querySelector('.btn-save');
+      const origText = saveBtn.innerText;
+      saveBtn.innerText = '✓ Mentve!';
+      saveBtn.style.background = '#16a34a';
+      setTimeout(() => {
+        saveBtn.innerText = origText;
+        saveBtn.style.background = '';
+      }, 2000);
+    }
+
+    // Initialize tabs
+    document.addEventListener('DOMContentLoaded', () => {
+      // Restore local decisions if available
+      const store = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      document.querySelectorAll('.job-card').forEach(card => {
+        const url = card.dataset.url;
+        if (url && store[url]) {
+          const item = store[url];
+          selectDecision(card.id, item.poDecision);
+          const reasonInput = card.querySelector('.reason-input');
+          if (reasonInput && item.poReason) {
+            reasonInput.value = item.poReason;
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
