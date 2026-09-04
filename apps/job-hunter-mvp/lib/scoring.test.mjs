@@ -357,6 +357,43 @@ test('Supervisor #2: real WAY Group/CAIP Hungary record with a known but unliste
   assert.ok(!r.note.includes('nem azonosítható'), 'must not claim the location could not be identified when locationText was populated');
 });
 
+// --- Independent Codex falsification review of the TEAM_OPERATED_REGEX fix
+// (docs/reviews/TEAM_OPERATED_REGEX_FALSIFICATION_REVIEW_2026-09-04.md) ---
+
+test('Codex review #1: "csapatban dolgozunk" (belongs to a team) followed by an unrelated operating verb in the NEXT sentence does not grant management scope', () => {
+  assert.equal(isHardExcludedICRole('Senior Fejlesztő', 'Csapatban dolgozunk. A platform működtetése a feladatod.'), true);
+  const r = computeRelevanceAssessment({
+    title: 'IT szolgáltatásmenedzser',
+    descriptionText: 'Csapatban dolgozunk. A platform működtetése a feladatod.',
+    locationText: 'Budapest',
+    datePosted: new Date().toISOString(),
+    positionRelevant: true,
+    isGenericTitle: true,
+  });
+  assert.equal(r.hardExcluded, false);
+  assert.ok(r.score < RELEVANCE_VISIBLE_THRESHOLD, `expected <60 (no-scope-evidence penalty), got ${r.score}`);
+});
+
+test('Codex review #1b: the same cross-sentence collision with a different operating verb (customer systems supervision, not team leadership)', () => {
+  assert.equal(
+    isHardExcludedICRole('Fejlesztő', 'Fejlesztőként csapatban dolgozol. Az ügyfél rendszereinek felügyelete a feladatod.'),
+    true
+  );
+});
+
+test('Codex review #1 guard: the fix still recognizes real same-sentence team leadership', () => {
+  const r = computeRelevanceAssessment({
+    title: 'Rendszermérnök Csoportvezető',
+    descriptionText: 'Rendszermérnökök csapatának hatékony, átlátható működtetése, éves célok kidolgozása.',
+    locationText: 'Budapest',
+    datePosted: new Date().toISOString(),
+    positionRelevant: true,
+    isGenericTitle: true,
+  });
+  assert.equal(r.hardExcluded, false);
+  assert.ok(r.score >= RELEVANCE_VISIBLE_THRESHOLD, `expected >=60 for genuine same-sentence leadership, got ${r.score}`);
+});
+
 test('every non-excluded assessment carries both fit and mismatch context when applicable (explainability requirement)', () => {
   const r = computeRelevanceAssessment({
     title: 'Projektmenedzser',

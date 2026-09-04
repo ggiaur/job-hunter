@@ -185,7 +185,19 @@ const MANAGEMENT_SCOPE_MARKERS = [
 // ASCII-only and does not match accented Hungarian letters, so an inflected
 // suffix like "-ának" directly appended with no space (e.g. "csapatának")
 // would otherwise break the match right after the plain "csapat" stem.
-const TEAM_OPERATED_REGEX = /csapat\S*(?:\s+\S+){0,4}?\s+(irányítása|vezetése|működtetése|menedzselése|felügyelete)/i;
+//
+// [^\s.!?]+ (not \S+) for every intervening token: an independent Codex
+// falsification review (2026-09-04) found the original \S+ version crossed
+// sentence boundaries -- "Csapatban dolgozunk. A platform működtetése a
+// feladatod." wrongly matched because \S+ swallows the sentence-ending
+// period, linking an unrelated verb ("operating THE PLATFORM") to "csapat"
+// from a completely different sentence. Excluding . ! ? from every token in
+// the match (both the csapat-stem suffix and the intervening words) forces
+// the whole match to stay inside one sentence, without reintroducing a
+// grammatical parser. Real-world comma-separated adjectives inside the same
+// sentence (e.g. "csapatának hatékony, átlátható működtetése") still match,
+// since commas are not excluded.
+const TEAM_OPERATED_REGEX = /csapat[^\s.!?]*(?:\s+[^\s.!?]+){0,4}?\s+(irányítása|vezetése|működtetése|menedzselése|felügyelete)/i;
 
 export function hasManagementScope(text) {
   const lower = text.toLowerCase();
