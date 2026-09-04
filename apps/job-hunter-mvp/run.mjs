@@ -8,19 +8,13 @@ import {
   fieldsFromJobPostingSchema,
   stripHtml,
   extractTitleTag,
-  checkAdvancedEnglishRequired,
-  englishRequirementLabel,
-  checkLocation,
-  hasManagementScope,
-  hasProjectLeadershipScope,
-  hasInstitutionalContext,
-  isLikelySeniorICWithoutManagement,
-  isPMWithoutManagementScope,
   matchesTargetPosition,
   isGenericProjectTitle,
   hasITDomainContext,
 } from './lib/extract.mjs';
+import { computeRelevanceAssessment } from './lib/scoring.mjs';
 import { extractJobLikeLinks, countJobLikeLinks } from './lib/links.mjs';
+import { persistRunHistory } from './lib/run-history.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
@@ -208,89 +202,82 @@ async function main() {
   console.log(`Second-level confirmed job ads: ${secondLevelConfirmed}`);
   console.log(`Total confirmed job-ad pages (schema.org JobPosting verified): ${confirmedJobAds.length}`);
 
-  // Extraction (from structured schema.org data) + hard exclusion + scoring
-  const accepted = [];
-  const rejected = [];
+  // Extraction (from structured schema.org data) + PO_DECISIONS_2026-09-04.md
+  // hard exclusion + explainable 0-100 relevance scoring (lib/scoring.mjs).
+  const results = []; // every scored/excluded candidate, per the result contract
+  const excluded = []; // company exclusion is a profile-level hard filter, kept separate
 
   for (const ad of confirmedJobAds) {
     const fields = fieldsFromJobPostingSchema(ad.schema);
     const title = fields.title || extractTitleTag(ad.html) || ad.serpTitle || 'unknown (nem sikerült kinyerni)';
     const company = fields.company || 'unknown (nem sikerült kinyerni)';
     const descriptionText = fields.description || stripHtml(ad.html);
-    const englishAdvanced = checkAdvancedEnglishRequired(descriptionText);
-    const englishLabel = englishRequirementLabel(descriptionText);
-    const loc = checkLocation(descriptionText + ' ' + (fields.location || ''));
     const companyExcluded = isExcludedCompany(company, profile.excludedCompanies);
-    const positionRelevant =
-      matchesTargetPosition(title) || (isGenericProjectTitle(title) && hasITDomainContext(descriptionText));
 
-    const record = {
+    const base = {
       title,
       company,
       url: ad.url,
       source: new URL(ad.url).hostname,
       matchedQuery: ad.query,
-      locationText: fields.location || (loc.budapestOrAgglomeration ? 'Budapest/agglomeráció' : loc.remoteOrHybrid ? 'remote/hibrid' : 'unknown (nem sikerült kinyerni)'),
-      remoteOrHybrid: loc.remoteOrHybrid,
-      englishRequirement: englishLabel,
-      keyDuties: fields.description ? fields.description.slice(0, 500) : 'unknown (nem sikerült kinyerni)',
+      locationText: fields.location || null,
+      workArrangement: /home\s?office|remote|távmunka|hibrid|hybrid/i.test(descriptionText) ? 'remote/hibrid' : null,
       employmentType: fields.employmentType || 'unknown',
-      datePosted: fields.datePosted || 'unknown',
+      datePosted: fields.datePosted || null,
       validThrough: fields.validThrough || 'unknown',
+      poDecision: null, // APPLY | DO_NOT_APPLY, PO-filled after review
+      poReason: null,
     };
 
-    if (!positionRelevant) {
-      rejected.push({ ...record, reason: 'Nem releváns pozíció — a cím nem tartalmaz IT-vezetői/menedzseri kulcsszót, vagy nem-IT terület (pl. toborzás, marketing, ügyfélszolgálat)' });
-      continue;
-    }
     if (companyExcluded) {
-      rejected.push({ ...record, reason: `Kizárt cég: ${company}` });
-      continue;
-    }
-    if (englishAdvanced) {
-      rejected.push({ ...record, reason: 'Kizárva: felsőfokú/tárgyalásképes/anyanyelvi szintű angol nyelvtudás kötelező' });
+      excluded.push({ ...base, exclusionReason: `Kizárt cég (profil beállítás): ${company}` });
       continue;
     }
 
-    let score = ad.priorityWeight;
-    if (loc.budapestOrAgglomeration) score += 10;
-    if (loc.remoteOrHybrid) score += 5;
-    const hasMgmtScope = hasManagementScope(descriptionText);
-    if (hasMgmtScope) score += 15;
-    if (isLikelySeniorICWithoutManagement(title, descriptionText)) {
-      score -= 30;
-      record.scoringNote = 'Senior IC/technical lead cím valós vezetői (people-management) felelősség jele nélkül — vezetői találatként visszasorolva a tanult preferencia szerint.';
-    }
-    if (isPMWithoutManagementScope(title, descriptionText)) {
-      score -= 15;
-      record.scoringNote = (record.scoringNote ? record.scoringNote + ' ' : '') + 'Projektmenedzseri cím vezetői vagy projekt-vezetői felelősség jele nélkül — vezetői találatok mögé sorolva.';
-    }
-    const hasProjectLeadership = hasProjectLeadershipScope(descriptionText);
-    if (hasProjectLeadership) {
-      score += 20;
-      record.scoringNote = (record.scoringNote ? record.scoringNote + ' ' : '') + 'Pillér-szerű pozitív minta: valódi projekt-/programvezetői felelősség (tervezés, erőforrás/határidő/kockázat, stakeholder-koordináció, döntés-előkészítés) — a tanult pozitív preferencia szerint előresorolva.';
-    }
-    if (hasInstitutionalContext(descriptionText)) {
-      score += 10;
-      record.scoringNote = (record.scoringNote ? record.scoringNote + ' ' : '') + 'Intézményi/közszolgáltatói/nagyvállalati környezet — pozitív preferencia szerint bónusz.';
+    const positionRelevant =
+      matchesTargetPosition(title) || (isGenericProjectTitle(title) && hasITDomainContext(descriptionText));
+
+    const assessment = computeRelevanceAssessment({
+      title,
+      descriptionText,
+      locationText: fields.location,
+      datePosted: fields.datePosted,
+      positionRelevant,
+      isGenericTitle: isGenericProjectTitle(title) && !matchesTargetPosition(title),
+    });
+
+    if (assessment.hardExcluded) {
+      excluded.push({ ...base, exclusionReason: assessment.exclusionReason });
+      continue;
     }
 
-    accepted.push({ ...record, score });
+    results.push({
+      ...base,
+      salary: assessment.salaryAmount ? `~${assessment.salaryAmount.toLocaleString('hu-HU')} Ft (bruttó, hirdetésből)` : null,
+      relevancePercent: assessment.score,
+      visible: assessment.visible,
+      fitReasons: assessment.fitReasons,
+      mismatchReasons: assessment.mismatchReasons,
+      englishRequirement: assessment.englishRequirement,
+      keyDuties: fields.description ? fields.description.slice(0, 500) : 'unknown (nem sikerült kinyerni)',
+    });
   }
 
   // Semantic dedup: the same job can be discovered twice under different
   // tracking query-strings (e.g. profession.hu's ?keyword=... varies per
   // search that found it). Keep the highest-scored copy per title+company.
   const seenTitleCompany = new Map();
-  for (const rec of accepted) {
+  for (const rec of results) {
     const key = `${rec.title.toLowerCase()}|${rec.company.toLowerCase()}`;
     const existing = seenTitleCompany.get(key);
-    if (!existing || rec.score > existing.score) seenTitleCompany.set(key, rec);
+    if (!existing || rec.relevancePercent > existing.relevancePercent) seenTitleCompany.set(key, rec);
   }
-  const dedupedAccepted = [...seenTitleCompany.values()];
-  dedupedAccepted.sort((a, b) => b.score - a.score);
-  accepted.length = 0;
-  accepted.push(...dedupedAccepted);
+  const dedupedResults = [...seenTitleCompany.values()];
+  dedupedResults.sort((a, b) => b.relevancePercent - a.relevancePercent);
+  results.length = 0;
+  results.push(...dedupedResults);
+
+  const visibleResults = results.filter((r) => r.visible);
 
   const output = {
     generatedAt: new Date().toISOString(),
@@ -299,15 +286,20 @@ async function main() {
     uniqueCandidateUrls: stageACandidates.size,
     confirmedJobAdPages: confirmedJobAds.length,
     unreachableCount: unreachable.length,
-    accepted,
-    rejected,
+    resultContractVersion: 1,
+    visibleThreshold: 60,
+    results,
+    visibleCount: visibleResults.length,
+    excluded,
     unreachable,
   };
 
   const outPath = path.join(REPO_ROOT, 'docs', 'evidence', 'real-job-hunter-current-run.json');
   await writeFile(outPath, JSON.stringify(output, null, 2), 'utf8');
+  const { snapshotPath } = await persistRunHistory(REPO_ROOT, output);
   console.log(`\nWrote ${outPath}`);
-  console.log(`Accepted: ${accepted.length}, Rejected: ${rejected.length}, Unreachable: ${unreachable.length}`);
+  console.log(`Durable run snapshot: ${snapshotPath}`);
+  console.log(`Results: ${results.length} (visible >=60%: ${visibleResults.length}), Excluded: ${excluded.length}, Unreachable: ${unreachable.length}`);
 }
 
 main().catch((err) => {
