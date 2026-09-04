@@ -21,6 +21,18 @@ export const ROLE_FAMILIES = [
   { q: 'IT osztályvezető', priorityWeight: 50 },
   { q: 'infrastruktúra vezető', priorityWeight: 50 },
   { q: 'IT projektmenedzser', priorityWeight: 40 },
+  // Bare "projektmenedzser" (no IT prefix): the live Pillér Nonprofit Kft.
+  // canary (title "Projektmenedzser", no IT qualifier) proved that SerpApi's
+  // live ranking for "IT projektmenedzser" can surface a different, narrower
+  // Profession.hu category page on a given run than the one containing this
+  // vacancy -- a real, evidence-observed SERP-ranking variability, not a
+  // link-cap regression (JH-SUP-0025/0026's fix for that is unaffected).
+  // The downstream isGenericProjectTitle + hasITDomainContext gate already
+  // correctly separates IT-relevant generic project-manager roles from
+  // unrelated ones (proven across this session's false-positive fixes), so
+  // widening the query itself is safe -- relevance filtering happens after
+  // acquisition, not by pre-qualifying the search term with "IT".
+  { q: 'projektmenedzser', priorityWeight: 35 },
   { q: 'informatikai projektvezető', priorityWeight: 45 },
   { q: 'digitalizációs projektmenedzser', priorityWeight: 45 },
   { q: 'digitalizációs vezető', priorityWeight: 30 },

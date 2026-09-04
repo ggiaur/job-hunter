@@ -35,8 +35,10 @@ test('regional-ring queries are bounded to the top N role families, not a full c
 
 test('total query count stays bounded (no combinatorial explosion) for the default configuration', () => {
   const queries = buildAcquisitionQueries();
-  // 11 role families (Budapest) + 4 regional-ring (top roles) + 1 remote lane = 16.
-  assert.equal(queries.length, 16);
+  // 12 role families (Budapest, incl. bare "projektmenedzser" added after the
+  // live Pillér canary showed "IT projektmenedzser" alone can miss it on a
+  // given SerpApi ranking) + 4 regional-ring (top roles) + 1 remote lane = 17.
+  assert.equal(queries.length, 17);
 });
 
 test('custom smaller role/city sets still produce full regional coverage', () => {
