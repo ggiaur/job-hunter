@@ -2,8 +2,8 @@
 schema_version: 1
 channel: product_supervisor
 
-directive_id: JH-SUP-0023
-issued_at: "2026-09-04T07:28:00+02:00"
+directive_id: JH-SUP-0024
+issued_at: "2026-09-04T12:58:00+02:00"
 issued_by: chatgpt_product_architect
 authority: PRODUCT_ARCHITECT_ORCHESTRATION_SUPERVISOR
 priority: P0
@@ -11,13 +11,13 @@ status: ACTIVE
 requires_ack: true
 execute_immediately: true
 interrupt_current_work: true
-instruction_file: docs/agent-directives/JH-SUP-0023-OPERATE-JOB-HUNTER-CONTINUOUSLY.md
+instruction_file: docs/agent-directives/JH-SUP-0024-IMPLEMENT-RELEVANCE-SPRINT1.md
 ack_file: docs/agent-runtime/product-supervisor-ack.yaml
 continuity_policy: docs/EXECUTION_CONTINUITY_POLICY.md
 orchestrator_runtime: docs/agent-runtime/orchestrator.yaml
 project_claude_contract: CLAUDE.md
 watcher_enforcement: scripts/watch_product_supervisor_directive.sh
-supersedes: JH-SUP-0022
+supersedes: JH-SUP-0023
 redelivery_seq: 0
 
-summary: "P0 OPERATE NOW: JH-SUP-0022 already passed. Run the current Job Hunter immediately with the latest Pillér-like preferences, produce 7–15 verified current relevant jobs if available, and install/enable the existing twice-weekly unattended systemd schedule. Do not return to search-mechanism research; use the proven SerpApi pipeline, verify real job-detail pages, allow intermediate English, hard-reject only mandatory advanced/fluent/negotiation/native English, and keep routine runs operating without waiting for another chat directive."
+summary: "P0 IMPLEMENT APPROVED RELEVANCE SPRINT 1 NOW. Canonical SPRINT_1.md and docs/product/PO_DECISIONS_2026-09-04.md replace the superseded two-keyword Google acceptance goal. Product outcome: real current vacancies, explainable 0-100 scoring, every >=60% result visible and durably persisted, minimum one PO-judged APPLY result for final Sprint 1 acceptance. Source choice is engineering-owned; Google/SerpApi is allowed, direct portal/Jooble/company sources and useful job-searcher/allas-figyelo assets may be reused when they improve results. Claude integrates and runs live E2E; Gemini builds isolated presentation slice; Codex independently falsifies acceptance rules under its environment limits. No destructive repository/service action."
