@@ -28,24 +28,34 @@ export function loadDecisions(filepath = DEFAULT_DECISIONS_FILE) {
 
 /**
  * Save or update a PO decision for a given vacancy URL.
+ *
+ * JH-SUP-0026 section 4 additive extension: optional decisionReasonPrimary/
+ * decisionReasonSecondary/evidenceFragment fields, so the binary label is
+ * never the only learning data persisted. Existing callers passing only
+ * (url, decision, reason) are unaffected -- the new fields default to null.
+ *
  * @param {string} url - Direct vacancy URL
  * @param {'APPLY' | 'DO_NOT_APPLY' | null} decision - Decision type
  * @param {string | null} reason - Optional short rationale
  * @param {string} filepath - Storage JSON path
+ * @param {{ decisionReasonPrimary?: string|null, decisionReasonSecondary?: string|null, evidenceFragment?: string|null }} learning
  * @returns {Record<string, any>} Updated decisions dictionary
  */
-export function saveDecision(url, decision, reason = null, filepath = DEFAULT_DECISIONS_FILE) {
+export function saveDecision(url, decision, reason = null, filepath = DEFAULT_DECISIONS_FILE, learning = {}) {
   if (!url) {
     throw new Error('URL is required to index a PO decision');
   }
   const decisions = loadDecisions(filepath);
-  
+
   if (decision === null) {
     delete decisions[url];
   } else {
     decisions[url] = {
       poDecision: decision,
       poReason: reason ? String(reason).trim() : null,
+      decisionReasonPrimary: learning.decisionReasonPrimary ?? null,
+      decisionReasonSecondary: learning.decisionReasonSecondary ?? null,
+      evidenceFragment: learning.evidenceFragment ?? null,
       updatedAt: new Date().toISOString()
     };
   }
@@ -69,6 +79,9 @@ export function mergeDecisions(runData, decisionsDict = {}) {
       if (row.url && decisionsDict[row.url]) {
         row.poDecision = decisionsDict[row.url].poDecision;
         row.poReason = decisionsDict[row.url].poReason;
+        row.decisionReasonPrimary = decisionsDict[row.url].decisionReasonPrimary ?? null;
+        row.decisionReasonSecondary = decisionsDict[row.url].decisionReasonSecondary ?? null;
+        row.evidenceFragment = decisionsDict[row.url].evidenceFragment ?? null;
         row.poDecisionUpdatedAt = decisionsDict[row.url].updatedAt;
       }
     }
@@ -79,6 +92,9 @@ export function mergeDecisions(runData, decisionsDict = {}) {
       if (row.url && decisionsDict[row.url]) {
         row.poDecision = decisionsDict[row.url].poDecision;
         row.poReason = decisionsDict[row.url].poReason;
+        row.decisionReasonPrimary = decisionsDict[row.url].decisionReasonPrimary ?? null;
+        row.decisionReasonSecondary = decisionsDict[row.url].decisionReasonSecondary ?? null;
+        row.evidenceFragment = decisionsDict[row.url].evidenceFragment ?? null;
         row.poDecisionUpdatedAt = decisionsDict[row.url].updatedAt;
       }
     }
