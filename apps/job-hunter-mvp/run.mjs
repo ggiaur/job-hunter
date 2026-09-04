@@ -54,7 +54,7 @@ function normalizeUrl(rawUrl) {
   }
 }
 
-async function fetchWithTimeout(url, ms = 9000) {
+async function fetchOnce(url, ms) {
   const controller = new AbortController();
   const t = setTimeout(() => controller.abort(), ms);
   try {
@@ -73,6 +73,22 @@ async function fetchWithTimeout(url, ms = 9000) {
     return { ok: false, status: null, error: err.message };
   } finally {
     clearTimeout(t);
+  }
+}
+
+// Four live E2E runs (JH-SUP-0026, 2026-09-04) showed the Pillér canary's
+// listing/detail pages repeatedly failing with transient "fetch failed"/500
+// errors specifically under this pipeline's concurrent request volume,
+// while a single manual curl to the same URL succeeded reliably every time
+// -- evidence this is concurrency/connection-pool pressure in this
+// environment, not the target site being down. Up to 3 attempts with
+// increasing backoff.
+async function fetchWithTimeout(url, ms = 9000, retryDelayMs = 2000) {
+  for (let attempt = 0; attempt < 3; attempt++) {
+    const res = await fetchOnce(url, ms);
+    if (res.ok && res.html) return res;
+    if (attempt < 2) await new Promise((r) => setTimeout(r, retryDelayMs * (attempt + 1)));
+    else return res;
   }
 }
 
@@ -151,7 +167,11 @@ async function main() {
 
   console.log('\n=== Direct Profession.hu acquisition ===');
   const directKeywords = ROLE_FAMILIES.map((r) => r.q);
-  const directResults = await runDirectProfessionAcquisition(fetchWithTimeout, extractJobLikeLinks, directKeywords, { limit: LISTING_LINK_CAP });
+  // staggerMs raised from the module default: live testing (JH-SUP-0026,
+  // 2026-09-04) found Profession.hu returns transient empty replies under
+  // rapid sequential requests from this environment; a few seconds between
+  // requests avoided it during manual verification.
+  const directResults = await runDirectProfessionAcquisition(fetchWithTimeout, extractJobLikeLinks, directKeywords, { limit: LISTING_LINK_CAP, staggerMs: 3000 });
   const directAcquisitionLog = [];
   let directDetailUrlCount = 0;
   for (const dr of directResults) {
@@ -175,7 +195,7 @@ async function main() {
   console.log(`Direct Profession.hu acquisition: ${directDetailUrlCount} detail URLs across ${directKeywords.length} keywords (source-merged with SerpApi candidates, deduplicated by URL).`);
 
   const stageAList = [...stageACandidates.values()];
-  const stageBResults = await mapWithConcurrency(stageAList, 4, async (cand) => {
+  const stageBResults = await mapWithConcurrency(stageAList, 2, async (cand) => {
     const fetched = await fetchWithTimeout(cand.url);
     return { ...cand, fetched };
   });
@@ -253,7 +273,7 @@ async function main() {
   }
   console.log(`Second-level candidate links extracted from listing pages (incl. pagination follow-up): ${uniqueSecondLevel.length}`);
 
-  const secondLevelResults = await mapWithConcurrency(uniqueSecondLevel, 4, async (cand) => {
+  const secondLevelResults = await mapWithConcurrency(uniqueSecondLevel, 2, async (cand) => {
     const fetched = await fetchWithTimeout(cand.url);
     return { ...cand, fetched };
   });
