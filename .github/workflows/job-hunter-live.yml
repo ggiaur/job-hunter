@@ -1,0 +1,58 @@
+name: Job Hunter live recovery
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/job-hunter-live.yml'
+      - 'apps/job-hunter-mvp/**'
+      - 'profile/**'
+
+permissions:
+  contents: read
+
+jobs:
+  live-run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Run deterministic regression suite
+        run: node --test apps/job-hunter-mvp/lib/*.test.mjs
+
+      - name: Validate SerpApi secret bridge
+        env:
+          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
+        run: |
+          if [ -z "$SERPAPI_API_KEY" ]; then
+            echo 'BLOCKER: repository secret SERPAPI_API_KEY is not configured; GitHub-hosted live execution cannot proceed.' >&2
+            exit 78
+          fi
+
+      - name: Materialize runtime-only secret file
+        env:
+          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
+        run: |
+          sudo install -d -m 700 -o "$(id -un)" -g "$(id -gn)" /home/dockeruser/.job-hunter-secrets
+          umask 077
+          printf 'SERPAPI_API_KEY=%s\n' "$SERPAPI_API_KEY" > /home/dockeruser/.job-hunter-secrets/serpapi.env
+
+      - name: Execute live Job Hunter pipeline
+        run: node apps/job-hunter-mvp/run.mjs
+
+      - name: Publish run evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: job-hunter-live-evidence
+          path: |
+            docs/evidence/real-job-hunter-current-run.json
+            docs/evidence/job-hunter-runs/*.json
+          if-no-files-found: warn
+          retention-days: 14
