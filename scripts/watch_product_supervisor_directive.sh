@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # GitHub -> Cloud Claude Product Architect control-channel watcher.
-# Reads committed directives from origin/main and only notifies the configured
-# Claude tmux session. It never executes directive contents as shell code.
+# Reads committed directives from origin/main and notifies the configured Claude tmux session.
+# If the session is absent, it may run an explicitly configured bounded launcher command once.
 set -euo pipefail
 
 readonly REPO_DIR="${JOBHUNTER_REPO_DIR:-/srv/projects/job-hunter}"
@@ -16,6 +16,8 @@ readonly SENT_FILE="${STATE_DIR}/last-sent.env"
 readonly LOCK_FILE="${STATE_DIR}/watcher.lock"
 readonly POLL_SECONDS="${JOBHUNTER_SUPERVISOR_POLL_SECONDS:-60}"
 readonly REMINDER_SECONDS="${JOBHUNTER_SUPERVISOR_REMINDER_SECONDS:-300}"
+readonly LAUNCH_CMD="${JOBHUNTER_CLAUDE_LAUNCH_CMD:-}"
+readonly LAUNCH_WAIT_SECONDS="${JOBHUNTER_CLAUDE_LAUNCH_WAIT_SECONDS:-5}"
 
 mkdir -p "${STATE_DIR}"
 
@@ -40,6 +42,31 @@ find_claude_session() {
             return 0
         fi
     done
+    return 1
+}
+
+recover_claude_session() {
+    local session
+    if session="$(find_claude_session)"; then
+        printf '%s' "${session}"
+        return 0
+    fi
+    if [[ -z "${LAUNCH_CMD}" ]]; then
+        log "BLOCKER LAUNCHER_SESSION_FAILURE: no Claude tmux session and JOBHUNTER_CLAUDE_LAUNCH_CMD is unset"
+        return 1
+    fi
+    log "RECOVERY attempting configured Claude launcher"
+    if ! bash -lc "${LAUNCH_CMD}" >>"${LOG_FILE}" 2>&1; then
+        log "BLOCKER LAUNCHER_SESSION_FAILURE: configured launcher command failed"
+        return 1
+    fi
+    sleep "${LAUNCH_WAIT_SECONDS}"
+    if session="$(find_claude_session)"; then
+        log "RECOVERY Claude session restored: ${session}"
+        printf '%s' "${session}"
+        return 0
+    fi
+    log "BLOCKER LAUNCHER_SESSION_FAILURE: launcher returned success but no supported tmux session exists"
     return 1
 }
 
@@ -115,8 +142,8 @@ run_once() {
         return 0
     fi
 
-    if ! session="$(find_claude_session)"; then
-        log "PENDING ${directive_id}: no Claude tmux session found; set JOBHUNTER_CLAUDE_TMUX_SESSION"
+    if ! session="$(recover_claude_session)"; then
+        log "STALL ${directive_id}: launcher/session recovery unavailable or failed"
         return 6
     fi
 
