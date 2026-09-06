@@ -3,7 +3,7 @@ schema_version: 1
 channel: product_supervisor
 
 directive_id: JH-SUP-0027
-issued_at: "2026-09-06T10:03:00+02:00"
+issued_at: "2026-09-06T12:28:00+02:00"
 issued_by: chatgpt_product_architect
 authority: PRODUCT_ARCHITECT_ORCHESTRATION_SUPERVISOR
 priority: P0
@@ -18,6 +18,6 @@ orchestrator_runtime: docs/agent-runtime/orchestrator.yaml
 project_claude_contract: CLAUDE.md
 watcher_enforcement: scripts/watch_product_supervisor_directive.sh
 supersedes: JH-SUP-0026
-redelivery_seq: 0
+redelivery_seq: 1
 
 summary: "P0 EXECUTE NOW: run the operational Job Hunter live again today, surface 7-15 currently live Pillér-like/relevant roles if available, revalidate each vacancy for freshness/reachability, verify the installed cron and next scheduled execution on-host, rerun known-positive canaries, and close the disclosed independent-review gap on the final Pillér acquisition fix. Persist fresh evidence; do not stop at status or design."
