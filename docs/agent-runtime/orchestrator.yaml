@@ -53,4 +53,12 @@ repositories:
   legacy_source:
     - ggiaur/job-searcher
 
-current_directive: JH-SUP-0001
+current_directive: JH-SUP-0027
+runtime_recovery:
+  state: REQUIRED
+  cause: LAUNCHER_SESSION_FAILURE
+  success_evidence:
+    - fresh_ack
+    - runtime_heartbeat
+    - tested_commit
+    - precise_external_blocker
