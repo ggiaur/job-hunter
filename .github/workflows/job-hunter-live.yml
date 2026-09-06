@@ -58,9 +58,18 @@ jobs:
             process.exit(1);
           }
           const run = JSON.parse(fs.readFileSync(path, 'utf8'));
-          const visible = Array.isArray(run.results) ? run.results.length : 0;
+          const visibleFromFunnel = run?.funnelSummary?.byOutcome?.visible;
+          const visibleFromResults = Array.isArray(run.results)
+            ? run.results.filter(result => result?.visible === true).length
+            : 0;
+          const visible = Number.isFinite(visibleFromFunnel) ? visibleFromFunnel : visibleFromResults;
           const canaries = Array.isArray(run.canaries) ? run.canaries : [];
-          const unresolvedCanaries = canaries.filter(c => !['ACQUIRED_VISIBLE', 'ACQUIRED_EXCLUDED', 'ACQUIRED_SCORED'].includes(c.status));
+          const resolvedCanaryStatuses = new Set([
+            'ACQUIRED_VISIBLE',
+            'ACQUIRED_EXCLUDED',
+            'ACQUIRED_SCORED_BELOW_THRESHOLD',
+          ]);
+          const unresolvedCanaries = canaries.filter(c => !resolvedCanaryStatuses.has(c.status));
           const summary = {
             generatedAt: run.generatedAt,
             visible,
