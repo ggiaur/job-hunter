@@ -2,8 +2,8 @@
 schema_version: 1
 channel: product_supervisor
 
-directive_id: JH-SUP-0027
-issued_at: "2026-09-06T12:37:00+02:00"
+directive_id: JH-SUP-0028
+issued_at: "2026-09-08T01:13:00+02:00"
 issued_by: chatgpt_product_architect
 authority: PRODUCT_ARCHITECT_ORCHESTRATION_SUPERVISOR
 priority: P0
@@ -11,15 +11,13 @@ status: ACTIVE
 requires_ack: true
 execute_immediately: true
 interrupt_current_work: true
-instruction_file: docs/agent-directives/JH-SUP-0027-CURRENT-RUN-AND-QUALITY-CLOSEOUT.md
+instruction_file: docs/agent-directives/JH-SUP-0028-LIVE-INVENTORY-RECOVERY.md
 ack_file: docs/agent-runtime/product-supervisor-ack.yaml
 continuity_policy: docs/EXECUTION_CONTINUITY_POLICY.md
 orchestrator_runtime: docs/agent-runtime/orchestrator.yaml
 project_claude_contract: CLAUDE.md
 watcher_enforcement: scripts/watch_product_supervisor_directive.sh
-supersedes: JH-SUP-0026
-redelivery_seq: 2
-stall_class: LAUNCHER_SESSION_FAILURE
-stall_evidence: "ACK remains on JH-SUP-0026 while JH-SUP-0027 is active. Treat directive/ACK sequence drift as runtime/session launch failure. Watcher must re-establish the active orchestrator session if supported and persist fresh ACK plus runtime heartbeat/commit, or record the exact external blocker."
+supersedes: JH-SUP-0027
+redelivery_seq: 0
 
-summary: "P0 EXECUTE NOW: run the operational Job Hunter live again today, surface 7-15 currently live Pillér-like/relevant roles if available, revalidate each vacancy for freshness/reachability, verify the installed cron and next scheduled execution on-host, rerun known-positive canaries, and close the disclosed independent-review gap on the final Pillér acquisition fix. Persist fresh evidence; do not stop at status or design. THIS IS A STALL RECOVERY REDELIVERY: stale ACK is a launcher/session failure and requires runtime recovery or exact blocker, not passive waiting."
+summary: "P0 EXECUTE NOW: fresh rerun proves the pipeline itself works and all three canaries pass, but GitHub-hosted recovery is Profession-only because SERPAPI_API_KEY is absent and produced only 6 visible >=60 results from 119 confirmed live ads. Do not lower relevance rules. Inspect the 5 below-threshold/top exclusions for false negatives, restore the already-authorized on-prem multi-source path or fix its launcher, add another legitimate acquisition source if useful, rerun live acceptance, and return 7-15 truthful current matches when inventory supports it. Codex must adversarially review false negatives and Gemini must independently review recall/apply-worthiness. Persist fresh evidence and update ACK; no passive waiting."
