@@ -8,6 +8,13 @@ on:
       - '.github/workflows/job-hunter-live.yml'
       - 'apps/job-hunter-mvp/**'
       - 'profile/**'
+      - 'docs/agent-runtime/product-supervisor-directive.yaml'
+      - 'docs/agent-directives/**'
+  pull_request:
+    paths:
+      - '.github/workflows/job-hunter-live.yml'
+      - 'apps/job-hunter-mvp/**'
+      - 'profile/**'
 
 permissions:
   contents: read
@@ -36,17 +43,55 @@ jobs:
             printf 'SERPAPI_API_KEY=%s\n' "$SERPAPI_API_KEY" > /home/dockeruser/.job-hunter-secrets/serpapi.env
             echo 'SerpApi credential available; running full multi-source acquisition.'
           else
-            # run.mjs already treats individual SerpApi search failures as non-fatal
-            # and then executes the independent direct Profession.hu acquisition path.
-            # A deliberately invalid sentinel lets the live pipeline continue to that
-            # source instead of turning a missing optional discovery credential into
-            # a total project stall.
             printf 'SERPAPI_API_KEY=GITHUB_DIRECT_PROFESSION_FALLBACK\n' > /home/dockeruser/.job-hunter-secrets/serpapi.env
             echo 'SERPAPI_API_KEY absent; exercising direct Profession.hu fallback.'
           fi
 
       - name: Execute live Job Hunter pipeline
         run: node apps/job-hunter-mvp/run.mjs
+
+      - name: Enforce live product acceptance
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const path = 'docs/evidence/real-job-hunter-current-run.json';
+          if (!fs.existsSync(path)) {
+            console.error(`ACCEPTANCE FAIL: missing ${path}`);
+            process.exit(1);
+          }
+          const run = JSON.parse(fs.readFileSync(path, 'utf8'));
+          const visibleFromFunnel = run?.funnelSummary?.byOutcome?.visible;
+          const visibleFromResults = Array.isArray(run.results)
+            ? run.results.filter(result => result?.visible === true).length
+            : 0;
+          const visible = Number.isFinite(visibleFromFunnel) ? visibleFromFunnel : visibleFromResults;
+          const canaries = Array.isArray(run.canaries) ? run.canaries : [];
+          const resolvedCanaryStatuses = new Set([
+            'ACQUIRED_VISIBLE',
+            'ACQUIRED_EXCLUDED',
+            'ACQUIRED_SCORED_BELOW_THRESHOLD',
+          ]);
+          const unresolvedCanaries = canaries.filter(c => !resolvedCanaryStatuses.has(c.status));
+          const summary = {
+            generatedAt: run.generatedAt,
+            visible,
+            canariesReachedScoring: run.canariesReachedScoring,
+            canaries: canaries.map(c => ({ id: c.id, status: c.status, score: c.score ?? null })),
+            funnelSummary: run.funnelSummary ?? null,
+          };
+          console.log(JSON.stringify(summary, null, 2));
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## Job Hunter live acceptance\n\n\`\`\`json\n${JSON.stringify(summary, null, 2)}\n\`\`\`\n`);
+
+          const failures = [];
+          if (visible < 7) failures.push(`only ${visible} visible results; active product requirement asks for 7-15 when current inventory supports it`);
+          if (run.canariesReachedScoring !== true) failures.push('known-positive canaries did not all reach scoring');
+          if (unresolvedCanaries.length) failures.push(`unresolved canaries: ${unresolvedCanaries.map(c => `${c.id}=${c.status}`).join(', ')}`);
+          if (failures.length) {
+            console.error(`ACCEPTANCE FAIL:\n- ${failures.join('\n- ')}`);
+            process.exit(1);
+          }
+          console.log('ACCEPTANCE PASS');
+          NODE
 
       - name: Publish run evidence
         if: always()
