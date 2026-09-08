@@ -17,7 +17,7 @@ on:
       - 'profile/**'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   live-run:
@@ -51,6 +51,8 @@ jobs:
         run: node apps/job-hunter-mvp/run.mjs
 
       - name: Enforce live product acceptance
+        id: acceptance
+        continue-on-error: true
         run: |
           node <<'NODE'
           const fs = require('fs');
@@ -93,6 +95,54 @@ jobs:
           console.log('ACCEPTANCE PASS');
           NODE
 
+      - name: Publish human-readable current results
+        if: always()
+        env:
+          ACCEPTANCE_OUTCOME: ${{ steps.acceptance.outcome }}
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const path = 'docs/evidence/real-job-hunter-current-run.json';
+          if (!fs.existsSync(path)) process.exit(0);
+          const run = JSON.parse(fs.readFileSync(path, 'utf8'));
+          const results = Array.isArray(run.results) ? run.results : [];
+          const visible = results.filter(r => r?.visible === true);
+          const below = results.filter(r => r?.visible !== true);
+          const lines = [];
+          lines.push('# CURRENT JOB HUNTER RESULTS', '');
+          lines.push(`**Source run:** GitHub Actions run ${process.env.GITHUB_RUN_ID}`);
+          lines.push(`**Generated:** ${run.generatedAt ?? 'unknown'}`);
+          lines.push(`**Visible >=60%:** ${visible.length}`);
+          lines.push(`**Acceptance:** ${process.env.ACCEPTANCE_OUTCOME === 'success' ? 'PASS' : 'FAIL'}`, '');
+          lines.push('## Current visible results', '');
+          visible.forEach((r, i) => {
+            lines.push(`${i + 1}. **${r.company ?? 'Unknown company'} — ${r.title ?? 'Unknown title'} — ${r.relevancePercent ?? '?'}%**  `);
+            lines.push(`   ${r.url ?? ''}`);
+            if (r.englishRequirement) lines.push(`   - English: ${r.englishRequirement}`);
+            if (r.locationText) lines.push(`   - Location: ${r.locationText}`);
+            lines.push('');
+          });
+          if (below.length) {
+            lines.push('## Below-threshold candidates under review', '');
+            below.forEach(r => lines.push(`- ${r.company ?? 'Unknown company'} — ${r.title ?? 'Unknown title'} — ${r.relevancePercent ?? '?'}%`));
+            lines.push('');
+          }
+          lines.push('## Known-positive canaries', '');
+          (run.canaries ?? []).forEach(c => lines.push(`- ${c.label ?? c.id}: ${c.status}${c.score != null ? `, ${c.score}%` : ''}`));
+          lines.push('');
+          lines.push('This file is automatically regenerated after every live Job Hunter workflow run.');
+          fs.writeFileSync('CURRENT_RESULTS.md', lines.join('\n') + '\n');
+          NODE
+          git config user.name 'job-hunter-bot'
+          git config user.email 'job-hunter-bot@users.noreply.github.com'
+          git add CURRENT_RESULTS.md
+          if git diff --cached --quiet; then
+            echo 'CURRENT_RESULTS.md unchanged.'
+          else
+            git commit -m 'results: refresh current Job Hunter vacancies'
+            git push
+          fi
+
       - name: Publish run evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -103,3 +153,7 @@ jobs:
             docs/evidence/job-hunter-runs/*.json
           if-no-files-found: warn
           retention-days: 14
+
+      - name: Fail workflow when product acceptance failed
+        if: always() && steps.acceptance.outcome == 'failure'
+        run: exit 1
