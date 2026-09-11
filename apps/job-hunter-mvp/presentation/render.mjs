@@ -31,7 +31,9 @@ export function renderHtmlReport(runData, options = {}) {
   const sourcePath = options.sourceFilePath || 'docs/evidence/job-hunter-runs/latest.json';
   const visibleThreshold = mergedData.visibleThreshold ?? 60;
   const results = mergedData.results || [];
-  const visibleResults = results.filter(r => (r.relevancePercent ?? 0) >= visibleThreshold || r.visible);
+  const visibleResults = results.filter(r => typeof r.visible === 'boolean'
+    ? r.visible
+    : (r.relevancePercent ?? 0) >= visibleThreshold);
   const excluded = mergedData.excluded || [];
 
   const html = `<!DOCTYPE html>
@@ -536,7 +538,9 @@ export function renderHtmlReport(runData, options = {}) {
  */
 function renderJobCard(row, index, visibleThreshold, isExcluded) {
   const cardId = `job-card-${index}`;
-  const isVisible = Boolean(row.visible || (row.relevancePercent ?? 0) >= visibleThreshold);
+  const isVisible = typeof row.visible === 'boolean'
+    ? row.visible
+    : (row.relevancePercent ?? 0) >= visibleThreshold;
   const score = row.relevancePercent ?? 0;
 
   let scoreClass = 'score-low';

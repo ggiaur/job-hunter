@@ -12,13 +12,14 @@ import {
   isGenericProjectTitle,
   hasITDomainContext,
 } from './lib/extract.mjs';
-import { computeRelevanceAssessment } from './lib/scoring.mjs';
+import { classifyFreshness, computeRelevanceAssessment } from './lib/scoring.mjs';
 import { extractJobLikeLinks, discoverPaginationLinks } from './lib/links.mjs';
 import { persistRunHistory } from './lib/run-history.mjs';
 import { buildAcquisitionQueries, ROLE_FAMILIES } from './lib/queries.mjs';
 import { runDirectProfessionAcquisition } from './lib/profession-direct.mjs';
 import { createStageEvidenceRow, buildListingCoverageRow, summarizeFunnel } from './lib/stage-evidence.mjs';
-import { checkCanaries, allCanariesReachedScoring } from './lib/canaries.mjs';
+import { CANARIES, checkCanaries, allCanariesReachedScoring } from './lib/canaries.mjs';
+import { applyShortlistLimit, dedupeCrossSourceJobs, SHORTLIST_MAX } from './lib/shortlist.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
@@ -48,6 +49,12 @@ function normalizeUrl(rawUrl) {
   try {
     const u = new URL(rawUrl);
     u.hash = '';
+    // Tracking-only query variants caused the same Profession vacancy to be
+    // fetched once per discovery keyword. Canonical detail paths are complete
+    // without these parameters; stripping them reduces target-site load and
+    // prevents duplicate evidence while retaining the originating query on the
+    // candidate record.
+    if (u.hostname === 'www.profession.hu' && u.pathname.startsWith('/allas/')) u.search = '';
     return u.toString();
   } catch {
     return rawUrl;
@@ -343,6 +350,8 @@ async function main() {
       employmentType: fields.employmentType || 'unknown',
       datePosted: fields.datePosted || null,
       validThrough: fields.validThrough || 'unknown',
+      freshnessStatus: classifyFreshness(fields.validThrough),
+      reachabilityStatus: 'LIVE_JOBPOSTING_SCHEMA_CONFIRMED',
       poDecision: null, // APPLY | DO_NOT_APPLY, PO-filled after review
       poReason: null,
     };
@@ -366,6 +375,7 @@ async function main() {
       descriptionText,
       locationText: fields.location,
       datePosted: fields.datePosted,
+      validThrough: fields.validThrough,
       positionRelevant,
       isGenericTitle: isGenericProjectTitle(title) && !matchesTargetPosition(title),
     });
@@ -393,6 +403,7 @@ async function main() {
       fitReasons: assessment.fitReasons,
       mismatchReasons: assessment.mismatchReasons,
       englishRequirement: assessment.englishRequirement,
+      freshnessStatus: assessment.freshnessStatus,
       keyDuties: fields.description ? fields.description.slice(0, 500) : 'unknown (nem sikerült kinyerni)',
     });
   }
@@ -407,7 +418,7 @@ async function main() {
     const existing = seenTitleCompany.get(key);
     if (!existing || rec.relevancePercent > existing.relevancePercent) seenTitleCompany.set(key, rec);
   }
-  const dedupedResults = [...seenTitleCompany.values()];
+  const exactDedupedResults = [...seenTitleCompany.values()];
   for (const rec of results) {
     const key = `${rec.title.toLowerCase()}|${rec.company.toLowerCase()}`;
     if (seenTitleCompany.get(key) !== rec) {
@@ -416,11 +427,37 @@ async function main() {
       e.dedupParentUrl = seenTitleCompany.get(key).url;
     }
   }
-  dedupedResults.sort((a, b) => b.relevancePercent - a.relevancePercent);
+  exactDedupedResults.sort((a, b) => b.relevancePercent - a.relevancePercent);
+  const crossSourceDedupedResults = dedupeCrossSourceJobs(exactDedupedResults);
+  const retainedUrls = new Set(crossSourceDedupedResults.map((rec) => rec.url));
+  for (const rec of exactDedupedResults) {
+    if (!retainedUrls.has(rec.url)) {
+      const e = evidence(rec.url);
+      e.outcome = 'deduped';
+      const retained = crossSourceDedupedResults.find((candidate) =>
+        candidate.alternateSources.some((alternate) => alternate.url === rec.url));
+      e.dedupParentUrl = retained?.url || null;
+    }
+  }
+
+  const selectedResults = applyShortlistLimit(
+    crossSourceDedupedResults,
+    SHORTLIST_MAX,
+    CANARIES.map((canary) => canary.urlFragment),
+  );
   results.length = 0;
-  results.push(...dedupedResults);
+  results.push(...selectedResults);
+
+  for (const rec of results) {
+    const e = evidence(rec.url);
+    e.score = rec.relevancePercent;
+    e.qualified = rec.qualified;
+    e.visible = rec.visible;
+    e.outcome = rec.visible ? 'visible' : (rec.qualified ? 'qualified_not_shortlisted' : 'scored_below_threshold');
+  }
 
   const visibleResults = results.filter((r) => r.visible);
+  const qualifiedResults = results.filter((r) => r.qualified);
 
   // JH-SUP-0026 section 2: known-positive canary check. Discovery through
   // real acquisition only -- canaries are never injected into results.
@@ -447,10 +484,12 @@ async function main() {
     uniqueCandidateUrls: stageACandidates.size,
     confirmedJobAdPages: confirmedJobAds.length,
     unreachableCount: unreachable.length,
-    resultContractVersion: 1,
+    resultContractVersion: 2,
     visibleThreshold: 60,
+    shortlistMax: SHORTLIST_MAX,
     results,
     visibleCount: visibleResults.length,
+    qualifiedCount: qualifiedResults.length,
     excluded,
     unreachable,
     // JH-SUP-0026 additions:

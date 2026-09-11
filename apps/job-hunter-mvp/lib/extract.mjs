@@ -106,9 +106,34 @@ const BASIC_ENGLISH_REGEX =
 const ENGLISH_PREFERENCE_OVERRIDE_REGEX =
   /angol[^.\n;]{0,40}(előnyt jelent|előny|nem elvárás|nem feltétel|nem kötelező|nem szükséges)|(előnyt jelent|előny|nem elvárás|nem feltétel|nem kötelező|nem szükséges)[^.\n;]{0,40}angol/i;
 
+// Profession's structured description keeps section headings, but individual
+// bullet items do not repeat "előny". Consequently, an advanced-English item
+// under "Az állás betöltéséhez előnyt jelent" is optional even when the item
+// itself only says "Angol nyelv tárgyalóképes szintű ismerete". Treat only the
+// bounded preference section as optional; a mandatory English mention in any
+// other section still excludes even if a second, optional mention also exists.
+const PREFERENCE_SECTION_REGEX =
+  /(?:az állás betöltéséhez\s+)?előnyt jelent\s*:?([\s\S]*?)(?=\n\s*(?:amit kínálunk|céginformáció|feladatok|főbb feladatok|elvárások|az álláshoz tartozó elvárások|requirements|responsibilities)\s*:|$)/gi;
+
+function isInsidePreferenceSection(text, index) {
+  PREFERENCE_SECTION_REGEX.lastIndex = 0;
+  for (const match of text.matchAll(PREFERENCE_SECTION_REGEX)) {
+    const start = match.index;
+    const end = start + match[0].length;
+    if (index >= start && index < end) return true;
+  }
+  return false;
+}
+
 export function checkAdvancedEnglishRequired(text) {
-  if (!ADVANCED_ENGLISH_REGEX.test(text)) return false;
-  return !ENGLISH_PREFERENCE_OVERRIDE_REGEX.test(text);
+  const advancedMatches = text.matchAll(new RegExp(ADVANCED_ENGLISH_REGEX.source, 'gi'));
+  for (const match of advancedMatches) {
+    const localContext = text.slice(Math.max(0, match.index - 45), match.index + match[0].length + 45);
+    if (!ENGLISH_PREFERENCE_OVERRIDE_REGEX.test(localContext) && !isInsidePreferenceSection(text, match.index)) {
+      return true;
+    }
+  }
+  return false;
 }
 
 export function englishRequirementLabel(text) {
@@ -251,6 +276,22 @@ export function hasProjectLeadershipScope(text) {
   return matched.length >= 2;
 }
 
+// IT service-delivery leadership is a real coordination/governance lane even
+// without direct reports or a conventional "project plan" vocabulary. Require
+// evidence from at least two distinct responsibility categories so a lone SLA,
+// incident, supplier, or deadline mention cannot inflate an operational IC.
+const SERVICE_DELIVERY_LEADERSHIP_CATEGORIES = [
+  /szolgáltatási szint|\bsla(?:-k)?\b|\bkpi(?:-k)?\b/i,
+  /(?:incidens|incident|probléma|problem|change|változás|request)[^.!?]{0,90}(?:folyamat|kezel|management|koordinál)|(?:folyamat|kezel|management|koordinál)[^.!?]{0,90}(?:incidens|incident|probléma|problem|change|változás|request)/i,
+  /(?:külső (?:it )?szolgáltat|beszállító|alvállalkozó|szállító)[^.!?]{0,120}(?:szerződés|teljesítmény|felügyelet|koordinál)|(?:szerződés|teljesítmény|felügyelet|koordinál)[^.!?]{0,120}(?:külső (?:it )?szolgáltat|beszállító|alvállalkozó|szállító)/i,
+  /feladatok kiadása|feladatainak kiadása|kiadott munkák követése|megvalósítás(?:ának)? (?:menedzselése|nyomon követése)|priorizálás|eszkaláció[^.!?]{0,50}koordinál|teljesítmény(?:ének)? felügyelete/i,
+  /(?:scope|hatókör)[^.!?]{0,70}(?:határidő|ütemezés|órakeret|erőforrás)|(?:határidő|ütemezés|órakeret|erőforrás)[^.!?]{0,70}(?:scope|hatókör)/i,
+];
+
+export function hasServiceDeliveryLeadershipScope(text) {
+  return SERVICE_DELIVERY_LEADERSHIP_CATEGORIES.filter((pattern) => pattern.test(text)).length >= 2;
+}
+
 const INSTITUTIONAL_CONTEXT_MARKERS = [
   'önkormányzat',
   'közintézmény',
@@ -298,7 +339,12 @@ const POSITION_MATCH_TERMS = [
   'digitalizációs projektmenedzser',
   'digitalizációs projektvezető',
   'it szolgáltatásmenedzser',
+  'it szolgáltatás menedzser',
   'informatikai szolgáltatásmenedzser',
+  'informatikai szolgáltatás menedzser',
+  'it csoportvezet',
+  'informatikai csoportvezet',
+  'head of it',
   'it program',
   'platform lead',
   'cloud operations manager',

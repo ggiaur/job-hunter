@@ -9,6 +9,7 @@ import {
   englishRequirementLabel,
   hasManagementScope,
   hasProjectLeadershipScope,
+  hasServiceDeliveryLeadershipScope,
   hasInstitutionalContext,
   isLikelySeniorICWithoutManagement,
   isPMWithoutManagementScope,
@@ -51,7 +52,7 @@ export function isHardExcludedICRole(title, descriptionText) {
   if (!title) return false;
   const lower = title.toLowerCase();
   if (!IC_ONLY_TITLE_TERMS.some((t) => lower.includes(t))) return false;
-  return !hasManagementScope(descriptionText) && !hasProjectLeadershipScope(descriptionText);
+  return !hasManagementScope(descriptionText) && !hasProjectLeadershipScope(descriptionText) && !hasServiceDeliveryLeadershipScope(descriptionText);
 }
 
 // Fehérvárcsurgó accessibility ring, per PO_DECISIONS section 5. Not a
@@ -157,6 +158,13 @@ export function scoreFreshness(datePostedIso) {
   return { points: 0, note: 'Régebbi, de továbbra is aktív hirdetés — a kor önmagában nem kizáró ok, csak nincs frissesség-bónusz.' };
 }
 
+export function classifyFreshness(validThroughIso, now = new Date()) {
+  if (!validThroughIso || validThroughIso === 'unknown') return 'LIVE_NO_EXPIRY_DECLARED';
+  const validThrough = new Date(validThroughIso);
+  if (Number.isNaN(validThrough.getTime())) return 'LIVE_EXPIRY_UNPARSEABLE';
+  return validThrough.getTime() >= now.getTime() ? 'LIVE_NOT_EXPIRED' : 'STALE_EXPIRED';
+}
+
 const BASE_SCORE = 35;
 const VISIBLE_THRESHOLD = 60;
 
@@ -165,7 +173,15 @@ const VISIBLE_THRESHOLD = 60;
  * Returns either a hard-exclusion record or a 0-100 explainable score with
  * itemized positive/negative factors, per PO_DECISIONS_2026-09-04.md.
  */
-export function computeRelevanceAssessment({ title, descriptionText, locationText, datePosted, positionRelevant, isGenericTitle }) {
+export function computeRelevanceAssessment({ title, descriptionText, locationText, datePosted, validThrough, positionRelevant, isGenericTitle }) {
+  const freshnessStatus = classifyFreshness(validThrough);
+  if (freshnessStatus === 'STALE_EXPIRED') {
+    return {
+      hardExcluded: true,
+      exclusionReason: `Kizárva: a hirdetés schema.org validThrough dátuma lejárt (${validThrough}).`,
+      freshnessStatus,
+    };
+  }
   const englishAdvanced = checkAdvancedEnglishRequired(descriptionText);
   if (englishAdvanced) {
     return {
@@ -215,7 +231,13 @@ export function computeRelevanceAssessment({ title, descriptionText, locationTex
     fitReasons.push('Valódi projekt-/programvezetői felelősség (tervezés, erőforrás/határidő/kockázat, stakeholder-koordináció) — közvetlen beosztottak nélkül is elfogadott a PO döntés szerint.');
   }
 
-  if (!hasMgmtScope && !hasProjectLeadership) {
+  const hasServiceDeliveryLeadership = hasServiceDeliveryLeadershipScope(descriptionText);
+  if (hasServiceDeliveryLeadership) {
+    score += 15;
+    fitReasons.push('Valódi IT-szolgáltatásvezetési felelősség (SLA/KPI, folyamat-, szállító- vagy teljesítés-governance) — operatív kulcsszó helyett több, egymást erősítő felelősségi jel alapján.');
+  }
+
+  if (!hasMgmtScope && !hasProjectLeadership && !hasServiceDeliveryLeadership) {
     mismatchReasons.push('A szövegből nem derül ki konkrét vezetői vagy projektvezetői felelősség — csak a cím alapján releváns.');
     if (isLikelySeniorICWithoutManagement(title, descriptionText)) {
       score -= 25;
@@ -265,6 +287,7 @@ export function computeRelevanceAssessment({ title, descriptionText, locationTex
     mismatchReasons,
     englishRequirement: englishRequirementLabel(descriptionText),
     salaryAmount: salary.amount,
+    freshnessStatus,
   };
 }
 

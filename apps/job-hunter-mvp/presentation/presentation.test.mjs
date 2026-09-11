@@ -107,6 +107,25 @@ test('renderHtmlReport does NOT fabricate salary when salary is null', () => {
   assert.equal(wayGroupSection.includes('salary-tag'), false);
 });
 
+test('renderHtmlReport respects an explicit shortlist decision for a qualified non-shortlisted row', () => {
+  const run = structuredClone(mockRunData);
+  run.results.push({
+    ...run.results[0],
+    title: 'Qualified but outside shortlist',
+    url: 'https://example.test/outside-shortlist',
+    relevancePercent: 90,
+    qualified: true,
+    visible: false,
+  });
+  const html = renderHtmlReport(run);
+  const titleIndex = html.indexOf('Qualified but outside shortlist');
+  assert.ok(titleIndex > 0);
+  const articleStart = html.lastIndexOf('<article', titleIndex);
+  const article = html.slice(articleStart, titleIndex);
+  assert.ok(article.includes('data-visible="false"'));
+  assert.ok(article.includes('display:none'));
+});
+
 test('renderHtmlReport preserves auditable link to snapshot source path and timestamp', () => {
   const html = renderHtmlReport(mockRunData, { sourceFilePath: 'docs/evidence/job-hunter-runs/2026-09-04T11-29-18-410Z.json' });
 

@@ -10,8 +10,10 @@ import {
   scoreLocation,
   scoreSalary,
   scoreFreshness,
+  classifyFreshness,
   RELEVANCE_VISIBLE_THRESHOLD,
 } from './scoring.mjs';
+import { hasServiceDeliveryLeadershipScope, matchesTargetPosition } from './extract.mjs';
 
 test('strong leadership match with local location and freshness scores >=60 and is visible', () => {
   const r = computeRelevanceAssessment({
@@ -111,6 +113,30 @@ test('PO_DECISIONS §3: intermediate/basic/no English requirement does NOT exclu
   }
 });
 
+test('JH-SUP-0028: advanced English inside a bounded preference section does not exclude', () => {
+  const r = computeRelevanceAssessment({
+    title: 'Medior IT projektmenedzser',
+    descriptionText: 'Az álláshoz tartozó elvárások:\n3-5 év IT projektvezetés.\nAz állás betöltéséhez előnyt jelent:\nAngol nyelv tárgyalóképes szintű ismerete.\nAmit kínálunk:\nStabil háttér.',
+    locationText: 'Budapest',
+    datePosted: null,
+    positionRelevant: true,
+    isGenericTitle: false,
+  });
+  assert.equal(r.hardExcluded, false);
+});
+
+test('JH-SUP-0028 guard: a mandatory advanced-English mention still excludes when another is optional', () => {
+  const r = computeRelevanceAssessment({
+    title: 'IT vezető',
+    descriptionText: 'Elvárások:\nFolyékony angol kommunikáció szükséges.\nAz állás betöltéséhez előnyt jelent:\nTárgyalóképes angol szaknyelv.',
+    locationText: 'Budapest',
+    datePosted: null,
+    positionRelevant: true,
+    isGenericTitle: false,
+  });
+  assert.equal(r.hardExcluded, true);
+});
+
 test('PO_DECISIONS §4: missing salary is neutral, not penalized', () => {
   const r = scoreSalary('Csapatvezetés és projektfelelősség.');
   assert.equal(r.points, 0);
@@ -168,6 +194,80 @@ test('PO_DECISIONS §6: newer advert gets freshness bonus; older active advert i
     isGenericTitle: false,
   });
   assert.equal(r.hardExcluded, false);
+});
+
+test('JH-SUP-0028: schema expiry is explicit and stale vacancies are hard excluded', () => {
+  assert.equal(classifyFreshness('2000-01-01T00:00:00Z'), 'STALE_EXPIRED');
+  const r = computeRelevanceAssessment({
+    title: 'IT vezető',
+    descriptionText: 'Csapatvezetés, beosztottak irányítása.',
+    locationText: 'Budapest',
+    datePosted: null,
+    validThrough: '2000-01-01T00:00:00Z',
+    positionRelevant: true,
+    isGenericTitle: false,
+  });
+  assert.equal(r.hardExcluded, true);
+  assert.match(r.exclusionReason, /lejárt/);
+});
+
+test('JH-SUP-0028: service-delivery governance is leadership only with multiple corroborating categories', () => {
+  const strong = computeRelevanceAssessment({
+    title: 'IT szolgáltatásmenedzser',
+    descriptionText: 'SLA-k és KPI-k monitorozása. Incidens-, probléma- és change management folyamatok koordinálása. Külső IT szolgáltatók szerződéseinek és teljesítményének felügyelete.',
+    locationText: 'Budapest',
+    datePosted: null,
+    positionRelevant: true,
+    isGenericTitle: false,
+  });
+  assert.equal(strong.visible, true);
+  assert.ok(strong.fitReasons.some((reason) => /szolgáltatásvezetési/.test(reason)));
+
+  const weak = computeRelevanceAssessment({
+    title: 'IT szolgáltatásmenedzser',
+    descriptionText: 'SLA riport készítése és hibajegyek önálló rögzítése.',
+    locationText: 'Budapest',
+    datePosted: null,
+    positionRelevant: true,
+    isGenericTitle: false,
+  });
+  assert.equal(weak.visible, false);
+});
+
+test('JH-SUP-0028 regressions: live title variants pass the direct target-title gate', () => {
+  assert.equal(matchesTargetPosition('IT Csoportvezető'), true);
+  assert.equal(matchesTargetPosition('IT szolgáltatás menedzser'), true);
+  assert.equal(matchesTargetPosition('Head of IT (KH_104628)'), true);
+});
+
+test('JH-SUP-0028 regression: real BKM service-governance duties are not treated as scope-free', () => {
+  const duties = 'Kezeled és folyamatosan felülvizsgálod a szolgáltatási szinteket (SLA-kat). Elemzed és fejleszted az IT szolgáltatási folyamatokat (incident, request, change), részt veszel a fejlesztési igények priorizálásában és megvalósításának nyomon követésében. Külső szolgáltatók és alvállalkozók munkáját koordinálod.';
+  assert.equal(hasServiceDeliveryLeadershipScope(duties), true);
+  const r = computeRelevanceAssessment({
+    title: 'IT szolgáltatásmenedzser',
+    descriptionText: duties,
+    locationText: 'Budapest',
+    datePosted: null,
+    positionRelevant: matchesTargetPosition('IT szolgáltatásmenedzser'),
+    isGenericTitle: false,
+  });
+  assert.equal(r.visible, true);
+});
+
+test('JH-SUP-0028 regression: real EURO ONE delivery ownership is not rejected by spelling or scope gates', () => {
+  const duties = 'A szerződésben előírt rendszeres feladatok megvalósításának menedzselése, ütemezése, feladatok kiadása és visszaellenőrzése. Ügyfél változáskezelési igényeinek menedzselése, scope, határidő és órakeret tervezése, a feladatok számonkérése.';
+  const title = 'IT szolgáltatás menedzser';
+  assert.equal(matchesTargetPosition(title), true);
+  assert.equal(hasServiceDeliveryLeadershipScope(duties), true);
+  const r = computeRelevanceAssessment({
+    title,
+    descriptionText: duties,
+    locationText: 'remote/telecommute',
+    datePosted: null,
+    positionRelevant: matchesTargetPosition(title),
+    isGenericTitle: false,
+  });
+  assert.equal(r.visible, true);
 });
 
 test('score is always clamped to [0, 100]', () => {

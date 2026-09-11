@@ -13,10 +13,12 @@ Gemini's presentation layer should read this contract, not `run.mjs` or
 {
   "generatedAt": "2026-09-04T12:00:00.000Z",
   "queries": ["..."],
-  "resultContractVersion": 1,
+  "resultContractVersion": 2,
   "visibleThreshold": 60,
+  "shortlistMax": 15,
   "results": [ /* ResultRow, see below — every scored, non-excluded candidate */ ],
   "visibleCount": 3,          // results.filter(r => r.visible).length
+  "qualifiedCount": 5,        // results.filter(r => r.qualified).length
   "excluded": [ /* ExcludedRow, see below */ ],
   "unreachable": [ /* { url, reason, fromListing? } */ ]
 }
@@ -38,13 +40,17 @@ special-case low scores — just filter on `visible`.
 | `workArrangement` | `"remote/hibrid"` \| null | only set when explicitly detected |
 | `salary` | string \| null | only set when a real HUF figure was found in the ad text; **never fabricated** |
 | `relevancePercent` | number (0-100) | the explainable score |
-| `visible` | boolean | `relevancePercent >= visibleThreshold` — the presentation layer's primary filter |
+| `qualified` | boolean | `relevancePercent >= visibleThreshold`; never changed to fill or shrink the shortlist |
+| `visible` | boolean | score-qualified and selected into the score-ordered, deduplicated shortlist (maximum `shortlistMax`); acquired, qualified regression canaries retain a slot |
+| `alternateSources` | object[] | same vacancy found through another source; provenance retained after cross-source deduplication |
 | `fitReasons` | string[] | concise reasons the row scored well (Hungarian) |
 | `mismatchReasons` | string[] | concise reasons it scored lower / risks (Hungarian) |
 | `englishRequirement` | string | human-readable label, e.g. "basic/intermediate (not disqualifying)" |
 | `employmentType` | string | from schema.org, or `"unknown"` |
 | `datePosted` | string (ISO) \| null | |
 | `validThrough` | string | from schema.org, or `"unknown"` |
+| `freshnessStatus` | string | explicit live/expiry assessment from `validThrough` |
+| `reachabilityStatus` | string | explicit confirmation that the direct page was fetched and contained JobPosting schema |
 | `keyDuties` | string | first 500 chars of the job description |
 | `matchedQuery` | string | which search query surfaced this candidate |
 | `poDecision` | `"APPLY"` \| `"DO_NOT_APPLY"` \| null | **PO-owned field — starts null, presentation layer writes it back** |

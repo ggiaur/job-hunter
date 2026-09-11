@@ -84,6 +84,7 @@ jobs:
 
           const failures = [];
           if (visible < 7) failures.push(`only ${visible} visible results; active product requirement asks for 7-15 when current inventory supports it`);
+          if (visible > 15) failures.push(`${visible} visible results exceeds the active product shortlist maximum of 15`);
           if (run.canariesReachedScoring !== true) failures.push('known-positive canaries did not all reach scoring');
           if (unresolvedCanaries.length) failures.push(`unresolved canaries: ${unresolvedCanaries.map(c => `${c.id}=${c.status}`).join(', ')}`);
           if (failures.length) {
