@@ -23,6 +23,13 @@ function decodeEntitiesSimple(s) {
   return s.replace(/&amp;/gi, '&').replace(/&lt;/gi, '<').replace(/&gt;/gi, '>').replace(/&quot;/gi, '"').replace(/&#39;/gi, "'");
 }
 
+function schemaText(value) {
+  if (typeof value === 'string') return stripHtml(value);
+  if (Array.isArray(value)) return value.map(schemaText).filter(Boolean).join('\n');
+  if (value && typeof value === 'object') return schemaText(value.name || value.value || '');
+  return '';
+}
+
 export function fieldsFromJobPostingSchema(schema) {
   const title = typeof schema.title === 'string' ? decodeEntitiesSimple(schema.title) : null;
   let company = null;
@@ -43,7 +50,13 @@ export function fieldsFromJobPostingSchema(schema) {
   const employmentType = schema.employmentType || null;
   const datePosted = schema.datePosted || null;
   const validThrough = schema.validThrough || null;
-  return { title, company, location, description, employmentType, datePosted, validThrough };
+  const requirements = [
+    schema.educationRequirements,
+    schema.experienceRequirements,
+    schema.skills,
+    schema.qualifications,
+  ].map(schemaText).filter(Boolean).join('\n') || null;
+  return { title, company, location, description, requirements, employmentType, datePosted, validThrough };
 }
 
 export function stripHtml(html) {
@@ -90,7 +103,7 @@ export function extractMetaSiteName(html) {
 // "német") with the unrelated "angol" clause across the semicolon
 // (found by independent Codex adversarial review, 2026-09-04).
 const ADVANCED_ENGLISH_REGEX =
-  /angol[^.\n;]{0,25}(felsőfok|tárgyalóképes|tárgyalásképes|anyanyelvi|kiváló|folyékony|magabiztos|üzleti szint|c1|c2)|(felsőfok|tárgyalóképes|tárgyalásképes|anyanyelvi|kiváló|folyékony|magabiztos|üzleti szint|c1|c2)[^.\n;]{0,25}angol|excellent english|fluent english|advanced english|negotiation[- ]level english|native[- ]level english/i;
+  /angol[^.\n;]{0,45}(felsőfok|tárgyalóképes|tárgyalásképes|anyanyelvi|kiváló|folyékony|magabiztos|üzleti szint|c1|c2|aktív.{0,15}használat|írásban és szóban|szóban és írásban)|(felsőfok|tárgyalóképes|tárgyalásképes|anyanyelvi|kiváló|folyékony|magabiztos|üzleti szint|c1|c2)[^.\n;]{0,25}angol|excellent english|fluent english|advanced english|negotiation[- ]level english|native[- ]level english/i;
 
 const BASIC_ENGLISH_REGEX =
   /angol[^.\n;]{0,25}(alapfok|középfok|jó angoltudás|b1|b2)|(alapfok|középfok)[^.\n;]{0,25}angol|basic english|intermediate english/i;

@@ -328,7 +328,7 @@ async function main() {
     const fields = fieldsFromJobPostingSchema(ad.schema);
     const title = fields.title || extractTitleTag(ad.html) || ad.serpTitle || 'unknown (nem sikerült kinyerni)';
     const company = fields.company || 'unknown (nem sikerült kinyerni)';
-    const descriptionText = fields.description || stripHtml(ad.html);
+    const descriptionText = [fields.description, fields.requirements].filter(Boolean).join('\n') || stripHtml(ad.html);
     const companyExcluded = isExcludedCompany(company, profile.excludedCompanies);
     const e = evidence(ad.url);
 

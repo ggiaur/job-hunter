@@ -12,6 +12,26 @@ import {
   scoreFreshness,
   RELEVANCE_VISIBLE_THRESHOLD,
 } from './scoring.mjs';
+import { fieldsFromJobPostingSchema } from './extract.mjs';
+
+test('Profession JSON-LD requirements participate in exclusion scoring', () => {
+  const fields = fieldsFromJobPostingSchema({
+    title: 'IT biztonsági Osztályvezető',
+    description: 'Az informatikai biztonsági terület irányítása.',
+    educationRequirements: 'Angol középfok, Főiskola',
+    skills: 'Felsőfokú végzettség. Angol nyelv (aktív) használata írásban és szóban egyaránt.',
+  });
+  const result = computeRelevanceAssessment({
+    title: fields.title,
+    descriptionText: [fields.description, fields.requirements].filter(Boolean).join('\n'),
+    locationText: 'Budapest',
+    datePosted: null,
+    positionRelevant: true,
+    isGenericTitle: false,
+  });
+  assert.equal(result.hardExcluded, true);
+  assert.match(result.exclusionReason, /angol/i);
+});
 
 test('strong leadership match with local location and freshness scores >=60 and is visible', () => {
   const r = computeRelevanceAssessment({
