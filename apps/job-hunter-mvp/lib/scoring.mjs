@@ -6,6 +6,7 @@
 
 import {
   checkAdvancedEnglishRequired,
+  checkHigherEducationRequired,
   englishRequirementLabel,
   hasManagementScope,
   hasProjectLeadershipScope,
@@ -171,6 +172,12 @@ export function computeRelevanceAssessment({ title, descriptionText, locationTex
     return {
       hardExcluded: true,
       exclusionReason: `Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (${englishRequirementLabel(descriptionText)}).`,
+    };
+  }
+  if (checkHigherEducationRequired(descriptionText)) {
+    return {
+      hardExcluded: true,
+      exclusionReason: 'Kizárva: kötelező felsőfokú végzettség vagy diploma.',
     };
   }
   if (isHardExcludedICRole(title, descriptionText)) {

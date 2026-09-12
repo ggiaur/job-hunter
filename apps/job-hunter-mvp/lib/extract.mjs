@@ -131,6 +131,16 @@ export function englishRequirementLabel(text) {
   return 'not specified in extracted text';
 }
 
+const HIGHER_EDUCATION_REGEX =
+  /(^|\n)\s*(főiskola|egyetem)\s*($|\n)|felsőfokú[^.\n;]{0,40}(végzettség|diploma)|(?:főiskolai|egyetemi)[^.\n;]{0,30}(végzettség|diploma)|(végzettség|diploma)[^.\n;]{0,30}(felsőfokú|főiskolai|egyetemi)/i;
+const EDUCATION_PREFERENCE_OVERRIDE_REGEX =
+  /(felsőfokú|főiskolai|egyetemi|diploma)[^.\n;]{0,45}(előnyt jelent|előny|preferált|nem kötelező|nem feltétel)|(előnyt jelent|előny|preferált|nem kötelező|nem feltétel)[^.\n;]{0,45}(felsőfokú|főiskolai|egyetemi|diploma)/i;
+
+export function checkHigherEducationRequired(text) {
+  if (!HIGHER_EDUCATION_REGEX.test(text || '')) return false;
+  return !EDUCATION_PREFERENCE_OVERRIDE_REGEX.test(text || '');
+}
+
 export function checkLocation(text) {
   const lower = text.toLowerCase();
   const budapest = lower.includes('budapest') || lower.includes('agglomeráció');

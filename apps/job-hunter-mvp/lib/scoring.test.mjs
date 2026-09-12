@@ -33,6 +33,19 @@ test('Profession JSON-LD requirements participate in exclusion scoring', () => {
   assert.match(result.exclusionReason, /angol/i);
 });
 
+test('mandatory higher education in Profession requirements is a hard exclusion', () => {
+  const result = computeRelevanceAssessment({
+    title: 'IT projektmenedzser',
+    descriptionText: 'Angol középfok\nFőiskola\nIT projektterv, erőforrás, határidő és stakeholder koordináció.',
+    locationText: 'Hibrid, Budapest',
+    datePosted: new Date().toISOString(),
+    positionRelevant: true,
+    isGenericTitle: false,
+  });
+  assert.equal(result.hardExcluded, true);
+  assert.match(result.exclusionReason, /végzettség|diploma/i);
+});
+
 test('strong leadership match with local location and freshness scores >=60 and is visible', () => {
   const r = computeRelevanceAssessment({
     title: 'IT vezető',
