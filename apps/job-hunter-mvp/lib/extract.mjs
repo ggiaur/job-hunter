@@ -119,9 +119,22 @@ const BASIC_ENGLISH_REGEX =
 const ENGLISH_PREFERENCE_OVERRIDE_REGEX =
   /angol[^.\n;]{0,40}(előnyt jelent|előny|nem elvárás|nem feltétel|nem kötelező|nem szükséges)|(előnyt jelent|előny|nem elvárás|nem feltétel|nem kötelező|nem szükséges)[^.\n;]{0,40}angol/i;
 
+function requirementClauses(text) {
+  return (text || '')
+    // Profession's JSON-LD sometimes concatenates the last mandatory item
+    // directly with the next section heading. Make that heading a real
+    // boundary before deciding whether a requirement is only a preference.
+    .replace(/az állás betöltéséhez\s*előnyt jelent/gi, '\n$&')
+    .replace(/(^|[.\n;])\s*(nice[- ]to[- ]have|preferred|advantage)\s*:/gi, '$1\n$2:')
+    .split(/[.\n;]+/)
+    .map((clause) => clause.trim())
+    .filter(Boolean);
+}
+
 export function checkAdvancedEnglishRequired(text) {
-  if (!ADVANCED_ENGLISH_REGEX.test(text)) return false;
-  return !ENGLISH_PREFERENCE_OVERRIDE_REGEX.test(text);
+  return requirementClauses(text).some(
+    (clause) => ADVANCED_ENGLISH_REGEX.test(clause) && !ENGLISH_PREFERENCE_OVERRIDE_REGEX.test(clause),
+  );
 }
 
 export function englishRequirementLabel(text) {
@@ -132,13 +145,14 @@ export function englishRequirementLabel(text) {
 }
 
 const HIGHER_EDUCATION_REGEX =
-  /(^|\n)\s*(főiskola|egyetem)\s*($|\n)|felsőfokú[^.\n;]{0,40}(végzettség|diploma)|(?:főiskolai|egyetemi)[^.\n;]{0,30}(végzettség|diploma)|(végzettség|diploma)[^.\n;]{0,30}(felsőfokú|főiskolai|egyetemi)/i;
+  /(^|[\n,;|])\s*(főiskola|egyetem|felsőoktatási szakképzés)\s*(?=$|[\n,;|])|felsőfokú[^.\n;]{0,40}(végzettség|diploma)|(?:főiskolai|egyetemi)[^.\n;]{0,30}(végzettség|diploma)|(végzettség|diploma)[^.\n;]{0,30}(felsőfokú|főiskolai|egyetemi)|(?:university|college|bachelor'?s?|master'?s?)[^.\n;]{0,25}degree|degree[^.\n;]{0,25}(?:university|college|bachelor'?s?|master'?s?)/i;
 const EDUCATION_PREFERENCE_OVERRIDE_REGEX =
-  /(felsőfokú|főiskolai|egyetemi|diploma)[^.\n;]{0,45}(előnyt jelent|előny|preferált|nem kötelező|nem feltétel)|(előnyt jelent|előny|preferált|nem kötelező|nem feltétel)[^.\n;]{0,45}(felsőfokú|főiskolai|egyetemi|diploma)/i;
+  /(felsőfokú|főiskolai|egyetemi|főiskola|egyetem|felsőoktatási szakképzés|diploma|degree)[^.\n;]{0,45}(előnyt jelent|előny|preferált|nem kötelező|nem feltétel)|(előnyt jelent|előny|preferált|nem kötelező|nem feltétel)[^.\n;]{0,45}(felsőfokú|főiskolai|egyetemi|főiskola|egyetem|felsőoktatási szakképzés|diploma|degree)/i;
 
 export function checkHigherEducationRequired(text) {
-  if (!HIGHER_EDUCATION_REGEX.test(text || '')) return false;
-  return !EDUCATION_PREFERENCE_OVERRIDE_REGEX.test(text || '');
+  return requirementClauses(text).some(
+    (clause) => HIGHER_EDUCATION_REGEX.test(clause) && !EDUCATION_PREFERENCE_OVERRIDE_REGEX.test(clause),
+  );
 }
 
 export function checkLocation(text) {

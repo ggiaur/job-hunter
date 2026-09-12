@@ -46,6 +46,24 @@ test('mandatory higher education in Profession requirements is a hard exclusion'
   assert.match(result.exclusionReason, /végzettség|diploma/i);
 });
 
+test('Profession comma-delimited education labels are hard exclusions', () => {
+  for (const requirements of [
+    'Angol középfok, Főiskola',
+    'Angol középfok, Felsőoktatási szakképzés',
+  ]) {
+    const result = computeRelevanceAssessment({
+      title: 'IT projektmenedzser',
+      descriptionText: requirements,
+      locationText: 'Budapest',
+      datePosted: null,
+      positionRelevant: true,
+      isGenericTitle: false,
+    });
+    assert.equal(result.hardExcluded, true, `should exclude for: ${requirements}`);
+    assert.match(result.exclusionReason, /végzettség|diploma/i);
+  }
+});
+
 test('strong leadership match with local location and freshness scores >=60 and is visible', () => {
   const r = computeRelevanceAssessment({
     title: 'IT vezető',
@@ -312,6 +330,19 @@ test('Codex #3: genuinely mandatory advanced English (fluent/confident business 
     });
     assert.equal(r.hardExcluded, true, `should exclude for: ${desc}`);
   }
+});
+
+test('Profession concatenated preference heading does not downgrade the preceding mandatory English requirement', () => {
+  const result = computeRelevanceAssessment({
+    title: 'Senior IT projektmenedzser',
+    descriptionText: 'Magabiztos angol nyelvtudásAz állás betöltéséhez előnyt jelent: PMI minősítés.\nAngol középfok, Főiskola\nMagabiztos angol nyelvtudás',
+    locationText: 'Budapest',
+    datePosted: null,
+    positionRelevant: true,
+    isGenericTitle: false,
+  });
+  assert.equal(result.hardExcluded, true);
+  assert.match(result.exclusionReason, /angol/i);
 });
 
 test('Codex #4: cafeteria/travel/project-budget HUF amounts are not misread as salary', () => {
