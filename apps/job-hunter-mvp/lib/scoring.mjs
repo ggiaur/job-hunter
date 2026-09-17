@@ -50,6 +50,19 @@ export function isOnePersonITRole(descriptionText) {
   return ONE_PERSON_IT_MARKERS.some((m) => lower.includes(m));
 }
 
+// Entry-level markers, matched against the TITLE ONLY.
+//
+// "Junior kollégák mentorálása" in a description is a duty of a SENIOR role, so
+// reading these from the body text would invert the meaning and penalise exactly
+// the leadership adverts the PO wants. "assistant"/"asszisztens" is deliberately
+// absent: profile/persona.md names "assistant IT team lead" as acceptable.
+const ENTRY_LEVEL_TITLE_REGEX =
+  /(^|[^a-záéíóöőúüű])(junior|jr\.?|gyakornok|pályakezdő|palyakezdo|trainee|entry[\s-]?level|kezdő)([^a-záéíóöőúüű]|$)/i;
+
+export function detectEntryLevelTitle(title) {
+  return ENTRY_LEVEL_TITLE_REGEX.test(String(title || ''));
+}
+
 export function isHardExcludedICRole(title, descriptionText) {
   if (!title) return false;
   const lower = title.toLowerCase();
@@ -259,6 +272,23 @@ export function computeRelevanceAssessment({ title, descriptionText, locationTex
       score -= 30;
       mismatchReasons.push('A cím vezetői/menedzseri jellegű, de a leírásban semmilyen konkrét vezetői vagy projektvezetői felelősség nem azonosítható — erősen visszasorolva.');
     }
+  }
+
+  // Seniority fit. profile/persona.md lists "Junior / entry-level" among the
+  // zero-point exclusions, but adds: "KIVÉVE ha a pozíció maga vezetői/menedzseri
+  // jellegű ... NE zárd ki automatikusan". A penalty is the only reading that
+  // honours both halves -- the advert stays inspectable, but stops ranking as if
+  // seniority matched.
+  //
+  // Measured gap this closes: the 2026-09-17 report scored "Indotek Group —
+  // Projektmenedzser (junior IT)" at 81, level with a genuine csoportvezető role,
+  // because the pipeline had no seniority signal at all. -25 matches the existing
+  // penalty family and is enough to move such a row below the 60% threshold.
+  if (detectEntryLevelTitle(title)) {
+    score -= 25;
+    mismatchReasons.push(
+      'A pozíció címe belépő szintű (junior/gyakornok/pályakezdő), ami nem illeszkedik a 20+ éves vezetői tapasztalathoz. A PO döntése szerint ez nem automatikus kizárás, de erősen visszasorolja a találatot.'
+    );
   }
 
   if (hasInstitutionalContext(descriptionText)) {
