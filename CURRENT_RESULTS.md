@@ -2,11 +2,13 @@
 
 **Frissítve (UTC):** 2026-09-17T08:14:05.397Z
 **Ellenőrzött hirdetésoldalak:** 682
-**Pontozott bejegyzések:** 31; **ellenőrizendő jelöltek:** 15; **korábbi elutasítások:** 1.
+**Pontozott bejegyzések:** 29; **ellenőrizendő jelöltek:** 11; **korábbi elutasítások:** 2.
 
-[Böngészhető eredmények és CV-bizonyítékok](docs/evidence/current-cv-results.html) · [E futás változatlan forrása](docs/evidence/job-hunter-runs/2026-09-17T08-14-05-397Z.json)
+[Böngészhető eredmények és CV-bizonyítékok](docs/evidence/current-cv-results.html) · [E futás változatlan forrása](docs/evidence/rescored-current-run.json)
 
-A jelöltek nem automatikusan jóváhagyott jelentkezések. A pontszám szabályalapú támpont, nem az alkalmasság vagy a felvétel valószínűsége. Munkáltatói névváltozatok miatt duplikáció maradhat.
+A jelöltek nem automatikusan jóváhagyott jelentkezések. A pontszám szabályalapú támpont, nem az alkalmasság vagy a felvétel valószínűsége.
+
+⚠ Ez a lista **újrapontozás, nem új keresés**: a fenti időpontban beszerzett hirdetések értékelése futott le újra (2026-09-17T21:47:40.563Z) javított pontozási szabályokkal. Új hirdetés nem került be, keresési kvóta nem fogyott.
 
 Önéletrajzi profil: cv-2026-09-16. Forrás SHA-256: 23f25d8c01901ee37e33bb882e933cd5fe2e069cd591f06429b403b09e84fb5c.
 A diploma nem automatikus kizáró ok. A CV és a tanúsítványok szöveges bizonyítékai a részletes riportban láthatók; az ismeretlen készség nem bizonyított hiány.
@@ -18,16 +20,6 @@ A diploma nem automatikus kizáró ok. A CV és a tanúsítványok szöveges biz
 [Hirdetés](https://www.profession.hu/allas/digitalis-csatorna-menedzsment-es-uzemeltetes-csoportvezeto-mvm-ugyfelkapcsolati-kft-budapest-3000382?keyword=digitaliz%25C3%25A1ci%25C3%25B3s%2Bvezet%25C5%2591&hash=8c201f45869f746e72a6b3baeabdd06f)
 
 - Helyszín a forrásban: Budapest, Budapest, HU; munkarend-jelzés: nincs igazolt hibrid/távmunka. A részletes bejárási feltételek külön ellenőrizendők.
-- Angol: basic/intermediate (not disqualifying).
-- CV-kapcsolódás: Csapatvezetés; IT-projektek irányítása; IT-üzemeltetés és infrastruktúra; IT-költségvetés; ERP-integráció és adatmigráció.
-- Ellenőrizendő: Az önéletrajz nem ad meg pontos angol CEFR-szintet; a nyelvi megfelelés külön ellenőrizendő.
-- Végzettség: Önéletrajzi végzettség: Programtervező informatikus (Nyíregyházi Egyetem, 2005–2008). A hirdetés pontos szakirányi/fokozati feltétele külön ellenőrizendő.
-
-### MVM — Digitális csatorna menedzsment és üzemeltetés csoportvezető (92 pont)
-
-[Hirdetés](https://hu.linkedin.com/jobs/view/digit%C3%A1lis-csatorna-menedzsment-%C3%A9s-%C3%BCzemeltet%C3%A9s-csoportvezet%C5%91-at-mvm-4464786434?position=16&pageNum=0&refId=9WoeRAy%2BoDCG3VsZOVpDPg%3D%3D&trackingId=yiBVFpHSQFYBGWV%2FjBqN3Q%3D%3D)
-
-- Helyszín a forrásban: Budapest, HU; munkarend-jelzés: nincs igazolt hibrid/távmunka. A részletes bejárási feltételek külön ellenőrizendők.
 - Angol: basic/intermediate (not disqualifying).
 - CV-kapcsolódás: Csapatvezetés; IT-projektek irányítása; IT-üzemeltetés és infrastruktúra; IT-költségvetés; ERP-integráció és adatmigráció.
 - Ellenőrizendő: Az önéletrajz nem ad meg pontos angol CEFR-szintet; a nyelvi megfelelés külön ellenőrizendő.
@@ -54,17 +46,6 @@ A diploma nem automatikus kizáró ok. A CV és a tanúsítványok szöveges biz
 - Ellenőrizendő: Az önéletrajz nem ad meg pontos angol CEFR-szintet; a nyelvi megfelelés külön ellenőrizendő.
 - Végzettség: Önéletrajzi végzettség: Programtervező informatikus (Nyíregyházi Egyetem, 2005–2008). A hirdetés pontos szakirányi/fokozati feltétele külön ellenőrizendő.
 
-### Indotek Group — Projektmenedzser (junior IT) (81 pont)
-
-[Hirdetés](https://hu.linkedin.com/jobs/view/projektmenedzser-junior-it-at-indotek-group-4463061284?position=27&pageNum=0&refId=PHCn6DRIrWQM5SA5X6e%2FOQ%3D%3D&trackingId=YGRrHB3xd5Y6A9QzxMi2lQ%3D%3D)
-
-- Helyszín a forrásban: Budapest, HU; munkarend-jelzés: nincs igazolt hibrid/távmunka. A részletes bejárási feltételek külön ellenőrizendők.
-- Angol: not specified in extracted text.
-- CV-kapcsolódás: IT-projektek irányítása; IT-üzemeltetés és infrastruktúra; IT-költségvetés; Beszerzés és szállítói koordináció; Vezetői riportok és döntés-előkészítés; Projektmenedzsment / agilis továbbképzés.
-- Ellenőrizendő: PMP szerepel a hirdetésben, de a megadott önéletrajz nem igazolja. Ez ellenőrizendő, nem bizonyított hiány és nem automatikus kizárás.
-- Ellenőrizendő: PRINCE2 szerepel a hirdetésben, de a megadott önéletrajz nem igazolja. Ez ellenőrizendő, nem bizonyított hiány és nem automatikus kizárás.
-- Ellenőrizendő: Az önéletrajz nem ad meg pontos angol CEFR-szintet; a nyelvi megfelelés külön ellenőrizendő.
-
 ### SWISS MEDICAL SERVICES Kft. — Projektmenedzser - IT területen (79 pont)
 
 [Hirdetés](https://www.profession.hu/allas/projektmenedzser-it-teruleten-swiss-medical-services-kft-budapest-2976894?keyword=it%2Bprojektmenedzser&hash=b861e9fe8a97753c26467bd126a7c5da)
@@ -74,17 +55,6 @@ A diploma nem automatikus kizáró ok. A CV és a tanúsítványok szöveges biz
 - CV-kapcsolódás: Csapatvezetés; IT-projektek irányítása; IT-üzemeltetés és infrastruktúra; IT-költségvetés; SQL-adatbázisok; Projektmenedzsment / agilis továbbképzés.
 - Ellenőrizendő: Az önéletrajz nem ad meg pontos angol CEFR-szintet; a nyelvi megfelelés külön ellenőrizendő.
 - Végzettség: Önéletrajzi végzettség: Programtervező informatikus (Nyíregyházi Egyetem, 2005–2008). A hirdetés pontos szakirányi/fokozati feltétele külön ellenőrizendő.
-
-### WAY Group — IT Manager (m/f/d) | CAIP Hungary, Nyíregyháza (78 pont)
-
-[Hirdetés](https://hu.linkedin.com/jobs/view/it-manager-m-f-d-caip-hungary-ny%C3%ADregyh%C3%A1za-at-way-group-4467058179?position=4&pageNum=0&refId=9WoeRAy%2BoDCG3VsZOVpDPg%3D%3D&trackingId=nnVun9VNoZOTtTxEjldSfw%3D%3D)
-
-- Helyszín a forrásban: Greater Nyiregyhaza Area, HU; munkarend-jelzés: nincs igazolt hibrid/távmunka. A részletes bejárási feltételek külön ellenőrizendők.
-- Angol: not specified in extracted text.
-- CV-kapcsolódás: Csapatvezetés; IT-üzemeltetés és infrastruktúra; IT-költségvetés; Beszerzés és szállítói koordináció; Vezetői riportok és döntés-előkészítés; VPN és telephelyi hálózat.
-- Ellenőrizendő: SAP szerepel a hirdetésben, de a megadott önéletrajz nem igazolja. Ez ellenőrizendő, nem bizonyított hiány és nem automatikus kizárás.
-- Ellenőrizendő: Az önéletrajz nem ad meg pontos angol CEFR-szintet; a nyelvi megfelelés külön ellenőrizendő.
-- Ellenőrizendő: Helyszín azonosítva (Greater Nyiregyhaza Area, HU), de nem esik az elsődleges/másodlagos gyűrűbe vagy Budapestre, és táv-/hibrid munkavégzésre sincs jelzés — nem kizáró ok, csak nulla pontszámú semleges jelzés.
 
 ### MVM — Senior IT projektmenedzser (78 pont)
 
@@ -162,17 +132,6 @@ A diploma nem automatikus kizáró ok. A CV és a tanúsítványok szöveges biz
 - Ellenőrizendő: Az önéletrajz nem ad meg pontos angol CEFR-szintet; a nyelvi megfelelés külön ellenőrizendő.
 - Ellenőrizendő: Helyszín azonosítva (Hajdú-Bihar megye, HU), de nem esik az elsődleges/másodlagos gyűrűbe vagy Budapestre, és táv-/hibrid munkavégzésre sincs jelzés — nem kizáró ok, csak nulla pontszámú semleges jelzés.
 - Végzettség: Önéletrajzi végzettség: Programtervező informatikus (Nyíregyházi Egyetem, 2005–2008). A hirdetés pontos szakirányi/fokozati feltétele külön ellenőrizendő.
-
-### HumanField Vezető- és Specialistakiválasztó Kft. — IT Manager (4174) (72 pont)
-
-[Hirdetés](https://www.cvonline.hu/hu/allas/it-manager-4174-1982057)
-
-- Helyszín a forrásban: Hajdú-Bihar, Hajdú-Bihar, HU; munkarend-jelzés: nincs igazolt hibrid/távmunka. A részletes bejárási feltételek külön ellenőrizendők.
-- Angol: not specified in extracted text.
-- CV-kapcsolódás: Csapatvezetés; IT-projektek irányítása; IT-üzemeltetés és infrastruktúra; Beszerzés és szállítói koordináció.
-- Ellenőrizendő: SAP szerepel a hirdetésben, de a megadott önéletrajz nem igazolja. Ez ellenőrizendő, nem bizonyított hiány és nem automatikus kizárás.
-- Ellenőrizendő: Az önéletrajz nem ad meg pontos angol CEFR-szintet; a nyelvi megfelelés külön ellenőrizendő.
-- Ellenőrizendő: Helyszín azonosítva (Hajdú-Bihar, Hajdú-Bihar, HU), de nem esik az elsődleges/másodlagos gyűrűbe vagy Budapestre, és táv-/hibrid munkavégzésre sincs jelzés — nem kizáró ok, csak nulla pontszámú semleges jelzés.
 
 ## Keresési lefedettség és működés
 

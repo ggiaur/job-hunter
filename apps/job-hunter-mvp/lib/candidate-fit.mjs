@@ -1,3 +1,5 @@
+import { normalizeCompanyTokens, normalizeTitle } from './vacancy-dedup.mjs';
+
 // Evidence overlap is deliberately bounded: it is not an inferred skill level
 // or a probability of being hired. Missing evidence is never a hard exclusion.
 const SPECIALIST_TERMS = ['SAP', 'Kubernetes', 'OpenShift', 'WebLogic', 'AWS', 'ITIL', 'PMP', 'PRINCE2', 'Databricks', 'machine learning', 'data science', 'data engineering'];
@@ -45,18 +47,67 @@ export function compareCandidate(candidate, descriptionText = '') {
   };
 }
 
-// An exact previously reviewed employer/title is shown with the PO's original
-// reason. It does not invent new blanket exclusions for other employers/roles.
+// A previously reviewed employer/title is shown with the PO's original reason. It
+// must not invent blanket exclusions for other employers or other roles.
+//
+// Exact string equality was too strict to be useful: of the six real
+// DO_NOT_APPLY decisions in profile/learned_preferences.md, only ONE was
+// recognised in the 2026-09-17 run, because portals spell the same job
+// differently.
+//
+//   recorded : "WAY Group / CAIP Hungary — IT Manager, Nyíregyháza"
+//   advert   : company "WAY Group", title "IT Manager (m/f/d) | CAIP Hungary, …"
+//
+// so an advert the PO had explicitly rejected came back as a 78% candidate.
+//
+// Employer: the same token-prefix rule as vacancy dedup, which is what
+// parent/subsidiary and short/long names look like once legal forms are dropped.
+// Title: the shorter token list must be fully contained in the longer AND be at
+// least MIN_TITLE_TOKEN_RATIO of its length. The ratio is the guard that keeps a
+// DIFFERENT role at the same employer from inheriting a rejection -- e.g.
+// "IT Manager" (2 tokens) against the recorded "IT Development and Operations
+// Manager" (4 significant tokens) is 0.5 and correctly does not match. Inheriting
+// there would silently delete a real opportunity, which is worse than showing a
+// repeat the PO dismisses at a glance.
+const MIN_TITLE_TOKEN_RATIO = 0.6;
+
+function titleTokens(value) {
+  return normalizeTitle(value).split(' ').filter(Boolean);
+}
+
+function titlesReferToSameRole(a, b) {
+  const tokensA = titleTokens(a);
+  const tokensB = titleTokens(b);
+  if (!tokensA.length || !tokensB.length) return false;
+  const [shorter, longer] = tokensA.length <= tokensB.length ? [tokensA, tokensB] : [tokensB, tokensA];
+  if (shorter.length / longer.length < MIN_TITLE_TOKEN_RATIO) return false;
+  const longerSet = new Set(longer);
+  return shorter.every((token) => longerSet.has(token));
+}
+
+function employersMatch(a, b) {
+  const tokensA = normalizeCompanyTokens(a);
+  const tokensB = normalizeCompanyTokens(b);
+  if (!tokensA.length || !tokensB.length) return false;
+  const [shorter, longer] = tokensA.length <= tokensB.length ? [tokensA, tokensB] : [tokensB, tokensA];
+  return shorter.every((token, i) => token === longer[i]);
+}
+
 export function findPriorFeedback(learnedText, company, title) {
-  const normalize = value => (value || '').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
-  const normalizedTitle = normalize(title);
-  const normalizedCompany = normalize(company);
+  if (!company || !title) return [];
   const matches = [];
   for (const line of (learnedText || '').split('\n')) {
-    const match = line.match(/^- \*\*(.+?)\s+—\s+(.+?):\*\*\s*(DO_NOT_APPLY|APPLY)\.\s*(.+)$/);
+    const match = line.match(/^- \*\*(.+?)\s+—\s+(.+?):\*\*\s*(DO_NOT_APPLY|APPLY)\.?\s*(.*)$/);
     if (!match) continue;
-    if (normalize(match[1]) !== normalizedCompany || normalize(match[2]) !== normalizedTitle) continue;
-    matches.push({ decision: match[3], reason: match[4], source: 'profile/learned_preferences.md' });
+    const [, recordedCompany, recordedTitle, decision, reason] = match;
+    if (!employersMatch(recordedCompany, company)) continue;
+    if (!titlesReferToSameRole(recordedTitle, title)) continue;
+    matches.push({
+      decision,
+      reason: reason.trim(),
+      matchedRecord: `${recordedCompany} — ${recordedTitle}`,
+      source: 'profile/learned_preferences.md',
+    });
   }
   return matches;
 }

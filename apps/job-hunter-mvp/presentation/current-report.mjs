@@ -27,7 +27,18 @@ export function currentResultsMarkdown(run, { snapshotRelative, htmlRelative, de
     `**Ellenőrzött hirdetésoldalak:** ${run.confirmedJobAdPages ?? rows.length + (run.excluded || []).length}`,
     `**Pontozott bejegyzések:** ${rows.length}; **ellenőrizendő jelöltek:** ${candidates.length}; **korábbi elutasítások:** ${previousRejections.length}.`,
     '', reportLinks, '',
-    'A jelöltek nem automatikusan jóváhagyott jelentkezések. A pontszám szabályalapú támpont, nem az alkalmasság vagy a felvétel valószínűsége. Munkáltatói névváltozatok miatt duplikáció maradhat.', '',
+    // The old sentence ended with "Munkáltatói névváltozatok miatt duplikáció
+    // maradhat." -- it disclosed a defect instead of fixing it, and it is now
+    // false: lib/vacancy-dedup.mjs collapses employer-name and title-code
+    // variants. A caveat that no longer holds teaches the reader to skip the
+    // caveats that still do.
+    'A jelöltek nem automatikusan jóváhagyott jelentkezések. A pontszám szabályalapú támpont, nem az alkalmasság vagy a felvétel valószínűsége.', '',
+    // A re-scored snapshot must never read as a fresh search. "Frissítve" above
+    // is the ACQUISITION time in both cases, so without this line a re-score is
+    // indistinguishable from a live run.
+    ...(run.rescoredAt
+      ? [`⚠ Ez a lista **újrapontozás, nem új keresés**: a fenti időpontban beszerzett hirdetések értékelése futott le újra (${plain(run.rescoredAt)}) javított pontozási szabályokkal. Új hirdetés nem került be, keresési kvóta nem fogyott.`, '']
+      : []),
     `Önéletrajzi profil: ${plain(run.candidateProfileVersion || 'nincs rögzítve')}. Forrás SHA-256: ${plain(run.candidateSourceSha256 || 'nincs rögzítve')}.`,
     'A diploma nem automatikus kizáró ok. A CV és a tanúsítványok szöveges bizonyítékai a részletes riportban láthatók; az ismeretlen készség nem bizonyított hiány.', '',
     '## Ellenőrizendő lehetőségek', '',
