@@ -13,6 +13,7 @@ import { runDirectProfessionAcquisition } from './lib/profession-direct.mjs';
 import { createStageEvidenceRow, buildListingCoverageRow, summarizeFunnel } from './lib/stage-evidence.mjs';
 import { checkCanaries, allCanariesReachedScoring } from './lib/canaries.mjs';
 import { reviewJobPosting } from './lib/vacancy-review.mjs';
+import { dedupeVacancies } from './lib/vacancy-dedup.mjs';
 import { loadSearchCredential } from './lib/credentials.mjs';
 import { publishCurrentReports } from './presentation/current-report.mjs';
 
@@ -342,21 +343,20 @@ async function main() {
   // Semantic dedup: the same job can be discovered twice under different
   // tracking query-strings (e.g. profession.hu's ?keyword=... varies per
   // search that found it) or via two independent channels (SerpApi +
-  // direct Profession.hu). Keep the highest-scored copy per title+company.
-  const seenTitleCompany = new Map();
-  for (const rec of results) {
-    const key = `${rec.title.toLowerCase()}|${rec.company.toLowerCase()}`;
-    const existing = seenTitleCompany.get(key);
-    if (!existing || rec.relevancePercent > existing.relevancePercent) seenTitleCompany.set(key, rec);
-  }
-  const dedupedResults = [...seenTitleCompany.values()];
-  for (const rec of results) {
-    const key = `${rec.title.toLowerCase()}|${rec.company.toLowerCase()}`;
-    if (seenTitleCompany.get(key) !== rec) {
-      const e = evidence(rec.url);
-      e.outcome = 'deduped';
-      e.dedupParentUrl = seenTitleCompany.get(key).url;
-    }
+  // direct Profession.hu).
+  //
+  // The exact `title|company` key used here before still left 2 duplicate pairs
+  // among the 15 candidates of the 2026-09-17 report, because one job appears
+  // under employer-name variants ("MVM" / "MVM Ügyfélkapcsolati Kft.") and with
+  // an agency reference code in the title ("IT Manager" / "IT Manager (4174)").
+  // The report disclosed that as a caveat instead of fixing it. Matching is now
+  // in lib/vacancy-dedup.mjs, which also prefers the primary job portal over a
+  // LinkedIn mirror on an equal-score tie.
+  const { kept: dedupedResults, duplicates } = dedupeVacancies(results);
+  for (const dup of duplicates) {
+    const e = evidence(dup.url);
+    e.outcome = 'deduped';
+    e.dedupParentUrl = dup.duplicateOfUrl;
   }
   dedupedResults.sort((a, b) => b.relevancePercent - a.relevancePercent);
   results.length = 0;
@@ -421,7 +421,19 @@ async function main() {
   console.log(`Results: ${results.length} (visible >=60%: ${visibleResults.length}), Excluded: ${excluded.length}, Unreachable: ${unreachable.length}`);
 }
 
-main().catch((err) => {
-  console.error('FATAL', err);
-  process.exit(1);
-});
+// Only run when this file is the process entry point.
+//
+// This guard exists because of a real incident (2026-09-17): a command intended
+// merely to check that this module still parses did `import('./run.mjs')`, which
+// executed main() and spent ~17 SerpApi searches from the shared 250/month
+// allowance before it could be stopped, producing no output at all. Importing a
+// module must never start a paid live search.
+const isEntryPoint =
+  process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+
+if (isEntryPoint) {
+  main().catch((err) => {
+    console.error('FATAL', err);
+    process.exit(1);
+  });
+}
