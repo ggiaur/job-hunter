@@ -1,0 +1,1306 @@
+{
+  "generatedAt": "2026-09-17T21:24:42.987Z",
+  "sourceSnapshot": "docs/evidence/real-job-hunter-current-run.json",
+  "sourceRunGeneratedAt": "2026-09-17T08:14:05.397Z",
+  "detectorFix": "comma-boundary in advanced-English proximity window (lib/english-level-conflation.test.mjs)",
+  "searchApiQueriesUsed": 0,
+  "englishExcludedInSnapshot": 184,
+  "rechecked": 184,
+  "outcomeCounts": {
+    "UNREACHABLE": 137,
+    "STILL_EXCLUDED_ENGLISH": 28,
+    "NO_LONGER_A_JOB_AD": 19
+  },
+  "recoveredCount": 0,
+  "recoveredVisibleCount": 0,
+  "results": [
+    {
+      "url": "https://www.profession.hu/allas/biztonsagtechnikai-rendszerintegrator-informatikus-civil-rendszertechnika-kft-budapest-2991226?keyword=it%2Bvezet%25C5%2591&hash=1ded5f1f13c1d1785e23309c5641c138",
+      "title": "Biztonságtechnikai rendszerintegrátor (informatikus)",
+      "company": "CIVIL Rendszertechnika Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/rendszerszervezo-vallalati-vagyon-es-mezogazdasagi-terulet-groupama-biztosito-zrt-budapest-3003079?keyword=it%2Bvezet%25C5%2591&hash=1ded5f1f13c1d1785e23309c5641c138",
+      "title": "Rendszerszervező (vállalati vagyon és mezőgazdasági terület)",
+      "company": "Groupama Biztosító Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/e-p-it-operations-manager-mol-it-digital-gbs-kft-budapest-2979032?keyword=it%2Bvezet%25C5%2591&hash=1ded5f1f13c1d1785e23309c5641c138",
+      "title": "E&P IT Operations Manager",
+      "company": "MOL IT & Digital GBS Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/rendszerszervezo-kockazatkezelesi-rendszerek-squad-erste-bank-hungary-zrt-2995081?keyword=it%2Bvezet%25C5%2591&hash=1ded5f1f13c1d1785e23309c5641c138",
+      "title": "Rendszerszervező - Kockázatkezelési rendszerek Squad",
+      "company": "ERSTE BANK HUNGARY Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/it-biztonsagi-osztalyvezeto-granit-bank-nyrt-budapest-2989264?keyword=it%2Bvezet%25C5%2591&hash=1ded5f1f13c1d1785e23309c5641c138",
+      "title": "IT biztonsági Osztályvezető",
+      "company": "GRÁNIT Bank Nyrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/biztonsagtechnikai-rendszerintegrator-informatikus-civil-rendszertechnika-kft-budapest-2991226?keyword=informatikai%2Bvezet%25C5%2591&hash=1d56230546cf0470e9eb81da45a2b225",
+      "title": "Biztonságtechnikai rendszerintegrátor (informatikus)",
+      "company": "CIVIL Rendszertechnika Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/rendszerszervezo-vallalati-vagyon-es-mezogazdasagi-terulet-groupama-biztosito-zrt-budapest-3003079?keyword=informatikai%2Bvezet%25C5%2591&hash=1d56230546cf0470e9eb81da45a2b225",
+      "title": "Rendszerszervező (vállalati vagyon és mezőgazdasági terület)",
+      "company": "Groupama Biztosító Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/e-p-it-operations-manager-mol-it-digital-gbs-kft-budapest-2979032?keyword=informatikai%2Bvezet%25C5%2591&hash=1d56230546cf0470e9eb81da45a2b225",
+      "title": "E&P IT Operations Manager",
+      "company": "MOL IT & Digital GBS Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/rendszerszervezo-kockazatkezelesi-rendszerek-squad-erste-bank-hungary-zrt-2995081?keyword=informatikai%2Bvezet%25C5%2591&hash=1d56230546cf0470e9eb81da45a2b225",
+      "title": "Rendszerszervező - Kockázatkezelési rendszerek Squad",
+      "company": "ERSTE BANK HUNGARY Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/it-biztonsagi-osztalyvezeto-granit-bank-nyrt-budapest-2989264?keyword=informatikai%2Bvezet%25C5%2591&hash=1d56230546cf0470e9eb81da45a2b225",
+      "title": "IT biztonsági Osztályvezető",
+      "company": "GRÁNIT Bank Nyrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/it-biztonsagi-osztalyvezeto-granit-bank-nyrt-budapest-2989264?keyword=it%2Boszt%25C3%25A1lyvezet%25C5%2591&hash=712020771380dc167c2205e9025c0b8d",
+      "title": "IT biztonsági Osztályvezető",
+      "company": "GRÁNIT Bank Nyrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/biztonsagtechnikai-rendszerintegrator-informatikus-civil-rendszertechnika-kft-budapest-2991226?keyword=it%2Boszt%25C3%25A1lyvezet%25C5%2591&hash=712020771380dc167c2205e9025c0b8d",
+      "title": "Biztonságtechnikai rendszerintegrátor (informatikus)",
+      "company": "CIVIL Rendszertechnika Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/rendszerszervezo-vallalati-vagyon-es-mezogazdasagi-terulet-groupama-biztosito-zrt-budapest-3003079?keyword=it%2Boszt%25C3%25A1lyvezet%25C5%2591&hash=712020771380dc167c2205e9025c0b8d",
+      "title": "Rendszerszervező (vállalati vagyon és mezőgazdasági terület)",
+      "company": "Groupama Biztosító Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/e-p-it-operations-manager-mol-it-digital-gbs-kft-budapest-2979032?keyword=it%2Boszt%25C3%25A1lyvezet%25C5%2591&hash=712020771380dc167c2205e9025c0b8d",
+      "title": "E&P IT Operations Manager",
+      "company": "MOL IT & Digital GBS Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/rendszerszervezo-kockazatkezelesi-rendszerek-squad-erste-bank-hungary-zrt-2995081?keyword=it%2Boszt%25C3%25A1lyvezet%25C5%2591&hash=712020771380dc167c2205e9025c0b8d",
+      "title": "Rendszerszervező - Kockázatkezelési rendszerek Squad",
+      "company": "ERSTE BANK HUNGARY Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/senior-it-projektmenedzser-mvm-informatika-zrt-paks-2997751?keyword=it%2Bprojektmenedzser&hash=b861e9fe8a97753c26467bd126a7c5da",
+      "title": "Senior IT projektmenedzser",
+      "company": "MVMI ZRT.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/it-project-manager-rheinmetall-zalaegerszeg-2982549?keyword=it%2Bprojektmenedzser&hash=b861e9fe8a97753c26467bd126a7c5da",
+      "title": "IT Project Manager",
+      "company": "Rheinmetall Hungary Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/it-project-manager-rheinmetall-zalaegerszeg-2982545?keyword=it%2Bprojektmenedzser&hash=b861e9fe8a97753c26467bd126a7c5da",
+      "title": "IT Project Manager",
+      "company": "Rheinmetall Hungary Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/it-project-manager-ganz-transzformator-es-villamos-forgogepgyarto-zrt-2982702?keyword=it%2Bprojektmenedzser&hash=b861e9fe8a97753c26467bd126a7c5da",
+      "title": "IT Project Manager",
+      "company": "Ganz Transzformátor- és Villamos Forgógépgyártó Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/senior-it-project-manager-gammaorg-zartkoruen-mukodo-reszvenytarsasag-3004190?keyword=it%2Bprojektmenedzser&hash=b861e9fe8a97753c26467bd126a7c5da",
+      "title": "Senior IT Project Manager",
+      "company": "GAMMAORG Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/it-projektmanager-in-product-plant-systems-hero-2989710?keyword=it%2Bprojektmenedzser&hash=b861e9fe8a97753c26467bd126a7c5da",
+      "title": "IT-Projektmanager/in - Product & Plant Systems",
+      "company": "The Stepstone Group EMEA GmbH",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/technical-project-manager-databricks-hiflylabs-zartkoruen-mukodo-reszvenytarsasag-budapest-3004622?keyword=it%2Bprojektmenedzser&hash=b861e9fe8a97753c26467bd126a7c5da",
+      "title": "Technical Project Manager - Databricks",
+      "company": "Hiflylabs Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/it-project-manager-project-management-office-river-advice-ag-2978935?keyword=it%2Bprojektmenedzser&hash=b861e9fe8a97753c26467bd126a7c5da",
+      "title": "IT Project Manager & Project Management Office",
+      "company": "Jobcloud AG",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/projektmenedzser-mohu-mol-hulladekgazdalkodasi-zrt-budapest-2989921?keyword=projektmenedzser&hash=01eb7e23930475f689c7fc28c7497f36",
+      "title": "Projektmenedzser",
+      "company": "MOHU MOL Hulladékgazdálkodási Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/muszaki-projektmenedzser-strabag-brvz-kft-budapest-2999079?keyword=projektmenedzser&hash=01eb7e23930475f689c7fc28c7497f36",
+      "title": "Műszaki projektmenedzser",
+      "company": "STRABAG BRVZ Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/senior-it-projektmenedzser-mvm-informatika-zrt-paks-2997751?keyword=projektmenedzser&hash=01eb7e23930475f689c7fc28c7497f36",
+      "title": "Senior IT projektmenedzser",
+      "company": "MVMI ZRT.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/projektmenedzser-medicontur-zrt-zsambek-2996477?keyword=projektmenedzser&hash=01eb7e23930475f689c7fc28c7497f36",
+      "title": "Projektmenedzser",
+      "company": "Medicontur Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/muszaki-projektvezeto-projektmenedzser-mvm-erbe-zrt-budapest-2995445?keyword=projektmenedzser&hash=01eb7e23930475f689c7fc28c7497f36",
+      "title": "Műszaki Projektvezető / Projektmenedzser",
+      "company": "MVM ERBE Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/senior-projektmenedzser-exelect-hungary-kft-budapest-2987851?keyword=projektmenedzser&hash=01eb7e23930475f689c7fc28c7497f36",
+      "title": "Senior Projektmenedzser",
+      "company": "Exelect Hungary Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/junior-it-projektvezeto-hatarozott-idore-otp-bank-nyrt-budapest-2997873?keyword=informatikai%2Bprojektvezet%25C5%2591&hash=3019dbfb054eabae9ce1d4fc00ab7a52",
+      "title": "Junior IT Projektvezető (Határozott időre)",
+      "company": "OTP Bank Nyrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/it-project-manager-ganz-transzformator-es-villamos-forgogepgyarto-zrt-2982702?keyword=digitaliz%25C3%25A1ci%25C3%25B3s%2Bprojektmenedzser&hash=23f63d7d8d107556733b02ff67a6919f",
+      "title": "IT Project Manager",
+      "company": "Ganz Transzformátor- és Villamos Forgógépgyártó Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/gazdasagi-igazgato-helyettes-hajdusagi-sutodek-zrt-debrecen-2998859?keyword=digitaliz%25C3%25A1ci%25C3%25B3s%2Bvezet%25C5%2591&hash=8c201f45869f746e72a6b3baeabdd06f",
+      "title": "Gazdasági igazgató helyettes",
+      "company": "Hajdúsági Sütödék Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/python-ai-developer-hungary-deloitte-uzletviteli-es-vezetesi-tanacsado-zartkoruen-mukodo-reszvenytarsasag-3004269?keyword=ai%2Btranszform%25C3%25A1ci%25C3%25B3s%2Bvezet%25C5%2591&hash=dddd9606207a23f412bdc5070aa1918c",
+      "title": "Python/AI developer | Hungary",
+      "company": "Deloitte Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/it-risk-manager-dora-raiffeisen-bank-zrt-budapest-2993667?keyword=it%2Bvezet%25C5%2591&hash=1ded5f1f13c1d1785e23309c5641c138",
+      "title": "IT RISK MANAGER - DORA",
+      "company": "Raiffeisen Bank Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/it-project-manager-ganz-transzformator-es-villamos-forgogepgyarto-zrt-2982702?keyword=it%2Bvezet%25C5%2591&hash=1ded5f1f13c1d1785e23309c5641c138",
+      "title": "IT Project Manager",
+      "company": "Ganz Transzformátor- és Villamos Forgógépgyártó Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/rendszerszervezo-signal-iduna-biztosito-zartkoruen-mukodo-reszvenytarsasag-budapest-2981036?keyword=it%2Bvezet%25C5%2591&hash=1ded5f1f13c1d1785e23309c5641c138",
+      "title": "Rendszerszervező",
+      "company": "SIGNAL IDUNA Biztosító Zártkörűen Működő Részvénytársaság",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/ai-csoportvezeto-budapest-debrecen-e-on-ugyfelszolgalati-kft-budapest-2989212?keyword=it%2Bvezet%25C5%2591&hash=1ded5f1f13c1d1785e23309c5641c138",
+      "title": "AI csoportvezető (Budapest/Debrecen)",
+      "company": "E.ON Ügyfélszolgálati Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/information-technology-manager-at-four-seasons-4458737359?position=2&pageNum=0&refId=9WoeRAy%2BoDCG3VsZOVpDPg%3D%3D&trackingId=DakhV4z8XSSOf33uE541rA%3D%3D",
+      "title": "Information Technology Manager",
+      "company": "Four Seasons",
+      "outcome": "STILL_EXCLUDED_ENGLISH",
+      "detail": "Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING))."
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/e-p-it-operations-manager-at-mol-group-4456317248?position=3&pageNum=0&refId=9WoeRAy%2BoDCG3VsZOVpDPg%3D%3D&trackingId=5ibMA6kuN4D6KAE2DU%2FWOA%3D%3D",
+      "title": "E&P IT Operations Manager",
+      "company": "MOL Group",
+      "outcome": "STILL_EXCLUDED_ENGLISH",
+      "detail": "Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING))."
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/mobil-adatszolg%C3%A1ltat%C3%A1sok-csoportvezet%C5%91-at-one-hungary-4461521157?position=17&pageNum=0&refId=9WoeRAy%2BoDCG3VsZOVpDPg%3D%3D&trackingId=7q3P06U88bWizUD3lyKhxQ%3D%3D",
+      "title": "Mobil adatszolgáltatások csoportvezető",
+      "company": "One Hungary",
+      "outcome": "STILL_EXCLUDED_ENGLISH",
+      "detail": "Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING))."
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/experienced-service-delivery-manager-%E2%80%93-ai-products-ref5731u-at-deutsche-telekom-it-solutions-hu-4466514900?position=22&pageNum=0&refId=9WoeRAy%2BoDCG3VsZOVpDPg%3D%3D&trackingId=nHfPnwGiP48cn0WkRO64sQ%3D%3D",
+      "title": "Experienced Service Delivery Manager – AI Products (REF5731U)",
+      "company": "Deutsche Telekom IT Solutions HU",
+      "outcome": "STILL_EXCLUDED_ENGLISH",
+      "detail": "Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING))."
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/sap-application-manager-at-lightware-4448757915?position=25&pageNum=0&refId=9WoeRAy%2BoDCG3VsZOVpDPg%3D%3D&trackingId=3oxeOpYTnJC7Kg5ARAZTEQ%3D%3D",
+      "title": "SAP Application Manager",
+      "company": "Lightware",
+      "outcome": "STILL_EXCLUDED_ENGLISH",
+      "detail": "Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING))."
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/ai-csoportvezet%C5%91-budapest-debrecen-at-e-on-hung%C3%A1ria-csoport-4459526313?position=38&pageNum=0&refId=9WoeRAy%2BoDCG3VsZOVpDPg%3D%3D&trackingId=xFI8QmA6%2BR0Ts5BvXUf4jQ%3D%3D",
+      "title": "AI csoportvezető (Budapest/Debrecen)",
+      "company": "E.ON Hungária Csoport",
+      "outcome": "STILL_EXCLUDED_ENGLISH",
+      "detail": "Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING))."
+    },
+    {
+      "url": "https://www.profession.hu/allas/it-support-specialist-aspect-energy-kft-budapest-2978867?keyword=informatikai%2Bvezet%25C5%2591&hash=1d56230546cf0470e9eb81da45a2b225",
+      "title": "IT Support Specialist",
+      "company": "Aspect Energy Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/unix-linux-system-administrator-at-mbh-bank-4361729352?position=25&pageNum=0&refId=ZuEWeWb9rHZHxHB8cimqVg%3D%3D&trackingId=%2B3xBmkesIUUlrZKNyLixVA%3D%3D",
+      "title": "Unix Linux System Administrator",
+      "company": "MBH Bank",
+      "outcome": "STILL_EXCLUDED_ENGLISH",
+      "detail": "Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING))."
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/virtualiz%C3%A1ci%C3%B3s-rendszerm%C3%A9rn%C3%B6k-at-mbh-bank-4441531661?position=34&pageNum=0&refId=ZuEWeWb9rHZHxHB8cimqVg%3D%3D&trackingId=XbkkHE%2BIBqxaD%2BPuvfR3WQ%3D%3D",
+      "title": "Virtualizációs rendszermérnök",
+      "company": "MBH Bank",
+      "outcome": "STILL_EXCLUDED_ENGLISH",
+      "detail": "Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING))."
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/architect-consultant-sap-business-technology-platform-btp-m-f-d-at-x1f-4454741256?position=37&pageNum=0&refId=ZuEWeWb9rHZHxHB8cimqVg%3D%3D&trackingId=1Bf35f9dcMeD5lA4OgDIyg%3D%3D",
+      "title": "Architect/Consultant SAP Business Technology Platform (BTP) (m/f/d)",
+      "company": "x1F",
+      "outcome": "STILL_EXCLUDED_ENGLISH",
+      "detail": "Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING))."
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/rendszergazda-at-mvm-4457753892?position=39&pageNum=0&refId=ZuEWeWb9rHZHxHB8cimqVg%3D%3D&trackingId=qMizqzpbpEXYac7M%2FvStnQ%3D%3D",
+      "title": "Rendszergazda",
+      "company": "MVM",
+      "outcome": "STILL_EXCLUDED_ENGLISH",
+      "detail": "Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING))."
+    },
+    {
+      "url": "https://www.profession.hu/allas/it-risk-manager-dora-raiffeisen-bank-zrt-budapest-2993667?keyword=it%2Boszt%25C3%25A1lyvezet%25C5%2591&hash=712020771380dc167c2205e9025c0b8d",
+      "title": "IT RISK MANAGER - DORA",
+      "company": "Raiffeisen Bank Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/it-project-manager-ganz-transzformator-es-villamos-forgogepgyarto-zrt-2982702?keyword=it%2Boszt%25C3%25A1lyvezet%25C5%2591&hash=712020771380dc167c2205e9025c0b8d",
+      "title": "IT Project Manager",
+      "company": "Ganz Transzformátor- és Villamos Forgógépgyártó Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/rendszerszervezo-signal-iduna-biztosito-zartkoruen-mukodo-reszvenytarsasag-budapest-2981036?keyword=it%2Boszt%25C3%25A1lyvezet%25C5%2591&hash=712020771380dc167c2205e9025c0b8d",
+      "title": "Rendszerszervező",
+      "company": "SIGNAL IDUNA Biztosító Zártkörűen Működő Részvénytársaság",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/ai-csoportvezeto-budapest-debrecen-e-on-ugyfelszolgalati-kft-budapest-2989212?keyword=it%2Boszt%25C3%25A1lyvezet%25C5%2591&hash=712020771380dc167c2205e9025c0b8d",
+      "title": "AI csoportvezető (Budapest/Debrecen)",
+      "company": "E.ON Ügyfélszolgálati Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.cvonline.hu/hu/allas/manufacturing-it-business-analyst-1968485",
+      "title": "Manufacturing IT Business Analyst",
+      "company": "Trenkwalder Kft",
+      "outcome": "NO_LONGER_A_JOB_AD",
+      "detail": "JobPosting schema not present"
+    },
+    {
+      "url": "https://www.cvonline.hu/hu/allas/sap-abap-fejleszto-logisztika-1977595",
+      "title": "SAP ABAP fejlesztő (logisztika)",
+      "company": "Pannonjob Kft.",
+      "outcome": "NO_LONGER_A_JOB_AD",
+      "detail": "JobPosting schema not present"
+    },
+    {
+      "url": "https://www.cvonline.hu/hu/allas/sap-software-engineer-1977600",
+      "title": "SAP Software Engineer",
+      "company": "Pannonjob Kft.",
+      "outcome": "NO_LONGER_A_JOB_AD",
+      "detail": "JobPosting schema not present"
+    },
+    {
+      "url": "https://www.cvonline.hu/hu/allas/sap-szoftvermernok-1977601",
+      "title": "SAP Szoftvermérnök",
+      "company": "Pannonjob Kft.",
+      "outcome": "NO_LONGER_A_JOB_AD",
+      "detail": "JobPosting schema not present"
+    },
+    {
+      "url": "https://www.cvonline.hu/hu/allas/sap-logistics-application-expert-ewm-wm-le-tm-1977610",
+      "title": "SAP Logistics Application Expert (EWM/WM/LE/TM)",
+      "company": "Pannonjob Kft.",
+      "outcome": "NO_LONGER_A_JOB_AD",
+      "detail": "JobPosting schema not present"
+    },
+    {
+      "url": "https://www.cvonline.hu/hu/allas/sap-logistics-application-expert-ewm-wm-le-tm-1977611",
+      "title": "SAP Logistics Application Expert (EWM/WM/LE/TM)",
+      "company": "Pannonjob Kft.",
+      "outcome": "NO_LONGER_A_JOB_AD",
+      "detail": "JobPosting schema not present"
+    },
+    {
+      "url": "https://www.cvonline.hu/hu/allas/e-sport-streamer-1968391",
+      "title": "E-Sport Streamer",
+      "company": "Pannon-Work Cégcsoport",
+      "outcome": "NO_LONGER_A_JOB_AD",
+      "detail": "JobPosting schema not present"
+    },
+    {
+      "url": "https://www.cvonline.hu/hu/allas/sap-key-user-1977388",
+      "title": "SAP Key User",
+      "company": "Trenkwalder Kft",
+      "outcome": "NO_LONGER_A_JOB_AD",
+      "detail": "JobPosting schema not present"
+    },
+    {
+      "url": "https://www.cvonline.hu/hu/allas/master-data-specialist-1963622",
+      "title": "Master Data Specialist",
+      "company": "Randstad Hungary Kft.",
+      "outcome": "NO_LONGER_A_JOB_AD",
+      "detail": "JobPosting schema not present"
+    },
+    {
+      "url": "https://www.cvonline.hu/hu/allas/it-service-desk-agent-german-speaking-1968291",
+      "title": "IT Service Desk Agent - German speaking",
+      "company": "Trenkwalder Kft",
+      "outcome": "NO_LONGER_A_JOB_AD",
+      "detail": "JobPosting schema not present"
+    },
+    {
+      "url": "https://www.cvonline.hu/hu/allas/diakmunka-ai-agents-automation-intern-1963046",
+      "title": "Diákmunka - AI Agents & Automation Intern",
+      "company": "MŰISZ Iskolaszövetkezet",
+      "outcome": "NO_LONGER_A_JOB_AD",
+      "detail": "JobPosting schema not present"
+    },
+    {
+      "url": "https://www.cvonline.hu/hu/allas/it-support-gyakornok-1975909",
+      "title": "IT Support gyakornok",
+      "company": "Mind-Diák Szövetkezet",
+      "outcome": "NO_LONGER_A_JOB_AD",
+      "detail": "JobPosting schema not present"
+    },
+    {
+      "url": "https://www.cvonline.hu/hu/allas/quality-assurance-gyakornok-1975911",
+      "title": "Quality Assurance gyakornok",
+      "company": "Mind-Diák Szövetkezet",
+      "outcome": "NO_LONGER_A_JOB_AD",
+      "detail": "JobPosting schema not present"
+    },
+    {
+      "url": "https://www.cvonline.hu/hu/allas/diakmunka-forward-deployed-engineer-q-lab-total-vehicle-quality-1979270",
+      "title": "Diákmunka - Forward Deployed Engineer – Q Lab (Total Vehicle Quality)",
+      "company": "MŰISZ Iskolaszövetkezet",
+      "outcome": "NO_LONGER_A_JOB_AD",
+      "detail": "JobPosting schema not present"
+    },
+    {
+      "url": "https://www.cvonline.hu/hu/allas/diakmunka-c-szoftverfejleszto-gyakornok-1979074",
+      "title": "Diákmunka - C# Szoftverfejlesztő gyakornok",
+      "company": "MŰISZ Iskolaszövetkezet",
+      "outcome": "NO_LONGER_A_JOB_AD",
+      "detail": "JobPosting schema not present"
+    },
+    {
+      "url": "https://www.cvonline.hu/hu/allas/robotikai-fejleszto-gyakornok-1978109",
+      "title": "Robotikai fejlesztő gyakornok",
+      "company": "Mind-Diák Szövetkezet",
+      "outcome": "NO_LONGER_A_JOB_AD",
+      "detail": "JobPosting schema not present"
+    },
+    {
+      "url": "https://www.profession.hu/allas/facility-workplace-coordinator-letesitmeny-es-munkahely-koordinator-apleona-magyarorszag-kft-budapest-2977919?keyword=infrastrukt%25C3%25BAra%2B%25C3%25BCzemeltet%25C3%25A9si%2Bvezet%25C5%2591&hash=aeaddb69e707415231bd19b2ba34ac0c",
+      "title": "Facility & Workplace Coordinator -Létesítmény- és munkahely-koordinátor",
+      "company": "Apleona Magyarország Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/tervez%C3%A9si-csoportvezet%C5%91-k%C3%B6zleked%C3%A9si-infrastrukt%C3%BAra-tervez%C3%A9s-at-z%C3%BCblin-4467068128?position=4&pageNum=0&refId=BxcE%2BlB2o6tPTy4U6rTS7g%3D%3D&trackingId=IFuoAFIZYkVfWn9CLZ7ilA%3D%3D",
+      "title": "Tervezési csoportvezető (Közlekedési infrastruktúra-tervezés)",
+      "company": "ZÜBLIN",
+      "outcome": "STILL_EXCLUDED_ENGLISH",
+      "detail": "Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING))."
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/operations-manager-%E2%80%93-ai-services-ref5747u-at-deutsche-telekom-it-solutions-hu-4451505640?position=5&pageNum=0&refId=BxcE%2BlB2o6tPTy4U6rTS7g%3D%3D&trackingId=Fw9XJDV5lq7xzFl%2BTgc2BQ%3D%3D",
+      "title": "Operations Manager – (AI Services) (REF5747U)",
+      "company": "Deutsche Telekom IT Solutions HU",
+      "outcome": "STILL_EXCLUDED_ENGLISH",
+      "detail": "Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING))."
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/information-technology-manager-at-four-seasons-4458737359?position=14&pageNum=0&refId=BxcE%2BlB2o6tPTy4U6rTS7g%3D%3D&trackingId=il0ky%2FCGp30Q%2FOlUCR6aLQ%3D%3D",
+      "title": "Information Technology Manager",
+      "company": "Four Seasons",
+      "outcome": "STILL_EXCLUDED_ENGLISH",
+      "detail": "Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING))."
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/campus-building-services-operations-team-lead-at-mol-group-4419965075?position=19&pageNum=0&refId=BxcE%2BlB2o6tPTy4U6rTS7g%3D%3D&trackingId=cZ14YAX6NseD69QWEPm7eA%3D%3D",
+      "title": "Campus Building Services & Operations Team Lead",
+      "company": "MOL Group",
+      "outcome": "STILL_EXCLUDED_ENGLISH",
+      "detail": "Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING))."
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/mobil-adatszolg%C3%A1ltat%C3%A1sok-csoportvezet%C5%91-at-one-hungary-4461521157?position=22&pageNum=0&refId=BxcE%2BlB2o6tPTy4U6rTS7g%3D%3D&trackingId=MrZebD7FYnLsySFDjLL3Ng%3D%3D",
+      "title": "Mobil adatszolgáltatások csoportvezető",
+      "company": "One Hungary",
+      "outcome": "STILL_EXCLUDED_ENGLISH",
+      "detail": "Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING))."
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/capacity-manager-at-allianz-technology-4440088135?position=26&pageNum=0&refId=BxcE%2BlB2o6tPTy4U6rTS7g%3D%3D&trackingId=lcFJ9qSOt9grbyEAH7gxgg%3D%3D",
+      "title": "Capacity Manager",
+      "company": "Allianz Technology",
+      "outcome": "STILL_EXCLUDED_ENGLISH",
+      "detail": "Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING))."
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/facility-manager-at-sanmina-4463385626?position=39&pageNum=0&refId=BxcE%2BlB2o6tPTy4U6rTS7g%3D%3D&trackingId=ln6pX5sA%2F4Y9RJ3q8t1w9Q%3D%3D",
+      "title": "Facility Manager",
+      "company": "Sanmina",
+      "outcome": "STILL_EXCLUDED_ENGLISH",
+      "detail": "Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING))."
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/villamos-be%C3%BCzemel%C3%A9s-vezet%C5%91-hvdc-projektekre-at-siemens-energy-4435468568?position=40&pageNum=0&refId=BxcE%2BlB2o6tPTy4U6rTS7g%3D%3D&trackingId=Lbcz%2FkLogPcdSxM9A4eYGA%3D%3D",
+      "title": "Villamos beüzemelés vezető HVDC projektekre",
+      "company": "Siemens Energy",
+      "outcome": "STILL_EXCLUDED_ENGLISH",
+      "detail": "Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING))."
+    },
+    {
+      "url": "https://www.profession.hu/allas/facility-workplace-coordinator-letesitmeny-es-munkahely-koordinator-apleona-magyarorszag-kft-budapest-2977919?keyword=infrastrukt%25C3%25BAra%2B%25C3%25BCzemeltet%25C3%25A9s%2Bvezet%25C5%2591&hash=b7cb5b032be002a88cd73fb700e60d4a",
+      "title": "Facility & Workplace Coordinator -Létesítmény- és munkahely-koordinátor",
+      "company": "Apleona Magyarország Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/epitoipari-projektmenedzser-beck-and-partners-kft-budapest-2986181?keyword=projektmenedzser&hash=01eb7e23930475f689c7fc28c7497f36",
+      "title": "Építőipari projektmenedzser",
+      "company": "BECK AND PARTNERS Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/product-owner-it-bank-ktksoft-kft-2999796?keyword=projektmenedzser&hash=01eb7e23930475f689c7fc28c7497f36",
+      "title": "Product Owner IT Bank",
+      "company": "KTKsoft Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/geo-content-marketing-specialist-iot-german-english-speaking-ref-t-deutsche-telekom-tsi-hungary-kft-pecs-2980441?keyword=projektmenedzser&hash=01eb7e23930475f689c7fc28c7497f36",
+      "title": "GEO & Content Marketing Specialist IoT - German & English speaking (REF5534T)",
+      "company": "Deutsche Telekom TSI Hungary Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/international-project-manager-cgp-europe-kft-budapest-2987783?keyword=projektmenedzser&hash=01eb7e23930475f689c7fc28c7497f36",
+      "title": "International Project Manager",
+      "company": "CGP Europe Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/business-analyst-electron-holding-zrt-budapest-2980937?keyword=projektmenedzser&hash=01eb7e23930475f689c7fc28c7497f36",
+      "title": "Business analyst",
+      "company": "Electron Holding Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/junior-business-reporting-analyst-padthaiwokbar-kft-budapest-2999107?keyword=projektmenedzser&hash=01eb7e23930475f689c7fc28c7497f36",
+      "title": "Junior Business & Reporting Analyst",
+      "company": "Padthaiwokbar Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/technical-project-manager-databricks-at-hiflylabs-4460379111?position=1&pageNum=0&refId=PHCn6DRIrWQM5SA5X6e%2FOQ%3D%3D&trackingId=5%2FfwgyPloihR3oQ62%2FCd%2Bw%3D%3D",
+      "title": "Technical Project Manager - Databricks",
+      "company": "Hiflylabs",
+      "outcome": "STILL_EXCLUDED_ENGLISH",
+      "detail": "Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING))."
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/information-technology-project-manager-at-fox-wolf-hr-solutions-4465651185?position=3&pageNum=0&refId=PHCn6DRIrWQM5SA5X6e%2FOQ%3D%3D&trackingId=KMeGTO1Gwa2wlRTm7fzwuw%3D%3D",
+      "title": "Information Technology Project Manager",
+      "company": "Fox & Wolf HR Solutions",
+      "outcome": "STILL_EXCLUDED_ENGLISH",
+      "detail": "Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING))."
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/technical-project-manager-at-mp-solutions-ltd-4461753285?position=5&pageNum=0&refId=PHCn6DRIrWQM5SA5X6e%2FOQ%3D%3D&trackingId=svxJE0h%2FUv%2BW6cPrqQq6hw%3D%3D",
+      "title": "Technical Project Manager",
+      "company": "MP Solutions Ltd.",
+      "outcome": "NO_LONGER_A_JOB_AD",
+      "detail": "JobPosting schema not present"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/szoftver-projekt-menedzser-at-mediso-medical-imaging-systems-4371570189?position=13&pageNum=0&refId=PHCn6DRIrWQM5SA5X6e%2FOQ%3D%3D&trackingId=QvzDizg6YrTcXwL5%2BQ8Npw%3D%3D",
+      "title": "Szoftver Projekt Menedzser",
+      "company": "Mediso Medical Imaging Systems",
+      "outcome": "STILL_EXCLUDED_ENGLISH",
+      "detail": "Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING))."
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/senior-it-project-manager-corporate-at-mol-group-4428141987?position=14&pageNum=0&refId=PHCn6DRIrWQM5SA5X6e%2FOQ%3D%3D&trackingId=zkBlq4kF1rp9cFdA2VtPzA%3D%3D",
+      "title": "Senior IT Project Manager (Corporate)",
+      "company": "MOL Group",
+      "outcome": "STILL_EXCLUDED_ENGLISH",
+      "detail": "Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING))."
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/software-project-manager-at-mediso-medical-imaging-systems-4461210302?position=19&pageNum=0&refId=PHCn6DRIrWQM5SA5X6e%2FOQ%3D%3D&trackingId=qfd8noxU7YU0NKzEgEmdhA%3D%3D",
+      "title": "Software Project Manager",
+      "company": "Mediso Medical Imaging Systems",
+      "outcome": "STILL_EXCLUDED_ENGLISH",
+      "detail": "Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING))."
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/power-platform-project-manager-at-dekra-technology-services-4463481702?position=23&pageNum=0&refId=PHCn6DRIrWQM5SA5X6e%2FOQ%3D%3D&trackingId=A%2BVlo9jD%2F95S00RNnl3k%2FQ%3D%3D",
+      "title": "Power Platform Project Manager",
+      "company": "DEKRA Technology & Services",
+      "outcome": "STILL_EXCLUDED_ENGLISH",
+      "detail": "Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING))."
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/project-manager-at-yettel-hungary-4459140028?position=30&pageNum=0&refId=PHCn6DRIrWQM5SA5X6e%2FOQ%3D%3D&trackingId=KT%2F6dIOZhR6imK8pzFnbVg%3D%3D",
+      "title": "Project Manager",
+      "company": "Yettel.Hungary",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/project-manager-at-ipr-insights-license-consulting-4455340096?position=39&pageNum=0&refId=PHCn6DRIrWQM5SA5X6e%2FOQ%3D%3D&trackingId=pC4YwZ1xWz3h%2FVdw6z5mNA%3D%3D",
+      "title": "Project Manager",
+      "company": "IPR-Insights License Consulting",
+      "outcome": "NO_LONGER_A_JOB_AD",
+      "detail": "JobPosting schema not present"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/technical-project-manager-at-mp-solutions-ltd-4461753285?position=2&pageNum=0&refId=FUJN7uXTVi2EwqgeOvEfqg%3D%3D&trackingId=V3x7Um87OrnY6nMuuRi09Q%3D%3D",
+      "title": "Technical Project Manager",
+      "company": "MP Solutions Ltd.",
+      "outcome": "NO_LONGER_A_JOB_AD",
+      "detail": "JobPosting schema not present"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/projekt-manager-marketing-ker-at-unix-aut%C3%B3-4452705100?position=3&pageNum=0&refId=FUJN7uXTVi2EwqgeOvEfqg%3D%3D&trackingId=%2F1p80TCUaZ2hTWeiCVrE0Q%3D%3D",
+      "title": "Projekt Manager - Marketing/Ker.",
+      "company": "UNIX Autó",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/software-project-manager-at-mediso-medical-imaging-systems-4461210302?position=5&pageNum=0&refId=FUJN7uXTVi2EwqgeOvEfqg%3D%3D&trackingId=VznydzEyugPYrn3GdkyEzQ%3D%3D",
+      "title": "Software Project Manager",
+      "company": "Mediso Medical Imaging Systems",
+      "outcome": "STILL_EXCLUDED_ENGLISH",
+      "detail": "Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING))."
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/szoftver-projekt-menedzser-at-mediso-medical-imaging-systems-4371570189?position=6&pageNum=0&refId=FUJN7uXTVi2EwqgeOvEfqg%3D%3D&trackingId=nGTOahZ%2BKooMe4Kg52ckxQ%3D%3D",
+      "title": "Szoftver Projekt Menedzser",
+      "company": "Mediso Medical Imaging Systems",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/senior-project-manager-at-marsh-4458246856?position=10&pageNum=0&refId=FUJN7uXTVi2EwqgeOvEfqg%3D%3D&trackingId=UBDOyOyjn5C9S2%2FZ6hbZOQ%3D%3D",
+      "title": "Senior Project Manager",
+      "company": "Marsh",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/power-platform-project-manager-at-dekra-technology-services-4463481702?position=15&pageNum=0&refId=FUJN7uXTVi2EwqgeOvEfqg%3D%3D&trackingId=KgJyogZxWM4uHb2c2ZuCfA%3D%3D",
+      "title": "Power Platform Project Manager",
+      "company": "DEKRA Technology & Services",
+      "outcome": "STILL_EXCLUDED_ENGLISH",
+      "detail": "Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING))."
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/project-manager-at-ipr-insights-license-consulting-4455340096?position=22&pageNum=0&refId=FUJN7uXTVi2EwqgeOvEfqg%3D%3D&trackingId=lxWpXsdIvPTIe%2B2SlI%2Fo3w%3D%3D",
+      "title": "Project Manager",
+      "company": "IPR-Insights License Consulting",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/project-manager-at-yettel-hungary-4459140028?position=32&pageNum=0&refId=FUJN7uXTVi2EwqgeOvEfqg%3D%3D&trackingId=qJIf7NF4D6rIt7rl9htVnA%3D%3D",
+      "title": "Project Manager",
+      "company": "Yettel.Hungary",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/project-manager-and-product-owner-at-kuka-4464619250?position=33&pageNum=0&refId=FUJN7uXTVi2EwqgeOvEfqg%3D%3D&trackingId=1AZejr697qIlB%2F3MNCFTAA%3D%3D",
+      "title": "Project Manager and Product Owner",
+      "company": "KUKA",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/k%C3%A9sz%C3%ADtm%C3%A9nyfejleszt%C3%A9si-projektmenedzser-at-egis-pharmaceuticals-plc-4465097020?position=36&pageNum=0&refId=FUJN7uXTVi2EwqgeOvEfqg%3D%3D&trackingId=9%2BZON%2BkmDzKCUDj%2FJzTL7A%3D%3D",
+      "title": "Készítményfejlesztési projektmenedzser",
+      "company": "Egis Pharmaceuticals PLC",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/senior-it-project-manager-ot-security-secure-file-transfer-in-pharma-at-fusion-consulting-4465040466?position=37&pageNum=0&refId=FUJN7uXTVi2EwqgeOvEfqg%3D%3D&trackingId=BfrA6BBl3aoJODJVX2UAfA%3D%3D",
+      "title": "Senior IT Project Manager - OT Security & Secure File Transfer in Pharma",
+      "company": "Fusion Consulting",
+      "outcome": "STILL_EXCLUDED_ENGLISH",
+      "detail": "Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING))."
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/project-manager-regulatory-affairs-at-iqvia-4452708884?position=38&pageNum=0&refId=FUJN7uXTVi2EwqgeOvEfqg%3D%3D&trackingId=cs0N%2FfwH6vnAgf4BWrcdRA%3D%3D",
+      "title": "Project Manager, Regulatory Affairs",
+      "company": "IQVIA",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/information-technology-project-manager-at-fox-wolf-hr-solutions-4465651185?position=40&pageNum=0&refId=FUJN7uXTVi2EwqgeOvEfqg%3D%3D&trackingId=Pm%2FzY2ayVvYQE%2Fs1TNorFQ%3D%3D",
+      "title": "Information Technology Project Manager",
+      "company": "Fox & Wolf HR Solutions",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://www.profession.hu/allas/market-development-manager-profile-vox-budapest-2999155",
+      "title": "Market Development Manager",
+      "company": "Profile VOX",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/interim-disztribucios-tanacsado-elelmiszeripar-transpose-kft-budapest-2987081",
+      "title": "Interim disztribúciós tanácsadó – élelmiszeripar",
+      "company": "Transpose Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/senior-commercial-expert-e-p-mol-nyrt-budapest-2978143",
+      "title": "Senior Commercial Expert – E&P",
+      "company": "MOL Nyrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/dutch-speaking-commercial-in-life-specialist-senior-vois-budapest-2995603",
+      "title": "Dutch Speaking - Commercial-in-Life Specialist - Senior",
+      "company": "VOIS",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/uzletfejlesztesi-kepviselo-szervezett-kereskedelem-kerulet-hatarozott-ideju-szerzodes-coca-cola-hbc-magyarorszag-kft-budapest-3002149",
+      "title": "Üzletfejlesztési képviselő - szervezett kereskedelem - 11. kerület (határozott idejű szerződés)",
+      "company": "Coca-Cola HBC Magyarország Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/sales-operations-specialist-fixed-term-parental-cover-bp-finance-business-technology-budapest-2987685",
+      "title": "Sales Operations Specialist- Fixed-term Parental Cover",
+      "company": "BP Finance Business & Technology",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/firestop-business-development-manager-hilti-hungaria-kft-budapest-2991208",
+      "title": "Firestop Business Development Manager",
+      "company": "HILTI (HUNGÁRIA) Kft",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/securities-settlement-team-lead-citibank-europe-plc-magyarorszagi-fioktelepe-budapest-2982641",
+      "title": "Securities Settlement Team Lead",
+      "company": "CITIBANK EUROPE PLC. MAGYARORSZÁGI FIÓKTELEPE",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/senior-sales-manager-multi-job-kft-budapest-2990277",
+      "title": "Senior sales manager",
+      "company": "MULTI JOB Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/green-hydrogen-value-chain-project-management-expert-mol-nyrt-budapest-2995144",
+      "title": "Green Hydrogen Value Chain Project Management Expert",
+      "company": "MOL Nyrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/gastro-own-brand-offer-management-quality-senior-expert-mol-nyrt-budapest-2993577",
+      "title": "Gastro & Own Brand Offer Management Quality Senior Expert",
+      "company": "MOL Nyrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/presales-solution-architect-microsoft-cloud-tata-consultancy-services-limited-magyarorszagi-fioktelepe-budapest-2988706",
+      "title": "Presales Solution Architect (Microsoft Cloud)",
+      "company": "Tata Consultancy Services Limited Magyarországi Fióktelepe",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/technical-project-manager-databricks-at-hiflylabs-4460379111?position=6&pageNum=0&refId=1l9BQBnTWzV5mw9RA1fBmQ%3D%3D&trackingId=HvoBl9y6J3XPRqtC9p9cAA%3D%3D",
+      "title": "Technical Project Manager - Databricks",
+      "company": "Hiflylabs",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/power-platform-project-manager-at-dekra-technology-services-4463481702?position=9&pageNum=0&refId=1l9BQBnTWzV5mw9RA1fBmQ%3D%3D&trackingId=JCviA9oWGTyi%2FK3stKKvGQ%3D%3D",
+      "title": "Power Platform Project Manager",
+      "company": "DEKRA Technology & Services",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/project-manager-at-yettel-hungary-4459140028?position=10&pageNum=0&refId=1l9BQBnTWzV5mw9RA1fBmQ%3D%3D&trackingId=rfplgAvQdkJMiudazFZj3Q%3D%3D",
+      "title": "Project Manager",
+      "company": "Yettel.Hungary",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/information-technology-project-manager-at-fox-wolf-hr-solutions-4465651185?position=15&pageNum=0&refId=1l9BQBnTWzV5mw9RA1fBmQ%3D%3D&trackingId=2HCBrQiokJ9p7BmIeHALxQ%3D%3D",
+      "title": "Information Technology Project Manager",
+      "company": "Fox & Wolf HR Solutions",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/technical-project-manager-at-mp-solutions-ltd-4461753285?position=22&pageNum=0&refId=1l9BQBnTWzV5mw9RA1fBmQ%3D%3D&trackingId=ri0qSMxmc9fAxmKkKxcbQA%3D%3D",
+      "title": "Technical Project Manager",
+      "company": "MP Solutions Ltd.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/software-project-manager-at-mediso-medical-imaging-systems-4461210302?position=24&pageNum=0&refId=1l9BQBnTWzV5mw9RA1fBmQ%3D%3D&trackingId=fpfHEobPHRnAcmeUVz2Itg%3D%3D",
+      "title": "Software Project Manager",
+      "company": "Mediso Medical Imaging Systems",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/szoftver-projekt-menedzser-at-mediso-medical-imaging-systems-4371570189?position=27&pageNum=0&refId=1l9BQBnTWzV5mw9RA1fBmQ%3D%3D&trackingId=p9eV8Koe8BZ7YvBzun3i8A%3D%3D",
+      "title": "Szoftver Projekt Menedzser",
+      "company": "Mediso Medical Imaging Systems",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/digit%C3%A1lis-strat%C3%A9giai-%C3%A9s-transzform%C3%A1ci%C3%B3s-tan%C3%A1csad%C3%B3-at-otp-bank-magyarorsz%C3%A1g-4462521524?position=34&pageNum=0&refId=1l9BQBnTWzV5mw9RA1fBmQ%3D%3D&trackingId=vVssZSe8kcsTmvBRKr45%2Fw%3D%3D",
+      "title": "Digitális stratégiai és transzformációs tanácsadó",
+      "company": "OTP Bank Magyarország",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/crm-transformation-expert-at-raiffeisen-bank-hungary-4432186396?position=37&pageNum=0&refId=1l9BQBnTWzV5mw9RA1fBmQ%3D%3D&trackingId=l0YZwf7e0CfVjeIiFeb0Sg%3D%3D",
+      "title": "CRM TRANSFORMATION EXPERT",
+      "company": "Raiffeisen Bank Hungary",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/group-downstream-digital-enablement-associate-at-mol-group-4443983648?position=38&pageNum=0&refId=1l9BQBnTWzV5mw9RA1fBmQ%3D%3D&trackingId=YD%2FKD6mhGncNf5bemshcsg%3D%3D",
+      "title": "Group Downstream Digital Enablement Associate",
+      "company": "MOL Group",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://www.profession.hu/allas/lims-alkalmazasfejleszto-richter-gedeon-nyrt-dorog-2994134?keyword=digitaliz%25C3%25A1ci%25C3%25B3s%2Bmunkat%25C3%25A1rs&hash=da3e245d6ad6a2ae8f0b4de0611753f4",
+      "title": "LIMS alkalmazásfejlesztő",
+      "company": "Richter Gedeon Nyrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/gazdasagi-igazgato-debreceni-hoszolgaltato-zrt-debrecen-2999058?keyword=digitaliz%25C3%25A1ci%25C3%25B3s%2Bmunkat%25C3%25A1rs&hash=da3e245d6ad6a2ae8f0b4de0611753f4",
+      "title": "Gazdasági igazgató",
+      "company": "Debreceni Hőszolgáltató Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/supply-chain-development-manager-szentkiralyi-magyarorszag-budapest-2987902?keyword=digitaliz%25C3%25A1ci%25C3%25B3s%2Bmunkat%25C3%25A1rs&hash=da3e245d6ad6a2ae8f0b4de0611753f4",
+      "title": "Supply Chain Development Manager",
+      "company": "Szentkirályi Magyarország",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/rendszergazda-mvm-services-zrt-budapest-2985052?keyword=digitaliz%25C3%25A1ci%25C3%25B3s%2Bmunkat%25C3%25A1rs&hash=da3e245d6ad6a2ae8f0b4de0611753f4",
+      "title": "Rendszergazda",
+      "company": "MVM Services Zártkörűen Működő Részvénytársaság",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/senior-payroll-expert-coca-cola-hbc-magyarorszag-kft-dunaharaszti-2990143?keyword=digitaliz%25C3%25A1ci%25C3%25B3s%2Bmunkat%25C3%25A1rs&hash=da3e245d6ad6a2ae8f0b4de0611753f4",
+      "title": "Senior Payroll Expert",
+      "company": "Coca-Cola HBC Magyarország Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/biztonsagtechnikai-rendszerintegrator-informatikus-civil-rendszertechnika-kft-budapest-2991226?keyword=it%2Bmenedzser&hash=601026d3a7c9929d73b41546c438bca2",
+      "title": "Biztonságtechnikai rendszerintegrátor (informatikus)",
+      "company": "CIVIL Rendszertechnika Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/rendszerszervezo-vallalati-vagyon-es-mezogazdasagi-terulet-groupama-biztosito-zrt-budapest-3003079?keyword=it%2Bmenedzser&hash=601026d3a7c9929d73b41546c438bca2",
+      "title": "Rendszerszervező (vállalati vagyon és mezőgazdasági terület)",
+      "company": "Groupama Biztosító Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/e-p-it-operations-manager-mol-it-digital-gbs-kft-budapest-2979032?keyword=it%2Bmenedzser&hash=601026d3a7c9929d73b41546c438bca2",
+      "title": "E&P IT Operations Manager",
+      "company": "MOL IT & Digital GBS Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/rendszerszervezo-kockazatkezelesi-rendszerek-squad-erste-bank-hungary-zrt-2995081?keyword=it%2Bmenedzser&hash=601026d3a7c9929d73b41546c438bca2",
+      "title": "Rendszerszervező - Kockázatkezelési rendszerek Squad",
+      "company": "ERSTE BANK HUNGARY Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/it-biztonsagi-osztalyvezeto-granit-bank-nyrt-budapest-2989264?keyword=it%2Bmenedzser&hash=601026d3a7c9929d73b41546c438bca2",
+      "title": "IT biztonsági Osztályvezető",
+      "company": "GRÁNIT Bank Nyrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/it-risk-manager-dora-raiffeisen-bank-zrt-budapest-2993667?keyword=it%2Bmenedzser&hash=601026d3a7c9929d73b41546c438bca2",
+      "title": "IT RISK MANAGER - DORA",
+      "company": "Raiffeisen Bank Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/it-project-manager-ganz-transzformator-es-villamos-forgogepgyarto-zrt-2982702?keyword=it%2Bmenedzser&hash=601026d3a7c9929d73b41546c438bca2",
+      "title": "IT Project Manager",
+      "company": "Ganz Transzformátor- és Villamos Forgógépgyártó Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/rendszerszervezo-signal-iduna-biztosito-zartkoruen-mukodo-reszvenytarsasag-budapest-2981036?keyword=it%2Bmenedzser&hash=601026d3a7c9929d73b41546c438bca2",
+      "title": "Rendszerszervező",
+      "company": "SIGNAL IDUNA Biztosító Zártkörűen Működő Részvénytársaság",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/ai-csoportvezeto-budapest-debrecen-e-on-ugyfelszolgalati-kft-budapest-2989212?keyword=it%2Bmenedzser&hash=601026d3a7c9929d73b41546c438bca2",
+      "title": "AI csoportvezető (Budapest/Debrecen)",
+      "company": "E.ON Ügyfélszolgálati Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/it-audit-manager-kpmg-tanacsado-kft-3000133?keyword=it%2Bmenedzser&hash=601026d3a7c9929d73b41546c438bca2",
+      "title": "IT Audit Manager",
+      "company": "KPMG Tanácsadó Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/it-solution-consultant-kpmg-tanacsado-kft-2991023?keyword=it%2Bmenedzser&hash=601026d3a7c9929d73b41546c438bca2",
+      "title": "IT Solution Consultant",
+      "company": "KPMG Tanácsadó Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/technical-project-manager-databricks-hiflylabs-zartkoruen-mukodo-reszvenytarsasag-budapest-3004622?keyword=it%2Bmenedzser&hash=601026d3a7c9929d73b41546c438bca2",
+      "title": "Technical Project Manager - Databricks",
+      "company": "Hiflylabs Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/experienced-service-delivery-manager-%E2%80%93-ai-products-ref5731u-at-deutsche-telekom-it-solutions-hu-4466514900?position=6&pageNum=0&refId=3dPCDD8kTiFYzgXhm5nyTg%3D%3D&trackingId=iDA3c58fNHjoIy2YEwJD0Q%3D%3D",
+      "title": "Experienced Service Delivery Manager – AI Products (REF5731U)",
+      "company": "Deutsche Telekom IT Solutions HU",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/information-technology-manager-at-four-seasons-4458737359?position=7&pageNum=0&refId=3dPCDD8kTiFYzgXhm5nyTg%3D%3D&trackingId=rzOPWe%2FzIwe89BIJmNRHxA%3D%3D",
+      "title": "Information Technology Manager",
+      "company": "Four Seasons",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/e-p-it-operations-manager-at-mol-group-4456317248?position=12&pageNum=0&refId=3dPCDD8kTiFYzgXhm5nyTg%3D%3D&trackingId=5OpKxjR%2BfIXk12%2Bg09SV6g%3D%3D",
+      "title": "E&P IT Operations Manager",
+      "company": "MOL Group",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/lead-service-delivery-manager-%E2%80%93-ai-products-ref5730i-at-deutsche-telekom-it-solutions-hu-4466515921?position=17&pageNum=0&refId=3dPCDD8kTiFYzgXhm5nyTg%3D%3D&trackingId=1RLP%2F6D2KJ5zRdsJmt%2FRLg%3D%3D",
+      "title": "Lead Service Delivery Manager – AI Products (REF5730I)",
+      "company": "Deutsche Telekom IT Solutions HU",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/mobil-adatszolg%C3%A1ltat%C3%A1sok-csoportvezet%C5%91-at-one-hungary-4461521157?position=26&pageNum=0&refId=3dPCDD8kTiFYzgXhm5nyTg%3D%3D&trackingId=1mTu9VomWc8VrTuE0ljGCw%3D%3D",
+      "title": "Mobil adatszolgáltatások csoportvezető",
+      "company": "One Hungary",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/director-technology-operations-at-scientific-games-4456887169?position=36&pageNum=0&refId=3dPCDD8kTiFYzgXhm5nyTg%3D%3D&trackingId=8F18WG5R3FeO3JuGZ5bRYg%3D%3D",
+      "title": "Director, Technology Operations",
+      "company": "SCIENTIFIC GAMES",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://www.profession.hu/allas/junior-it-governance-it-jogasz-munkatars-magnet-bank-zrt-budapest-3003031?keyword=it&hash=0d149b90e7394297301c90191ae775f0",
+      "title": "Junior IT Governance / IT Jogász munkatárs",
+      "company": "MagNet Bank Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/e-p-it-operations-manager-mol-it-digital-gbs-kft-budapest-2979032?keyword=it&hash=0d149b90e7394297301c90191ae775f0",
+      "title": "E&P IT Operations Manager",
+      "company": "MOL IT & Digital GBS Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/e-p-it-business-partner-mol-it-digital-gbs-kft-budapest-2979028?keyword=it&hash=0d149b90e7394297301c90191ae775f0",
+      "title": "E&P IT Business Partner",
+      "company": "MOL IT & Digital GBS Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/senior-it-projektmenedzser-mvm-informatika-zrt-paks-2997751?keyword=it&hash=0d149b90e7394297301c90191ae775f0",
+      "title": "Senior IT projektmenedzser",
+      "company": "MVMI ZRT.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/it-solution-consultant-kpmg-tanacsado-kft-2991023?keyword=it&hash=0d149b90e7394297301c90191ae775f0",
+      "title": "IT Solution Consultant",
+      "company": "KPMG Tanácsadó Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/junior-it-projektvezeto-hatarozott-idore-otp-bank-nyrt-budapest-2997873?keyword=it&hash=0d149b90e7394297301c90191ae775f0",
+      "title": "Junior IT Projektvezető (Határozott időre)",
+      "company": "OTP Bank Nyrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/senior-it-biztonsagi-architekt-mvm-informatika-zrt-budapest-2996867?keyword=it&hash=0d149b90e7394297301c90191ae775f0",
+      "title": "Senior IT biztonsági architekt",
+      "company": "MVMI ZRT.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/it-audit-manager-kpmg-tanacsado-kft-3000133?keyword=it&hash=0d149b90e7394297301c90191ae775f0",
+      "title": "IT Audit Manager",
+      "company": "KPMG Tanácsadó Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/junior-it-recruiter-nix-tech-kft-budapest-2985183?keyword=it&hash=0d149b90e7394297301c90191ae775f0",
+      "title": "Junior IT Recruiter",
+      "company": "NIX Tech Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/senior-domain-architect-mol-it-digital-gbs-kft-budapest-2979037?keyword=it&hash=0d149b90e7394297301c90191ae775f0",
+      "title": "Senior Domain Architect",
+      "company": "MOL IT & Digital GBS Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/indirekt-beszerzes-it-beszerzo-mol-nyrt-budapest-2990004?keyword=it&hash=0d149b90e7394297301c90191ae775f0",
+      "title": "Indirekt beszerzés, IT Beszerző",
+      "company": "MOL Nyrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/diakmunka-it-intern-muisz-iskolaszovetkezet-budapest-2986203?keyword=it&hash=0d149b90e7394297301c90191ae775f0",
+      "title": "Diákmunka - IT Intern",
+      "company": "MŰISZ Iskolaszövetkezet",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/senior-penetration-tester-mol-it-digital-gbs-kft-budapest-2990108?keyword=it&hash=0d149b90e7394297301c90191ae775f0",
+      "title": "Senior Penetration Tester",
+      "company": "MOL IT & Digital GBS Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/mitarbeiter-user-helpdesk-ungarn-muller-drogeria-magyarorszag-bt-budapest-2998987?keyword=it&hash=0d149b90e7394297301c90191ae775f0",
+      "title": "Mitarbeiter user Helpdesk Ungarn",
+      "company": "Müller Drogéria Magyarország Bt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/senior-ux-ui-designer-vois-budapest-2998812?keyword=it&hash=0d149b90e7394297301c90191ae775f0",
+      "title": "Senior UX/UI Designer",
+      "company": "VOIS",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/it-support-specialist-aspect-energy-kft-budapest-2978867?keyword=it&hash=0d149b90e7394297301c90191ae775f0",
+      "title": "IT Support Specialist",
+      "company": "Aspect Energy Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/marketing-manager-unione-hotel-management-kft-budapest-2996555?keyword=it&hash=0d149b90e7394297301c90191ae775f0",
+      "title": "Marketing manager",
+      "company": "Unione Hotel Management Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/senior-banki-alkalmazas-uzemelteto-penzforgalom-o-f-sz-zrt-budapest-2994159?keyword=it&hash=0d149b90e7394297301c90191ae775f0",
+      "title": "Senior Banki Alkalmazás Üzemeltető (pénzforgalom)",
+      "company": "O.F.SZ. Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/muszaki-beszerzo-still-kft-tatabanya-2985136?keyword=vezet%25C5%2591i%2Bpoz%25C3%25ADci%25C3%25B3&hash=de0b82f0fbb4eeb802511c27657d3ed4",
+      "title": "Műszaki beszerző",
+      "company": "STILL Kft.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/minosegugyi-vezeto-transport-beton-kft-tatabanya-2991452?keyword=vezet%25C5%2591i%2Bpoz%25C3%25ADci%25C3%25B3&hash=de0b82f0fbb4eeb802511c27657d3ed4",
+      "title": "Minőségügyi vezető",
+      "company": "TRANSPORT-BETON KFT.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/it-project-manager-ganz-transzformator-es-villamos-forgogepgyarto-zrt-2982702?keyword=it%2Bproject%2Bmanager&hash=4c9d37442e463075f82f0cdc904db6f9",
+      "title": "IT Project Manager",
+      "company": "Ganz Transzformátor- és Villamos Forgógépgyártó Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/senior-it-projektmenedzser-mvm-informatika-zrt-paks-2997751?keyword=it%2Bproject%2Bmanager&hash=4c9d37442e463075f82f0cdc904db6f9",
+      "title": "Senior IT projektmenedzser",
+      "company": "MVMI ZRT.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/senior-it-project-manager-gammaorg-zartkoruen-mukodo-reszvenytarsasag-3004190?keyword=it%2Bproject%2Bmanager&hash=4c9d37442e463075f82f0cdc904db6f9",
+      "title": "Senior IT Project Manager",
+      "company": "GAMMAORG Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://www.profession.hu/allas/technical-project-manager-databricks-hiflylabs-zartkoruen-mukodo-reszvenytarsasag-budapest-3004622?keyword=it%2Bproject%2Bmanager&hash=4c9d37442e463075f82f0cdc904db6f9",
+      "title": "Technical Project Manager - Databricks",
+      "company": "Hiflylabs Zrt.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 503"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/technical-project-manager-databricks-at-hiflylabs-4460379111?position=2&pageNum=0&refId=qaTGAYP3whFV14oaNFA0EA%3D%3D&trackingId=JpKwfx%2B0dLE6wFkcm65apg%3D%3D",
+      "title": "Technical Project Manager - Databricks",
+      "company": "Hiflylabs",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/information-technology-project-manager-at-fox-wolf-hr-solutions-4465651185?position=3&pageNum=0&refId=qaTGAYP3whFV14oaNFA0EA%3D%3D&trackingId=uv%2FXOd%2Fb8wi3TQiPkCjlJg%3D%3D",
+      "title": "Information Technology Project Manager",
+      "company": "Fox & Wolf HR Solutions",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/technical-project-manager-at-mp-solutions-ltd-4461753285?position=8&pageNum=0&refId=qaTGAYP3whFV14oaNFA0EA%3D%3D&trackingId=CYQz4hLWzJ4VD7eb2XLeAg%3D%3D",
+      "title": "Technical Project Manager",
+      "company": "MP Solutions Ltd.",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/szoftver-projekt-menedzser-at-mediso-medical-imaging-systems-4371570189?position=13&pageNum=0&refId=qaTGAYP3whFV14oaNFA0EA%3D%3D&trackingId=jMXpKWKWXJuCuu8byfivgQ%3D%3D",
+      "title": "Szoftver Projekt Menedzser",
+      "company": "Mediso Medical Imaging Systems",
+      "outcome": "STILL_EXCLUDED_ENGLISH",
+      "detail": "Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (advanced/fluent/native (EXCLUDING))."
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/senior-it-project-manager-corporate-at-mol-group-4428141987?position=14&pageNum=0&refId=qaTGAYP3whFV14oaNFA0EA%3D%3D&trackingId=y4nYRxgs2yYbqF9eep318Q%3D%3D",
+      "title": "Senior IT Project Manager (Corporate)",
+      "company": "MOL Group",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/software-project-manager-at-mediso-medical-imaging-systems-4461210302?position=19&pageNum=0&refId=qaTGAYP3whFV14oaNFA0EA%3D%3D&trackingId=e2r3bO6IYZB2%2BEI94jUqUQ%3D%3D",
+      "title": "Software Project Manager",
+      "company": "Mediso Medical Imaging Systems",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/it-project-manager-at-rheinmetall-4443806240?position=20&pageNum=0&refId=qaTGAYP3whFV14oaNFA0EA%3D%3D&trackingId=S8S7Ngy6B44OVU2zQEL2xw%3D%3D",
+      "title": "IT Project Manager",
+      "company": "Rheinmetall",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/power-platform-project-manager-at-dekra-technology-services-4463481702?position=26&pageNum=0&refId=qaTGAYP3whFV14oaNFA0EA%3D%3D&trackingId=5lblz2YteOENrujsO%2FIkCA%3D%3D",
+      "title": "Power Platform Project Manager",
+      "company": "DEKRA Technology & Services",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    },
+    {
+      "url": "https://hu.linkedin.com/jobs/view/project-manager-at-yettel-hungary-4459140028?position=34&pageNum=0&refId=qaTGAYP3whFV14oaNFA0EA%3D%3D&trackingId=GdQWo7oNMx9YWPET0rZ%2BWg%3D%3D",
+      "title": "Project Manager",
+      "company": "Yettel.Hungary",
+      "outcome": "UNREACHABLE",
+      "detail": "HTTP 429"
+    }
+  ]
+}
