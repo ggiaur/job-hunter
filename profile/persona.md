@@ -42,6 +42,21 @@ Budapest és agglomeráció, remote/hibrid elfogadható
 ## Bérigény
 700 000 Ft+ bruttó
 
+## Végzettség – PO-pontosítás, 2026-09-16
+- **Nyíregyházi Egyetem, programtervező informatikus, 2005–2008.** A diploma megléte és szakiránya a felhasználótól kapott önéletrajzzal alátámasztott. BSc/MSc szint nincs megadva.
+- A hirdetésben szereplő diploma vagy felsőfokú végzettség **nem automatikus kizáró ok**, és önmagában nem jár pontlevonással.
+- Az elvárást és az esetleg elfogadott szakmai tapasztalatot tájékoztatásként kell megmutatni; a jelentkezésről a felhasználó dönt.
+
+## Ellenőrizhető önéletrajzi forrás
+- Szakmai szöveg: `cv-source-2026-09-16.md`; a pontozás által betöltött tények: `candidate.json`.
+- Angol: a CV grafikus jelölést tartalmaz, pontos CEFR-szintet nem. A középfokot kérő hirdetések keresési elfogadása nem azt jelenti, hogy a jelentkező igazolt B2 szinten beszél.
+- Az OBH-ra szabott CV-cím nem szűkíti a keresést egyetlen munkáltatóra.
+
+## Tanúsítvánnyal igazolt online képzések
+- AI vállalati bevezetés – kiállítás: 2026-07-19.
+- MS Copilot alapok – kiállítás: 2026-08-04.
+- Forrás: a felhasználó által megadott tanúsítványszövegek. Kibocsátó nincs megadva; gyártói vizsgaminősítést nem állítunk.
+
 ## Kizáró feltételek (0 pont)
 - Tisztán helpdesk / 1st line support
 - Junior / entry-level **KIVÉVE ha a pozíció maga vezetői/menedzseri jellegű** (pl. "junior IT manager", "assistant IT team lead") — ilyenkor a vezetői jelleg felülírja a junior címkét, NE zárd ki automatikusan

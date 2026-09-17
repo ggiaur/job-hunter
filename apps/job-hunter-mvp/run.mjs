@@ -1,29 +1,24 @@
-import { readFile, writeFile } from 'node:fs/promises';
+import { writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { serpapiSearch } from './lib/serpapi.mjs';
 import { loadProfile } from './lib/profile.mjs';
 import {
   extractJobPostingSchema,
-  fieldsFromJobPostingSchema,
-  stripHtml,
-  extractTitleTag,
-  matchesTargetPosition,
-  isGenericProjectTitle,
-  hasITDomainContext,
 } from './lib/extract.mjs';
-import { computeRelevanceAssessment } from './lib/scoring.mjs';
 import { extractJobLikeLinks, discoverPaginationLinks } from './lib/links.mjs';
 import { persistRunHistory } from './lib/run-history.mjs';
 import { buildAcquisitionQueries, ROLE_FAMILIES } from './lib/queries.mjs';
 import { runDirectProfessionAcquisition } from './lib/profession-direct.mjs';
 import { createStageEvidenceRow, buildListingCoverageRow, summarizeFunnel } from './lib/stage-evidence.mjs';
 import { checkCanaries, allCanariesReachedScoring } from './lib/canaries.mjs';
+import { reviewJobPosting } from './lib/vacancy-review.mjs';
+import { loadSearchCredential } from './lib/credentials.mjs';
+import { publishCurrentReports } from './presentation/current-report.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const PROFILE_DIR = path.join(REPO_ROOT, 'profile');
-const SECRET_ENV_PATH = '/home/dockeruser/.job-hunter-secrets/serpapi.env';
 
 // JH-SUP-0026 section 1.4: regenerated from PO_DECISIONS_2026-09-04.md's
 // canonical location rules instead of 11 hardcoded Budapest-only strings.
@@ -36,13 +31,6 @@ const QUERIES = buildAcquisitionQueries();
 // audited Pillér listing page (JH-SUP-0025 reconciliation).
 const LISTING_LINK_CAP = 40;
 const MAX_PAGINATION_PAGES_PER_LISTING = 2;
-
-async function loadApiKey() {
-  const env = await readFile(SECRET_ENV_PATH, 'utf8');
-  const m = env.match(/SERPAPI_API_KEY=(\S+)/);
-  if (!m) throw new Error('SERPAPI_API_KEY not found in secret env file');
-  return m[1];
-}
 
 function normalizeUrl(rawUrl) {
   try {
@@ -95,20 +83,17 @@ async function fetchWithTimeout(url, ms = 9000, retryDelayMs = 2000) {
 async function mapWithConcurrency(items, limit, fn) {
   const results = new Array(items.length);
   let idx = 0;
+  let completed = 0;
   async function worker() {
     while (idx < items.length) {
       const cur = idx++;
       results[cur] = await fn(items[cur], cur);
+      completed += 1;
+      if (completed % 25 === 0 || completed === items.length) console.log(`Oldalletöltések: ${completed}/${items.length} ellenőrizve.`);
     }
   }
   await Promise.all(Array.from({ length: Math.min(limit, items.length) }, worker));
   return results;
-}
-
-function isExcludedCompany(companyName, excludedList) {
-  if (!companyName) return false;
-  const lower = companyName.toLowerCase();
-  return excludedList.some((ex) => lower.includes(ex.toLowerCase()));
 }
 
 async function classify(url, html) {
@@ -120,8 +105,8 @@ async function classify(url, html) {
 }
 
 async function main() {
-  const apiKey = await loadApiKey();
   const profile = await loadProfile(PROFILE_DIR);
+  const apiKey = await loadSearchCredential();
 
   console.log('=== Job Hunter MVP — live run ===');
   console.log('Positions (priority order):', profile.positions);
@@ -139,13 +124,17 @@ async function main() {
   // discovery channels -- so vacancy discovery no longer depends entirely
   // on SerpApi returning a listing page as an organic result.
   const allSerpResults = [];
-  for (const { q, priorityWeight } of QUERIES) {
+  const searchAcquisitionLog = [];
+  if (!apiKey) console.log('SerpApi key absent: continuing with direct Profession acquisition; reduced coverage.');
+  for (const { q, priorityWeight } of apiKey ? QUERIES : []) {
     console.log(`SerpApi search: "${q}"`);
     try {
       const results = await serpapiSearch(apiKey, q);
       for (const r of results) allSerpResults.push({ ...r, priorityWeight, query: q });
+      searchAcquisitionLog.push({ query: q, ok: true, resultCount: results.length });
       console.log(`  -> ${results.length} organic results`);
     } catch (err) {
+      searchAcquisitionLog.push({ query: q, ok: false, error: err.message });
       console.log(`  -> ERROR: ${err.message}`);
     }
   }
@@ -325,53 +314,15 @@ async function main() {
   const excluded = []; // company exclusion is a profile-level hard filter, kept separate
 
   for (const ad of confirmedJobAds) {
-    const fields = fieldsFromJobPostingSchema(ad.schema);
-    const title = fields.title || extractTitleTag(ad.html) || ad.serpTitle || 'unknown (nem sikerült kinyerni)';
-    const company = fields.company || 'unknown (nem sikerült kinyerni)';
-    const descriptionText = [fields.description, fields.requirements].filter(Boolean).join('\n') || stripHtml(ad.html);
-    const companyExcluded = isExcludedCompany(company, profile.excludedCompanies);
+    const { record, assessment, positionRelevant } = reviewJobPosting(ad.schema, { url: ad.url, profile, matchedQuery: ad.query });
     const e = evidence(ad.url);
-
-    const base = {
-      title,
-      company,
-      url: ad.url,
-      source: new URL(ad.url).hostname,
-      matchedQuery: ad.query,
-      locationText: fields.location || null,
-      workArrangement: /home\s?office|remote|távmunka|hibrid|hybrid/i.test(descriptionText) ? 'remote/hibrid' : null,
-      employmentType: fields.employmentType || 'unknown',
-      datePosted: fields.datePosted || null,
-      validThrough: fields.validThrough || 'unknown',
-      poDecision: null, // APPLY | DO_NOT_APPLY, PO-filled after review
-      poReason: null,
-    };
-
-    if (companyExcluded) {
-      excluded.push({ ...base, exclusionReason: `Kizárt cég (profil beállítás): ${company}` });
-      e.outcome = 'excluded';
-      e.hardExclusionReason = `Kizárt cég: ${company}`;
-      continue;
-    }
-
-    const positionRelevant =
-      matchesTargetPosition(title) || (isGenericProjectTitle(title) && hasITDomainContext(descriptionText));
     // Fix for Codex adversarial finding #3: this decision was computed but
     // never recorded on the stage-evidence row, leaving titleDomainGate
     // permanently null.
     e.titleDomainGate = positionRelevant ? 'passed' : 'failed';
 
-    const assessment = computeRelevanceAssessment({
-      title,
-      descriptionText,
-      locationText: fields.location,
-      datePosted: fields.datePosted,
-      positionRelevant,
-      isGenericTitle: isGenericProjectTitle(title) && !matchesTargetPosition(title),
-    });
-
     if (assessment.hardExcluded) {
-      excluded.push({ ...base, exclusionReason: assessment.exclusionReason });
+      excluded.push(record);
       e.outcome = 'excluded';
       e.hardExclusionReason = assessment.exclusionReason;
       continue;
@@ -385,16 +336,7 @@ async function main() {
     e.score = assessment.score;
     e.visible = assessment.visible;
 
-    results.push({
-      ...base,
-      salary: assessment.salaryAmount ? `~${assessment.salaryAmount.toLocaleString('hu-HU')} Ft (bruttó, hirdetésből)` : null,
-      relevancePercent: assessment.score,
-      visible: assessment.visible,
-      fitReasons: assessment.fitReasons,
-      mismatchReasons: assessment.mismatchReasons,
-      englishRequirement: assessment.englishRequirement,
-      keyDuties: fields.description ? fields.description.slice(0, 500) : 'unknown (nem sikerült kinyerni)',
-    });
+    results.push(record);
   }
 
   // Semantic dedup: the same job can be discovered twice under different
@@ -440,6 +382,12 @@ async function main() {
 
   const output = {
     generatedAt: new Date().toISOString(),
+    githubRunUrl: process.env.GITHUB_ACTIONS === 'true' && process.env.GITHUB_REPOSITORY && process.env.GITHUB_RUN_ID
+      ? `https://github.com/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}` : null,
+    candidateProfileVersion: profile.candidate.version,
+    candidateSourceSha256: profile.candidate.sourceSha256,
+    searchCredentialAvailable: Boolean(apiKey),
+    searchAcquisitionLog,
     queries: QUERIES.map((q) => q.q),
     directAcquisitionKeywords: directKeywords,
     totalSerpResults: allSerpResults.length,
@@ -451,6 +399,7 @@ async function main() {
     visibleThreshold: 60,
     results,
     visibleCount: visibleResults.length,
+    reviewCandidateCount: visibleResults.filter(r => r.poDecision !== 'DO_NOT_APPLY').length,
     excluded,
     unreachable,
     // JH-SUP-0026 additions:
@@ -465,6 +414,8 @@ async function main() {
   const outPath = path.join(REPO_ROOT, 'docs', 'evidence', 'real-job-hunter-current-run.json');
   await writeFile(outPath, JSON.stringify(output, null, 2), 'utf8');
   const { snapshotPath } = await persistRunHistory(REPO_ROOT, output);
+  const { htmlPath, markdownPath } = await publishCurrentReports(REPO_ROOT, snapshotPath);
+  console.log(`Updated readable reports: ${htmlPath}, ${markdownPath}`);
   console.log(`\nWrote ${outPath}`);
   console.log(`Durable run snapshot: ${snapshotPath}`);
   console.log(`Results: ${results.length} (visible >=60%: ${visibleResults.length}), Excluded: ${excluded.length}, Unreachable: ${unreachable.length}`);

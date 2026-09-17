@@ -1,0 +1,38 @@
+{
+  "version": "cv-2026-09-16",
+  "sourceFile": "cv-source-2026-09-16.md",
+  "education": {
+    "hasDegree": true,
+    "institution": "Nyíregyházi Egyetem",
+    "qualification": "Programtervező informatikus",
+    "years": "2005–2008",
+    "degreeLevel": null,
+    "evidence": "Nyíregyházi Egyetem – Programtervező informatikus – 2005–2008."
+  },
+  "english": { "cefr": null, "evidence": "Angol: a HTML-ben 1 teljes és 1 fél pont az 5-ből; CEFR-szint nincs megadva." },
+  "certificates": [
+    { "title": "AI vállalati bevezetés", "issuedAt": "2026-07-19", "issuer": null, "type": "online-course-completion", "evidence": "AI vállalati bevezetés. Kiállítás dátuma: 2026-07-19." },
+    { "title": "MS Copilot alapok", "issuedAt": "2026-08-04", "issuer": null, "type": "online-course-completion", "evidence": "MS Copilot alapok. Kiállítás dátuma: 2026-08-04." }
+  ],
+  "facts": [
+    { "id": "ai-adoption-training", "label": "AI vállalati bevezetés – elvégzett online képzés (2026-07-19)", "evidence": "AI vállalati bevezetés. Kiállítás dátuma: 2026-07-19.", "terms": ["ai bevezet", "ai-bevezet", "ai vállalati", "ai adoption", "ai implementation", "mesterséges intelligencia bevezet", "mi bevezet"] },
+    { "id": "copilot-training", "label": "MS Copilot alapok – elvégzett online képzés (2026-08-04)", "evidence": "MS Copilot alapok. Kiállítás dátuma: 2026-08-04.", "terms": ["copilot"] },
+    { "id": "people-leadership", "label": "Csapatvezetés", "evidence": "6 fős informatikai csapat irányítása: feladatok priorizálása, végrehajtás és határidők nyomon követése.", "terms": ["csapat", "csoport", "team", "beosztott", "people management"] },
+    { "id": "project-leadership", "label": "IT-projektek irányítása", "evidence": "A napi IT-működés, fejlesztési projektek és több területet érintő feladatok szakmai irányítása.", "terms": ["projekt", "project", "program management"] },
+    { "id": "operations", "label": "IT-üzemeltetés és infrastruktúra", "evidence": "Windows és Linux alapú rendszerek üzemeltetése, telephelyi IT-támogatás és helpdesk.", "terms": ["üzemeltet", "infrastruktúra", "infrastructure", "it operations"] },
+    { "id": "budget", "label": "IT-költségvetés", "evidence": "IT-költségvetés tervezése és költségkövetés: a működési és beruházási költségek gazdaságossági elemzése.", "terms": ["költség", "budget", "büdzsé"] },
+    { "id": "procurement", "label": "Beszerzés és szállítói koordináció", "evidence": "Integrált könyvtári rendszer bevezetése – igényfelmérés, beszerzési és döntés-előkészítési folyamatok szakmai támogatása, az átállás összefogása.", "terms": ["beszerzés", "beszállító", "szállítói", "vendor", "procurement"] },
+    { "id": "reporting", "label": "Vezetői riportok és döntés-előkészítés", "evidence": "Automatizált riportok és vezetői kimutatások készítése, kapcsolattartás szolgáltatókkal.", "terms": ["riport", "reporting", "döntés-előkészít", "kimutatás"] },
+    { "id": "ai-workflows", "label": "Generatív MI intézményi alkalmazása", "evidence": "Generatív MI alapú asszisztensek és munkatársi AI-eszközök kísérleti bevezetése a napi adminisztrációs és helpdesk munkafolyamatok meggyorsítására.", "terms": ["generatív", "generative", "chatgpt", "copilot", "ai-eszköz", "prompt"] },
+    { "id": "m365", "label": "Microsoft 365 / SharePoint", "evidence": "Levelezési és fájlkezelési rendszer felhőalapú átállítása (Microsoft 365 / SharePoint).", "terms": ["microsoft 365", "m365", "office 365", "sharepoint"] },
+    { "id": "azure", "label": "Azure", "evidence": "Microsoft 365 / Azure", "terms": ["azure"] },
+    { "id": "windows-linux", "label": "Windows / Linux", "evidence": "Windows és Linux alapú rendszerek üzemeltetése, telephelyi IT-támogatás és helpdesk.", "terms": ["windows", "linux"] },
+    { "id": "aix", "label": "AIX rendszerek támogatása", "evidence": "Szerverüzemeltetési és rendszergazdai feladatok, Linux és AIX alapú rendszerek támogatása.", "terms": ["aix"] },
+    { "id": "virtualization", "label": "VMware / Hyper-V / Docker", "evidence": "VMware / Hyper-V / Docker", "terms": ["vmware", "hyper-v", "docker", "virtualizáció"] },
+    { "id": "network", "label": "VPN és telephelyi hálózat", "evidence": "Telephelyek közötti biztonságos hálózati kapcsolat kialakítása (VPN-infrastruktúra).", "terms": ["vpn", "hálózat", "network"] },
+    { "id": "sql", "label": "SQL-adatbázisok", "evidence": "SQL adatbázis-karbantartás és belső fejlesztések támogatása.", "terms": ["sql"] },
+    { "id": "erp-integration", "label": "ERP-integráció és adatmigráció", "evidence": "Webáruház és ERP-rendszer összekapcsolásának technikai összefogása.", "terms": ["erp", "adatmigráció", "data migration", "vállalatirányítás"] },
+    { "id": "monitoring", "label": "Helpdesk és monitoring", "evidence": "Helpdesk / monitoring", "terms": ["helpdesk", "monitoring", "service desk"] },
+    { "id": "agile-training", "label": "Projektmenedzsment / agilis továbbképzés", "evidence": "Projektmenedzsment / agilis", "terms": ["agilis", "agile"] }
+  ]
+}

@@ -15,6 +15,8 @@ import {
   isPMWithoutManagementScope,
   hasITDomainContext,
 } from './extract.mjs';
+import { compareCandidate } from './candidate-fit.mjs';
+import { detectWorkArrangement } from './work-arrangement.mjs';
 
 // "Developer/helpdesk" are named explicitly as hard exclusions in
 // PO_DECISIONS section 2. A bare IC title (no leadership qualifier, no
@@ -60,7 +62,6 @@ export function isHardExcludedICRole(title, descriptionText) {
 // concrete ring is needed for a deterministic, explainable score.
 const PRIMARY_RING = ['székesfehérvár', 'szekesfehervar', 'mór', 'mor', 'várpalota', 'varpalota', 'győr', 'gyor', 'tata', 'tatabánya', 'tatabanya', 'veszprém', 'veszprem', 'dunaújváros', 'dunaujvaros'];
 const SECONDARY_CITIES = ['pécs', 'pecs', 'szeged', 'szombathely', 'sopron'];
-const REMOTE_HYBRID_MARKERS = /home\s?office|remote|távmunka|hibrid|hybrid/i;
 const BUDAPEST_MARKERS = /budapest|agglomeráció/i;
 
 // Manual word-boundary check: JS's native \b is ASCII-only \w, so it cannot
@@ -83,7 +84,7 @@ function includesWholeWord(haystack, needle) {
 
 export function scoreLocation(locationText, descriptionText) {
   const lower = `${locationText || ''} ${descriptionText || ''}`.toLowerCase();
-  const remoteOrHybrid = REMOTE_HYBRID_MARKERS.test(lower);
+  const remoteOrHybrid = detectWorkArrangement(locationText, descriptionText) === 'remote/hibrid';
   if (PRIMARY_RING.some((c) => includesWholeWord(lower, c))) {
     return { points: 15, note: 'Fehérvárcsurgóról jól elérhető helyszín (elsődleges gyűrű: Székesfehérvár/Mór/Várpalota/Győr/Tata/Tatabánya/Veszprém/Dunaújváros).' };
   }
@@ -166,18 +167,16 @@ const VISIBLE_THRESHOLD = 60;
  * Returns either a hard-exclusion record or a 0-100 explainable score with
  * itemized positive/negative factors, per PO_DECISIONS_2026-09-04.md.
  */
-export function computeRelevanceAssessment({ title, descriptionText, locationText, datePosted, positionRelevant, isGenericTitle }) {
+export function computeRelevanceAssessment({ title, descriptionText, locationText, datePosted, validThrough, positionRelevant, isGenericTitle, candidateProfile }) {
+  const expiresAt = Date.parse(validThrough);
+  if (Number.isFinite(expiresAt) && expiresAt < Date.now()) {
+    return { hardExcluded: true, exclusionReason: `A hirdetés megadott érvényessége lejárt (${validThrough}); aktuális ajánlatként nem mutatható.` };
+  }
   const englishAdvanced = checkAdvancedEnglishRequired(descriptionText);
   if (englishAdvanced) {
     return {
       hardExcluded: true,
       exclusionReason: `Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (${englishRequirementLabel(descriptionText)}).`,
-    };
-  }
-  if (checkHigherEducationRequired(descriptionText)) {
-    return {
-      hardExcluded: true,
-      exclusionReason: 'Kizárva: kötelező felsőfokú végzettség vagy diploma.',
     };
   }
   if (isHardExcludedICRole(title, descriptionText)) {
@@ -201,7 +200,23 @@ export function computeRelevanceAssessment({ title, descriptionText, locationTex
 
   const fitReasons = [];
   const mismatchReasons = [];
-  let score = BASE_SCORE;
+  const candidateReview = compareCandidate(candidateProfile, descriptionText);
+  // Replace ten generic baseline points with 0–10 source-backed CV overlap
+  // points. Leadership points below also require the corresponding CV fact.
+  let score = candidateReview ? BASE_SCORE - 10 + candidateReview.overlapPoints : BASE_SCORE;
+
+  // PO clarification (2026-09-16): education is information for review,
+  // never an automatic rejection or score penalty.
+  const educationNote = checkHigherEducationRequired(descriptionText)
+    ? candidateProfile?.education?.hasDegree
+      ? `Önéletrajzi végzettség: ${candidateProfile.education.qualification} (${candidateProfile.education.institution}, ${candidateProfile.education.years}). A hirdetés pontos szakirányi/fokozati feltétele külön ellenőrizendő.`
+      : 'A hirdetés felsőfokú végzettséget említ; a jelentkező végzettsége nincs ellenőrizve. Nem automatikus kizárás.'
+    : null;
+  if (candidateReview) {
+    for (const match of candidateReview.matches) fitReasons.push(`Önéletrajzi kapcsolódás – ${match.label}: ${match.cvEvidence}`);
+    for (const skill of candidateReview.unverifiedSkills) mismatchReasons.push(`${skill} szerepel a hirdetésben, de a megadott önéletrajz nem igazolja. Ez ellenőrizendő, nem bizonyított hiány és nem automatikus kizárás.`);
+    if (!candidateProfile.english.cefr && /angol|english/i.test(descriptionText)) mismatchReasons.push('Az önéletrajz nem ad meg pontos angol CEFR-szintet; a nyelvi megfelelés külön ellenőrizendő.');
+  }
 
   if (!isGenericTitle) {
     score += 20;
@@ -212,12 +227,13 @@ export function computeRelevanceAssessment({ title, descriptionText, locationTex
   }
 
   const hasMgmtScope = hasManagementScope(descriptionText);
-  if (hasMgmtScope) {
+  const cvHas = id => !candidateProfile || candidateProfile.facts.some(f => f.id === id);
+  if (hasMgmtScope && cvHas('people-leadership')) {
     score += 15;
     fitReasons.push('A szöveg konkrét vezetői (people-management) felelősséget említ.');
   }
   const hasProjectLeadership = hasProjectLeadershipScope(descriptionText);
-  if (hasProjectLeadership) {
+  if (hasProjectLeadership && cvHas('project-leadership')) {
     score += 15;
     fitReasons.push('Valódi projekt-/programvezetői felelősség (tervezés, erőforrás/határidő/kockázat, stakeholder-koordináció) — közvetlen beosztottak nélkül is elfogadott a PO döntés szerint.');
   }
@@ -272,6 +288,8 @@ export function computeRelevanceAssessment({ title, descriptionText, locationTex
     mismatchReasons,
     englishRequirement: englishRequirementLabel(descriptionText),
     salaryAmount: salary.amount,
+    educationNote,
+    candidateReview,
   };
 }
 

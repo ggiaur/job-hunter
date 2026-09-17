@@ -1,5 +1,5 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
-import { resolve, relative } from 'node:path';
+import { resolve, relative, dirname } from 'node:path';
 import { loadDecisions, mergeDecisions } from './decisions.mjs';
 
 /**
@@ -31,7 +31,7 @@ export function renderHtmlReport(runData, options = {}) {
   const sourcePath = options.sourceFilePath || 'docs/evidence/job-hunter-runs/latest.json';
   const visibleThreshold = mergedData.visibleThreshold ?? 60;
   const results = mergedData.results || [];
-  const visibleResults = results.filter(r => (r.relevancePercent ?? 0) >= visibleThreshold || r.visible);
+  const visibleResults = results.filter(r => ((r.relevancePercent ?? 0) >= visibleThreshold || r.visible) && r.poDecision !== 'DO_NOT_APPLY');
   const excluded = mergedData.excluded || [];
 
   const html = `<!DOCTYPE html>
@@ -403,6 +403,7 @@ export function renderHtmlReport(runData, options = {}) {
       <div class="header-top">
         <div>
           <h1>🎯 Job Hunter — Executive Vacancy Review</h1>
+          ${mergedData.coverageNote ? `<p>${escapeHtml(mergedData.coverageNote)}</p>` : ''}
           <div class="audit-link">
             📁 Snapshot Source: <strong>${escapeHtml(sourcePath)}</strong> | 
             🕒 Generated: <strong>${escapeHtml(generatedAt)}</strong> | 
@@ -415,7 +416,7 @@ export function renderHtmlReport(runData, options = {}) {
       </div>
 
       <div class="stats-bar">
-        <div class="stat-pill">Apply Candidates (&ge;${visibleThreshold}%): <strong>${visibleResults.length}</strong></div>
+        <div class="stat-pill">Ellenőrizendő jelöltek (&ge;${visibleThreshold} pont): <strong>${visibleResults.length}</strong></div>
         <div class="stat-pill">Total Scored: <strong>${results.length}</strong></div>
         <div class="stat-pill">Hard-Excluded: <strong>${excluded.length}</strong></div>
         <div class="stat-pill">SERP Coverage: <strong>${mergedData.confirmedJobAdPages || '?'} ad pages</strong></div>
@@ -423,11 +424,12 @@ export function renderHtmlReport(runData, options = {}) {
     </header>
 
     <div class="controls">
-      <button class="tab-btn active" onclick="filterTab('apply')">🎯 Apply Candidates (&ge;${visibleThreshold}%) (${visibleResults.length})</button>
-      <button class="tab-btn" onclick="filterTab('all')">📋 All Scored (${results.length})</button>
-      <button class="tab-btn" onclick="filterTab('excluded')">🚫 Hard-Excluded (${excluded.length})</button>
+      <button class="tab-btn active" onclick="filterTab('apply', this)">🎯 Ellenőrizendő jelöltek (&ge;${visibleThreshold} pont) (${visibleResults.length})</button>
+      <button class="tab-btn" onclick="filterTab('all', this)">📋 All Scored (${results.length})</button>
+      <button class="tab-btn" onclick="filterTab('excluded', this)">🚫 Hard-Excluded (${excluded.length})</button>
     </div>
 
+    <p>A döntésgombok mentése csak ebben a böngészőben tárolódik, nem kerül automatikusan a kereső profiljába. A fenti darabszámok a riport létrehozáskori állapotát mutatják.</p>
     <main id="job-list" class="job-list">
       ${results.length === 0 && excluded.length === 0 ? '<div class="no-results">Nincs megjeleníthető találat a pillanatnyi pillanatképben.</div>' : ''}
       
@@ -441,21 +443,33 @@ export function renderHtmlReport(runData, options = {}) {
 
   <script>
     const STORAGE_KEY = 'jh_po_decisions';
+    let activeTab = 'apply';
 
-    function filterTab(tab) {
+    function readLocalDecisions() {
+      try {
+        const value = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+        return value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+      } catch { return {}; }
+    }
+
+    function filterTab(tab, button) {
+      activeTab = tab;
       document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
+      if (button) button.classList.add('active');
+      applyCurrentFilter();
+    }
 
+    function applyCurrentFilter() {
       const cards = document.querySelectorAll('.job-card');
       cards.forEach(card => {
         const isVisible = card.dataset.visible === 'true';
         const isExcluded = card.dataset.excluded === 'true';
 
-        if (tab === 'apply') {
-          card.style.display = (isVisible && !isExcluded) ? 'block' : 'none';
-        } else if (tab === 'all') {
+        if (activeTab === 'apply') {
+          card.style.display = (isVisible && !isExcluded && card.dataset.poDecision !== 'DO_NOT_APPLY') ? 'block' : 'none';
+        } else if (activeTab === 'all') {
           card.style.display = (!isExcluded) ? 'block' : 'none';
-        } else if (tab === 'excluded') {
+        } else if (activeTab === 'excluded') {
           card.style.display = (isExcluded) ? 'block' : 'none';
         }
       });
@@ -489,18 +503,24 @@ export function renderHtmlReport(runData, options = {}) {
       }
 
       // Save to localStorage
-      const store = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      const store = readLocalDecisions();
       store[url] = {
         poDecision: decision,
         poReason: reason,
         updatedAt: new Date().toISOString()
       };
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+      } catch {
+        alert('A böngésző nem engedte a mentést. A döntés nincs tartósan elmentve.');
+        return;
+      }
+      applyCurrentFilter();
 
       // Visual Feedback
       const saveBtn = card.querySelector('.btn-save');
       const origText = saveBtn.innerText;
-      saveBtn.innerText = '✓ Mentve!';
+      saveBtn.innerText = '✓ Ebben a böngészőben mentve';
       saveBtn.style.background = '#16a34a';
       setTimeout(() => {
         saveBtn.innerText = origText;
@@ -511,7 +531,7 @@ export function renderHtmlReport(runData, options = {}) {
     // Initialize tabs
     document.addEventListener('DOMContentLoaded', () => {
       // Restore local decisions if available
-      const store = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      const store = readLocalDecisions();
       document.querySelectorAll('.job-card').forEach(card => {
         const url = card.dataset.url;
         if (url && store[url]) {
@@ -523,6 +543,7 @@ export function renderHtmlReport(runData, options = {}) {
           }
         }
       });
+      applyCurrentFilter();
     });
   </script>
 </body>
@@ -563,7 +584,7 @@ function renderJobCard(row, index, visibleThreshold, isExcluded) {
       data-excluded="${isExcluded}" 
       data-url="${escapeHtml(row.url)}"
       data-po-decision="${escapeHtml(initialDecision)}"
-      style="${(!isExcluded && isVisible) ? 'display:block;' : 'display:none;'}">
+      style="${(!isExcluded && isVisible && initialDecision !== 'DO_NOT_APPLY') ? 'display:block;' : 'display:none;'}">
       
       <div class="card-header">
         <div>
@@ -584,9 +605,16 @@ function renderJobCard(row, index, visibleThreshold, isExcluded) {
         ${row.workArrangement ? `<span class="meta-tag work-tag">🏠 ${escapeHtml(row.workArrangement)}</span>` : ''}
         ${row.salary ? `<span class="meta-tag salary-tag">💰 ${escapeHtml(row.salary)}</span>` : ''}
         ${row.englishRequirement ? `<span class="meta-tag">🌐 Angol: ${escapeHtml(row.englishRequirement)}</span>` : ''}
+        ${row.educationNote ? `<span class="meta-tag">🎓 ${escapeHtml(row.educationNote)}</span>` : ''}
         ${row.source ? `<span class="meta-tag">🌐 Forrás: ${escapeHtml(row.source)}</span>` : ''}
         ${row.datePosted ? `<span class="meta-tag">📅 Közzétéve: ${escapeHtml(row.datePosted.slice(0, 10))}</span>` : ''}
       </div>
+
+      ${row.candidateReview ? `<details><summary>Önéletrajzi bizonyítékok (${row.candidateReview.matches.length})</summary>
+        <p>Forrás: ${escapeHtml(row.candidateReview.sourceFile)} · ${escapeHtml(row.candidateReview.version)}</p>
+        <ul>${row.candidateReview.matches.map(match => `<li><strong>${escapeHtml(match.label)}</strong><br>Önéletrajz: ${escapeHtml(match.cvEvidence)}<br>Hirdetés: ${escapeHtml(match.jobEvidence)}</li>`).join('')}</ul>
+      </details>` : ''}
+      ${(row.priorFeedback || []).map(feedback => `<p><strong>Korábbi döntésed: ${escapeHtml(feedback.decision)}</strong> – ${escapeHtml(feedback.reason)}</p>`).join('')}
 
       ${isExcluded ? `
         <div class="reasons-block">
@@ -652,7 +680,7 @@ export function buildReportFile(inputJsonPath, outputHtmlPath) {
   const runData = JSON.parse(rawJson);
 
   const html = renderHtmlReport(runData, {
-    sourceFilePath: relative(resolve('docs'), resolvedInput)
+    sourceFilePath: relative(dirname(resolvedOutput), resolvedInput)
   });
 
   writeFileSync(resolvedOutput, html, 'utf-8');

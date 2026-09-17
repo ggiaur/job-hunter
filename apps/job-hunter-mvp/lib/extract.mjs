@@ -103,10 +103,10 @@ export function extractMetaSiteName(html) {
 // "német") with the unrelated "angol" clause across the semicolon
 // (found by independent Codex adversarial review, 2026-09-04).
 const ADVANCED_ENGLISH_REGEX =
-  /angol[^.\n;]{0,45}(felsőfok|tárgyalóképes|tárgyalásképes|anyanyelvi|kiváló|folyékony|magabiztos|üzleti szint|c1|c2|aktív.{0,15}használat|írásban és szóban|szóban és írásban)|(felsőfok|tárgyalóképes|tárgyalásképes|anyanyelvi|kiváló|folyékony|magabiztos|üzleti szint|c1|c2)[^.\n;]{0,25}angol|excellent english|fluent english|advanced english|negotiation[- ]level english|native[- ]level english/i;
+  /angol[^.\n;]{0,45}(felsőfok|tárgyalóképes|tárgyalásképes|anyanyelvi|kiváló|folyékony|magabiztos|üzleti szint|c1|c2|aktív.{0,15}használat|írásban és szóban|szóban és írásban)|(felsőfok|tárgyalóképes|tárgyalásképes|anyanyelvi|kiváló|folyékony|magabiztos|üzleti szint|c1|c2)[^.\n;]{0,25}angol|excellent english|fluent (?:in )?english|advanced english|negotiation[- ]level english|native[- ]level english|english\s*[-:–]\s*strong (?:verbal and written|written and verbal) communication skills/i;
 
 const BASIC_ENGLISH_REGEX =
-  /angol[^.\n;]{0,25}(alapfok|középfok|jó angoltudás|b1|b2)|(alapfok|középfok)[^.\n;]{0,25}angol|basic english|intermediate english/i;
+  /angol[^.\n;]{0,25}(alapfok|középfok|középszint|társalgási|jó angoltudás|b1|b2)|(alapfok|középfok|középszint|társalgási)[^.\n;]{0,25}angol|basic english|intermediate english|english[^.\n;]{0,25}\bb[12]\b/i;
 
 // PO_DECISIONS_2026-09-04.md §3: mandatory advanced English excludes, but
 // advanced English merely offered as a preference/advantage must NOT
@@ -117,7 +117,49 @@ const BASIC_ENGLISH_REGEX =
 // found, treats the match as non-exclusionary (found by independent Codex
 // adversarial review, 2026-09-04).
 const ENGLISH_PREFERENCE_OVERRIDE_REGEX =
-  /angol[^.\n;]{0,40}(előnyt jelent|előny|nem elvárás|nem feltétel|nem kötelező|nem szükséges)|(előnyt jelent|előny|nem elvárás|nem feltétel|nem kötelező|nem szükséges)[^.\n;]{0,40}angol/i;
+  /angol[^.\n;]{0,40}(előnyt jelent|előny|nem elvárás|nem feltétel|nem kötelező|nem szükséges)|(előnyt jelent|előny|nem elvárás|nem feltétel|nem kötelező|nem szükséges)[^.\n;]{0,40}angol|english[^.\n;]{0,40}(preferred|optional|not required|an advantage|a plus)|(nice[- ]to[- ]have|preferred|optional)[^.\n;]{0,40}english/i;
+
+// A Hungarian requirement bullet is a comma-separated LIST, so a level word in
+// one item must not attach to "angol" in another item: "Felsőfokú végzettség,
+// angol nyelvtudás" states a DEGREE requirement next to an unqualified
+// language mention -- it is not advanced English. The clause window above
+// stops at '.', '\n' and ';' but not at ',', which let "felsőfokú" reach
+// "angol" 14 characters later.
+//
+// This matters more than a normal precision bug: an advanced-English match is
+// a HARD EXCLUSION, so the ad disappears from the report entirely and the
+// Product Owner cannot see what was lost. In the committed 2026-09-17 live run
+// 184 of 617 exclusions were advanced-English exclusions. Recall is therefore
+// the priority here -- a false negative merely shows one ad the PO dismisses
+// at a glance, a false positive silently destroys a real opportunity.
+//
+// Carve-in: a comma IS legitimately crossed when the item after it is a bare
+// level phrase that can only refer back to the language ("angol nyelvtudás,
+// tárgyalóképes szinten"). Such a dangling level item is merged back into the
+// preceding item so genuine blockers in that phrasing still exclude.
+const BARE_LEVEL_ITEM_REGEX =
+  /^(?:legalább\s+)?(?:felsőfok|tárgyalóképes|tárgyalásképes|anyanyelvi|folyékony|kiváló|magabiztos|c1|c2)\w*(?:\s+(?:szint|szinten|szintű|fokon|nyelvvizsga|nyelvtudás|tudás))?$/i;
+
+function languageScopeItems(clause) {
+  const items = clause
+    .split(',')
+    .map((item) => item.trim())
+    .filter(Boolean);
+  if (items.length < 2) return [clause];
+  const merged = [];
+  for (const item of items) {
+    if (merged.length && BARE_LEVEL_ITEM_REGEX.test(item)) {
+      merged[merged.length - 1] = `${merged[merged.length - 1]} ${item}`;
+    } else {
+      merged.push(item);
+    }
+  }
+  return merged;
+}
+
+function clauseStatesAdvancedEnglish(clause) {
+  return languageScopeItems(clause).some((item) => ADVANCED_ENGLISH_REGEX.test(item));
+}
 
 function requirementClauses(text) {
   return (text || '')
@@ -133,13 +175,19 @@ function requirementClauses(text) {
 
 export function checkAdvancedEnglishRequired(text) {
   return requirementClauses(text).some(
-    (clause) => ADVANCED_ENGLISH_REGEX.test(clause) && !ENGLISH_PREFERENCE_OVERRIDE_REGEX.test(clause),
+    (clause) => clauseStatesAdvancedEnglish(clause) && !ENGLISH_PREFERENCE_OVERRIDE_REGEX.test(clause)
+      && !/english\s*[-:–]\s*strong (?:verbal and written|written and verbal) communication skills\s+(?:are\s+)?(?:optional|preferred|not required)/i.test(clause),
   );
 }
 
 export function englishRequirementLabel(text) {
   if (checkAdvancedEnglishRequired(text)) return 'advanced/fluent/native (EXCLUDING)';
-  if (ADVANCED_ENGLISH_REGEX.test(text)) return 'advanced/fluent/native mentioned as preference/advantage (not disqualifying)';
+  // Clause- and comma-aware, same as the exclusion itself: otherwise a plain
+  // degree requirement ("felsőfokú végzettség, angol nyelvtudás") would be
+  // reported to the PO as "advanced English mentioned", which is simply false.
+  if (requirementClauses(text).some(clauseStatesAdvancedEnglish)) {
+    return 'advanced/fluent/native mentioned as preference/advantage (not disqualifying)';
+  }
   if (BASIC_ENGLISH_REGEX.test(text)) return 'basic/intermediate (not disqualifying)';
   return 'not specified in extracted text';
 }
@@ -335,7 +383,9 @@ const POSITION_MATCH_TERMS = [
   'digitalizációs projektmenedzser',
   'digitalizációs projektvezető',
   'it szolgáltatásmenedzser',
+  'it szolgáltatás menedzser',
   'informatikai szolgáltatásmenedzser',
+  'informatikai szolgáltatás menedzser',
   'it program',
   'platform lead',
   'cloud operations manager',

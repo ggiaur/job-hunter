@@ -1,0 +1,81 @@
+name: Job Hunter English-exclusion recheck
+
+# Re-evaluates adverts a previous live run HARD-EXCLUDED for "mandatory advanced
+# English", using the current detector. Uses NO search API — it only re-fetches
+# URLs a previous run already discovered, so it costs zero SerpApi quota.
+#
+# Why it must run here rather than locally: profession.hu answers HTTP 503 to
+# the development host (datacenter IP), and 103 of the 184 English exclusions in
+# the 2026-09-17 snapshot are profession.hu adverts. A GitHub-hosted runner
+# reaches them — the same reason the live pipeline runs here.
+#
+# LinkedIn rate-limits (HTTP 429) after roughly 30 sequential requests even from
+# CI, so LinkedIn gaps in the output are expected and are reported as
+# UNREACHABLE rather than being silently treated as "no longer relevant".
+on:
+  workflow_dispatch:
+    inputs:
+      snapshot:
+        description: 'Run snapshot to re-check'
+        required: false
+        default: 'docs/evidence/real-job-hunter-current-run.json'
+      commit_evidence:
+        description: 'Commit the recheck evidence JSON to main'
+        required: false
+        default: 'true'
+
+permissions:
+  contents: write
+
+jobs:
+  recheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Deterministic regression suite
+        run: node --test apps/job-hunter-mvp/lib/*.test.mjs apps/job-hunter-mvp/presentation/*.test.mjs
+
+      - name: Re-check English-excluded adverts (zero search quota)
+        id: recheck
+        run: node scripts/recheck-excluded-english.mjs "${{ inputs.snapshot }}" | tee recheck-output.txt
+
+      - name: Summarise for the run page
+        if: always()
+        run: |
+          {
+            echo '## English-exclusion recheck'
+            echo
+            echo '```'
+            tail -60 recheck-output.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload recheck evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: english-recheck-evidence
+          path: |
+            docs/evidence/english-recheck-*.json
+            recheck-output.txt
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Commit recheck evidence
+        if: inputs.commit_evidence == 'true' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name 'job-hunter-bot'
+          git config user.email 'job-hunter-bot@users.noreply.github.com'
+          git add docs/evidence/english-recheck-*.json
+          if git diff --cached --quiet; then
+            echo 'No new recheck evidence to commit.'
+          else
+            git commit -m 'evidence: English-exclusion recheck from CI (zero search quota)'
+            git push
+          fi

@@ -1,20 +1,24 @@
 name: Job Hunter live recovery
 
+# SEARCH-QUOTA CONTRACT (Product Owner decision, 2026-09-17): TWO live runs
+# per week.
+#
+# Each live run issues ~17 SerpApi queries, and the SerpApi key is a 250/month
+# allowance SHARED with the IT-Lens project. The previous triggers ran a full
+# live pipeline on every push to main AND on pull requests touching
+# apps/job-hunter-mvp/** or profile/** — so ordinary code changes silently
+# spent the allowance (the 2026-09-17 history shows 8 result-refresh commits in
+# the last 15). At 2 runs/week this is ~34 queries/week ≈ 148/month, leaving
+# headroom for IT-Lens.
+#
+# Deterministic tests still run on every push/PR — see job-hunter-tests.yml,
+# which needs no API key. Do NOT add a push or pull_request trigger here.
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/job-hunter-live.yml'
-      - 'apps/job-hunter-mvp/**'
-      - 'profile/**'
-      - 'docs/agent-runtime/product-supervisor-directive.yaml'
-      - 'docs/agent-directives/**'
-  pull_request:
-    paths:
-      - '.github/workflows/job-hunter-live.yml'
-      - 'apps/job-hunter-mvp/**'
-      - 'profile/**'
+  schedule:
+    # Monday and Thursday, 05:30 UTC (07:30 CEST / 06:30 CET) so a fresh list
+    # is waiting at the start of the day.
+    - cron: '30 5 * * 1,4'
 
 permissions:
   contents: write
@@ -31,23 +35,12 @@ jobs:
           node-version: '22'
 
       - name: Run deterministic regression suite
-        run: node --test apps/job-hunter-mvp/lib/*.test.mjs
-
-      - name: Materialize runtime-only acquisition credential
-        env:
-          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
-        run: |
-          sudo install -d -m 700 -o "$(id -un)" -g "$(id -gn)" /home/dockeruser/.job-hunter-secrets
-          umask 077
-          if [ -n "$SERPAPI_API_KEY" ]; then
-            printf 'SERPAPI_API_KEY=%s\n' "$SERPAPI_API_KEY" > /home/dockeruser/.job-hunter-secrets/serpapi.env
-            echo 'SerpApi credential available; running full multi-source acquisition.'
-          else
-            printf 'SERPAPI_API_KEY=GITHUB_DIRECT_PROFESSION_FALLBACK\n' > /home/dockeruser/.job-hunter-secrets/serpapi.env
-            echo 'SERPAPI_API_KEY absent; exercising direct Profession.hu fallback.'
-          fi
+        run: node --test apps/job-hunter-mvp/lib/*.test.mjs apps/job-hunter-mvp/presentation/*.test.mjs
 
       - name: Execute live Job Hunter pipeline
+        id: live
+        env:
+          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
         run: node apps/job-hunter-mvp/run.mjs
 
       - name: Enforce live product acceptance
@@ -62,11 +55,10 @@ jobs:
             process.exit(1);
           }
           const run = JSON.parse(fs.readFileSync(path, 'utf8'));
-          const visibleFromFunnel = run?.funnelSummary?.byOutcome?.visible;
           const visibleFromResults = Array.isArray(run.results)
-            ? run.results.filter(result => result?.visible === true).length
+            ? run.results.filter(result => result?.visible === true && result.poDecision !== 'DO_NOT_APPLY').length
             : 0;
-          const visible = Number.isFinite(visibleFromFunnel) ? visibleFromFunnel : visibleFromResults;
+          const visible = visibleFromResults;
           const canaries = Array.isArray(run.canaries) ? run.canaries : [];
           const resolvedCanaryStatuses = new Set([
             'ACQUIRED_VISIBLE',
@@ -96,43 +88,10 @@ jobs:
           NODE
 
       - name: Publish human-readable current results
-        if: always()
-        env:
-          ACCEPTANCE_OUTCOME: ${{ steps.acceptance.outcome }}
+        if: steps.live.outcome == 'success' && github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         run: |
-          node <<'NODE'
-          const fs = require('fs');
-          const path = 'docs/evidence/real-job-hunter-current-run.json';
-          if (!fs.existsSync(path)) process.exit(0);
-          const run = JSON.parse(fs.readFileSync(path, 'utf8'));
-          const results = Array.isArray(run.results) ? run.results : [];
-          const visible = results.filter(r => r?.visible === true);
-          const below = results.filter(r => r?.visible !== true);
-          const lines = [];
-          lines.push('# CURRENT JOB HUNTER RESULTS', '');
-          lines.push(`**Source run:** GitHub Actions run ${process.env.GITHUB_RUN_ID}`);
-          lines.push(`**Generated:** ${run.generatedAt ?? 'unknown'}`);
-          lines.push(`**Visible >=60%:** ${visible.length}`);
-          lines.push(`**Acceptance:** ${process.env.ACCEPTANCE_OUTCOME === 'success' ? 'PASS' : 'FAIL'}`, '');
-          lines.push('## Current visible results', '');
-          visible.forEach((r, i) => {
-            lines.push(`${i + 1}. **${r.company ?? 'Unknown company'} — ${r.title ?? 'Unknown title'} — ${r.relevancePercent ?? '?'}%**  `);
-            lines.push(`   ${r.url ?? ''}`);
-            if (r.englishRequirement) lines.push(`   - English: ${r.englishRequirement}`);
-            if (r.locationText) lines.push(`   - Location: ${r.locationText}`);
-            lines.push('');
-          });
-          if (below.length) {
-            lines.push('## Below-threshold candidates under review', '');
-            below.forEach(r => lines.push(`- ${r.company ?? 'Unknown company'} — ${r.title ?? 'Unknown title'} — ${r.relevancePercent ?? '?'}%`));
-            lines.push('');
-          }
-          lines.push('## Known-positive canaries', '');
-          (run.canaries ?? []).forEach(c => lines.push(`- ${c.label ?? c.id}: ${c.status}${c.score != null ? `, ${c.score}%` : ''}`));
-          lines.push('');
-          lines.push('This file is automatically regenerated after every live Job Hunter workflow run.');
-          fs.writeFileSync('CURRENT_RESULTS.md', lines.join('\n') + '\n');
-          NODE
+          # run.mjs generates this through the same CV-aware renderer used by cron.
+          # Never republish an old snapshot when the live pipeline failed.
           git config user.name 'job-hunter-bot'
           git config user.email 'job-hunter-bot@users.noreply.github.com'
           git add CURRENT_RESULTS.md
@@ -144,11 +103,13 @@ jobs:
           fi
 
       - name: Publish run evidence
-        if: always()
+        if: always() && steps.live.outcome == 'success'
         uses: actions/upload-artifact@v4
         with:
           name: job-hunter-live-evidence
           path: |
+            CURRENT_RESULTS.md
+            docs/evidence/current-cv-results.html
             docs/evidence/real-job-hunter-current-run.json
             docs/evidence/job-hunter-runs/*.json
           if-no-files-found: warn

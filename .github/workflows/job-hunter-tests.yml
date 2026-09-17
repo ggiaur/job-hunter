@@ -1,0 +1,30 @@
+name: Job Hunter deterministic tests
+
+# Runs on every push and pull request and needs NO API key, so code changes are
+# still gated by CI without spending the shared 250/month SerpApi allowance.
+#
+# This workflow exists because job-hunter-live.yml used to be triggered by
+# push/pull_request: that gave fast feedback but also fired a full live search
+# (~17 SerpApi queries) for every ordinary code change. The two concerns are now
+# separated — correctness here, live acquisition strictly on schedule/dispatch.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Deterministic regression suite (no network, no API key)
+        run: node --test apps/job-hunter-mvp/lib/*.test.mjs apps/job-hunter-mvp/presentation/*.test.mjs

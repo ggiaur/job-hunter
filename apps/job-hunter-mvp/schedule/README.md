@@ -1,5 +1,22 @@
 # Job Hunter MVP — unattended schedule
 
+## Verified current state — 2026-09-16
+
+The existing user crontab still contains the Monday/Thursday 08:00 entry below,
+and `cron.service` is active. No schedule was added, enabled or changed during
+the CV repair. The user systemd bus remains unavailable.
+
+The wrapper invokes `run.mjs`, which now loads the CV and certificates and writes
+both machine-readable results and human-readable `CURRENT_RESULTS.md` plus
+`docs/evidence/current-cv-results.html`. Previously this scheduled entry point
+only wrote JSON; that missing report refresh has been fixed.
+
+This is local scheduling. It does not push to GitHub, email the user or submit
+applications. The GitHub workflow definition is separate; local code edits alone
+do not update the remote repository or its credentials.
+
+## Installation history
+
 **Update (JH-SUP-0023):** systemd could not be installed on this host — the
 Job Hunter service account has no root/sudo access and no user-level
 systemd/D-Bus session is running here. **A crontab entry was installed
@@ -22,8 +39,9 @@ scheduled here.
 This directory contains a systemd service + timer definition that runs the
 exact same tested pipeline (`apps/job-hunter-mvp/run.mjs`) roughly twice a
 week, matching Sprint 1's low-volume operating requirement, with no
-notification/email/Telegram side effects — it only regenerates
-`docs/evidence/real-job-hunter-mvp-live-run.json`.
+notification/email/Telegram side effects. Current outputs are
+`docs/evidence/real-job-hunter-current-run.json`, dated snapshots, and the
+HTML/Markdown reports described above.
 
 **These units are provided as a definition only and have deliberately not
 been installed or enabled** — activating a recurring unattended job that

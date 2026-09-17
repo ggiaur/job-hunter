@@ -33,7 +33,7 @@ test('Profession JSON-LD requirements participate in exclusion scoring', () => {
   assert.match(result.exclusionReason, /angol/i);
 });
 
-test('mandatory higher education in Profession requirements is a hard exclusion', () => {
+test('degree requirements remain visible without a score penalty (PO 2026-09-16)', () => {
   const result = computeRelevanceAssessment({
     title: 'IT projektmenedzser',
     descriptionText: 'Angol középfok\nFőiskola\nIT projektterv, erőforrás, határidő és stakeholder koordináció.',
@@ -42,25 +42,36 @@ test('mandatory higher education in Profession requirements is a hard exclusion'
     positionRelevant: true,
     isGenericTitle: false,
   });
-  assert.equal(result.hardExcluded, true);
-  assert.match(result.exclusionReason, /végzettség|diploma/i);
+  assert.equal(result.hardExcluded, false);
+  assert.equal(result.visible, true);
+  assert.match(result.educationNote, /végzettség/i);
+  assert.ok(!result.mismatchReasons.some(reason => /végzettség/i.test(reason)));
 });
 
-test('Profession comma-delimited education labels are hard exclusions', () => {
+test('education labels and equivalent experience never exclude or lower the score', () => {
+  const input = {
+    title: 'IT projektmenedzser',
+    descriptionText: 'IT projektterv, erőforrás, határidő és stakeholder koordináció. Közintézmény.',
+    locationText: 'Budapest',
+    datePosted: null,
+    positionRelevant: true,
+    isGenericTitle: false,
+  };
+  const baseline = computeRelevanceAssessment(input);
   for (const requirements of [
     'Angol középfok, Főiskola',
     'Angol középfok, Felsőoktatási szakképzés',
+    'Felsőfokú végzettség kötelező.',
+    'Felsőfokú műszaki vagy informatikai végzettség, vagy azzal egyenértékű szakmai tapasztalat.',
+    'University degree required.',
   ]) {
     const result = computeRelevanceAssessment({
-      title: 'IT projektmenedzser',
-      descriptionText: requirements,
-      locationText: 'Budapest',
-      datePosted: null,
-      positionRelevant: true,
-      isGenericTitle: false,
+      ...input,
+      descriptionText: `${input.descriptionText}\n${requirements}`,
     });
-    assert.equal(result.hardExcluded, true, `should exclude for: ${requirements}`);
-    assert.match(result.exclusionReason, /végzettség|diploma/i);
+    assert.equal(result.hardExcluded, false, `must not exclude for: ${requirements}`);
+    assert.equal(result.score, baseline.score, `must not penalize: ${requirements}`);
+    assert.equal(result.visible, baseline.visible);
   }
 });
 

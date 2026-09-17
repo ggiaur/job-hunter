@@ -7,7 +7,7 @@ export async function serpapiSearch(apiKey, query, { hl = 'hu', gl = 'hu', num =
   url.searchParams.set('num', String(num));
   url.searchParams.set('api_key', apiKey);
 
-  const res = await fetch(url, { method: 'GET' });
+  const res = await fetch(url, { method: 'GET', signal: AbortSignal.timeout(30000) });
   if (!res.ok) {
     throw new Error(`SerpApi HTTP ${res.status} for query "${query}"`);
   }

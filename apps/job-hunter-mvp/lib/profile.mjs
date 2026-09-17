@@ -1,5 +1,30 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
+
+export async function loadCandidateProfile(profileDir) {
+  const candidate = JSON.parse(await readFile(path.join(profileDir, 'candidate.json'), 'utf8'));
+  if (!candidate.version || !candidate.sourceFile || path.basename(candidate.sourceFile) !== candidate.sourceFile ||
+      !candidate.education || !candidate.english || !Array.isArray(candidate.facts) || !candidate.facts.length) {
+    throw new Error('Hiányos önéletrajzi profil: candidate.json');
+  }
+  const cvText = await readFile(path.join(profileDir, candidate.sourceFile), 'utf8');
+  const normalize = value => String(value).replace(/\s+/g, ' ').trim();
+  const source = normalize(cvText);
+  const ids = new Set();
+  for (const fact of candidate.facts) {
+    if (!fact.id || ids.has(fact.id) || !fact.label || !fact.evidence ||
+        !Array.isArray(fact.terms) || !fact.terms.length || fact.terms.some(t => typeof t !== 'string' || !t.trim()) ||
+        !source.includes(normalize(fact.evidence))) {
+      throw new Error(`Önéletrajzi tény forrásbizonyíték nélkül vagy hibás sémával: ${fact.id}`);
+    }
+    ids.add(fact.id);
+  }
+  for (const item of [candidate.education, candidate.english, ...(candidate.certificates || [])]) {
+    if (!item.evidence || !source.includes(normalize(item.evidence))) throw new Error('Az önéletrajzi végzettség/nyelv forrása nem ellenőrizhető.');
+  }
+  return { ...candidate, sourceSha256: createHash('sha256').update(cvText).digest('hex') };
+}
 
 function parseSimpleYamlList(text, key) {
   const lines = text.split('\n');
@@ -33,11 +58,12 @@ export async function loadProfile(profileDir) {
   const preferredPath = path.join(profileDir, 'preferred_companies.yaml');
   const learnedPath = path.join(profileDir, 'learned_preferences.md');
 
-  const [personaText, exclusionsText, preferredText, learnedText] = await Promise.all([
+  const [personaText, exclusionsText, preferredText, learnedText, candidate] = await Promise.all([
     readFile(personaPath, 'utf8'),
     readFile(exclusionsPath, 'utf8'),
     readFile(preferredPath, 'utf8'),
     readFile(learnedPath, 'utf8').catch(() => ''),
+    loadCandidateProfile(profileDir),
   ]);
 
   const excludedCompanies = parseSimpleYamlList(exclusionsText, 'excluded_companies');
@@ -52,6 +78,7 @@ export async function loadProfile(profileDir) {
     : [];
 
   return {
+    candidate,
     personaText,
     learnedText,
     excludedCompanies,
