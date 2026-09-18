@@ -39,6 +39,17 @@ export function currentResultsMarkdown(run, { snapshotRelative, htmlRelative, de
     ...(run.rescoredAt
       ? [`⚠ Ez a lista **újrapontozás, nem új keresés**: a fenti időpontban beszerzett hirdetések értékelése futott le újra (${plain(run.rescoredAt)}) javított pontozási szabályokkal. Új hirdetés nem került be, keresési kvóta nem fogyott.`, '']
       : []),
+    // A run with no search provider only sees one portal's own keyword search, so
+    // its ABSENCES carry no information. Without this the reader cannot tell a
+    // thin market from a missing credential -- exactly what happened in CI run
+    // 35289908379, where an empty SERPAPI_API_KEY secret produced 137 checked
+    // pages instead of 682 and 4 candidates instead of 16.
+    ...(run.searchCredentialAvailable === false
+      ? [
+          '⚠ **Csökkentett lefedettség:** ehhez a futáshoz nem volt keresőszolgáltatás, ezért csak a Profession.hu közvetlen kulcsszavas keresése futott le. Az itt nem szereplő állás **nem bizonyítja**, hogy nincs ilyen hirdetés — csak azt, hogy ez a szűkebb keresés nem érte el.',
+          '',
+        ]
+      : []),
     `Önéletrajzi profil: ${plain(run.candidateProfileVersion || 'nincs rögzítve')}. Forrás SHA-256: ${plain(run.candidateSourceSha256 || 'nincs rögzítve')}.`,
     'A diploma nem automatikus kizáró ok. A CV és a tanúsítványok szöveges bizonyítékai a részletes riportban láthatók; az ismeretlen készség nem bizonyított hiány.', '',
     '## Ellenőrizendő lehetőségek', '',

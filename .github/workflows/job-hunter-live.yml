@@ -44,7 +44,12 @@ jobs:
       - name: Pre-flight search quota check
         env:
           SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
-        run: node scripts/check-search-quota.mjs --need 17
+        # --require-key: a missing secret is a misconfiguration, not a benign
+        # fallback. Run 35289908379 proved the cost -- an empty SERPAPI_API_KEY
+        # secret made the pipeline publish a 4-candidate, single-source list over
+        # an 11-candidate one, then fail acceptance for "only 4 visible results"
+        # as if the market were empty. Fail loudly and early instead.
+        run: node scripts/check-search-quota.mjs --need 17 --require-key
 
       - name: Execute live Job Hunter pipeline
         id: live

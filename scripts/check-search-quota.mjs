@@ -16,11 +16,16 @@
 import { readFile } from 'node:fs/promises';
 
 const DEFAULT_NEED = 17; // one full live run's query budget
-const SECRET_PATH = '/home/dockeruser/.job-hunter-secrets/serpapi.env';
+// Overridable so the refusal path can actually be exercised on a machine that
+// does have the local secret file -- otherwise the guard is untestable here and
+// would only ever be proven in CI, after it mattered.
+const SECRET_PATH =
+  process.env.JOB_HUNTER_SERPAPI_SECRET_PATH || '/home/dockeruser/.job-hunter-secrets/serpapi.env';
 
 function parseArgs(argv) {
   let need = DEFAULT_NEED;
   let json = false;
+  let requireKey = false;
   for (let i = 0; i < argv.length; i += 1) {
     if (argv[i] === '--need') {
       need = Number(argv[i + 1]);
@@ -29,9 +34,11 @@ function parseArgs(argv) {
       need = Number(argv[i].slice('--need='.length));
     } else if (argv[i] === '--json') {
       json = true;
+    } else if (argv[i] === '--require-key') {
+      requireKey = true;
     }
   }
-  return { need: Number.isFinite(need) && need > 0 ? need : DEFAULT_NEED, json };
+  return { need: Number.isFinite(need) && need > 0 ? need : DEFAULT_NEED, json, requireKey };
 }
 
 async function resolveKey() {
@@ -48,10 +55,30 @@ async function resolveKey() {
 }
 
 async function main() {
-  const { need, json } = parseArgs(process.argv.slice(2));
+  const { need, json, requireKey } = parseArgs(process.argv.slice(2));
   const key = await resolveKey();
 
   if (!key) {
+    if (requireKey) {
+      // Measured failure this prevents (run 35289908379, 2026-09-18):
+      // the GitHub repository secret SERPAPI_API_KEY is empty, so every CI live
+      // run silently degraded to direct-Profession-only acquisition -- 137 advert
+      // pages instead of 682, 4 visible candidates instead of 16 -- and then
+      // failed the acceptance gate for "only 4 visible results", blaming the
+      // market instead of the missing secret. Worse, the degraded run published
+      // itself over a better-covered list, deleting 7 real opportunities from
+      // CURRENT_RESULTS.md. Every live run since 2026-09-08 failed this way.
+      console.error(
+        'REFUSING to start a live run: no SerpApi key is configured.\n' +
+        'Without it the pipeline silently drops to direct-Profession-only\n' +
+        'acquisition (~137 advert pages instead of ~682) and publishes that\n' +
+        'narrower list as if it were the full picture.\n' +
+        'Fix: set the SERPAPI_API_KEY repository secret\n' +
+        '(Settings -> Secrets and variables -> Actions), or run with\n' +
+        '--need 0 deliberately if a reduced-coverage run is genuinely wanted.'
+      );
+      process.exit(1);
+    }
     console.log('No SerpApi key configured — nothing to check; the pipeline falls back to public acquisition.');
     return;
   }
