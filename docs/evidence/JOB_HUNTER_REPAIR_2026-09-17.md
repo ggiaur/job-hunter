@@ -216,10 +216,19 @@ Two further measured consequences:
    That refusal is the intended behaviour, but it means no fresh multi-source
    results at all.
 
-1. **Sprint 1 acceptance.** `Pillér Nonprofit Kft — Projektmenedzser` (77%) is already
-   recorded in `learned_preferences.md` as "kifejezetten jó minta". If that advert is
-   still live, one APPLY decision closes DoD §6.7. Nobody has checked whether it is
-   still open.
+1. **Sprint 1 acceptance — the advert is live, VERIFIED 2026-09-18 06:2xZ.**
+
+       https://www.profession.hu/allas/projektmenedzser-piller-nonprofit-kft-budapest-2988550
+       HTTP 200, JobPosting schema present
+       Pillér Nonprofit Kft — Projektmenedzser, Budapest
+       posted 2026-09-13, valid through 2026-10-02T08:17:40  -> NOT expired
+
+   `learned_preferences.md` records this employer/role as "kifejezetten jó minta".
+   One APPLY decision on it closes DoD §6.7 and Sprint 1.
+
+   Precision, because it matters: this posting is dated **2026-09-13**, i.e. AFTER
+   the 2026-09-04 PO review, so it is a current advert matching the pattern the PO
+   praised — not provably the identical posting he saw then.
 2. **Which constraint to relax.** Four of the six recorded rejections are language.
    The intersection of (IT leadership) x (no mandatory strong English) x (reachable
    from Fehérvárcsurgó) x (700k+ gross) is close to empty, and the one advert the PO
@@ -229,6 +238,18 @@ Two further measured consequences:
    Whether English, salary, role type or commute gives way is a PO decision.
 3. **SerpApi plan.** At 250/month shared with IT-Lens, two runs per week does not fit
    from October either (≈148/month for Job Hunter alone leaves ~100 for IT-Lens).
+
+4. **Spend the remaining 26 searches now, or keep them for Monday?**
+   profession.hu recovered (verified 200 + JobPosting on 2026-09-18), so a full
+   local run with the key is technically possible tonight. I deliberately did NOT
+   run one:
+
+   * the published list is a 682-page acquisition roughly 22 hours old, from the
+     same portals, so a fresh run would add little;
+   * it costs ~17 of the 26 left, which would make the Monday 05:30Z scheduled run
+     refuse to start (9 < 17).
+
+   That is a spending decision, not an engineering one. Say the word and it runs.
 
 ## Commits
 
