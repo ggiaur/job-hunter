@@ -156,17 +156,65 @@ SWISS MEDICAL 79%, MVM Senior IT PM 78%, Pillér Nonprofit 77%.
 
 Full suite: **133 pass / 0 fail / 1 skip** (was 108 before this session).
 
-## Blocked, not done
+## profession.hu block, and what the resulting run revealed (2026-09-18 00:08Z)
 
-**profession.hu answers HTTP 503 to every non-browser client** — `robots.txt`
+`profession.hu` answered HTTP 503 to every non-browser client — `robots.txt`
 included, `Server` header masked, 16KB interstitial body — from this host *and* from
-GitHub-hosted runners. It worked at 08:14Z the same morning, so this began during the
-day. 103 of the 184 English exclusions are profession.hu adverts, and it is the main
-Hungarian portal, so no fresh acquisition was started: it would have spent the last
-~17 searches on a list missing most of the market. A watcher polls every 10 minutes
-and dispatches one live run if it recovers.
+GitHub runners, starting some time after 08:14Z. A watcher polled every 10 minutes
+and dispatched one live run when a probe returned 200 with a JobPosting schema at
+00:08Z.
+
+**That dispatch was a mistake of mine.** One URL returning 200 is not evidence that
+a portal serves reliably at volume, and the run should not have been triggered
+automatically on that signal.
+
+It cost no quota — but only by luck, and the reason is the important finding below.
+
+### ROOT CAUSE: the GitHub SERPAPI_API_KEY secret is empty
+
+Run 35289908379 logs `SERPAPI_API_KEY:` blank, then "SerpApi key absent: continuing
+with direct Profession acquisition; reduced coverage" and "Unique candidate URLs
+from SERP: 0".
+
+Every CI live run has therefore been direct-Profession-only:
+
+| | CI (no key) | local (key present) |
+|---|---|---|
+| advert pages checked | 137 | 682 |
+| scored / visible | 9 / 4 | 31 / 16 |
+| SerpApi searches | 0 | ~17 |
+
+…and then failed acceptance with *"only 4 visible results; requirement asks for
+7-15"*, which reads as a thin market when the cause was a missing secret. **This is
+why every live run since 2026-09-08 failed.**
+
+Two further measured consequences:
+
+* the degraded run **published itself over the better-covered list**. Its 4
+  candidates are a strict SUBSET of the 11 from the re-scored 682-page acquisition,
+  so it added nothing and removed 7 real opportunities from `CURRENT_RESULTS.md`;
+* the Monday/Thursday schedule would have reproduced this twice a week.
+
+### Guards added
+
+* `check-search-quota.mjs --require-key` refuses to start a live run with no key,
+  naming the secret and the coverage consequence. Verified on all three paths.
+  `SECRET_PATH` is env-overridable purely so the refusal path is testable on a
+  machine that has the local secret file. Testing it caught my own bug: `requireKey`
+  was not destructured in `main()`, so the guard exited 1 with "requireKey is not
+  defined" — the right exit code for the wrong reason.
+* The report now carries a **reduced-coverage** warning whenever
+  `searchCredentialAvailable === false`, stating that a missing advert "nem
+  bizonyítja" that no such advert exists. Previously the only signal was a log line.
+* `CURRENT_RESULTS.md` restored to the 11-candidate re-score.
 
 ## Open for the Product Owner
+
+0. **Set the `SERPAPI_API_KEY` repository secret** — Settings → Secrets and
+   variables → Actions. `BLOCKED_HUMAN_PERMISSION`: only the PO can do this. Until
+   it is set the schedule will refuse to run rather than publish a one-source list.
+   That refusal is the intended behaviour, but it means no fresh multi-source
+   results at all.
 
 1. **Sprint 1 acceptance.** `Pillér Nonprofit Kft — Projektmenedzser` (77%) is already
    recorded in `learned_preferences.md` as "kifejezetten jó minta". If that advert is
