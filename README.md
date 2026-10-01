@@ -4,8 +4,8 @@
 
 **[2026. október 1.: ellenőrzött hirdetések, két célzott PDF-CV és HR-javaslatok](applications/2026-10-01/README.md)**
 
-- [Nova HR - IT igazgató: önéletrajz](output/pdf/Belinszki_Janos_CV_Nova_IT_igazgato_v19.pdf)
-- [Magyar Államkincstár - Osztályvezető, 413/2026: önéletrajz](output/pdf/Belinszki_Janos_CV_MAK_Osztalyvezeto_413_2026_v19.pdf)
+- [Nova HR - IT igazgató: önéletrajz](output/pdf/Belinszki_Janos_CV_Nova_IT_igazgato_v20.pdf)
+- [Magyar Államkincstár - Osztályvezető, 413/2026: önéletrajz](output/pdf/Belinszki_Janos_CV_MAK_Osztalyvezeto_413_2026_v20.pdf)
 - [Szakmai profil, eredeti CV, diploma és öt tanúsítvány](profile/INDEX.md)
 
 A hirdetések ellenőrzési dátuma és a tisztázandó feltételek a fenti jelentkezési anyagoknál szerepelnek. Jelentkezést nem küldtünk automatikusan.

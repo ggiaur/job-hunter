@@ -1,0 +1,64 @@
+"""Recompose the approved v19 content using the original CV's visual character."""
+import ast
+from html import escape
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+scope = {}
+tree = ast.parse((ROOT / 'scripts/build-targeted-cvs.py').read_text(encoding='utf-8'))
+for node in tree.body:
+    if isinstance(node, ast.Assign) and any(isinstance(t, ast.Name) and t.id in {'COMMON_CURRENT', 'VERSIONS'} for t in node.targets):
+        exec(compile(ast.Module(body=[node], type_ignores=[]), '<cv-content>', 'exec'), scope)
+
+CSS = '''
+*{box-sizing:border-box}body{margin:0;background:#e8edf4;color:#24364b;font-family:"Segoe UI",Arial,sans-serif;font-size:13.5px;line-height:1.55}
+.sheet{width:210mm;height:297mm;margin:32px auto;background:white;position:relative;box-shadow:0 14px 55px #0f234025;display:flex;flex-direction:column}
+.hero{background:#0f2340;color:white;padding:29px 37px 26px;position:relative;overflow:hidden;flex-shrink:0}
+.hero:after{content:"";position:absolute;width:270px;height:270px;border-radius:50%;background:#1b4b712e;right:-90px;top:-140px;pointer-events:none}
+.hero>*{position:relative;z-index:1}.name{font:700 36px/1.15 Georgia,serif;letter-spacing:.1px;margin:0 0 6px}.headline{font-size:15px;color:#c5e6fa;margin:0 0 14px;font-weight:500}
+.contact{display:flex;gap:21px;font-size:12px;color:#e2ebf6;white-space:nowrap;padding-bottom:15px;border-bottom:2px solid #3196c8}
+.summary{font-size:13.6px;line-height:1.65;color:#eef4fc;margin:14px 0 0;text-align:left}.application{font-size:11px;color:#c5e6fa;margin:0 0 10px}
+.layout{display:grid;grid-template-columns:57mm 1fr;flex:1;min-height:0}
+.main{grid-column:2;grid-row:1;padding:26px 30px 30px 26px}.side{grid-column:1;grid-row:1;background:#f1f5fa;border-right:1px solid #dce5ef;padding:27px 23px 28px}
+h2{font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:#176ca2;margin:0 0 14px;padding-bottom:8px;border-bottom:1px solid #cbdbeb;font-weight:700}
+.side h2{font-size:10.5px;margin-top:25px;letter-spacing:1px}.side h2:first-child{margin-top:0}.side p{font-size:12px;line-height:1.65;margin:8px 0}.side strong{color:#153550}
+.metric{padding:0 0 17px;margin:0 0 15px;border-bottom:1px solid #d9e4ef}.metric:last-of-type{margin-bottom:24px}.metric b{display:block;font:700 32px/1.15 Georgia,serif;color:#143857}.metric span{font-size:12px;color:#526a80}
+.tags{display:flex;flex-wrap:wrap;gap:6px}.tag{font-size:11.5px;background:white;border:1px solid #cbdcec;border-radius:12px;padding:3px 9px;white-space:nowrap}
+.role{font-size:17px;line-height:1.3;color:#102f4b;font-weight:700;margin:0 0 5px}.company{font-size:13px;color:#176ca2;font-weight:600;margin:0 0 3px}.meta{font-size:11.5px;color:#687a8b;margin:0 0 13px}
+.period{font-size:10.8px;color:white;background:#1d74a6;border-radius:12px;display:inline-block;padding:3px 10px;margin-bottom:10px;white-space:nowrap}
+ul{list-style:none;padding:0;margin:0 0 22px}li{position:relative;padding-left:13px;margin-bottom:8px;font-size:13px;line-height:1.6}li:before{content:"";position:absolute;top:8px;left:0;width:4px;height:4px;border-radius:50%;background:#2a92c4}
+.project{border-left:3px solid #62a7cd;background:#f5f8fc;padding:11px 13px;margin:0 0 10px;font-size:12.7px;line-height:1.6}.project b{display:block;color:#183e5f;margin-bottom:3px}
+.job+.job{border-top:1px solid #dce5ef;margin-top:19px;padding-top:18px}.job ul{margin-bottom:0}.skill{font-size:12.8px;line-height:1.65;margin:0 0 10px}.skill b{color:#173a58}
+.target{font-size:12px;border-top:1px solid #cbdbeb;margin-top:24px;padding-top:13px;color:#526a80}.target b{color:#17436a;font-size:12.5px}
+.subhero{padding:22px 37px;background:#0f2340;color:white;display:flex;justify-content:space-between;align-items:center}.subhero b{font:700 24px Georgia,serif}.subhero span{font-size:12px;color:#c5e6fa}
+.footer{height:32px;flex-shrink:0;padding:6px 30px;background:white;border-top:1px solid #e0e8f0;font-size:10px;color:#6c7e8f;display:flex;justify-content:space-between}
+.smallnote{font-size:10.5px!important;color:#60778d}.section-gap{margin-top:25px}.courses{list-style:none;margin:0;padding:0}.courses li{font-size:11.8px;line-height:1.6;margin-bottom:10px;padding-left:0}.courses li:before{display:none}
+nav{max-width:794px;margin:22px auto;text-align:right;font-size:13px}nav a{color:#176ca2;margin-left:16px}
+@page{size:A4;margin:0}@media print{body{background:white}.sheet{margin:0;box-shadow:none;break-after:page}.sheet:last-of-type{break-after:auto}nav{display:none}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+@media screen and (max-width:820px){.sheet{width:100%;height:auto;min-height:297mm;margin:0 0 24px}.layout{grid-template-columns:1fr}.main{grid-column:1;grid-row:1}.side{grid-column:1;grid-row:2}.hero{padding:25px}.name{font-size:32px}.contact{white-space:normal;flex-wrap:wrap;gap:6px 18px}.headline{font-size:14px}.subhero{gap:15px}nav{padding:0 18px}.metric{display:inline-block;width:31%;vertical-align:top;border:0}.metric b{font-size:28px}.target{margin-top:16px}}
+'''
+
+def ul(items):
+    return '<ul>' + ''.join('<li>' + escape(x) + '</li>' for x in items) + '</ul>'
+
+for v in scope['VERSIONS']:
+    slug = v['slug'].replace('_v19', '_v20')
+    is_nova = 'Nova' in slug
+    headline = 'Fejlesztés · Üzemeltetés · Digitalizáció' if is_nova else 'Csapatvezetés · IT-szolgáltatások · Intézményi működés'
+    tags = ['Csapatirányítás', 'IT-költségvetés', 'Szállítói kapcsolatok', 'Döntés-előkészítés', 'Rendszerintegráció', 'Digitalizáció'] if is_nova else ['Csapatirányítás', 'Helpdesk', 'IT-üzemeltetés', 'IT-költségvetés', 'Szállítói kapcsolatok', 'Döntés-előkészítés']
+    tech = ['Microsoft 365 / SharePoint', 'Windows / Linux', 'Hyper-V · VPN', 'PHP · SQL · OpenCart', 'Generatív AI-eszközök'] if is_nova else ['Windows / Linux', 'Microsoft 365 / SharePoint', 'Hyper-V · VPN', 'Helpdesk / monitoring', 'SQL · rendszerintegráció']
+    projects = ''.join(f'<div class="project"><b>{escape(title)}</b>{escape(body)}</div>' for title, body in v['projects'])
+    side1 = '<h2>Vezetői profil</h2><div class="metric"><b>20+</b><span>év IT-tapasztalat</span></div><div class="metric"><b>6 fő</b><span>irányított informatikai csapat</span></div><div class="metric"><b>2021</b><span>óta osztályvezető</span></div><h2>Fókuszterületek</h2><div class="tags">' + ''.join(f'<span class="tag">{x}</span>' for x in tags) + '</div><h2>Technikai háttér</h2>' + ''.join('<p>'+x+'</p>' for x in tech)
+    side2 = '''<h2>Végzettség</h2><p><strong>Programozó matematikus</strong><br>Nyíregyházi Főiskola</p><p>Főiskolai végzettség<br>2005/06 - 2008/09<br>Záróvizsga: 2009</p><h2>Továbbképzések</h2><p><strong>Gerilla Mentor Klub · 2026</strong></p><ul class="courses"><li>AI vállalati bevezetés</li><li>AI a céges dokumentációban - RAG alapok kezdőknek</li><li>API-k használata (Számítógépes programok összekapcsolása)</li><li>MS Copilot alapok</li><li>Copilot</li></ul><p class="smallnote">Tanúsítvánnyal igazolt online képzések.</p><h2>Nyelvismeret</h2><p><strong>Magyar</strong> · anyanyelv<br><strong>Angol</strong> · alapszint</p><h2>Egyéb</h2><p>B kategóriás jogosítvány</p>'''
+    previous = '<div class="job"><div class="role">Senior informatikus</div><div class="company">Nimbusz-ANG Kft.</div><div class="meta">2014 - 2021 · Épületgépészeti vállalat</div>' + ul(v['previous']) + '</div>'
+    previous += '<div class="job"><div class="role">Informatikus</div><div class="company">Nimbusz Kft.</div><div class="meta">2011 - 2014 · Több telephelyes vállalat</div>' + ul(['Windows és Linux rendszerek üzemeltetése, telephelyi IT-támogatás és helpdesk; ügyviteli folyamatok egyszerűsítése és automatizálása.']) + '</div>'
+    previous += '<div class="job"><div class="role">Junior informatikus</div><div class="company">Cerbona Zrt.</div><div class="meta">2005 - 2011 · 300+ fős élelmiszeripari vállalat</div>' + ul(['Szerverüzemeltetés, Linux- és AIX-rendszerek támogatása, SQL-adatbázisok karbantartása és belső fejlesztések támogatása.']) + '</div>'
+    skills = ''.join(f'<p class="skill"><b>{escape(title)}</b><br>{escape(body)}</p>' for title, body in v['skills'])
+    html = f'''<!doctype html><html lang="hu"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Belinszki János - {escape(v['target'])} - v20</title><style>{CSS}</style></head><body>
+<nav><a href="../../output/pdf/{slug}.pdf">PDF letöltése</a><a href="index.html">Állások és CV-k</a></nav>
+<article class="sheet"><header class="hero"><h1 class="name">Belinszki János</h1><p class="headline">Informatikai vezető | {headline}</p><p class="application">Pályázott pozíció: {escape(v['target'])}</p><div class="contact"><span>+36 20 311 1230</span><span>belinszki.j@gmail.com</span><span>Székesfehérvár / Budapest</span></div><p class="summary">{escape(v['summary'])}</p></header>
+<div class="layout"><main class="main"><h2>Szakmai tapasztalat</h2><div class="period">2021 - jelenleg</div><div class="role">Informatikai osztályvezető</div><div class="company">Vörösmarty Mihály Könyvtár</div><div class="meta">Több telephelyes közintézmény</div>{ul(v['current'])}<h2>Kiemelt megvalósítások</h2>{projects}</main><aside class="side">{side1}</aside></div><footer class="footer"><span>Belinszki János · Szakmai önéletrajz</span><span>1 / 2</span></footer></article>
+<article class="sheet"><header class="subhero"><b>Belinszki János</b><span>Informatikai vezető</span></header><div class="layout"><main class="main"><h2>Korábbi szakmai tapasztalat</h2>{previous}<h2 class="section-gap">Szakmai kompetenciák</h2>{skills}</main><aside class="side">{side2}</aside></div><footer class="footer"><span>Belinszki János · Szakmai önéletrajz</span><span>2 / 2</span></footer></article>
+</body></html>\n'''
+    (ROOT / 'applications/2026-10-01' / (slug + '.html')).write_text(html, encoding='utf-8')
+    print(slug + '.html')
