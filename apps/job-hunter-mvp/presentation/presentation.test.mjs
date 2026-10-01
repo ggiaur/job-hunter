@@ -86,7 +86,7 @@ test('renderHtmlReport renders all required fields for visible >=60% vacancies',
   assert.ok(html.includes('Bruttó 1.200.000 Ft/hó'));
 
   // Relevance percent, Fit reasons, Mismatch reasons
-  assert.ok(html.includes('92% RELEVANCS'));
+  assert.ok(html.includes('92 PONT'));
   assert.ok(html.includes('Általános vezetői cím, IT-doménkontextussal megerősítve.'));
   assert.ok(html.includes('Budapest nem az elsődleges gyűrű.'));
 

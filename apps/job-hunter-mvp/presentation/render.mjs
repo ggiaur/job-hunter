@@ -31,7 +31,7 @@ export function renderHtmlReport(runData, options = {}) {
   const sourcePath = options.sourceFilePath || 'docs/evidence/job-hunter-runs/latest.json';
   const visibleThreshold = mergedData.visibleThreshold ?? 60;
   const results = mergedData.results || [];
-  const visibleResults = results.filter(r => ((r.relevancePercent ?? 0) >= visibleThreshold || r.visible) && r.poDecision !== 'DO_NOT_APPLY');
+  const visibleResults = results.filter(r => (r.visible ?? ((r.relevancePercent ?? 0) >= visibleThreshold)) && !r.hardExcluded && !['REJECT', 'REVIEW'].includes(r.eligibility) && r.poDecision !== 'DO_NOT_APPLY');
   const excluded = mergedData.excluded || [];
 
   const html = `<!DOCTYPE html>
@@ -549,7 +549,7 @@ export function renderHtmlReport(runData, options = {}) {
 </body>
 </html>`;
 
-  return html;
+  return html.replace(/[ \t]+$/gm, '');
 }
 
 /**
@@ -557,13 +557,13 @@ export function renderHtmlReport(runData, options = {}) {
  */
 function renderJobCard(row, index, visibleThreshold, isExcluded) {
   const cardId = `job-card-${index}`;
-  const isVisible = Boolean(row.visible || (row.relevancePercent ?? 0) >= visibleThreshold);
+  const isVisible = !isExcluded && !row.hardExcluded && !['REJECT', 'REVIEW'].includes(row.eligibility) && Boolean(row.visible ?? ((row.relevancePercent ?? 0) >= visibleThreshold));
   const score = row.relevancePercent ?? 0;
 
   let scoreClass = 'score-low';
   if (isExcluded) {
     scoreClass = 'score-excluded';
-  } else if (score >= 80) {
+  } else if (isVisible && score >= 80) {
     scoreClass = 'score-high';
   } else if (score >= visibleThreshold) {
     scoreClass = 'score-med';
@@ -571,7 +571,7 @@ function renderJobCard(row, index, visibleThreshold, isExcluded) {
 
   const cardClass = isExcluded
     ? 'excluded-card'
-    : (score >= 80 ? 'high-fit' : (isVisible ? 'visible-card' : ''));
+    : (isVisible && score >= 80 ? 'high-fit' : (isVisible ? 'visible-card' : ''));
 
   const initialDecision = row.poDecision || '';
   const applySelected = initialDecision === 'APPLY' ? 'selected' : '';
@@ -595,12 +595,13 @@ function renderJobCard(row, index, visibleThreshold, isExcluded) {
         </div>
         <div>
           <span class="score-badge ${scoreClass}">
-            ${isExcluded ? 'KIZÁRVA' : `${score}% RELEVANCS`}
+            ${isExcluded || row.eligibility === 'REJECT' ? 'KIZÁRVA' : `${score} PONT${row.eligibility === 'REVIEW' ? ' · TISZTÁZANDÓ' : ''}`}
           </span>
         </div>
       </div>
 
       <div class="meta-row">
+        ${row.final_explanation ? `<span class="meta-tag">${escapeHtml(row.final_explanation)}</span>` : ''}
         <span class="meta-tag">📍 ${escapeHtml(row.locationText || 'Helyszín nincs megadva')}</span>
         ${row.workArrangement ? `<span class="meta-tag work-tag">🏠 ${escapeHtml(row.workArrangement)}</span>` : ''}
         ${row.salary ? `<span class="meta-tag salary-tag">💰 ${escapeHtml(row.salary)}</span>` : ''}
@@ -611,7 +612,7 @@ function renderJobCard(row, index, visibleThreshold, isExcluded) {
       </div>
 
       ${row.candidateReview ? `<details><summary>Önéletrajzi bizonyítékok (${row.candidateReview.matches.length})</summary>
-        <p>Forrás: ${escapeHtml(row.candidateReview.sourceFile)} · ${escapeHtml(row.candidateReview.version)}</p>
+        <p>Forrás: ${escapeHtml((row.candidateReview.sourceFiles || [row.candidateReview.sourceFile]).join(', '))} · ${escapeHtml(row.candidateReview.version)}</p>
         <ul>${row.candidateReview.matches.map(match => `<li><strong>${escapeHtml(match.label)}</strong><br>Önéletrajz: ${escapeHtml(match.cvEvidence)}<br>Hirdetés: ${escapeHtml(match.jobEvidence)}</li>`).join('')}</ul>
       </details>` : ''}
       ${(row.priorFeedback || []).map(feedback => `<p><strong>Korábbi döntésed: ${escapeHtml(feedback.decision)}</strong> – ${escapeHtml(feedback.reason)}</p>`).join('')}

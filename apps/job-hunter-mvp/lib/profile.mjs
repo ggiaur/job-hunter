@@ -10,20 +10,39 @@ export async function loadCandidateProfile(profileDir) {
   }
   const cvText = await readFile(path.join(profileDir, candidate.sourceFile), 'utf8');
   const normalize = value => String(value).replace(/\s+/g, ' ').trim();
-  const source = normalize(cvText);
+  const sourceTexts = new Map([[candidate.sourceFile, cvText]]);
   const ids = new Set();
   for (const fact of candidate.facts) {
+    const sourceFile = fact.sourceFile || candidate.sourceFile;
+    if (path.basename(sourceFile) !== sourceFile) throw new Error('Érvénytelen profilforrás útvonal.');
+    if (!sourceTexts.has(sourceFile)) sourceTexts.set(sourceFile, await readFile(path.join(profileDir, sourceFile), 'utf8'));
     if (!fact.id || ids.has(fact.id) || !fact.label || !fact.evidence ||
         !Array.isArray(fact.terms) || !fact.terms.length || fact.terms.some(t => typeof t !== 'string' || !t.trim()) ||
-        !source.includes(normalize(fact.evidence))) {
+        !normalize(sourceTexts.get(sourceFile)).includes(normalize(fact.evidence))) {
       throw new Error(`Önéletrajzi tény forrásbizonyíték nélkül vagy hibás sémával: ${fact.id}`);
     }
     ids.add(fact.id);
   }
   for (const item of [candidate.education, candidate.english, ...(candidate.certificates || [])]) {
-    if (!item.evidence || !source.includes(normalize(item.evidence))) throw new Error('Az önéletrajzi végzettség/nyelv forrása nem ellenőrizhető.');
+    const sourceFile = item.sourceFile || candidate.sourceFile;
+    if (path.basename(sourceFile) !== sourceFile) throw new Error('Érvénytelen profilforrás útvonal.');
+    if (!sourceTexts.has(sourceFile)) sourceTexts.set(sourceFile, await readFile(path.join(profileDir, sourceFile), 'utf8'));
+    if (!item.evidence || !normalize(sourceTexts.get(sourceFile)).includes(normalize(item.evidence))) throw new Error('Az önéletrajzi végzettség/nyelv forrása nem ellenőrizhető.');
   }
-  return { ...candidate, sourceSha256: createHash('sha256').update(cvText).digest('hex') };
+  if (candidate.sourceManifest) {
+    const manifestPath = path.resolve(profileDir, candidate.sourceManifest);
+    if (path.relative(profileDir, manifestPath).startsWith('..')) throw new Error('Érvénytelen forrásjegyzék útvonal.');
+    const manifestText = await readFile(manifestPath, 'utf8');
+    const manifest = JSON.parse(manifestText);
+    for (const file of manifest.files) {
+      const originalPath = path.resolve(profileDir, file.path);
+      if (path.relative(profileDir, originalPath).startsWith('..')) throw new Error('Érvénytelen dokumentumútvonal.');
+      const bytes = await readFile(originalPath);
+      if (createHash('sha256').update(bytes).digest('hex') !== file.sha256) throw new Error(`Megváltozott szakmai forrás: ${file.path}`);
+    }
+    sourceTexts.set(candidate.sourceManifest, manifestText);
+  }
+  return { ...candidate, sourceFiles: [...sourceTexts.keys()], sourceSha256: createHash('sha256').update(JSON.stringify([...sourceTexts])).digest('hex') };
 }
 
 function parseSimpleYamlList(text, key) {

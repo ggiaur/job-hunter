@@ -20,17 +20,21 @@ const vacancy = {
   locationText: 'Budapest', datePosted: null, positionRelevant: true, isGenericTitle: false,
 };
 
-test('actual CV and supplied certificates are loaded with source evidence; no invented degree level or CEFR', () => {
+test('verified diploma and all five certificates override the CV wording without inventing BSc/MSc or CEFR', () => {
   assert.equal(candidate.education.hasDegree, true);
-  assert.equal(candidate.education.qualification, 'Programtervező informatikus');
-  assert.equal(candidate.education.institution, 'Nyíregyházi Egyetem');
-  assert.equal(candidate.education.degreeLevel, null);
+  assert.equal(candidate.education.qualification, 'Programozó matematikus');
+  assert.equal(candidate.education.institution, 'Nyíregyházi Főiskola');
+  assert.equal(candidate.education.degreeLevel, 'főiskolai');
+  assert.equal(candidate.education.graduationDecisionDate, '2009-01-19');
   assert.equal(candidate.english.cefr, null);
   assert.match(candidate.sourceSha256, /^[a-f0-9]{64}$/);
   assert.deepEqual(candidate.certificates.map(c => [c.title, c.issuedAt]), [
     ['AI vállalati bevezetés', '2026-07-19'], ['MS Copilot alapok', '2026-08-04'],
+    ['AI a céges dokumentációban - RAG alapok kezdőknek', '2026-09-27'],
+    ['API-k használata (Számítógépes programok összekapcsolása)', '2026-09-27'],
+    ['Copilot', '2026-09-27'],
   ]);
-  assert.ok(candidate.certificates.every(c => c.issuer === null && c.type === 'online-course-completion'));
+  assert.ok(candidate.certificates.every(c => c.issuer === 'Gerilla Mentor Klub' && c.type === 'online-course-completion'));
 });
 
 test('profile load fails before search when an asserted CV fact has no source', async () => {
@@ -39,7 +43,7 @@ test('profile load fails before search when an asserted CV fact has no source', 
     const profile = structuredClone(candidate);
     profile.facts[0].evidence = 'Invented qualification that is absent from the source.';
     await writeFile(path.join(dir, 'candidate.json'), JSON.stringify(profile));
-    await writeFile(path.join(dir, candidate.sourceFile), await readFile(path.join(profileDir, candidate.sourceFile)));
+    for (const sourceFile of candidate.sourceFiles.filter(f => f.endsWith('.md'))) await writeFile(path.join(dir, sourceFile), await readFile(path.join(profileDir, sourceFile)));
     await assert.rejects(loadCandidateProfile(dir), /forrásbizonyíték/);
   } finally {
     await rm(dir, { recursive: true, force: true });
@@ -60,7 +64,7 @@ test('degree requirement is neutral and shows the actual informatics qualificati
   const result = computeRelevanceAssessment({ ...vacancy, descriptionText: `${vacancy.descriptionText}\nFelsőfokú informatikai végzettség.`, candidateProfile: candidate });
   assert.equal(result.hardExcluded, false);
   assert.equal(result.score, baseline.score);
-  assert.match(result.educationNote, /Programtervező informatikus/);
+  assert.match(result.educationNote, /Programozó matematikus/);
   assert.ok(!result.mismatchReasons.some(r => /végzettség|diploma/.test(r)));
 });
 
@@ -157,7 +161,7 @@ test('the rendered vacancy shows CV evidence, degree and original feedback with 
     ...assessment, title: vacancy.title, company: 'Example', url: 'https://example.org/job',
     relevancePercent: assessment.score, priorFeedback: [{ decision: 'DO_NOT_APPLY', reason: '<script>unsafe</script>' }],
   }] }, { decisionsDict: {} });
-  assert.ok(html.includes('Programtervező informatikus'));
+  assert.ok(html.includes('Programozó matematikus'));
   assert.ok(html.includes('Önéletrajzi bizonyítékok'));
   assert.ok(html.includes('Levelezési és fájlkezelési rendszer'));
   assert.ok(html.includes('&lt;script&gt;unsafe&lt;/script&gt;'));

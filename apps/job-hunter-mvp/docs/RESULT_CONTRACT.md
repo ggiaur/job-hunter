@@ -44,10 +44,16 @@ special-case low scores — just filter on `visible`.
 | `workArrangement` | `"remote/hibrid"` \| null | only set when explicitly detected |
 | `salary` | string \| null | only set when a real HUF figure was found in the ad text; **never fabricated** |
 | `relevancePercent` | number (0-100) | the explainable score |
-| `visible` | boolean | `relevancePercent >= visibleThreshold` — the presentation layer's primary filter |
+| `visible` | boolean | eligibility PASS AND fitClass STRONG_MATCH; an explicit false must never be overridden by the numeric score |
+| `fitScore` / `fitClass` | number / string | professional fit survives exclusion for audit; STRONG_MATCH, SECONDARY or WEAK_MATCH |
+| `eligibility` / `matchClass` | string | eligibility PASS/REVIEW/REJECT; matchClass REJECT overrides professional fit |
+| `english_gate` | object | PASS/REVIEW/REJECT, reason and exact advertisement evidence |
+| `leadership_fit`, `people_management_fit`, `technical_fit`, `development_fit`, `strategic_fit`, `location_fit` | object | separate facets with evidence; no title-only leadership claim |
+| `hard_rejection_reason` / `final_explanation` | string or null / string | explicit blocker and final outcome on accepted AND excluded records |
+| `policyVersion` / `signalBreakdown` | string / object | versioned active weights and their evidence fragments |
 | `fitReasons` | string[] | concise reasons the row scored well (Hungarian) |
 | `mismatchReasons` | string[] | concise reasons it scored lower / risks (Hungarian) |
-| `englishRequirement` | string | human-readable label, e.g. "basic/intermediate (not disqualifying)" |
+| `englishRequirement` | string | human-readable gate outcome; unspecified usage is review, not automatically acceptable |
 | `educationNote` | string \| null | informational comparison with the actual degree; no degree exclusion or penalty |
 | `candidateReview` | object | CV source version/hash; paired CV and job excerpts, bounded overlap points, unverified specialist terms |
 | `priorFeedback` | array | exact employer/title PO decisions with original reasons; no inferred blanket rejection |

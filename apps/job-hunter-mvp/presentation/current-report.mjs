@@ -15,7 +15,7 @@ export function currentResultsMarkdown(run, { snapshotRelative, htmlRelative, de
   const merged = mergeDecisions(run, decisionsDict);
   const rows = merged.results || [];
   const threshold = merged.visibleThreshold ?? 60;
-  const candidates = rows.filter(r => (r.visible || r.relevancePercent >= threshold) && r.poDecision !== 'DO_NOT_APPLY');
+  const candidates = rows.filter(r => (r.visible ?? (r.relevancePercent >= threshold)) && !r.hardExcluded && r.eligibility !== 'REJECT' && r.eligibility !== 'REVIEW' && r.poDecision !== 'DO_NOT_APPLY');
   const previousRejections = rows.filter(r => r.poDecision === 'DO_NOT_APPLY');
   const githubRunUrl = link(run.githubRunUrl);
   const reportLinks = githubRunUrl
@@ -23,6 +23,7 @@ export function currentResultsMarkdown(run, { snapshotRelative, htmlRelative, de
     : `[Böngészhető eredmények és CV-bizonyítékok](${htmlRelative}) · [E futás változatlan forrása](${snapshotRelative})`;
   const lines = [
     '# Job Hunter – aktuális, CV-alapú keresés', '',
+    '[Külön célzott linkellenőrzés: Nova és Kincstár, 2026-10-01](docs/evidence/verified-vacancies-2026-10-01.md)', '',
     `**Frissítve (UTC):** ${plain(run.generatedAt)}`,
     `**Ellenőrzött hirdetésoldalak:** ${run.confirmedJobAdPages ?? rows.length + (run.excluded || []).length}`,
     `**Pontozott bejegyzések:** ${rows.length}; **ellenőrizendő jelöltek:** ${candidates.length}; **korábbi elutasítások:** ${previousRejections.length}.`,
@@ -61,10 +62,17 @@ export function currentResultsMarkdown(run, { snapshotRelative, htmlRelative, de
     if (url) lines.push(`[Hirdetés](${url})`, '');
     lines.push(`- Helyszín a forrásban: ${plain(row.locationText || 'nincs megadva')}; munkarend-jelzés: ${plain(row.workArrangement || 'nincs igazolt hibrid/távmunka')}. A részletes bejárási feltételek külön ellenőrizendők.`);
     lines.push(`- Angol: ${plain(row.englishRequirement || 'nincs megállapítva')}.`);
+    if (row.final_explanation) lines.push(`- Értékelés: ${plain(row.final_explanation)}`);
     const matches = row.candidateReview?.matches || [];
     if (matches.length) lines.push(`- CV-kapcsolódás: ${matches.map(m => plain(m.label)).join('; ')}.`);
     for (const risk of row.mismatchReasons || []) lines.push(`- Ellenőrizendő: ${plain(risk)}`);
     if (row.educationNote) lines.push(`- Végzettség: ${plain(row.educationNote)}`);
+    lines.push('');
+  }
+  const secondary = rows.filter(r => !candidates.includes(r) && r.poDecision !== 'DO_NOT_APPLY' && !r.hardExcluded);
+  if (secondary.length) {
+    lines.push('## Másodlagos vagy tisztázandó találatok', '');
+    for (const row of secondary) lines.push(`- ${plain(row.company)} — ${plain(row.title)}: ${plain(row.final_explanation || 'Nem elsődleges ajánlat.')} ${link(row.url) ? `[Hirdetés](${link(row.url)})` : ''}`);
     lines.push('');
   }
   lines.push('## Keresési lefedettség és működés', '');
@@ -81,8 +89,9 @@ export async function publishCurrentReports(repoRoot, snapshotPath) {
   const decisionsDict = loadDecisions(path.join(repoRoot, 'docs/evidence/po-decisions.json'));
   const htmlPath = path.join(repoRoot, 'docs/evidence/current-cv-results.html');
   const markdownPath = path.join(repoRoot, 'CURRENT_RESULTS.md');
-  const html = renderHtmlReport(run, { decisionsDict, sourceFilePath: path.relative(path.dirname(htmlPath), snapshotPath) });
-  const markdown = currentResultsMarkdown(run, { decisionsDict, snapshotRelative: path.relative(repoRoot, snapshotPath), htmlRelative: path.relative(repoRoot, htmlPath) });
+  const reportRelative = (from, to) => path.relative(from, to).split(path.sep).join('/');
+  const html = renderHtmlReport(run, { decisionsDict, sourceFilePath: reportRelative(path.dirname(htmlPath), snapshotPath) });
+  const markdown = currentResultsMarkdown(run, { decisionsDict, snapshotRelative: reportRelative(repoRoot, snapshotPath), htmlRelative: reportRelative(repoRoot, htmlPath) });
   await mkdir(path.dirname(htmlPath), { recursive: true });
   for (const [target, contents] of [[htmlPath, html], [markdownPath, markdown]]) {
     const temporary = `${target}.${process.pid}.tmp`;

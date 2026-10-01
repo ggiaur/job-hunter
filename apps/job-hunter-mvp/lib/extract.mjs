@@ -192,6 +192,37 @@ export function englishRequirementLabel(text) {
   return 'not specified in extracted text';
 }
 
+// Language level and actual usage are separate. A bare B2 label is unresolved;
+// daily/business English is a blocker even when no CEFR level is provided.
+export function assessEnglishGate(text = '') {
+  const active = /(?:daily|everyday|business|working language|international communication)[^.\n;]{0,65}english|english[^.\n;]{0,65}(?:daily|everyday|working language|business|international communication)|(?:napi|rendszeres|aktív|munkanyelv|üzleti)[^.\n;]{0,55}angol|angol[^.\n;]{0,90}(?:napi|rendszeres|aktív|munkanyelv|külföldi partnerekkel|nemzetközi kommunikáció)|daily international communication/i;
+  const optional = /előny|nem elvárás|nem feltétel|nem kötelező|nem szükséges|nem kell|preferred|optional|not required|nice.to.have/i;
+  const readingOnly = /(?:csak|kizárólag)[^.\n;]{0,50}(?:dokumentáció|olvas)|(?:documentation|reading)[^.\n;]{0,40}only|only[^.\n;]{0,40}(?:documentation|reading)/i;
+  const rejected = [], unresolved = [], allowed = [];
+  let preferenceSection = false;
+  for (const clause of requirementClauses(text)) {
+    if (/^(?:előnyök|előnyt jelent|az állás betöltéséhez előnyt jelent|nice.to.have|preferred)\s*:?$/i.test(clause)) { preferenceSection = true; continue; }
+    if (/^(?:elvárások|requirements|feladatok|responsibilities|amit kínálunk)\s*:?$/i.test(clause)) { preferenceSection = false; continue; }
+    if (!/angol|english|nyelvtudás/i.test(clause) && !/daily international communication/i.test(clause)) continue;
+    const explicitUse = active.test(clause) && !/nem (?:napi|munkanyelv)|not (?:a |the )?working language/i.test(clause);
+    // A later mandatory usage clause must win over an earlier optional label.
+    const mandatoryUsage = explicitUse && /kötelező|szükséges|elvárt|elengedhetetlen|required|must|working language|munkanyelv/i.test(clause);
+    if (mandatoryUsage) rejected.push(clause);
+    else if (optional.test(clause) || (preferenceSection && !explicitUse) || (readingOnly.test(clause) && !explicitUse)) allowed.push(clause);
+    else if (checkAdvancedEnglishRequired(clause) || explicitUse) rejected.push(clause);
+    else unresolved.push(clause);
+  }
+  const status = rejected.length ? 'REJECT' : unresolved.length ? 'REVIEW' : 'PASS';
+  return {
+    status,
+    evidence: rejected.length ? rejected : unresolved.length ? unresolved : allowed,
+    reason: status === 'REJECT' ? 'Kötelező aktív, napi vagy folyékony üzleti angol.'
+      : status === 'REVIEW' ? 'Angolelvárás szerepel, a tényleges használat tisztázandó.'
+        : allowed.length ? 'Az angol csak előny, nem kötelező, vagy kizárólag dokumentációolvasáshoz kell.'
+          : 'A vizsgált hirdetésszövegben nincs angolelvárás megadva.',
+  };
+}
+
 const HIGHER_EDUCATION_REGEX =
   /(^|[\n,;|])\s*(főiskola|egyetem|felsőoktatási szakképzés)\s*(?=$|[\n,;|])|felsőfokú[^.\n;]{0,40}(végzettség|diploma)|(?:főiskolai|egyetemi)[^.\n;]{0,30}(végzettség|diploma)|(végzettség|diploma)[^.\n;]{0,30}(felsőfokú|főiskolai|egyetemi)|(?:university|college|bachelor'?s?|master'?s?)[^.\n;]{0,25}degree|degree[^.\n;]{0,25}(?:university|college|bachelor'?s?|master'?s?)/i;
 const EDUCATION_PREFERENCE_OVERRIDE_REGEX =
@@ -229,10 +260,8 @@ const MANAGEMENT_SCOPE_MARKERS = [
   'csapatot vezet',
   'csapatvezetés',
   'beosztottak',
-  'csapata',
   'szervezeti egység vezetése',
   'osztály vezetése',
-  'költségvetési felelősség',
   'emberek irányítása',
   'teljesítményértékelés',
   'csapattagok motiválása',
@@ -241,7 +270,6 @@ const MANAGEMENT_SCOPE_MARKERS = [
   'direct reports',
   'line management',
   'team management',
-  'budget responsibility',
   'managing a team',
 ];
 
@@ -285,9 +313,11 @@ const MANAGEMENT_SCOPE_MARKERS = [
 const TEAM_OPERATED_REGEX = /csapat[^\s.!?]*(?:\s+[^\s.!?]+){0,4}?\s+(irányítása|vezetése|működtetése|menedzselése|felügyelete)/i;
 
 export function hasManagementScope(text) {
-  const lower = text.toLowerCase();
+  const lower = (text || '').toLowerCase();
+  if (/no (?:direct reports|people management)|without people management|nincs[^.\n;]{0,15}beosztott/i.test(lower)) return false;
   if (MANAGEMENT_SCOPE_MARKERS.some((m) => lower.includes(m))) return true;
-  return TEAM_OPERATED_REGEX.test(lower);
+  return TEAM_OPERATED_REGEX.test(lower)
+    || /(?:szervezet|osztály|kollégák|munkatársak)[^.\n;]{0,55}(?:vezetése|irányítása|munkavégzésének megszervezése)|irányítása alá tartozó kollégák|lead(?:ing)? (?:the |an? )?(?:it |engineering )?team/i.test(lower);
 }
 
 const SENIOR_IC_TITLE_MARKERS = /senior fejlesztő|senior developer|technical lead|tech lead|senior mérnök|senior engineer/i;
@@ -359,6 +389,12 @@ export function hasInstitutionalContext(text) {
 }
 
 const POSITION_MATCH_TERMS = [
+  'head of it',
+  'it director',
+  'it operations manager',
+  'it szolgáltatási vezet',
+  'üzemeltetési vezet',
+  'technology leader',
   'it vezet',
   'informatikai vezet',
   'it manager',
@@ -399,6 +435,11 @@ const POSITION_MATCH_TERMS = [
 // same-titled but unrelated role (e.g. a translation-services PMO).
 const GENERIC_PROJECT_TITLE_TERMS = ['projektmenedzser', 'projektvezető', 'programvezető', 'program manager', 'szolgáltatásmenedzser', 'service manager', 'pmo', 'osztályvezető', 'csoportvezető', 'engineering manager', 'operations manager'];
 const IT_DOMAIN_CONTEXT_TERMS = [
+  'rendszerfelügyelet',
+  'monitorozás',
+  'helpdesk',
+  'rendszermérnök',
+  'infrastructure',
   'informatik',
   ' it ',
   'it-',

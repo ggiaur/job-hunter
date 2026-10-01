@@ -13,11 +13,11 @@
 
 ## Pozitív minták / előresorolandó találatok
 
-- A Pillér Nonprofit Kft. `Projektmenedzser` hirdetés kifejezetten jó minta.
-- Hasonló állások kapjanak magasabb relevancia-pontot: informatikai vagy digitalizációs projektmenedzsment, több szervezeti szereplő koordinálása, projekttervezés, erőforrás-/határidő-/kockázatkezelés, státuszriport és döntés-előkészítés, vezetői szemlélet.
+- A 2026-09-30-i pontosítás felülírja a korábbi Pillér-központú projektmenedzseri pozitív mintát: elsődlegesen valódi IT-szervezetvezetést keresünk.
+- A projektterv, határidő, stakeholder-koordináció és döntés-előkészítés önmagában legfeljebb másodlagos illeszkedés. Saját csapat, döntési jogkör és széles IT-felelősség együtt emelheti erős találattá.
 - Előny a stabil nagyvállalati, közszolgáltatói, nonprofit vagy közigazgatási/intézményi környezet.
-- Nem szükséges line-manager pozíciónak lennie, ha a szerep ténylegesen összetett IT-projektvezetés és vezetői/döntéstámogatói felelősség.
-- Angol: a középfokú angol **nem kizáró ok**; kötelező felsőfokú/folyékony/tárgyalásképes/anyanyelvi szint viszont továbbra is kizáró.
+- A vezetői hatáskör nélküli projekt-/programmenedzsment legfeljebb másodlagos találat.
+- Angol: a tényleges napi aktív használat vagy munkanyelv kizáró ok. A puszta középfokú/B2 címke tisztázandó; csak előny vagy kizárólag dokumentációolvasás elfogadható.
 
 ## 2026-09-04 élő PO-review — konkrét döntési bizonyítékok
 
@@ -27,7 +27,7 @@ Ezeket a következő futásokban nem puszta `DO_NOT_APPLY` címkeként, hanem a 
 - **Deloitte — IT Associate Service Manager / Incident Management:** DO_NOT_APPLY. Elsődleges ok: kötelező német + angol, legalább B2 szinten; a kombinált nyelvi követelmény kizáró.
 - **WAY Group / CAIP Hungary — IT Manager, Nyíregyháza:** DO_NOT_APPLY. Elsődleges ok: a nagy távolság **együtt** a helyszíni, teljes munkaidős működéssel és a hibrid/remote lehetőség hiányával. Ne általánosítsuk úgy, hogy Nyíregyháza önmagában kizárt.
 - **Siemens Energy — IT Development and Operations Manager:** DO_NOT_APPLY. Elsődleges ok: a szerep túl SAP-/gyártási IT-központú és operatív; másodlagosan kevés klasszikus people-management felelősség.
-- **Emerson — Documentation Program Manager:** DO_NOT_APPLY ennél a konkrét szerepnél. A probléma nem önmagában a cross-functional projektvezetés vagy a közvetlen beosztottak hiánya; a dokumentációs/content-platform transzformációs fókusz összességében nem volt megfelelő. Pillér-szerű, valódi IT-projektvezetői cross-functional szerepeket továbbra is keressünk.
+- **Emerson — Documentation Program Manager:** DO_NOT_APPLY ennél a konkrét szerepnél. A dokumentációs/content-platform transzformációs fókusz összességében nem volt megfelelő. Ez az eredeti konkrét döntés; a jövőbeli PM-rangsorolást a 2026-09-30-i szabály határozza meg.
 - **Iron Mountain — Strategic Initiatives Program Manager:** DO_NOT_APPLY. Elsődleges ok: a globális, több országot és senior stakeholder kommunikációt érintő szerep nagy valószínűséggel jelentős aktív üzleti angolt igényel; ezt nyelvi blockernek kell kezelni. A saját csapat hiánya csak másodlagos.
 
 ## Tanulási szabály a visszajelzésekhez

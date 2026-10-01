@@ -25,19 +25,23 @@ uncertainties and prior PO rejections. A scoring threshold is not a manual appro
 The existing cron wrapper runs this same entry point; no extra presentation command
 is needed and no messages/applications are sent automatically.
 
-## CV evidence (2026-09-16)
+## CV evidence (2026-09-30)
 
-`profile/candidate.json` contains the professional facts and two course-completion
-certificates supplied by the user. Each fact must quote evidence in
-`profile/cv-source-2026-09-16.md`; loading fails if that evidence is absent.
+`profile/candidate.json` contains professional facts, the verified degree and five
+course-completion certificates. Each fact points to its dated source extract;
+loading fails if its evidence is absent. Start at `profile/INDEX.md`.
 The original HTML's visual English indicator is not converted to a CEFR level.
 The informatics degree is documented and never causes automatic rejection.
 
 Both the full search and targeted recheck use `lib/vacancy-review.mjs`.
-Scoring now receives the candidate: ten previously unconditional baseline points
-are replaced with 0–10 CV-topic overlap points (2 per non-leadership matching fact,
-capped at 10). The existing people/project leadership bonuses require the
-corresponding CV facts. Matches retain both the CV excerpt and job excerpt.
+Scoring uses `profile/matching-policy.json` (leadership-first, 2026-09-30).
+Job titles add zero points. Concrete people management, full IT responsibility,
+operations, strategy, budget and vendor duties supply itemized weights;
+CV-topic overlap remains bounded to 10 points. PM roles need people management,
+decision authority AND broad IT scope for a strong match; otherwise they remain
+secondary below the primary-list threshold. Daily/active/business English rejects
+independently of professional fit. Ambiguous language requirements need review.
+All decisions retain evidence, facets, fit class and a separate eligibility gate.
 Unverified named specialist skills are flagged, never invented or automatically
 excluded. This remains rule-based matching, not a validated probability of fit.
 
@@ -74,11 +78,19 @@ source version and SHA-256 so a later profile edit cannot silently change histor
   `schema.org/JobPosting` structured data, not text heuristics — this was a
   deliberate fix after an earlier heuristic version misclassified job-board
   category/listing pages as individual advertisements.
-- Position relevance is a hard gate: a job title must contain an
-  IT-leadership keyword and not match an unrelated-domain term (recruiting,
-  marketing, customer service) to be accepted at all — otherwise every job
-  posting on a matched company's career page would pass through regardless
-  of relevance.
+- Position relevance requires an IT domain. Concrete IT leadership duties can
+  rescue a generic title; a leadership-looking title alone cannot earn a good score.
 - No browser automation. No requests to `google.com/search`. Ordinary HTTP
   fetch of public job-board/company pages, same class of access any browser
   or crawler uses to read a public page.
+
+## Permanent candidate sources
+
+Start at [`profile/INDEX.md`](../../profile/INDEX.md). The supplied CV v18,
+degree scan and five training certificates are stored in `profile/sources/originals/`.
+The loader verifies their hashes against `profile/sources/manifest.json` and pairs
+facts with the dated CV/document/clarification extracts. The actual degree is
+Programozó matematikus, Nyíregyházi Főiskola, final examination 2009-01-19;
+the verified degree overrides the older CV wording. Training certificates document
+course completion, not specialist proficiency. No uploaded chat attachment is
+needed to load the profile on a later run.

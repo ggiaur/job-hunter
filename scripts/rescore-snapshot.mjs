@@ -22,11 +22,12 @@ import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { computeRelevanceAssessment } from '../apps/job-hunter-mvp/lib/scoring.mjs';
-import { isGenericProjectTitle, matchesTargetPosition } from '../apps/job-hunter-mvp/lib/extract.mjs';
+import { isGenericProjectTitle, matchesTargetPosition, hasITDomainContext } from '../apps/job-hunter-mvp/lib/extract.mjs';
 import { loadProfile } from '../apps/job-hunter-mvp/lib/profile.mjs';
 import { findPriorFeedback } from '../apps/job-hunter-mvp/lib/candidate-fit.mjs';
 import { dedupeVacancies } from '../apps/job-hunter-mvp/lib/vacancy-dedup.mjs';
 import { publishCurrentReports } from '../apps/job-hunter-mvp/presentation/current-report.mjs';
+import { checkCanaries, allCanariesReachedScoring } from '../apps/job-hunter-mvp/lib/canaries.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DEFAULT_SNAPSHOT = path.join(ROOT, 'docs/evidence/real-job-hunter-current-run.json');
@@ -48,7 +49,7 @@ async function main() {
     if (!record.descriptionText) {
       // Keep the row untouched rather than guessing, and account for it.
       notRescorable.push({ url: record.url, title: record.title, company: record.company });
-      rescored.push(record);
+      rescored.push({ ...record, visible: false, eligibility: 'REVIEW', final_explanation: 'Tárolt hirdetésszöveg hiányában az új szabályokkal nem értékelhető; újbóli ellenőrzés szükséges.' });
       continue;
     }
     const assessment = computeRelevanceAssessment({
@@ -56,17 +57,14 @@ async function main() {
       descriptionText: record.descriptionText,
       locationText: record.locationText,
       datePosted: record.datePosted,
-      // The stored validThrough already gated the original run; re-applying it
-      // here would drop adverts purely for having aged, which is a freshness
-      // question for a live run, not a scoring correction.
-      validThrough: 'unknown',
-      positionRelevant: true,
+      validThrough: record.validThrough,
+      positionRelevant: (matchesTargetPosition(record.title) || isGenericProjectTitle(record.title)) && hasITDomainContext(`${record.title} ${record.descriptionText}`),
       isGenericTitle: isGenericProjectTitle(record.title) && !matchesTargetPosition(record.title),
       candidateProfile: profile.candidate,
     });
 
     if (assessment.hardExcluded) {
-      newlyExcluded.push({ company: record.company, title: record.title, reason: assessment.exclusionReason });
+      newlyExcluded.push({ ...record, ...assessment, reason: assessment.exclusionReason });
       continue;
     }
 
@@ -74,6 +72,7 @@ async function main() {
     const priorDecision = priorFeedback.at(-1);
     rescored.push({
       ...record,
+      ...assessment,
       relevancePercent: assessment.score,
       visible: assessment.visible,
       fitReasons: assessment.fitReasons,
@@ -81,20 +80,22 @@ async function main() {
       englishRequirement: assessment.englishRequirement,
       educationNote: assessment.educationNote,
       candidateReview: assessment.candidateReview,
-      poDecision: priorDecision?.decision ?? null,
-      poReason: priorDecision?.reason ?? null,
+      poDecision: record.poDecision ?? priorDecision?.decision ?? null,
+      poReason: record.poReason ?? priorDecision?.reason ?? null,
       priorFeedback,
     });
   }
 
   const visibleForReview = rescored.filter((r) => r.visible && r.poDecision !== 'DO_NOT_APPLY');
   const { kept, duplicates } = dedupeVacancies(visibleForReview);
-  const keptUrls = new Set(kept.map((r) => r.url));
   const alsoPostedByUrl = new Map(kept.filter((r) => r.alsoPostedAt).map((r) => [r.url, r.alsoPostedAt]));
 
   const finalResults = rescored
     .filter((r) => !duplicates.some((d) => d.url === r.url))
     .map((r) => (alsoPostedByUrl.has(r.url) ? { ...r, alsoPostedAt: alsoPostedByUrl.get(r.url) } : r));
+
+  const exclusions = [...(run.excluded || []), ...newlyExcluded];
+  const canaries = checkCanaries(run.stageEvidence || [], finalResults, exclusions);
 
   const output = {
     ...run,
@@ -106,6 +107,11 @@ async function main() {
       'Scores, prior-PO-decision matching and duplicate collapsing recomputed from the stored advert text of the run above. No new search or page fetch was performed; the vacancy set and its acquisition time are unchanged.',
     searchApiQueriesUsed: 0,
     results: finalResults,
+    excluded: exclusions,
+    canaries,
+    canariesReachedScoring: allCanariesReachedScoring(canaries),
+    candidateProfileVersion: profile.candidate.version,
+    candidateSourceSha256: profile.candidate.sourceSha256,
     visibleCount: kept.length,
     reviewCandidateCount: kept.length,
     rescoreDiagnostics: {

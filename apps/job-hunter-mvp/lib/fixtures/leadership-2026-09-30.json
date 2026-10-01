@@ -1,0 +1,27 @@
+{
+  "checkedAt": "2026-09-30T18:31:57Z",
+  "note": "Kézzel ellenőrzött hirdetések rövid, saját szavas kivonata. Az ellenőrzés időponthoz kötött; a teszt nem igazolja a linkek későbbi élő állapotát.",
+  "jobs": [
+    {
+      "company": "Nova HR",
+      "title": "IT igazgató",
+      "url": "https://novahr.hu/recruitment/job/it-igazgato/",
+      "alternateUrl": "https://www.profession.hu/allas/it-igazgato-nova-hr-2988773",
+      "linkStatus": "advert_and_application_form_available",
+      "description": "A teljes IT szervezet vezetése egy kereskedelmi-logisztikai vállalatnál. Fejlesztőcsapat és üzemeltetés irányítása, IT-biztonsági felelősség. Stratégiai döntésekben részvétel. Fejlesztési fókuszú háttér, webes és AI projektek felügyelete. Nem kell nyelvtudás.",
+      "educationNote": "A Profession Egyetem elvárást jelöl, a közvetítő saját szövege nem említ diplomát. A pontos feltétel tisztázandó."
+    },
+    {
+      "company": "Magyar Államkincstár",
+      "title": "Helpdesk és Rendszerfelügyeleti Osztályvezető",
+      "url": "https://www.allamkincstar.gov.hu/footer-tartalmak/vizszintes-sor/Karrier/Allasajanlatok/budapest/osztalyvezeto-4132026",
+      "linkStatus": "advert_and_current_career_listing_available",
+      "description": "Az osztály vezetése, beosztottak munkájának szervezése és teljesítményértékelés. A monitoring fejlesztése, jegykezelési szolgáltatás megújítása. Kapcsolattartás a külső szállítókkal. Éves beszerzési, fejlesztési és üzemeltetési terv készítése. Államigazgatási környezet. Felsőfokú szakirányú végzettség szükséges.",
+      "applicationDeadline": "2026-10-15",
+      "educationNote": "Kötelező szakirányú diploma; a jelölt igazolt programozó matematikus főiskolai végzettségével összevetendő. A pályázat korábban is lezárható."
+    }
+  ],
+  "unavailable": [
+    { "company": "BECK AND PARTNERS", "title": "IT igazgató", "url": "https://www.profession.hu/allas/it-igazgato-beck-and-partners-kft-budapest-2996778", "linkStatus": "redirect_to_category", "finalUrl": "https://www.profession.hu/allasok/informatikai-igazgato/1,30,0,0,388", "note": "A 200 HTTP válasz kategóriaoldalt ad; ez nem ellenőrzött élő hirdetés." }
+  ]
+}

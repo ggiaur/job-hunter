@@ -16,11 +16,11 @@
 //   Hungarian locations per PO_DECISIONS section 5.
 
 export const ROLE_FAMILIES = [
-  { q: 'IT vezető', priorityWeight: 60 },
-  { q: 'informatikai vezető', priorityWeight: 60 },
-  { q: 'IT osztályvezető', priorityWeight: 50 },
-  { q: 'infrastruktúra vezető', priorityWeight: 50 },
-  { q: 'IT projektmenedzser', priorityWeight: 40 },
+  { q: 'IT igazgató', priorityWeight: 90 },
+  { q: 'informatikai vezető', priorityWeight: 90 },
+  { q: 'IT osztályvezető', priorityWeight: 85 },
+  { q: 'infrastruktúra vezető', priorityWeight: 85 },
+  { q: 'Head of IT', priorityWeight: 90 },
   // Bare "projektmenedzser" (no IT prefix): the live Pillér Nonprofit Kft.
   // canary (title "Projektmenedzser", no IT qualifier) proved that SerpApi's
   // live ranking for "IT projektmenedzser" can surface a different, narrower
@@ -32,13 +32,13 @@ export const ROLE_FAMILIES = [
   // unrelated ones (proven across this session's false-positive fixes), so
   // widening the query itself is safe -- relevance filtering happens after
   // acquisition, not by pre-qualifying the search term with "IT".
-  { q: 'projektmenedzser', priorityWeight: 35 },
-  { q: 'informatikai projektvezető', priorityWeight: 45 },
-  { q: 'digitalizációs projektmenedzser', priorityWeight: 45 },
-  { q: 'digitalizációs vezető', priorityWeight: 30 },
-  { q: 'IT szolgáltatásmenedzser', priorityWeight: 35 },
-  { q: 'közintézményi digitalizációs projektmenedzser', priorityWeight: 40 },
-  { q: 'AI transzformációs vezető', priorityWeight: 20 },
+  { q: 'rendszerfelügyeleti osztályvezető', priorityWeight: 85 },
+  { q: 'IT üzemeltetési vezető', priorityWeight: 85 },
+  { q: 'IT szolgáltatási vezető', priorityWeight: 80 },
+  { q: 'digitalizációs vezető', priorityWeight: 80 },
+  { q: 'technológiai vezető', priorityWeight: 75 },
+  { q: 'senior IT programvezető projektmenedzser', priorityWeight: 20 },
+  { q: 'AI transzformációs vezető', priorityWeight: 70 },
 ];
 
 // PO_DECISIONS_2026-09-04.md section 5: primary accessibility ring from
@@ -63,8 +63,8 @@ export function buildAcquisitionQueries({ roleFamilies = ROLE_FAMILIES, regionCi
   }
 
   queries.push({
-    q: 'IT vezető informatikai vezető projektmenedzser állás távmunka hibrid',
-    priorityWeight: 40,
+    q: 'IT vezető informatikai vezető infrastruktúra vezető állás távmunka hibrid',
+    priorityWeight: 80,
     locationLane: 'remote-hybrid',
   });
 

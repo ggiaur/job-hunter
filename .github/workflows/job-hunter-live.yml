@@ -91,7 +91,10 @@ jobs:
           fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## Job Hunter live acceptance\n\n\`\`\`json\n${JSON.stringify(summary, null, 2)}\n\`\`\`\n`);
 
           const failures = [];
-          if (visible < 7) failures.push(`only ${visible} visible results; active product requirement asks for 7-15 when current inventory supports it`);
+          // Quality gates precede quantity; a small market is not a software failure.
+          const invalidRecommendations = (run.results || []).filter(r => r.visible === true &&
+            (r.hardExcluded || r.eligibility !== 'PASS' || r.fitClass !== 'STRONG_MATCH' || r.english_gate?.status !== 'PASS'));
+          if (invalidRecommendations.length) failures.push(`${invalidRecommendations.length} visible result(s) violate eligibility or leadership policy`);
           if (run.canariesReachedScoring !== true) failures.push('known-positive canaries did not all reach scoring');
           if (unresolvedCanaries.length) failures.push(`unresolved canaries: ${unresolvedCanaries.map(c => `${c.id}=${c.status}`).join(', ')}`);
           if (failures.length) {

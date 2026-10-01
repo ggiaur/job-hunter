@@ -1,0 +1,48 @@
+{
+  "verifiedAt": "2026-09-30",
+  "extract": "verified-documents-2026-09-30.md",
+  "files": [
+    {
+      "path": "sources/originals/belinszki-janos-ai-a-ceges-dokumentacioban-rag-alapok-kezdoknek-179573.pdf",
+      "sha256": "4f2347f5ac22c72508b5f7b3a19d151d5be0a0cca757ce4a766888583669c9b5",
+      "pages": 3,
+      "sourceLocation": "diploma-oklevelek/belinszki-janos-ai-a-ceges-dokumentacioban-rag-alapok-kezdoknek-179573.pdf"
+    },
+    {
+      "path": "sources/originals/belinszki-janos-ai-vallalati-bevezetes-172490.pdf",
+      "sha256": "40aca69d8b82201fb2d02bb9435a36b922207b10eb490765a8a29fc76047532d",
+      "pages": 3,
+      "sourceLocation": "diploma-oklevelek/belinszki-janos-ai-vallalati-bevezetes-172490.pdf"
+    },
+    {
+      "path": "sources/originals/belinszki-janos-api-k-hasznalata-szamitogepes-programok-osszekapcsolasa-179575.pdf",
+      "sha256": "88abbc3c00abbc6f21e7900be70e4664b24e11fa710f0293d60ae02873175a4c",
+      "pages": 3,
+      "sourceLocation": "diploma-oklevelek/belinszki-janos-api-k-hasznalata-szamitogepes-programok-osszekapcsolasa-179575.pdf"
+    },
+    {
+      "path": "sources/originals/belinszki-janos-copilot-179577.pdf",
+      "sha256": "311760daf11fba7aed0c78cc138c24b769f26f2eaac7896d510daa10ec47cf22",
+      "pages": 3,
+      "sourceLocation": "diploma-oklevelek/belinszki-janos-copilot-179577.pdf"
+    },
+    {
+      "path": "sources/originals/belinszki-janos-ms-copilot-alapok-174855.pdf",
+      "sha256": "da78842dfd58a2ee47cc6cc2e74df7ef1afb20eb89336ca9ddf319a906b5f4f2",
+      "pages": 3,
+      "sourceLocation": "diploma-oklevelek/belinszki-janos-ms-copilot-alapok-174855.pdf"
+    },
+    {
+      "path": "sources/originals/diploma_bj.pdf",
+      "sha256": "3793791e22ec13df764fd1a6f65305b4442f14b4fb5b0d14acc1a2c1d5cce63f",
+      "pages": 2,
+      "sourceLocation": "diploma-oklevelek/diploma_bj.pdf"
+    },
+    {
+      "path": "sources/originals/CV_Belinszki_Janos_OBH_v18.html",
+      "sha256": "adab90c6d6d73c0cb09f3b88c7d9542f82663db5adb9e0fe1bef8f96e8045df8",
+      "pages": null,
+      "sourceLocation": "CV_Belinszki_Janos_OBH_v18.html"
+    }
+  ]
+}

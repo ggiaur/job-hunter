@@ -32,9 +32,10 @@
 ## Keresett pozíciók (prioritás sorrendben)
 1. IT vezető / informatikai vezető / IT manager
 2. IT osztályvezető / infrastruktúra vezető
-3. IT projektmenedzser
-4. Digitalizációs vezető / CIO
+3. IT szolgáltatási / üzemeltetési / technológiai vezető
+4. Digitalizációs vezető / CIO / Head of IT / IT igazgató
 5. AI/MI-fókuszú vezetői pozíciók: AI Lead, AI Product Manager, "vibe coding"/AI-asszisztált fejlesztést vezető szerepkör, AI transzformációs vezető, Head of AI
+6. Másodlagosan: technikai programvezető / transzformációs vezető / senior IT-projektvezető. Erős találathoz saját csapat, döntési jogkör és széles IT-felelősség együtt szükséges.
 
 ## Lokáció
 Budapest és agglomeráció, remote/hibrid elfogadható
@@ -43,7 +44,7 @@ Budapest és agglomeráció, remote/hibrid elfogadható
 700 000 Ft+ bruttó
 
 ## Végzettség – PO-pontosítás, 2026-09-16
-- **Nyíregyházi Egyetem, programtervező informatikus, 2005–2008.** A diploma megléte és szakiránya a felhasználótól kapott önéletrajzzal alátámasztott. BSc/MSc szint nincs megadva.
+- **Programozó matematikus, Nyíregyházi Főiskola, 2005/06–2008/09; záróvizsga: 2009-01-19.** A 2026-09-30-án képként ellenőrzött oklevél ezt igazolja. Főiskolai végzettség; BSc/MSc megnevezést nem állítunk. Az oklevelet 2016-04-12-én, már Nyíregyházi Egyetem néven állították ki.
 - A hirdetésben szereplő diploma vagy felsőfokú végzettség **nem automatikus kizáró ok**, és önmagában nem jár pontlevonással.
 - Az elvárást és az esetleg elfogadott szakmai tapasztalatot tájékoztatásként kell megmutatni; a jelentkezésről a felhasználó dönt.
 
@@ -63,5 +64,10 @@ Budapest és agglomeráció, remote/hibrid elfogadható
 - Kizárólag szoftverfejlesztő / programozó (nem vezetői beosztásban)
 - Nem IT fókuszú menedzsment
 - **Felsőfokú, folyékony, tárgyalásképes, anyanyelvi vagy ezekkel egyenértékű magas szintű angol nyelvtudás kötelező előírásként kizáró ok.**
-- **Középfokú / B1–B2 / "jó" / "kommunikációképes" angol NEM automatikus kizáró ok.** Ezeket a találatokat bent kell hagyni és a többi illeszkedési szemponttal együtt értékelni.
-- Előnyben részesítendő: nincs angol követelmény; az angol csak előny; alapfokú vagy ritka/alkalmi angolhasználat.
+- **Napi aktív / üzleti angol vagy angol munkanyelv kizáró ok, CEFR-címkétől függetlenül.** Puszta B1/B2 elvárás használati környezet nélkül tisztázandó, nem elsődleges ajánlat.
+- Elfogadható: nincs angol követelmény; az angol csak előny; kizárólag dokumentációolvasáshoz kell.
+
+## Fejlesztési háttér – 2026-09-30-i felhasználói pontosítás
+- Saját PHP-fejlesztés: ERP–OpenCart integráció; web- és webáruház-fejlesztés, adatmigráció, API-integráció.
+- Fejlesztőcsapat-koordináció és AI-asszisztált kódolás. A konkrét technológiában elvárt mélység ellenőrizendő; a „development background” nem automatikus kizárás.
+- A végrehajtható súlyok és szabályok forrása: `matching-policy.json`. A munkaköri cím önmagában 0 pontot ad.

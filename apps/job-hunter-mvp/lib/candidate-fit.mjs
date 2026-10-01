@@ -28,6 +28,7 @@ export function compareCandidate(candidate, descriptionText = '') {
       factId: fact.id,
       label: fact.label,
       cvEvidence: fact.evidence,
+      sourceFile: fact.sourceFile || candidate.sourceFile,
       jobEvidence: descriptionText.slice(Math.max(0, index - 70), index + term.length + 100).trim(),
     });
   }
@@ -38,6 +39,7 @@ export function compareCandidate(candidate, descriptionText = '') {
   return {
     version: candidate.version,
     sourceFile: candidate.sourceFile,
+    sourceFiles: candidate.sourceFiles,
     sourceSha256: candidate.sourceSha256,
     matches,
     unverifiedSkills,

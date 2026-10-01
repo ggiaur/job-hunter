@@ -1,0 +1,42 @@
+{
+  "version": "leadership-2026-09-30",
+  "candidate_profile": {
+    "primary_identity": ["senior_it_leader", "head_of_it", "it_department_manager", "it_operations_leader", "it_service_leader", "infrastructure_leader", "technology_leader", "digitalization_leader"],
+    "secondary_identity": ["technical_program_manager", "transformation_manager", "senior_it_project_manager"],
+    "deprioritize": ["pure_project_manager", "pmo_manager", "scrum_master", "delivery_manager_without_people_management"]
+  },
+  "hard_filters": {
+    "english": {
+      "reject_if": ["daily_work_requires_b2_or_higher", "fluent_business_english_required", "international_working_language_is_english"],
+      "allow_if": ["english_only_advantage", "reading_documentation_only", "no_language_requirement"],
+      "ambiguous_requirement": "REVIEW"
+    },
+    "role_level": { "reject_or_strongly_downrank_if": ["individual_contributor_only", "no_leadership_scope", "junior_or_medior", "pure_coordination_without_authority"] },
+    "education": "informational_per_confirmed_degree_and_PO_2026-09-16"
+  },
+  "positive_signals": {
+    "people_management": 25,
+    "full_it_responsibility": 25,
+    "operations_and_infrastructure": 18,
+    "it_strategy": 18,
+    "budget_responsibility": 15,
+    "vendor_management": 12,
+    "procurement": 10,
+    "cybersecurity_responsibility": 10,
+    "digitalization": 12,
+    "application_or_system_integration": 12,
+    "development_oversight": 10,
+    "ai_and_automation": 8,
+    "public_sector_or_hungarian_work_environment": 6
+  },
+  "development_background": {
+    "do_not_reject_for_non_developer_profile": true,
+    "evidence": ["historical_php_development", "erp_opencart_integration", "web_and_webshop_development", "development_team_coordination", "api_and_system_integration", "ai_assisted_coding"]
+  },
+  "project_manager_logic": {
+    "strong_match_only_if": ["people_management", "decision_authority", "broad_it_scope"],
+    "otherwise": { "max_match_class": "SECONDARY", "score_cap": 59 }
+  },
+  "scoring": { "base": 30, "title_points": 0, "strong_threshold": 60, "no_leadership_cap": 49, "entry_level_cap": 39 },
+  "output_required": ["leadership_fit", "people_management_fit", "english_gate", "technical_fit", "development_fit", "strategic_fit", "location_fit", "hard_rejection_reason", "final_explanation"]
+}

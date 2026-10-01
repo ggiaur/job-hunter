@@ -1,144 +1,681 @@
-# Job Hunter – aktuális, CV-alapú keresés
+# Job Hunter – állások és személyre szabott CV-k
+
+**2026. október 1.: [Megnyitható hirdetések és két kész PDF-önéletrajz](applications/2026-10-01/README.md).**
+
+Az alábbi rész régebbi keresés újrapontozott technikai összesítője.
+
+[Külön célzott linkellenőrzés: Nova és Kincstár, 2026-10-01](docs/evidence/verified-vacancies-2026-10-01.md)
 
 **Frissítve (UTC):** 2026-09-17T08:14:05.397Z
 **Ellenőrzött hirdetésoldalak:** 682
-**Pontozott bejegyzések:** 29; **ellenőrizendő jelöltek:** 11; **korábbi elutasítások:** 2.
+**Pontozott bejegyzések:** 20; **ellenőrizendő jelöltek:** 0; **korábbi elutasítások:** 1.
 
 [Böngészhető eredmények és CV-bizonyítékok](docs/evidence/current-cv-results.html) · [E futás változatlan forrása](docs/evidence/rescored-current-run.json)
 
 A jelöltek nem automatikusan jóváhagyott jelentkezések. A pontszám szabályalapú támpont, nem az alkalmasság vagy a felvétel valószínűsége.
 
-⚠ Ez a lista **újrapontozás, nem új keresés**: a fenti időpontban beszerzett hirdetések értékelése futott le újra (2026-09-18T06:15:04.116Z) javított pontozási szabályokkal. Új hirdetés nem került be, keresési kvóta nem fogyott.
+⚠ Ez a lista **újrapontozás, nem új keresés**: a fenti időpontban beszerzett hirdetések értékelése futott le újra (2026-10-01T18:36:44.867Z) javított pontozási szabályokkal. Új hirdetés nem került be, keresési kvóta nem fogyott.
 
-Önéletrajzi profil: cv-2026-09-16. Forrás SHA-256: 23f25d8c01901ee37e33bb882e933cd5fe2e069cd591f06429b403b09e84fb5c.
+Önéletrajzi profil: verified-documents+leadership-2026-09-30. Forrás SHA-256: a79b860b651d951b61e3eef50852bdf8622863494de0f90befb85c277df110c9.
 A diploma nem automatikus kizáró ok. A CV és a tanúsítványok szöveges bizonyítékai a részletes riportban láthatók; az ismeretlen készség nem bizonyított hiány.
 
 ## Ellenőrizendő lehetőségek
 
-### MVM Ügyfélkapcsolati Kft. — Digitális csatorna menedzsment és üzemeltetés csoportvezető (92 pont)
+E futásban nincs küszöb feletti, korábban el nem utasított jelölt. Ez nem bizonyítja, hogy nincs megfelelő állás a piacon.
 
-[Hirdetés](https://www.profession.hu/allas/digitalis-csatorna-menedzsment-es-uzemeltetes-csoportvezeto-mvm-ugyfelkapcsolati-kft-budapest-3000382?keyword=digitaliz%25C3%25A1ci%25C3%25B3s%2Bvezet%25C5%2591&hash=8c201f45869f746e72a6b3baeabdd06f)
+## Másodlagos vagy tisztázandó találatok
 
-- Helyszín a forrásban: Budapest, Budapest, HU; munkarend-jelzés: nincs igazolt hibrid/távmunka. A részletes bejárási feltételek külön ellenőrizendők.
-- Angol: basic/intermediate (not disqualifying).
-- CV-kapcsolódás: Csapatvezetés; IT-projektek irányítása; IT-üzemeltetés és infrastruktúra; IT-költségvetés; ERP-integráció és adatmigráció.
-- Ellenőrizendő: Az önéletrajz nem ad meg pontos angol CEFR-szintet; a nyelvi megfelelés külön ellenőrizendő.
-- Végzettség: Önéletrajzi végzettség: Programtervező informatikus (Nyíregyházi Egyetem, 2005–2008). A hirdetés pontos szakirányi/fokozati feltétele külön ellenőrizendő.
-
-### BECK AND PARTNERS Kft. — IT IGAZGATÓ (89 pont)
-
-[Hirdetés](https://www.profession.hu/allas/it-igazgato-beck-and-partners-kft-budapest-2996778?keyword=it%2Bvezet%25C5%2591&hash=1ded5f1f13c1d1785e23309c5641c138)
-
-- Helyszín a forrásban: remote/telecommute; munkarend-jelzés: remote/hibrid. A részletes bejárási feltételek külön ellenőrizendők.
-- Angol: basic/intermediate (not disqualifying).
-- CV-kapcsolódás: Csapatvezetés; IT-projektek irányítása; IT-üzemeltetés és infrastruktúra; IT-költségvetés; Beszerzés és szállítói koordináció.
-- Ellenőrizendő: Az önéletrajz nem ad meg pontos angol CEFR-szintet; a nyelvi megfelelés külön ellenőrizendő.
-- Végzettség: Önéletrajzi végzettség: Programtervező informatikus (Nyíregyházi Egyetem, 2005–2008). A hirdetés pontos szakirányi/fokozati feltétele külön ellenőrizendő.
-
-### 2Connect Hungary — Vezetékes hálózatfelügyeleti csoportvezető (81 pont)
-
-[Hirdetés](https://hu.linkedin.com/jobs/view/vezet%C3%A9kes-h%C3%A1l%C3%B3zatfel%C3%BCgyeleti-csoportvezet%C5%91-at-2connect-hungary-4461788288?position=35&pageNum=0&refId=9WoeRAy%2BoDCG3VsZOVpDPg%3D%3D&trackingId=V%2FFLmc95V1fAISpK6yIGmQ%3D%3D)
-
-- Helyszín a forrásban: Budapest, HU; munkarend-jelzés: remote/hibrid. A részletes bejárási feltételek külön ellenőrizendők.
-- Angol: basic/intermediate (not disqualifying).
-- CV-kapcsolódás: Csapatvezetés; IT-projektek irányítása; IT-üzemeltetés és infrastruktúra; IT-költségvetés; Vezetői riportok és döntés-előkészítés; VPN és telephelyi hálózat; Helpdesk és monitoring.
-- Ellenőrizendő: ITIL szerepel a hirdetésben, de a megadott önéletrajz nem igazolja. Ez ellenőrizendő, nem bizonyított hiány és nem automatikus kizárás.
-- Ellenőrizendő: Az önéletrajz nem ad meg pontos angol CEFR-szintet; a nyelvi megfelelés külön ellenőrizendő.
-- Végzettség: Önéletrajzi végzettség: Programtervező informatikus (Nyíregyházi Egyetem, 2005–2008). A hirdetés pontos szakirányi/fokozati feltétele külön ellenőrizendő.
-
-### SWISS MEDICAL SERVICES Kft. — Projektmenedzser - IT területen (79 pont)
-
-[Hirdetés](https://www.profession.hu/allas/projektmenedzser-it-teruleten-swiss-medical-services-kft-budapest-2976894?keyword=it%2Bprojektmenedzser&hash=b861e9fe8a97753c26467bd126a7c5da)
-
-- Helyszín a forrásban: Budapest, Budapest, HU; munkarend-jelzés: nincs igazolt hibrid/távmunka. A részletes bejárási feltételek külön ellenőrizendők.
-- Angol: basic/intermediate (not disqualifying).
-- CV-kapcsolódás: Csapatvezetés; IT-projektek irányítása; IT-üzemeltetés és infrastruktúra; IT-költségvetés; SQL-adatbázisok; Projektmenedzsment / agilis továbbképzés.
-- Ellenőrizendő: Az önéletrajz nem ad meg pontos angol CEFR-szintet; a nyelvi megfelelés külön ellenőrizendő.
-- Végzettség: Önéletrajzi végzettség: Programtervező informatikus (Nyíregyházi Egyetem, 2005–2008). A hirdetés pontos szakirányi/fokozati feltétele külön ellenőrizendő.
-
-### MVM — Senior IT projektmenedzser (78 pont)
-
-[Hirdetés](https://hu.linkedin.com/jobs/view/senior-it-projektmenedzser-at-mvm-4463463111?position=7&pageNum=0&refId=qaTGAYP3whFV14oaNFA0EA%3D%3D&trackingId=C2q6dI%2FPMJyOOP7nILcoiw%3D%3D)
-
-- Helyszín a forrásban: Paks, HU; munkarend-jelzés: nincs igazolt hibrid/távmunka. A részletes bejárási feltételek külön ellenőrizendők.
-- Angol: not specified in extracted text.
-- CV-kapcsolódás: IT-projektek irányítása; IT-üzemeltetés és infrastruktúra; IT-költségvetés; Beszerzés és szállítói koordináció; Vezetői riportok és döntés-előkészítés; Microsoft 365 / SharePoint; Azure; Windows / Linux; VPN és telephelyi hálózat; ERP-integráció és adatmigráció; Projektmenedzsment / agilis továbbképzés.
-- Ellenőrizendő: SAP szerepel a hirdetésben, de a megadott önéletrajz nem igazolja. Ez ellenőrizendő, nem bizonyított hiány és nem automatikus kizárás.
-- Ellenőrizendő: PMP szerepel a hirdetésben, de a megadott önéletrajz nem igazolja. Ez ellenőrizendő, nem bizonyított hiány és nem automatikus kizárás.
-- Ellenőrizendő: PRINCE2 szerepel a hirdetésben, de a megadott önéletrajz nem igazolja. Ez ellenőrizendő, nem bizonyított hiány és nem automatikus kizárás.
-- Ellenőrizendő: Az önéletrajz nem ad meg pontos angol CEFR-szintet; a nyelvi megfelelés külön ellenőrizendő.
-- Ellenőrizendő: Helyszín azonosítva (Paks, HU), de nem esik az elsődleges/másodlagos gyűrűbe vagy Budapestre, és táv-/hibrid munkavégzésre sincs jelzés — nem kizáró ok, csak nulla pontszámú semleges jelzés.
-
-### Pillér Nonprofit Kft — Projektmenedzser (77 pont)
-
-[Hirdetés](https://www.profession.hu/allas/projektmenedzser-piller-nonprofit-kft-budapest-2988550?keyword=projektmenedzser&hash=01eb7e23930475f689c7fc28c7497f36)
-
-- Helyszín a forrásban: Budapest, Budapest, HU; munkarend-jelzés: nincs igazolt hibrid/távmunka. A részletes bejárási feltételek külön ellenőrizendők.
-- Angol: basic/intermediate (not disqualifying).
-- CV-kapcsolódás: IT-projektek irányítása; IT-üzemeltetés és infrastruktúra; Vezetői riportok és döntés-előkészítés; Projektmenedzsment / agilis továbbképzés.
-- Ellenőrizendő: PMP szerepel a hirdetésben, de a megadott önéletrajz nem igazolja. Ez ellenőrizendő, nem bizonyított hiány és nem automatikus kizárás.
-- Ellenőrizendő: PRINCE2 szerepel a hirdetésben, de a megadott önéletrajz nem igazolja. Ez ellenőrizendő, nem bizonyított hiány és nem automatikus kizárás.
-- Ellenőrizendő: Az önéletrajz nem ad meg pontos angol CEFR-szintet; a nyelvi megfelelés külön ellenőrizendő.
-- Végzettség: Önéletrajzi végzettség: Programtervező informatikus (Nyíregyházi Egyetem, 2005–2008). A hirdetés pontos szakirányi/fokozati feltétele külön ellenőrizendő.
-
-### Indotek Group — Projektmenedzser (PMO) (76 pont)
-
-[Hirdetés](https://www.profession.hu/allas/projektmenedzser-pmo-indotek-group-3000193?keyword=projektmenedzser&hash=01eb7e23930475f689c7fc28c7497f36)
-
-- Helyszín a forrásban: Budapest, Budapest, HU; munkarend-jelzés: nincs igazolt hibrid/távmunka. A részletes bejárási feltételek külön ellenőrizendők.
-- Angol: not specified in extracted text.
-- CV-kapcsolódás: IT-projektek irányítása; IT-üzemeltetés és infrastruktúra; IT-költségvetés; Beszerzés és szállítói koordináció; Vezetői riportok és döntés-előkészítés; Projektmenedzsment / agilis továbbképzés.
-- Ellenőrizendő: PMP szerepel a hirdetésben, de a megadott önéletrajz nem igazolja. Ez ellenőrizendő, nem bizonyított hiány és nem automatikus kizárás.
-- Ellenőrizendő: PRINCE2 szerepel a hirdetésben, de a megadott önéletrajz nem igazolja. Ez ellenőrizendő, nem bizonyított hiány és nem automatikus kizárás.
-- Ellenőrizendő: Az önéletrajz nem ad meg pontos angol CEFR-szintet; a nyelvi megfelelés külön ellenőrizendő.
-- Végzettség: Önéletrajzi végzettség: Programtervező informatikus (Nyíregyházi Egyetem, 2005–2008). A hirdetés pontos szakirányi/fokozati feltétele külön ellenőrizendő.
-
-### WHC Ltd — Rendszermérnök Csoportvezető (76 pont)
-
-[Hirdetés](https://hu.linkedin.com/jobs/view/rendszerm%C3%A9rn%C3%B6k-csoportvezet%C5%91-at-whc-ltd-4453597605?position=7&pageNum=0&refId=9WoeRAy%2BoDCG3VsZOVpDPg%3D%3D&trackingId=YE5CpNt7JfqCx%2ByyVNFsag%3D%3D)
-
-- Helyszín a forrásban: Budapest, HU; munkarend-jelzés: nincs igazolt hibrid/távmunka. A részletes bejárási feltételek külön ellenőrizendők.
-- Angol: basic/intermediate (not disqualifying).
-- CV-kapcsolódás: Csapatvezetés; IT-projektek irányítása; IT-üzemeltetés és infrastruktúra; IT-költségvetés; Beszerzés és szállítói koordináció; Vezetői riportok és döntés-előkészítés; Projektmenedzsment / agilis továbbképzés.
-- Ellenőrizendő: Az önéletrajz nem ad meg pontos angol CEFR-szintet; a nyelvi megfelelés külön ellenőrizendő.
-
-### 2Connect Hungary — Mobil hálózatfelügyeleti csoportvezető (76 pont)
-
-[Hirdetés](https://hu.linkedin.com/jobs/view/mobil-h%C3%A1l%C3%B3zatfel%C3%BCgyeleti-csoportvezet%C5%91-at-2connect-hungary-4461283825?position=27&pageNum=0&refId=9WoeRAy%2BoDCG3VsZOVpDPg%3D%3D&trackingId=EZ3lJBxE55VkedOM2db7hQ%3D%3D)
-
-- Helyszín a forrásban: Budapest, HU; munkarend-jelzés: remote/hibrid. A részletes bejárási feltételek külön ellenőrizendők.
-- Angol: basic/intermediate (not disqualifying).
-- CV-kapcsolódás: Csapatvezetés; IT-projektek irányítása; IT-üzemeltetés és infrastruktúra; IT-költségvetés; Vezetői riportok és döntés-előkészítés; VPN és telephelyi hálózat; Helpdesk és monitoring.
-- Ellenőrizendő: ITIL szerepel a hirdetésben, de a megadott önéletrajz nem igazolja. Ez ellenőrizendő, nem bizonyított hiány és nem automatikus kizárás.
-- Ellenőrizendő: Az önéletrajz nem ad meg pontos angol CEFR-szintet; a nyelvi megfelelés külön ellenőrizendő.
-- Végzettség: Önéletrajzi végzettség: Programtervező informatikus (Nyíregyházi Egyetem, 2005–2008). A hirdetés pontos szakirányi/fokozati feltétele külön ellenőrizendő.
-
-### 2Connect Hungary — Nagykereskedelmi műszaki projektmenedzser (76 pont)
-
-[Hirdetés](https://hu.linkedin.com/jobs/view/nagykereskedelmi-m%C5%B1szaki-projektmenedzser-at-2connect-hungary-4465026657?position=40&pageNum=0&refId=PHCn6DRIrWQM5SA5X6e%2FOQ%3D%3D&trackingId=pC2T%2FewSDKXRgN8%2BOggiqA%3D%3D)
-
-- Helyszín a forrásban: Budapest, HU; munkarend-jelzés: remote/hibrid. A részletes bejárási feltételek külön ellenőrizendők.
-- Angol: basic/intermediate (not disqualifying).
-- CV-kapcsolódás: Csapatvezetés; IT-projektek irányítása; IT-üzemeltetés és infrastruktúra; IT-költségvetés; VPN és telephelyi hálózat.
-- Ellenőrizendő: Az önéletrajz nem ad meg pontos angol CEFR-szintet; a nyelvi megfelelés külön ellenőrizendő.
-
-### HumanField Kft — IT Manager (72 pont)
-
-[Hirdetés](https://www.profession.hu/allas/it-manager-humanfield-kft-3003207?keyword=it%2Bvezet%25C5%2591&hash=1ded5f1f13c1d1785e23309c5641c138)
-
-- Helyszín a forrásban: Hajdú-Bihar megye, HU; munkarend-jelzés: nincs igazolt hibrid/távmunka. A részletes bejárási feltételek külön ellenőrizendők.
-- Angol: basic/intermediate (not disqualifying).
-- CV-kapcsolódás: Csapatvezetés; IT-projektek irányítása; IT-üzemeltetés és infrastruktúra; Beszerzés és szállítói koordináció.
-- Ellenőrizendő: Az önéletrajz nem ad meg pontos angol CEFR-szintet; a nyelvi megfelelés külön ellenőrizendő.
-- Ellenőrizendő: Helyszín azonosítva (Hajdú-Bihar megye, HU), de nem esik az elsődleges/másodlagos gyűrűbe vagy Budapestre, és táv-/hibrid munkavégzésre sincs jelzés — nem kizáró ok, csak nulla pontszámú semleges jelzés.
-- Végzettség: Önéletrajzi végzettség: Programtervező informatikus (Nyíregyházi Egyetem, 2005–2008). A hirdetés pontos szakirányi/fokozati feltétele külön ellenőrizendő.
+- MVM Ügyfélkapcsolati Kft. — Digitális csatorna menedzsment és üzemeltetés csoportvezető: Szakmai illeszkedés: STRONG\_MATCH, 100/100 pont. Angolelvárás szerepel, a tényleges használat tisztázandó. [Hirdetés](https://www.profession.hu/allas/digitalis-csatorna-menedzsment-es-uzemeltetes-csoportvezeto-mvm-ugyfelkapcsolati-kft-budapest-3000382?keyword=digitaliz%25C3%25A1ci%25C3%25B3s%2Bvezet%25C5%2591&hash=8c201f45869f746e72a6b3baeabdd06f)
+- MVM — Digitális csatorna menedzsment és üzemeltetés csoportvezető: Szakmai illeszkedés: STRONG\_MATCH, 100/100 pont. Angolelvárás szerepel, a tényleges használat tisztázandó. [Hirdetés](https://hu.linkedin.com/jobs/view/digit%C3%A1lis-csatorna-menedzsment-%C3%A9s-%C3%BCzemeltet%C3%A9s-csoportvezet%C5%91-at-mvm-4464786434?position=16&pageNum=0&refId=9WoeRAy%2BoDCG3VsZOVpDPg%3D%3D&trackingId=yiBVFpHSQFYBGWV%2FjBqN3Q%3D%3D)
+- Indotek Group — Projektmenedzser (junior IT): Szakmai illeszkedés: SECONDARY, 34/100 pont. Angolelvárás szerepel, a tényleges használat tisztázandó. [Hirdetés](https://hu.linkedin.com/jobs/view/projektmenedzser-junior-it-at-indotek-group-4463061284?position=27&pageNum=0&refId=PHCn6DRIrWQM5SA5X6e%2FOQ%3D%3D&trackingId=YGRrHB3xd5Y6A9QzxMi2lQ%3D%3D)
+- WAY Group — IT Manager (m/f/d) | CAIP Hungary, Nyíregyháza: Szakmai illeszkedés: WEAK\_MATCH, 49/100 pont. Angolelvárás szerepel, a tényleges használat tisztázandó. [Hirdetés](https://hu.linkedin.com/jobs/view/it-manager-m-f-d-caip-hungary-ny%C3%ADregyh%C3%A1za-at-way-group-4467058179?position=4&pageNum=0&refId=9WoeRAy%2BoDCG3VsZOVpDPg%3D%3D&trackingId=nnVun9VNoZOTtTxEjldSfw%3D%3D)
+- Pillér Nonprofit Kft — Projektmenedzser: Szakmai illeszkedés: SECONDARY, 59/100 pont. PMP: az önéletrajzi forrás nem igazolja; tisztázandó, nem bizonyított hiány. [Hirdetés](https://www.profession.hu/allas/projektmenedzser-piller-nonprofit-kft-budapest-2988550?keyword=projektmenedzser&hash=01eb7e23930475f689c7fc28c7497f36)
+- Indotek Group — Projektmenedzser (PMO): Szakmai illeszkedés: SECONDARY, 59/100 pont. Angolelvárás szerepel, a tényleges használat tisztázandó. [Hirdetés](https://www.profession.hu/allas/projektmenedzser-pmo-indotek-group-3000193?keyword=projektmenedzser&hash=01eb7e23930475f689c7fc28c7497f36)
+- WHC Ltd — Rendszermérnök Csoportvezető: Szakmai illeszkedés: STRONG\_MATCH, 100/100 pont. Angolelvárás szerepel, a tényleges használat tisztázandó. [Hirdetés](https://hu.linkedin.com/jobs/view/rendszerm%C3%A9rn%C3%B6k-csoportvezet%C5%91-at-whc-ltd-4453597605?position=7&pageNum=0&refId=9WoeRAy%2BoDCG3VsZOVpDPg%3D%3D&trackingId=YE5CpNt7JfqCx%2ByyVNFsag%3D%3D)
+- 2Connect Hungary — Nagykereskedelmi műszaki projektmenedzser: Szakmai illeszkedés: SECONDARY, 59/100 pont. Angolelvárás szerepel, a tényleges használat tisztázandó. [Hirdetés](https://hu.linkedin.com/jobs/view/nagykereskedelmi-m%C5%B1szaki-projektmenedzser-at-2connect-hungary-4465026657?position=40&pageNum=0&refId=PHCn6DRIrWQM5SA5X6e%2FOQ%3D%3D&trackingId=pC2T%2FewSDKXRgN8%2BOggiqA%3D%3D)
+- HumanField Vezető- és Specialistakiválasztó Kft. — IT Manager (4174): Szakmai illeszkedés: STRONG\_MATCH, 100/100 pont. Angolelvárás szerepel, a tényleges használat tisztázandó. [Hirdetés](https://www.cvonline.hu/hu/allas/it-manager-4174-1982057)
+- BKM – BUDAPESTI KÖZMŰVEK Nonprofit Zrt. — Beruházási projektmenedzser: Szakmai illeszkedés: SECONDARY, 59/100 pont. Másodlagos projekt-/programvezetői szerep: saját csapat, döntési jogkör és széles IT-felelősség együtt nem igazolt. [Hirdetés](https://hu.linkedin.com/jobs/view/beruh%C3%A1z%C3%A1si-projektmenedzser-at-bkm-%E2%80%93-budapesti-k%C3%B6zm%C5%B1vek-nonprofit-zrt-4462221545?position=37&pageNum=0&refId=BxcE%2BlB2o6tPTy4U6rTS7g%3D%3D&trackingId=HBWkZDliIsTnxET8pvm55g%3D%3D)
+- Apache Design Ltd — Projektmenedzser: Szakmai illeszkedés: SECONDARY, 56/100 pont. Angolelvárás szerepel, a tényleges használat tisztázandó. [Hirdetés](https://hu.linkedin.com/jobs/view/projektmenedzser-at-apache-design-ltd-4341775121?position=25&pageNum=0&refId=FUJN7uXTVi2EwqgeOvEfqg%3D%3D&trackingId=HMKsi%2BH4Bdjmk8bgnP7vwg%3D%3D)
+- EURO ONE Számítástechnikai Zrt — IT szolgáltatás menedzser: Szakmai illeszkedés: WEAK\_MATCH, 49/100 pont. Angolelvárás szerepel, a tényleges használat tisztázandó. [Hirdetés](https://www.profession.hu/allas/it-szolgaltatas-menedzser-euro-one-szamitastechnikai-zrt-budapest-2989032?keyword=it%2Bvezet%25C5%2591&hash=1ded5f1f13c1d1785e23309c5641c138)
+- Deutsche Telekom IT Solutions HU — German Speaking IT Security Manager (Corporate Security) (REF5317T): Szakmai illeszkedés: WEAK\_MATCH, 49/100 pont. A leírás nem igazol saját csapat vagy szervezeti egység vezetését. [Hirdetés](https://hu.linkedin.com/jobs/view/german-speaking-it-security-manager-corporate-security-ref5317t-at-deutsche-telekom-it-solutions-hu-4406177145?position=12&pageNum=0&refId=9WoeRAy%2BoDCG3VsZOVpDPg%3D%3D&trackingId=c%2FC81C4LDlCmCqDWCxm0BQ%3D%3D)
+- Global Workforce Solutions Zrt. — Munkaügyi és bérszámfejtési osztályvezető: Szakmai illeszkedés: WEAK\_MATCH, 49/100 pont. A leírás nem igazol saját csapat vagy szervezeti egység vezetését. [Hirdetés](https://www.profession.hu/allas/munkaugyi-es-berszamfejtesi-osztalyvezeto-global-workforce-solutions-kft-3002870?keyword=digitaliz%25C3%25A1ci%25C3%25B3s%2Bvezet%25C5%2591&hash=8c201f45869f746e72a6b3baeabdd06f)
+- Szerencsejáték Zrt. — Beszerzési osztályvezető (határozott időre): Szakmai illeszkedés: WEAK\_MATCH, 49/100 pont. Angolelvárás szerepel, a tényleges használat tisztázandó. [Hirdetés](https://www.profession.hu/allas/beszerzesi-osztalyvezeto-hatarozott-idore-szerencsejatek-zrt-budapest-2996430?keyword=digitaliz%25C3%25A1ci%25C3%25B3s%2Bvezet%25C5%2591&hash=8c201f45869f746e72a6b3baeabdd06f)
+- Camunda — Engineering Manager - Infrastructure: Szakmai illeszkedés: WEAK\_MATCH, 49/100 pont. Kubernetes: az önéletrajzi forrás nem igazolja; tisztázandó, nem bizonyított hiány. [Hirdetés](https://hu.linkedin.com/jobs/view/engineering-manager-infrastructure-at-camunda-4431968290?position=3&pageNum=0&refId=BxcE%2BlB2o6tPTy4U6rTS7g%3D%3D&trackingId=3E6KSLjwsymhDVOe7qUY3w%3D%3D)
+- VISTRA — Enterprise Service Manager, Global Delivery Payroll (BAU): Szakmai illeszkedés: WEAK\_MATCH, 49/100 pont. A leírás nem igazol saját csapat vagy szervezeti egység vezetését. [Hirdetés](https://hu.linkedin.com/jobs/view/enterprise-service-manager-global-delivery-payroll-bau-at-vistra-4461144983?position=28&pageNum=0&refId=3dPCDD8kTiFYzgXhm5nyTg%3D%3D&trackingId=3KTOt0TXhDFyfjRDOO8Cdw%3D%3D)
+- Liferay — Security Operations Manager - InfoSec: Szakmai illeszkedés: WEAK\_MATCH, 49/100 pont. A leírás nem igazol saját csapat vagy szervezeti egység vezetését. [Hirdetés](https://hu.linkedin.com/jobs/view/security-operations-manager-infosec-at-liferay-4456234518?position=18&pageNum=0&refId=9WoeRAy%2BoDCG3VsZOVpDPg%3D%3D&trackingId=HI38sMp8GMvhwq4C2tf%2BfA%3D%3D)
+- KUKA — IT PMO Manager: Szakmai illeszkedés: SECONDARY, 59/100 pont. Angolelvárás szerepel, a tényleges használat tisztázandó. [Hirdetés](https://hu.linkedin.com/jobs/view/it-pmo-manager-at-kuka-4446384556?position=39&pageNum=0&refId=9WoeRAy%2BoDCG3VsZOVpDPg%3D%3D&trackingId=p7fMyRxsTd1lRkqYA8veCQ%3D%3D)
 
 ## Keresési lefedettség és működés
 
 - SerpApi: 15 sikeres, 2 hibás lekérdezés.
 - Nem elérhető oldalak: 78.
-- Lefedettségi kontroll: Pillér Nonprofit Kft. — Projektmenedzser — ACQUIRED\_VISIBLE.
-- Lefedettségi kontroll: EN-CO Software Zrt. — Senior IT projektmenedzser — NOT\_ACQUIRED.
-- Lefedettségi kontroll: Swiss Medical Services Kft. — Projektmenedzser IT területen — ACQUIRED\_VISIBLE.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
+- Lefedettségi kontroll:  — NOT\_ACQUIRED.
 
 A forrás → hirdetésellenőrzés → CV-összevetés → pontozás → HTML/Markdown frissítés ugyanannak a futásnak a része. Nem küld automatikus jelentkezést vagy e-mailt.

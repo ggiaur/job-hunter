@@ -9,7 +9,7 @@ export function reviewJobPosting(schema, { url, profile, matchedQuery = null }) 
   const title = fields.title || 'Ismeretlen pozíció';
   const company = fields.company || 'Ismeretlen munkáltató';
   const descriptionText = [fields.description, fields.requirements].filter(Boolean).join('\n');
-  const positionRelevant = matchesTargetPosition(title) || (isGenericProjectTitle(title) && hasITDomainContext(descriptionText));
+  const positionRelevant = (matchesTargetPosition(title) || isGenericProjectTitle(title)) && hasITDomainContext(`${title} ${descriptionText}`);
   const priorFeedback = findPriorFeedback(profile.learnedText, company, title);
   const priorDecision = priorFeedback.at(-1);
   const base = {
@@ -29,9 +29,8 @@ export function reviewJobPosting(schema, { url, profile, matchedQuery = null }) 
     : computeRelevanceAssessment({ title, descriptionText, locationText: fields.location, datePosted: fields.datePosted,
       validThrough: fields.validThrough, positionRelevant,
       isGenericTitle: isGenericProjectTitle(title) && !matchesTargetPosition(title), candidateProfile: profile.candidate });
-  if (assessment.hardExcluded) return { assessment, positionRelevant, record: { ...base, exclusionReason: assessment.exclusionReason } };
   return { assessment, positionRelevant, record: {
-    ...base, salary: assessment.salaryAmount ? `~${assessment.salaryAmount.toLocaleString('hu-HU')} Ft (bruttó, hirdetésből)` : null,
+    ...base, ...assessment, salary: assessment.salaryAmount ? `~${assessment.salaryAmount.toLocaleString('hu-HU')} Ft (bruttó, hirdetésből)` : null,
     relevancePercent: assessment.score, visible: assessment.visible,
     fitReasons: assessment.fitReasons, mismatchReasons: assessment.mismatchReasons,
     englishRequirement: assessment.englishRequirement, educationNote: assessment.educationNote,

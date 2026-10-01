@@ -33,7 +33,7 @@ test('Profession JSON-LD requirements participate in exclusion scoring', () => {
   assert.match(result.exclusionReason, /angol/i);
 });
 
-test('degree requirements remain visible without a score penalty (PO 2026-09-16)', () => {
+test('degree is informational; a PM with ambiguous intermediate English is secondary/review (PO 2026-09-30)', () => {
   const result = computeRelevanceAssessment({
     title: 'IT projektmenedzser',
     descriptionText: 'Angol középfok\nFőiskola\nIT projektterv, erőforrás, határidő és stakeholder koordináció.',
@@ -43,7 +43,9 @@ test('degree requirements remain visible without a score penalty (PO 2026-09-16)
     isGenericTitle: false,
   });
   assert.equal(result.hardExcluded, false);
-  assert.equal(result.visible, true);
+  assert.equal(result.visible, false);
+  assert.equal(result.fitClass, 'SECONDARY');
+  assert.equal(result.english_gate.status, 'REVIEW');
   assert.match(result.educationNote, /végzettség/i);
   assert.ok(!result.mismatchReasons.some(reason => /végzettség/i.test(reason)));
 });
@@ -128,7 +130,7 @@ test('PO_DECISIONS §2: one-person IT role is hard excluded regardless of title'
   assert.equal(r.hardExcluded, true);
 });
 
-test('PO_DECISIONS §2: project leadership without direct reports is NOT penalized as unqualified', () => {
+test('PO 2026-09-30: project leadership without direct reports stays secondary, not hard-excluded', () => {
   const r = computeRelevanceAssessment({
     title: 'Projektvezető',
     descriptionText: 'Projektterv készítése, erőforrás- és határidő-tervezés, kockázatkezelés, stakeholder koordináció, döntés-előkészítés.',
@@ -138,7 +140,9 @@ test('PO_DECISIONS §2: project leadership without direct reports is NOT penaliz
     isGenericTitle: true,
   });
   assert.equal(r.hardExcluded, false);
-  assert.ok(r.fitReasons.some((f) => /projekt-\/programvezetői/.test(f)));
+  assert.equal(r.matchClass, 'SECONDARY');
+  assert.equal(r.visible, false);
+  assert.ok(r.mismatchReasons.some((f) => /projekt-\/programvezetői/.test(f)));
   assert.ok(!r.mismatchReasons.some((m) => /Projektmenedzseri cím, de/.test(m)));
 });
 

@@ -1,22 +1,14 @@
-// Sprint 1 relevance scoring — implements the exact rules approved in
-// docs/product/PO_DECISIONS_2026-09-04.md. Every accepted vacancy gets an
-// explainable 0-100 score built from itemized factors (both positive and
-// negative), never an unexplained opinion. Hard exclusions are reported
-// separately from scoring, per PO_DECISIONS section 2/3.
+// Leadership-first policy approved on 2026-09-30. Eligibility and professional
+// fit are independent: a hard blocker never becomes a visible recommendation.
 
 import {
-  checkAdvancedEnglishRequired,
   checkHigherEducationRequired,
-  englishRequirementLabel,
   hasManagementScope,
-  hasProjectLeadershipScope,
-  hasInstitutionalContext,
-  isLikelySeniorICWithoutManagement,
-  isPMWithoutManagementScope,
-  hasITDomainContext,
 } from './extract.mjs';
 import { compareCandidate } from './candidate-fit.mjs';
 import { detectWorkArrangement } from './work-arrangement.mjs';
+import { assessEnglishGate } from './extract.mjs';
+import { assessLeadership, MATCHING_POLICY } from './leadership-fit.mjs';
 
 // "Developer/helpdesk" are named explicitly as hard exclusions in
 // PO_DECISIONS section 2. A bare IC title (no leadership qualifier, no
@@ -67,7 +59,7 @@ export function isHardExcludedICRole(title, descriptionText) {
   if (!title) return false;
   const lower = title.toLowerCase();
   if (!IC_ONLY_TITLE_TERMS.some((t) => lower.includes(t))) return false;
-  return !hasManagementScope(descriptionText) && !hasProjectLeadershipScope(descriptionText);
+  return !hasManagementScope(descriptionText);
 }
 
 // Fehérvárcsurgó accessibility ring, per PO_DECISIONS section 5. Not a
@@ -172,154 +164,70 @@ export function scoreFreshness(datePostedIso) {
   return { points: 0, note: 'Régebbi, de továbbra is aktív hirdetés — a kor önmagában nem kizáró ok, csak nincs frissesség-bónusz.' };
 }
 
-const BASE_SCORE = 35;
-const VISIBLE_THRESHOLD = 60;
+const VISIBLE_THRESHOLD = MATCHING_POLICY.scoring.strong_threshold;
 
-/**
- * Compute the full Sprint-1 relevance assessment for one confirmed job ad.
- * Returns either a hard-exclusion record or a 0-100 explainable score with
- * itemized positive/negative factors, per PO_DECISIONS_2026-09-04.md.
- */
-export function computeRelevanceAssessment({ title, descriptionText, locationText, datePosted, validThrough, positionRelevant, isGenericTitle, candidateProfile }) {
-  const expiresAt = Date.parse(validThrough);
-  if (Number.isFinite(expiresAt) && expiresAt < Date.now()) {
-    return { hardExcluded: true, exclusionReason: `A hirdetés megadott érvényessége lejárt (${validThrough}); aktuális ajánlatként nem mutatható.` };
-  }
-  const englishAdvanced = checkAdvancedEnglishRequired(descriptionText);
-  if (englishAdvanced) {
-    return {
-      hardExcluded: true,
-      exclusionReason: `Kizárva: kötelező felsőfokú/tárgyalásképes/anyanyelvi angol nyelvtudás (${englishRequirementLabel(descriptionText)}).`,
-    };
-  }
-  if (isHardExcludedICRole(title, descriptionText)) {
-    return {
-      hardExcluded: true,
-      exclusionReason: 'Kizárva: fejlesztői/helpdesk jellegű egyéni közreműködői szerep, vezetői vagy projektvezetői felelősség jele nélkül a szövegben.',
-    };
-  }
-  if (isOnePersonITRole(descriptionText)) {
-    return {
-      hardExcluded: true,
-      exclusionReason: 'Kizárva: egyszemélyes IT-szerep, ahol a jelentkező egyedül vinné az összes informatikai munkát.',
-    };
-  }
-  if (!positionRelevant) {
-    return {
-      hardExcluded: true,
-      exclusionReason: 'Kizárva: a cím nem tartalmaz IT-vezetői/menedzseri/projektvezetői kulcsszót, vagy nem IT terület.',
-    };
-  }
-
-  const fitReasons = [];
-  const mismatchReasons = [];
+// Fit survives a hard rejection for audit, but eligibility always controls visibility.
+export function computeRelevanceAssessment({ title = '', descriptionText = '', locationText, datePosted, validThrough, positionRelevant, candidateProfile }) {
+  const scope = assessLeadership(title, descriptionText, candidateProfile);
+  const english_gate = assessEnglishGate(descriptionText);
   const candidateReview = compareCandidate(candidateProfile, descriptionText);
-  // Replace ten generic baseline points with 0–10 source-backed CV overlap
-  // points. Leadership points below also require the corresponding CV fact.
-  let score = candidateReview ? BASE_SCORE - 10 + candidateReview.overlapPoints : BASE_SCORE;
-
-  // PO clarification (2026-09-16): education is information for review,
-  // never an automatic rejection or score penalty.
+  const location = scoreLocation(locationText, descriptionText);
+  const salary = scoreSalary(descriptionText);
+  const freshness = scoreFreshness(datePosted);
+  const fitReasons = Object.values(scope.signals).filter(s => s.points).map(s => `${s.label}: +${s.points} (${s.evidence[0]})`);
+  const mismatchReasons = [];
+  if (candidateReview) {
+    for (const match of candidateReview.matches) fitReasons.push(`Önéletrajzi kapcsolódás – ${match.label}: ${match.cvEvidence}`);
+    for (const skill of candidateReview.unverifiedSkills) mismatchReasons.push(`${skill}: az önéletrajzi forrás nem igazolja; tisztázandó, nem bizonyított hiány.`);
+  }
   const educationNote = checkHigherEducationRequired(descriptionText)
     ? candidateProfile?.education?.hasDegree
       ? `Önéletrajzi végzettség: ${candidateProfile.education.qualification} (${candidateProfile.education.institution}, ${candidateProfile.education.years}). A hirdetés pontos szakirányi/fokozati feltétele külön ellenőrizendő.`
       : 'A hirdetés felsőfokú végzettséget említ; a jelentkező végzettsége nincs ellenőrizve. Nem automatikus kizárás.'
     : null;
-  if (candidateReview) {
-    for (const match of candidateReview.matches) fitReasons.push(`Önéletrajzi kapcsolódás – ${match.label}: ${match.cvEvidence}`);
-    for (const skill of candidateReview.unverifiedSkills) mismatchReasons.push(`${skill} szerepel a hirdetésben, de a megadott önéletrajz nem igazolja. Ez ellenőrizendő, nem bizonyított hiány és nem automatikus kizárás.`);
-    if (!candidateProfile.english.cefr && /angol|english/i.test(descriptionText)) mismatchReasons.push('Az önéletrajz nem ad meg pontos angol CEFR-szintet; a nyelvi megfelelés külön ellenőrizendő.');
+  let score = MATCHING_POLICY.scoring.base + Object.values(scope.signals).reduce((sum, s) => sum + s.points, 0)
+    + (candidateReview?.overlapPoints || 0) + location.points + salary.points + freshness.points;
+  fitReasons.push(location.note);
+  if (freshness.points) fitReasons.push(freshness.note);
+  if (salary.points) mismatchReasons.push(salary.note);
+  if (!scope.primary) {
+    const cap = scope.projectRole ? MATCHING_POLICY.project_manager_logic.otherwise.score_cap : MATCHING_POLICY.scoring.no_leadership_cap;
+    score = Math.min(score, cap);
+    mismatchReasons.push(scope.projectRole
+      ? 'Másodlagos projekt-/programvezetői szerep: saját csapat, döntési jogkör és széles IT-felelősség együtt nem igazolt.'
+      : 'A leírás nem igazol saját csapat vagy szervezeti egység vezetését.');
   }
-
-  if (!isGenericTitle) {
-    score += 20;
-    fitReasons.push('A cím közvetlenül egyezik egy célzott IT-vezetői/projektvezetői pozícióval.');
-  } else {
-    score += 12;
-    fitReasons.push('Általános vezetői/projektvezetői cím, IT-doménkontextussal megerősítve.');
+  if (detectEntryLevelTitle(title) || /(^|\W)medior(\W|$)/i.test(title)) {
+    score = Math.min(score - 25, MATCHING_POLICY.scoring.entry_level_cap);
+    mismatchReasons.push('Junior/medior vagy belépő szintű pozíció: nem illeszkedik a senior vezetői tapasztalathoz.');
   }
-
-  const hasMgmtScope = hasManagementScope(descriptionText);
-  const cvHas = id => !candidateProfile || candidateProfile.facts.some(f => f.id === id);
-  if (hasMgmtScope && cvHas('people-leadership')) {
-    score += 15;
-    fitReasons.push('A szöveg konkrét vezetői (people-management) felelősséget említ.');
-  }
-  const hasProjectLeadership = hasProjectLeadershipScope(descriptionText);
-  if (hasProjectLeadership && cvHas('project-leadership')) {
-    score += 15;
-    fitReasons.push('Valódi projekt-/programvezetői felelősség (tervezés, erőforrás/határidő/kockázat, stakeholder-koordináció) — közvetlen beosztottak nélkül is elfogadott a PO döntés szerint.');
-  }
-
-  if (!hasMgmtScope && !hasProjectLeadership) {
-    mismatchReasons.push('A szövegből nem derül ki konkrét vezetői vagy projektvezetői felelősség — csak a cím alapján releváns.');
-    if (isLikelySeniorICWithoutManagement(title, descriptionText)) {
-      score -= 25;
-      mismatchReasons.push('Senior szakértői/technical lead cím, vezetői felelősség jele nélkül.');
-    } else if (isPMWithoutManagementScope(title, descriptionText)) {
-      score -= 15;
-      mismatchReasons.push('Projektmenedzseri cím, de a szöveg nem támasztja alá a valódi vezetői/projektvezetői felelősséget.');
-    } else {
-      // General case: any other matched title (including "manager"/"menedzser"
-      // labeled roles such as "IT szolgáltatásmenedzser") with literally zero
-      // corroborating scope evidence. An earlier version only penalized the
-      // two narrow title patterns above and left every other matched title
-      // unpenalized, so a bare "IT szolgáltatásmenedzser" with no leadership
-      // evidence at all scored 78/visible — found by independent Codex
-      // adversarial review (2026-09-04); a title label alone is not proof of
-      // real leadership per PO_DECISIONS §2's "pure individual-contributor
-      // roles... hard exclusion" intent, which this generalizes to.
-      score -= 30;
-      mismatchReasons.push('A cím vezetői/menedzseri jellegű, de a leírásban semmilyen konkrét vezetői vagy projektvezetői felelősség nem azonosítható — erősen visszasorolva.');
-    }
-  }
-
-  // Seniority fit. profile/persona.md lists "Junior / entry-level" among the
-  // zero-point exclusions, but adds: "KIVÉVE ha a pozíció maga vezetői/menedzseri
-  // jellegű ... NE zárd ki automatikusan". A penalty is the only reading that
-  // honours both halves -- the advert stays inspectable, but stops ranking as if
-  // seniority matched.
-  //
-  // Measured gap this closes: the 2026-09-17 report scored "Indotek Group —
-  // Projektmenedzser (junior IT)" at 81, level with a genuine csoportvezető role,
-  // because the pipeline had no seniority signal at all. -25 matches the existing
-  // penalty family and is enough to move such a row below the 60% threshold.
-  if (detectEntryLevelTitle(title)) {
-    score -= 25;
-    mismatchReasons.push(
-      'A pozíció címe belépő szintű (junior/gyakornok/pályakezdő), ami nem illeszkedik a 20+ éves vezetői tapasztalathoz. A PO döntése szerint ez nem automatikus kizárás, de erősen visszasorolja a találatot.'
-    );
-  }
-
-  if (hasInstitutionalContext(descriptionText)) {
-    score += 5;
-    fitReasons.push('Intézményi/közszolgáltatói/nagyvállalati környezet — pozitív preferencia szerinti bónusz.');
-  }
-
-  const location = scoreLocation(locationText, descriptionText);
-  score += location.points;
-  (location.points > 0 ? fitReasons : mismatchReasons).push(location.note);
-
-  const salary = scoreSalary(descriptionText);
-  score += salary.points;
-  if (salary.points !== 0) mismatchReasons.push(salary.note);
-
-  const freshness = scoreFreshness(datePosted);
-  score += freshness.points;
-  if (freshness.points > 0) fitReasons.push(freshness.note);
-
   score = Math.max(0, Math.min(100, Math.round(score)));
-
+  const fitClass = scope.primary && score >= VISIBLE_THRESHOLD ? 'STRONG_MATCH' : scope.projectRole && score >= 30 ? 'SECONDARY' : 'WEAK_MATCH';
+  const hardReasons = [];
+  const expiresAt = Date.parse(validThrough);
+  if (Number.isFinite(expiresAt) && expiresAt < Date.now()) hardReasons.push(`A hirdetés érvényessége lejárt (${validThrough}).`);
+  if (english_gate.status === 'REJECT') hardReasons.push(`Kizárva: ${english_gate.reason} Bizonyíték: ${english_gate.evidence.join('; ')}`);
+  if (isHardExcludedICRole(title, descriptionText)) hardReasons.push('Kizárva: fejlesztői/helpdesk egyéni közreműködői szerep igazolt csapatvezetés nélkül.');
+  if (isOnePersonITRole(descriptionText)) hardReasons.push('Kizárva: egyszemélyes IT-szerep.');
+  // A title miss can be rescued by concrete IT leadership duties.
+  if (!positionRelevant && !(scope.primary && scope.domainRelevant)) hardReasons.push('Kizárva: nem igazolt IT-vezetői vagy másodlagos IT-program/projekt terület.');
+  const hardExcluded = hardReasons.length > 0;
+  const eligibility = hardExcluded ? 'REJECT' : english_gate.status === 'REVIEW' ? 'REVIEW' : 'PASS';
+  if (english_gate.status === 'REVIEW') mismatchReasons.push(english_gate.reason);
+  const matchClass = hardExcluded ? 'REJECT' : fitClass;
+  const final_explanation = `Szakmai illeszkedés: ${fitClass}, ${score}/100 pont. ${hardExcluded ? hardReasons.join(' ') : eligibility === 'REVIEW' ? english_gate.reason : scope.primary ? 'A hirdetés tényleges IT-vezetői felelősséget igazol.' : mismatchReasons[0]}`;
   return {
-    hardExcluded: false,
-    score,
-    visible: score >= VISIBLE_THRESHOLD,
-    fitReasons,
-    mismatchReasons,
-    englishRequirement: englishRequirementLabel(descriptionText),
-    salaryAmount: salary.amount,
-    educationNote,
-    candidateReview,
+    hardExcluded, exclusionReason: hardReasons.join(' ') || null,
+    hard_rejection_reason: hardReasons.join(' ') || null,
+    eligibility, fitClass, matchClass, score, fitScore: score,
+    visible: eligibility === 'PASS' && fitClass === 'STRONG_MATCH',
+    policyVersion: MATCHING_POLICY.version,
+    fitReasons, mismatchReasons, englishRequirement: english_gate.reason,
+    english_gate, educationNote, candidateReview, salaryAmount: salary.amount,
+    leadership_fit: scope.leadership_fit, people_management_fit: scope.people_management_fit,
+    technical_fit: scope.technical_fit, development_fit: scope.development_fit,
+    strategic_fit: scope.strategic_fit, location_fit: location,
+    signalBreakdown: scope.signals, final_explanation,
   };
 }
 
