@@ -14,4 +14,10 @@
 
 A diploma pontos megnevezésénél és dátumainál az oklevél felülírja a korábbi CV-sort. A képzési tanúsítványok nem jelentenek automatikusan szakértői szintet. A régi keresések időpontja nem frissül puszta újrapontozástól; a linkeket ajánlás előtt újra ellenőrizni kell.
 
-CV-dizájn: a felhasználó a v19 megjelenését visszalépésnek ítélte. A v20 a v18 karakterét viszi tovább: sötétkék fejléc, világos oldalsáv, kétoszlopos elrendezés, kiemelt név és projektek. Ezt a vizuális irányt őrizd meg a következő tartalmi módosításoknál; a v20 felhasználói elfogadása még nincs megerősítve.
+CV-dizájn: a felhasználó a v19 megjelenését visszalépésnek ítélte, és a v20-at sem tartja még elég professzionálisnak és vonzónak. A v20 a v18 sötétkék fejlécét, világos oldalsávját és kétoszlopos karakterét viszi tovább, de nem elfogadott végleges dizájn.
+
+## Megőrzött CV-verziók
+
+A felhasználó kifejezetten kérte minden eddigi változat megőrzését. Az eredeti v18 HTML, valamint a Nova és a Kincstár v19 és v20 PDF- és HTML-fájljai változatlanul maradnak. A következő módosítás új, v21-es fájlokba kerül.
+
+[Eredeti v18](sources/originals/CV_Belinszki_Janos_OBH_v18.html) · [v19 és v20 PDF-ek](../output/pdf/) · [v19 és v20 HTML-ek](../applications/2026-10-01/)
