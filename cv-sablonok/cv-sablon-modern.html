@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vezetéknév Keresztnév – Önéletrajz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Kiemelőszín: csak ezt az egy értéket érdemes átírni */
+  :root {
+    --accent: #1f5f7a;
+    --ink: #1c1f24;
+    --muted: #5b6470;
+    --rule: #d9dee4;
+    --bg: #ffffff;
+  }
+  @page { size: A4; margin: 16mm 17mm; }
+  * { box-sizing: border-box; }
+  html { background: #eef1f4; }
+  body {
+    margin: 0 auto; max-width: 210mm; min-height: 297mm;
+    padding: 16mm 17mm; background: var(--bg); color: var(--ink);
+    font: 10.5pt/1.45 "Inter", Calibri, Arial, sans-serif;
+    box-shadow: 0 2px 16px rgba(0,0,0,.08);
+  }
+  header { border-bottom: 2px solid var(--accent); padding-bottom: 10px; margin-bottom: 14px; }
+  h1 { margin: 0; font-size: 22pt; font-weight: 700; letter-spacing: -.01em; }
+  .headline { margin: 2px 0 6px; font-size: 11.5pt; font-weight: 500; color: var(--accent); }
+  .contact { margin: 0; color: var(--muted); font-size: 9.5pt; }
+  .contact a { color: inherit; text-decoration: none; }
+  h2 {
+    margin: 16px 0 6px; font-size: 10pt; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .08em; color: var(--accent); border-bottom: 1px solid var(--rule); padding-bottom: 3px;
+  }
+  p { margin: 0 0 6px; }
+  .item { margin-bottom: 10px; break-inside: avoid; }
+  .item-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .role { font-weight: 600; }
+  .org { color: var(--ink); }
+  .date { color: var(--muted); font-size: 9.5pt; white-space: nowrap; }
+  ul { margin: 3px 0 0; padding-left: 16px; }
+  li { margin-bottom: 2px; }
+  .skills { margin: 0; }
+  .note { color: var(--muted); font-size: 9.5pt; }
+  @media print {
+    html { background: none; }
+    body { padding: 0; box-shadow: none; max-width: none; min-height: 0; }
+    .screen-only { display: none; }
+  }
+  @media (max-width: 600px) {
+    body { padding: 20px 16px; min-height: 0; }
+  }
+  .screen-only {
+    max-width: 210mm; margin: 0 auto 12px; padding: 10px 14px; background: #fff8e1;
+    border: 1px solid #f0d58a; border-radius: 6px; font: 10pt/1.4 Arial, sans-serif; color: #5a4a12;
+  }
+</style>
+</head>
+<body>
+
+<div class="screen-only">
+  Útmutató: írd át a [szögletes zárójeles] részeket, töröld a fölösleges blokkokat, majd Ctrl+P → „Mentés PDF-ként”,
+  margó: „Alapértelmezett”, a „Fejlécek és láblécek” opció legyen kikapcsolva. Ez a doboz nem kerül rá a PDF-re.
+</div>
+
+<header>
+  <h1>Vezetéknév Keresztnév</h1>
+  <p class="headline">Mentálhigiénés szakember-jelölt · Csoportvezető · Programszervező</p>
+  <p class="contact">
+    Budapest · +36 30 123 4567 · <a href="mailto:nev@email.hu">nev@email.hu</a> ·
+    <a href="https://linkedin.com/in/nev">linkedin.com/in/nev</a>
+  </p>
+</header>
+
+<section>
+  <h2>Szakmai profil</h2>
+  <p>[3–4 mondat az adott álláshoz igazítva.] Mentálhigiénés szakember-jelölt [X] év [szakterület] tapasztalattal.
+  Kiscsoportos, nem terápiás támogató programokat tervezek és vezetek, strukturált módszertannal és mérhető célokkal.
+  Erősségem a biztonságos keret megteremtése, a továbbirányítás és a partnerekkel való együttműködés.</p>
+</section>
+
+<section>
+  <h2>Kulcskompetenciák</h2>
+  <p class="skills">Csoportvezetés · Támogató beszélgetés · Prevenció és egészségfejlesztés · Projekttervezés (SMART, SWOT) ·
+  Krízisfelismerés és továbbirányítás · Programértékelés, kérdőíves mérés · [hirdetés kulcsszava] · [hirdetés kulcsszava]</p>
+</section>
+
+<section>
+  <h2>Szakmai tapasztalat</h2>
+
+  <div class="item">
+    <div class="item-head">
+      <span><span class="role">[Munkakör]</span> — <span class="org">[Munkáltató], [Város]</span></span>
+      <span class="date">ÉÉÉÉ. HH. – jelenleg</span>
+    </div>
+    <ul>
+      <li>[Cselekvő ige] + [mit] + [eredmény számmal], pl. évente 200+ ügyfél kérését kezeltem 95%-os elégedettséggel.</li>
+      <li>[Folyamat, amit bevezettél vagy javítottál, és annak hatása]</li>
+      <li>[Az új pozícióhoz is releváns felelősségi kör]</li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <div class="item-head">
+      <span><span class="role">[Munkakör]</span> — <span class="org">[Munkáltató], [Város]</span></span>
+      <span class="date">ÉÉÉÉ. HH. – ÉÉÉÉ. HH.</span>
+    </div>
+    <ul>
+      <li>[…]</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Projektek</h2>
+  <div class="item">
+    <div class="item-head">
+      <span><span class="role">„Amikor a függőség a családot is érinti” – támogató csoport</span> — projektgazda, csoportvezető</span>
+      <span class="date">ÉÉÉÉ. HH. – ÉÉÉÉ. HH.</span>
+    </div>
+    <ul>
+      <li>Ötalkalmas, zárt mentálhigiénés csoportot terveztem és vezettem alkoholproblémával érintett családtagoknak (5–7 fő, heti 90 perc, könyvtári helyszín).</li>
+      <li>Kidolgoztam a toborzást, az előszűrést, a csoportszerződést és a továbbirányítási protokollt.</li>
+      <li>Kezdő és záró önértékelő kérdőívvel mértem a hatást: [részvételi arány], [elmozdulás], [utánkövetés eredménye].</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Tanulmányok</h2>
+  <div class="item">
+    <div class="item-head">
+      <span><span class="role">Mentálhigiénés szakember – szakirányú továbbképzés</span> — Károli Gáspár Református Egyetem</span>
+      <span class="date">ÉÉÉÉ – várható: ÉÉÉÉ. HH.</span>
+    </div>
+    <p class="note">[X óra sajátélmény, Y óra szupervízió; releváns tárgyak]</p>
+  </div>
+  <div class="item">
+    <div class="item-head">
+      <span><span class="role">[Végzettség, szak]</span> — [Intézmény]</span>
+      <span class="date">ÉÉÉÉ – ÉÉÉÉ</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Képzések, tanúsítványok</h2>
+  <ul>
+    <li>[Képzés neve] — [szervező], ÉÉÉÉ ([óraszám])</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Nyelvek és digitális készségek</h2>
+  <p>Magyar – anyanyelv · Angol – B2 (komplex nyelvvizsga) · Microsoft 365, Google Workspace, online űrlapok és kiértékelésük</p>
+</section>
+
+<section>
+  <h2>Önkéntes munka, szakmai tagság</h2>
+  <p>[Szervezet] — [szerep], ÉÉÉÉ – ÉÉÉÉ: [egy sor a hatásról]</p>
+</section>
+
+</body>
+</html>

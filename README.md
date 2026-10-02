@@ -10,4 +10,4 @@
 
 A hirdetések ellenőrzési dátuma és a tisztázandó feltételek a fenti jelentkezési anyagoknál szerepelnek. Jelentkezést nem küldtünk automatikusan.
 
-[Korábbi keresés összesítője](CURRENT_RESULTS.md) · [Keresőprogram](apps/job-hunter-mvp/README.md)
+[Korábbi keresés összesítője](CURRENT_RESULTS.md) · [Keresőprogram](apps/job-hunter-mvp/README.md) · [CV- és motivációslevél-sablonok](cv-sablonok/README.md)
