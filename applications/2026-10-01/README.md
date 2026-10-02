@@ -1,10 +1,12 @@
 # Ellenőrzött állások és személyre szabott önéletrajzok
 
+**[Legújabb v21 CV-k: PDF, HTML, előnézetek és szakmai szerkesztési indoklás](CV_V21.md).** A v18-v20 változatok megmaradtak.
+
 Ellenőrzés: **2026. október 1.** A konkrét hirdetési oldalakat megnyitottuk és elolvastuk. Ez célzott válogatás, nem a teljes álláspiac felmérése. Jelentkezést nem küldtünk.
 
 ## Nova HR - IT igazgató, Budapest
 
-[Konkrét hirdetés és jelentkezési felület](https://novahr.hu/recruitment/job/it-igazgato/) · [Kész PDF-CV](../../output/pdf/Belinszki_Janos_CV_Nova_IT_igazgato_v20.pdf) · [Szerkeszthető HTML-CV](Belinszki_Janos_CV_Nova_IT_igazgato_v20.html)
+[Konkrét hirdetés és jelentkezési felület](https://novahr.hu/recruitment/job/it-igazgato/) · [Kész PDF-CV](../../output/pdf/Belinszki_Janos_CV_Nova_IT_igazgato_v21.pdf) · [Szerkeszthető HTML-CV](Belinszki_Janos_CV_Nova_IT_igazgato_v21.html)
 
 **Érdemes megpályázni, fejlődési lépésként.** Kereskedelmi-logisztikai vállalat teljes informatikai területének irányítása, fejlesztéssel és üzemeltetéssel. Az operatív háttérből felépített vezetői pályád, a 6 fős csapat, a saját PHP/ERP-integrációd és az AI-bevezetések jól használható érvek.
 
@@ -14,7 +16,7 @@ A széles fejlesztéstechnológiai háttér és a fejlesztőcsapat irányítás�
 
 ## Magyar Államkincstár - Helpdesk és Rendszerfelügyeleti Osztály vezetése
 
-[Hivatalos kiírás: 413/2026](https://www.allamkincstar.gov.hu/footer-tartalmak/vizszintes-sor/Karrier/Allasajanlatok/budapest/osztalyvezeto-4132026) · [Kész PDF-CV](../../output/pdf/Belinszki_Janos_CV_MAK_Osztalyvezeto_413_2026_v20.pdf) · [Szerkeszthető HTML-CV](Belinszki_Janos_CV_MAK_Osztalyvezeto_413_2026_v20.html)
+[Hivatalos kiírás: 413/2026](https://www.allamkincstar.gov.hu/footer-tartalmak/vizszintes-sor/Karrier/Allasajanlatok/budapest/osztalyvezeto-4132026) · [Kész PDF-CV](../../output/pdf/Belinszki_Janos_CV_MAK_Osztalyvezeto_413_2026_v21.pdf) · [Szerkeszthető HTML-CV](Belinszki_Janos_CV_MAK_Osztalyvezeto_413_2026_v21.html)
 
 **Közvetlenebb szakmai illeszkedés.** Csapatvezetés, helpdesk-fejlesztés, monitoring, szállítói együttműködés és éves IT-tervezés. Budapest, Váci út 73.; teljes munkaidő. Kötelező idegen nyelv nincs a kiírásban. Szakirányú felsőfokú végzettséget kérnek; programozó matematikus diplomád releváns, az elfogadásról a munkáltató dönt.
 
@@ -29,7 +31,7 @@ A széles fejlesztéstechnológiai háttér és a fejlesztőcsapat irányítás�
 ## Mitől lett professzionálisabb a CV?
 
 - **Az első harmadban látszik a vezetői érték:** több mint 20 év, 6 fős csapat, 2021 óta osztályvezetés. A jelenlegi munkakör megnevezése változatlan; a pályázott állás külön sor.
-- **Kétoldalas, követhető szerkezet:** a legfrissebb tapasztalat elöl, rövid bekezdések, egységes címsorok, sötét szöveg és sötétkék fejléc, világos oldalsáv és kék kiemelés. A PDF szövege kijelölhető; a két oldal képként is ellenőrizve.
+- **Kétoldalas, követhető szerkezet:** a legfrissebb tapasztalat elöl, rövid bekezdések, egységes címsorok, sötét szöveg és sötétkék fejléc, keskeny szakaszcím-oszlop és egységes kék kiemelés. A PDF szövege kijelölhető; a két oldal képként is ellenőrizve.
 - **Konkrét megvalósítások:** M365/SharePoint-átállás, Hyper-V, VPN, rendszerbevezetés és saját PHP-integráció. Százalékos készségsávok helyett ezek mutatják a tudást.
 - **Pozícióhoz igazított sorrend:** Novánál fejlesztés és üzleti integráció; Kincstárnál szolgáltatás, csapatvezetés és intézményi működés.
 - **Pontos és hiteles állítások:** javított végzettség, szöveges alapszintű angol, a tanúsítványok továbbképzésként feltüntetve. Nem került be nem igazolt megtakarítás, rendelkezésre állási mutató, formális közbeszerzési jogkör vagy fejlesztőcsapat-méret.
@@ -37,4 +39,4 @@ A széles fejlesztéstechnológiai háttér és a fejlesztőcsapat irányítás�
 
 A pozícióra szabás, konkrét eredmények, fordított időrend és gyorsan átlátható szerkezet összhangban áll a [Hays önéletrajzi tanácsaival](https://www.hays.hu/blog/insights/tippek-es-trukkok-a-tokeletes-oneletrajz-megirasahoz) és a [Harvard karrierközpont útmutatójával](https://careerservices.fas.harvard.edu/resources/create-a-strong-resume/). A kétoldalas elrendezés és színhasználat ennél a szakmai életútnál választott szerkesztési döntés; nem minden munkáltatóra érvényes szabály. A két célhirdetés nem kér fényképet. A képi ellenőrzés nem jelent minden toborzási szoftverre kiterjedő kompatibilitási tanúsítást.
 
-Szakmai források: [CV és bizonyítványok](../../profile/INDEX.md). Az eredeti v18 megmaradt; az új fájlok v20 jelölésűek. A CV-szabályok szerinti kockázatos állítások nem kerültek be; a rövid cím- és elérhetőségi sorok vizuális ellenőrzése megtörtént.
+Szakmai források: [CV és bizonyítványok](../../profile/INDEX.md). Az eredeti v18 megmaradt; az új fájlok v21 jelölésűek. A CV-szabályok szerinti kockázatos állítások nem kerültek be; a rövid cím- és elérhetőségi sorok vizuális ellenőrzése megtörtént.

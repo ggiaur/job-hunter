@@ -2,7 +2,8 @@
 
 **Innen indulj, ne kérd újra a már átadott fájlokat.** Az eredetik a repóban vannak, nem ideiglenes csatolmányként.
 
-- [Konkrét állások, célzott v20 CV-k és HR-javaslatok - 2026. október 1.](../applications/2026-10-01/README.md)
+- [Legújabb v21 önéletrajzok, előnézetek és szakmai szerkesztési alapok](../applications/2026-10-01/CV_V21.md)
+- [Konkrét állások és HR-javaslatok - 2026. október 1.](../applications/2026-10-01/README.md)
 
 - [Ellenőrzött diploma, mind az öt tanúsítvány és CV-kivonat](verified-documents-2026-09-30.md)
 - [Eredeti dokumentumok](sources/originals/) · [gépileg ellenőrizhető forrásjegyzék](sources/manifest.json)
@@ -18,6 +19,8 @@ CV-dizájn: a felhasználó a v19 megjelenését visszalépésnek ítélte, és 
 
 ## Megőrzött CV-verziók
 
-A felhasználó kifejezetten kérte minden eddigi változat megőrzését. Az eredeti v18 HTML, valamint a Nova és a Kincstár v19 és v20 PDF- és HTML-fájljai változatlanul maradnak. A következő módosítás új, v21-es fájlokba kerül.
+A felhasználó kifejezetten kérte minden eddigi változat megőrzését. Az eredeti v18 HTML, valamint a Nova és a Kincstár v19-v21 PDF- és HTML-fájljai változatlanul maradnak. A v21 újraszerkesztett tartalommal, egységes szakaszcímekkel és egyszerűbb vizuális hierarchiával készült; elfogadása még nincs megerősítve. A következő módosítás új, v22-es fájlokba kerül.
 
-[Eredeti v18](sources/originals/CV_Belinszki_Janos_OBH_v18.html) · [v19 és v20 PDF-ek](../output/pdf/) · [v19 és v20 HTML-ek](../applications/2026-10-01/)
+[Eredeti v18](sources/originals/CV_Belinszki_Janos_OBH_v18.html) · [Minden PDF-verzió](../output/pdf/) · [Minden HTML-verzió](../applications/2026-10-01/)
+
+Állandó munkaszabály: minden érdemi eredményt, szerkeszthető forrást és szükséges folytatási információt commitolni és a ggiaur/job-hunter GitHub-repóba pusholni kell. A mentett anyagok alapján bármely későbbi munkamenet folytatható. Titkok és futásidejű gyorsítótárak nem kerülnek a repóba.
