@@ -2,6 +2,8 @@
 
 **Innen indulj, ne kérd újra a már átadott fájlokat.** Az eredetik a repóban vannak, nem ideiglenes csatolmányként.
 
+- [Mindhárom CV-változat: v19, v20, v21 - képek és közvetlen PDF-linkek](../applications/2026-10-01/CV_VALTOZATOK.md)
+
 - [Legújabb v21 önéletrajzok, előnézetek és szakmai szerkesztési alapok](../applications/2026-10-01/CV_V21.md)
 - [Konkrét állások és HR-javaslatok - 2026. október 1.](../applications/2026-10-01/README.md)
 

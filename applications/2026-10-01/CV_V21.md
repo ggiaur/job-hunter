@@ -1,5 +1,7 @@
 # Célzott vezetői önéletrajzok - v21
 
+**[A v19, v20 és v21 változatokat itt láthatod egymás mellett, külön PDF-linkekkel.](CV_VALTOZATOK.md)**
+
 Készült: 2026. október 1. A Nova IT-igazgatói és a Magyar Államkincstár osztályvezetői pályázatához. A felhasználó visszajelzése alapján újraszerkesztett változatok; végleges felhasználói elfogadás még nincs.
 
 | Pályázat | Jelentkezési PDF | Szerkeszthető HTML |

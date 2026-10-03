@@ -1,5 +1,7 @@
 # Ellenőrzött állások és személyre szabott önéletrajzok
 
+**[Mindhárom változat: v19, v20 és v21 - képes összehasonlítás és külön PDF-ek](CV_VALTOZATOK.md)**
+
 **[Legújabb v21 CV-k: PDF, HTML, előnézetek és szakmai szerkesztési indoklás](CV_V21.md).** A v18-v20 változatok megmaradtak.
 
 Ellenőrzés: **2026. október 1.** A konkrét hirdetési oldalakat megnyitottuk és elolvastuk. Ez célzott válogatás, nem a teljes álláspiac felmérése. Jelentkezést nem küldtünk.
